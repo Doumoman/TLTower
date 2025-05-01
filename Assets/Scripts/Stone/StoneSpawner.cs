@@ -5,7 +5,6 @@ using System.Linq;
 
 public class StoneSpawner : MonoBehaviour
 {
-    /* ────────────────── 싱글톤 ────────────────── */
     public static StoneSpawner Instance { get; private set; }
     void Awake()
     {
@@ -19,11 +18,11 @@ public class StoneSpawner : MonoBehaviour
     public List<GameObject> playableStonePrefabs;     // 실제 돌
 
     [Header("Spawn Slots (4개)")]
-    public Transform[] spawnSlots = new Transform[4]; // 슬롯 위치 4개 Drag&Drop
+    public Transform[] spawnSlots = new Transform[4]; // 슬롯 위치 4개
 
     [Header("Options")]
-    public float spawnDelay = 4f;                     // 집은 후 Stub 재생성 지연
-    public Transform stonesParent;                    // 모든 돌 parent
+    public float spawnDelay = 4f;                    
+    public Transform stonesParent;                    
 
     /* ───────────── 내부 상태 ───────────── */
     readonly Dictionary<Transform, StoneController> slotToStub = new();   // 슬롯 ↔ 현재 Stub
