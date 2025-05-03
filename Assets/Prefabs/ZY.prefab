@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
@@ -186,6 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   stoneTypeIndex: 3
+  settleCheckTime: 0.3
+  settleVelocityEps: 0.05
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4

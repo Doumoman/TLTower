@@ -1,12 +1,16 @@
 using UnityEngine;
 using System.Linq;
 
-public enum StoneState { Background, Dragging, Dropping, Settled }
+
+public enum StoneState { Background, Dragging, Dropping, Settled, Fixed }
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class StoneController : MonoBehaviour
 {
-    /* ===== 인스펙터 ===== */
+    const int STUB_ORDER = 10_000;   // Stub(Background) 최상단 출력용
+    const float STUB_Z = -1f;    // 카메라 쪽(z‑축 ‑값)으로 살짝 당김
+    const float NORMAL_Z = 0f;     // 게임 중 돌의 기본 z
+
     public StoneState state = StoneState.Background;
     public int stoneTypeIndex = 0;
 
@@ -22,7 +26,6 @@ public class StoneController : MonoBehaviour
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
 
-    /* ===== 내부 ===== */
     Rigidbody2D rb;
     SpriteRenderer sr;
     Collider2D physCol;   // isTrigger = false
@@ -33,7 +36,6 @@ public class StoneController : MonoBehaviour
     float holdTimer;
     bool isRotating;
 
-    /* ───────────────────────── 초기화 ───────────────────────── */
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,15 +65,13 @@ public class StoneController : MonoBehaviour
             {
                 state = StoneState.Settled;
                 outlineSR.enabled = true;
-
-                CameraController.Instance?.TrySnapFromStone(transform.position.y);
-
+                StoneFixer.Instance?.RegisterSettled(this); //Settled 됐다고 StoneFixer 에 보고
                 settleTimer = 0;
             }
         }
     }
 
-    public void InitAsBackground(int typeIdx, Sprite sprite)
+    public void InitAsBackground(int typeIdx, Sprite sprite) // 돌 생성되었을때 설정
     {
         state = StoneState.Background;
         stoneTypeIndex = typeIdx;
@@ -85,10 +85,14 @@ public class StoneController : MonoBehaviour
         if (physCol) physCol.enabled = false;
 
         sr.color = Color.white;
-        
+        sr.sortingOrder = STUB_ORDER;
+        outlineSR.sortingOrder = STUB_ORDER - 1;
+        transform.position = new Vector3(transform.position.x,
+                                               transform.position.y,
+                                               STUB_Z);   // z 앞으로
     }
 
-    /* ───────── Playable(Dragging 시작) ───────── */
+    // Playable(Dragging 시작)
     public void InitAsPlayable(Sprite sprite, float mass = 1f)
     {
         sr.sprite = sprite;
@@ -112,6 +116,28 @@ public class StoneController : MonoBehaviour
         holdTimer = 0;
         isRotating = false;
         sr.color = new Color(1, 1, 1, 0.5f);
+
+        // Stub 때 써 둔 z/정렬 값을 정상 값으로 복구
+        transform.position = new Vector3(transform.position.x,
+                                         transform.position.y,
+                                         NORMAL_Z);       // 물리 충돌용 동일 z
+        sr.sortingOrder = 0;                      // BringToFront 로 재조정
+        outlineSR.sortingOrder = sr.sortingOrder - 1;
+    }
+    public void SetFixed()
+    {
+        if (state == StoneState.Fixed) return;
+
+        state = StoneState.Fixed;
+        gameObject.tag = "FixedStone";
+
+        rb.isKinematic = true;
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        outlineSR.enabled = false;          // 돌 고정되면 테두리 끄기
+
+        // 물리 충돌은 유지 (physCol.enabled = true)
     }
 
     void OnMouseDown()
@@ -135,7 +161,7 @@ public class StoneController : MonoBehaviour
 
         Vector2 mouseWorld = ScreenToWorld();
 
-        /* --- 회전 중 --- */
+        // 회전 중
         if (isRotating)
         {
             if (Vector2.Distance(mouseWorld, holdStartPos) >= moveDeadZone)
@@ -147,7 +173,7 @@ public class StoneController : MonoBehaviour
             return;
         }
 
-        /* --- 일반 드래그 --- */
+        // 일반 드래그 
         rb.MovePosition((Vector3)mouseWorld + dragOffset);
 
         holdTimer += Time.deltaTime;
@@ -178,7 +204,7 @@ public class StoneController : MonoBehaviour
         StoneSpawner.Instance.ScheduleRandomStone(4f);
         CameraController.Instance.EndDrag();
     }
-    void CreateOutlineObject()
+    void CreateOutlineObject() //자식 스프라이트를 통해 붉은 테두리 형성
     {
         if (outlineSR) return;
 
@@ -196,8 +222,7 @@ public class StoneController : MonoBehaviour
         outlineSR.enabled = false;
     }
 
-    /* ───────── 내부 도움 ───────── */
-    void StartDragging()
+    void StartDragging() //드래그 중 돌의 상태 설정
     {
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";

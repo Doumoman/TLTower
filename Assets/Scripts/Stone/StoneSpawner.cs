@@ -12,24 +12,21 @@ public class StoneSpawner : MonoBehaviour
         Instance = this;
     }
 
-    /* ───────────── 인스펙터 설정 ───────────── */
     [Header("Prefabs  (타입 순서 맞추기)")]
     public List<GameObject> backgroundStonePrefabs;   // Stub 용
     public List<GameObject> playableStonePrefabs;     // 실제 돌
 
     [Header("Spawn Slots (4개)")]
-    public Transform[] spawnSlots = new Transform[4]; // 슬롯 위치 4개
+    public Transform[] spawnSlots = new Transform[4]; // 스폰 위치 4개
 
     [Header("Options")]
-    public float spawnDelay = 4f;                    
-    public Transform stonesParent;                    
+    public float spawnDelay = 3f;
+    public Transform stonesParent;
 
-    /* ───────────── 내부 상태 ───────────── */
     readonly Dictionary<Transform, StoneController> slotToStub = new();   // 슬롯 ↔ 현재 Stub
     readonly Dictionary<Transform, Coroutine> slotTimer = new();   // 슬롯 ↔ 지연 코루틴
     readonly List<StoneController> active = new();   // 모든 돌
 
-    /* ───────────── 초기 Stub 4개 ───────────── */
     void Start()
     {
         if (!stonesParent) stonesParent = new GameObject("Stones").transform;
@@ -42,11 +39,9 @@ public class StoneSpawner : MonoBehaviour
 
         // 슬롯마다 Stub 1개씩 배치
         foreach (var slot in spawnSlots) CreateStubAtSlot(slot);
+        
     }
 
-    /* ══════════════════════════════════
-     *  Stub 생성 / 제거 / 재생성 타이머
-     * ══════════════════════════════════ */
     void CreateStubAtSlot(Transform slot)
     {
         // 랜덤 타입 선택
@@ -73,9 +68,9 @@ public class StoneSpawner : MonoBehaviour
         slotTimer.Remove(slot);
     }
 
-    /* ───────────── 외부 API ───────────── */
 
-    // ① Stub 클릭 → 플레이어블 돌로 변환 & 즉시 드래그
+    // Stub 클릭 → 플레이어블 돌로 변환 & 즉시 드래그
+    int currentOrder;
     public void SpawnPlayableAndBeginDrag(StoneController stub)
     {
         Transform slot = stub.transform.parent;
@@ -90,25 +85,33 @@ public class StoneSpawner : MonoBehaviour
 
         // Stub → 플레이어블 전환
         stub.InitAsPlayable(spr, mass);
-
+        BringToFront(stub.GetComponent<SpriteRenderer>());
         // 슬롯에서만 분리, 파괴 X
         RemoveStubFromSlot(slot);
 
-        // 드래그 로직은 StoneController 에서 계속
+        // 드래그 로직은 StoneController 에서
+    }
+    void BringToFront(SpriteRenderer sr)
+    {
+        sr.sortingOrder = ++currentOrder;        // 본체
+                                                 // Outline 이 있다면 함께
+        var outline = sr.transform.Find("Outline");
+        if (outline && outline.TryGetComponent(out SpriteRenderer osr))
+            osr.sortingOrder = sr.sortingOrder - 1;
     }
 
-    // 슬롯과의 매핑만 제거, 오브젝트는 살려둠
+    // 돌이 드래그를 벗어나면 스포너에서 더이상 관리하지 않는다. 리스트에서 제거.
     void RemoveStubFromSlot(Transform slot)
     {
         if (slotToStub.TryGetValue(slot, out var sc))
         {
             slotToStub.Remove(slot);
             sc.transform.SetParent(stonesParent);   // 슬롯 부모 분리
-            // Destroy 안 함 → 오브젝트 유지
+            // Destroy 하지 않으므로 돌이 유지된다.
         }
     }
 
-    // ② Stub 삭제용 (Background 상태인 경우에만)
+    // Stub 삭제용 (Background 상태인 경우에만)
     public void RemoveStub(StoneController stub)
     {
         if (stub.state != StoneState.Background) return;
@@ -116,13 +119,13 @@ public class StoneSpawner : MonoBehaviour
         RemoveStubFromSlot(slot);
     }
 
-    // ③ Placed 통보 (타이머 로직은 Stub 쪽에서 이미 돌고 있으므로 목록 관리만)
+    // Placed 통보 (타이머 로직은 Stub 쪽에서 이미 돌고 있으므로 목록 관리만)
     public void NotifyPlaced(StoneController sc)
     {
         if (!active.Contains(sc)) active.Add(sc);
     }
 
-    // ④ 외부에서 “n초 뒤 그 슬롯에 Stub” 직접 예약하고 싶을 때
+    // 외부에서 “n초 뒤 그 슬롯에 Stub” 직접 예약하고 싶을 때
     public void ScheduleRandomStone(float delay)  // StoneController 에서 그대로 호출 가능
     {
         // 가장 최근에 비어진 슬롯(=타이머 없는 첫 슬롯) 찾아 예약
