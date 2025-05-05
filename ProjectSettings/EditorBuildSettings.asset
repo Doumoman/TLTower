@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/main.unity
+    guid: 26b45213d5c75364ea5dc10a0f0390f8
+  - enabled: 1
+    path: Assets/Scenes/TLTower.unity
+    guid: e2af98b160a08ec439b65fa579a87f89
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f2111f864f3c5a04fb5500314a3acc7b, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 40d6cc241677bc54ba899b3b94149413, type: 2}
