@@ -9,11 +9,12 @@ TagManager:
   - PlacedStone
   - Stone
   - FixedStone
+  - CloudChild
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CloudChild
   - Water
   - UI
   - 
