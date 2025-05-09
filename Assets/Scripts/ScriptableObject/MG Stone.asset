@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: MG Stone
   m_EditorClassIdentifier: 
   stoneName: MG
-  icon: {fileID: -1332304222, guid: 56081af9955972449a3c2ba8ef7e9992, type: 3}
-  comment: 
-  size: 0.2
-  mass: 1
-  friction: 1
-  prefab: {fileID: 3603646374429377604, guid: 3f979bfe3df44a24aa6792b3f9effff2, type: 3}
+  sprite: {fileID: 1485930988, guid: c284e28dce3013046bbef3582e1356d4, type: 3}
+  backgroundPrefab: {fileID: 1384864364383070363, guid: fbaafd02959f5e74582e07475c8edff8, type: 3}
+  playablePrefab: {fileID: 6879320011222045551, guid: f3be5c5275d35c54c82250f4e8d892c0, type: 3}
+  mass: 10
+  angularDrag: 0.05
+  gravityScale: 1
+  material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
+  spawnChance: 0.197

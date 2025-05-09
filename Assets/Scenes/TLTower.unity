@@ -522,22 +522,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd58fb64b25e1445a1a04b91b10eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundStonePrefabs:
-  - {fileID: 1384864364383070363, guid: 90a32b49b9633764aa2fd9e2000c2f28, type: 3}
-  - {fileID: 1384864364383070363, guid: fbaafd02959f5e74582e07475c8edff8, type: 3}
-  - {fileID: 1384864364383070363, guid: 097964f25ee870b41b4c9dd0b20106d8, type: 3}
-  - {fileID: 1384864364383070363, guid: aab706cf09b66b941962cfbbb5e2e23a, type: 3}
-  playableStonePrefabs:
-  - {fileID: 6879320011222045551, guid: 155989efb8eb72c4b862172e595e4bf9, type: 3}
-  - {fileID: 6879320011222045551, guid: f3be5c5275d35c54c82250f4e8d892c0, type: 3}
-  - {fileID: 6879320011222045551, guid: 1132f537cebe99d4cae4f86b36486d10, type: 3}
-  - {fileID: 6879320011222045551, guid: e0d6bb78ecf964b49a71ccec4229e589, type: 3}
+  stoneDataList:
+  - {fileID: 11400000, guid: d02c107b1d7f42c4481c61a594ba230f, type: 2}
+  - {fileID: 11400000, guid: eb18d4deb19372d49a563f953ac01fd8, type: 2}
+  - {fileID: 11400000, guid: 67f4426706a8a19409f9b6ac05e22185, type: 2}
+  - {fileID: 11400000, guid: 77803e316ce351540830fc0cb277e852, type: 2}
   spawnSlots:
   - {fileID: 515064293}
   - {fileID: 747080343}
   - {fileID: 584611745}
   - {fileID: 1949363055}
-  spawnDelay: 4
+  defaultSpawnDelay: 3
   stonesParent: {fileID: 0}
 --- !u!4 &1047487983
 Transform:
@@ -564,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175608213}
   - component: {fileID: 1175608212}
-  - component: {fileID: 1175608211}
+  - component: {fileID: 1175608214}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -572,26 +567,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1175608211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175608210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1175608212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +597,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175608214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175608210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1273010022
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +759,7 @@ GameObject:
   - component: {fileID: 1343846267}
   - component: {fileID: 1343846266}
   - component: {fileID: 1343846269}
+  - component: {fileID: 1343846270}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -865,6 +861,22 @@ MonoBehaviour:
   dragSensitivity: 1
   followSmooth: 3
   minY: 0
+--- !u!114 &1343846270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343846265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1728424236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,14 +1108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd58fb64b25e1445a1a04b91b10eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundStonePrefabs: []
-  playableStonePrefabs: []
+  stoneDataList: []
   spawnSlots:
   - {fileID: 515064293}
   - {fileID: 747080343}
   - {fileID: 584611745}
   - {fileID: 1949363055}
-  spawnDelay: 4
+  defaultSpawnDelay: 3
   stonesParent: {fileID: 0}
 --- !u!114 &2042834999
 MonoBehaviour:

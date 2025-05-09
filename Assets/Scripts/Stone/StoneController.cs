@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 
 public enum StoneState { Background, Dragging, Dropping, Settled, Fixed }
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class StoneController : MonoBehaviour
+public class StoneController : MonoBehaviour,
+                               IPointerDownHandler,
+                               IPointerUpHandler,
+                               IDragHandler
 {
     const int STUB_ORDER = 10_000;   // Stub(Background) 최상단 출력용
     const float STUB_Z = -1f;    // 카메라 쪽(z‑축 ‑값)으로 살짝 당김
@@ -13,6 +17,7 @@ public class StoneController : MonoBehaviour
 
     public StoneState state = StoneState.Background;
     public int stoneTypeIndex = 0;
+    public StoneData Data { get; private set; }
 
     [Header("StoneSettled")]
     SpriteRenderer outlineSR;
@@ -33,6 +38,7 @@ public class StoneController : MonoBehaviour
 
     Vector3 dragOffset;
     Vector2 holdStartPos;
+    Vector2 lastPointerWorld;
     float holdTimer;
     bool isRotating;
 
@@ -69,60 +75,90 @@ public class StoneController : MonoBehaviour
                 settleTimer = 0;
             }
         }
-    }
+        if (state == StoneState.Dragging && !isRotating)
+        {
+            // 현재 포인터의 월드 좌표 얻기
+            Vector2 curWorld = GetCurrentPointerWorld();
 
-    public void InitAsBackground(int typeIdx, Sprite sprite) // 돌 생성되었을때 설정
+            // 거의 안 움직였으면 정지로 간주 → 시간 누적
+            if (Vector2.Distance(curWorld, lastPointerWorld) < moveDeadZone)
+            {
+                holdTimer += Time.deltaTime;
+                if (holdTimer >= holdToRotate)
+                {
+                    // 회전 시작
+                    isRotating = true;
+                    holdTimer = 0f;
+                    holdStartPos = curWorld;
+                    rb.angularVelocity = rotateSpeed;
+                }
+            }
+            else
+            {
+                // 움직였으면 홀드 시간 리셋
+                holdTimer = 0f;
+                holdStartPos = curWorld;
+            }
+
+            lastPointerWorld = curWorld;
+        }
+    }
+    void FixedUpdate()
     {
+        if (isRotating && state == StoneState.Dragging)
+            rb.angularVelocity = rotateSpeed;
+    }
+    public void InitAsBackground(StoneData data)
+    {
+        Data = data;
+
         state = StoneState.Background;
-        stoneTypeIndex = typeIdx;
-        sr.sprite = sprite;
-        outlineSR.sprite = sprite; // 테두리 스프라이트
-        outlineSR.enabled = false;
+        sr.sprite = data.sprite;
+        outlineSR.sprite = data.sprite;
         gameObject.tag = "BGStone";
 
-        // 물리 필요 없으니 비활성화
         if (rb) rb.simulated = false;
         if (physCol) physCol.enabled = false;
 
         sr.color = Color.white;
         sr.sortingOrder = STUB_ORDER;
         outlineSR.sortingOrder = STUB_ORDER - 1;
+
         transform.position = new Vector3(transform.position.x,
-                                               transform.position.y,
-                                               STUB_Z);   // z 앞으로
+                                         transform.position.y,
+                                         STUB_Z);
     }
 
     // Playable(Dragging 시작)
-    public void InitAsPlayable(Sprite sprite, float mass = 1f)
+    public void InitAsPlayable(StoneData data)
     {
-        sr.sprite = sprite;
-        outlineSR.sprite = sprite; // 테두리 스프라이트             
-        outlineSR.enabled = false;
+        Data = data;
 
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";
 
         if (!rb) rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.mass = mass;
-        rb.gravityScale = 0;
+        rb.mass = data.mass;
+        rb.angularDrag = data.angularDrag;
+        rb.gravityScale = 0f;
         rb.isKinematic = true;
 
-        if (!physCol)
-            Debug.LogError($"[{name}] 물리 Collider 가 없습니다! 프리팹에 미리 추가하세요.", this);
-        else
-            physCol.enabled = false;   // 드래그 중 OFF
+        if (physCol)
+        {
+            physCol.enabled = false;
+            if (data.material2D) physCol.sharedMaterial = data.material2D;
+        }
 
-        dragOffset = Vector3.zero;
-        holdTimer = 0;
-        isRotating = false;
-        sr.color = new Color(1, 1, 1, 0.5f);
+        sr.sprite = data.sprite;
+        outlineSR.sprite = data.sprite;
+        outlineSR.enabled = false;
+        sr.color = new Color(1, 1, 1, .5f);
 
-        // Stub 때 써 둔 z/정렬 값을 정상 값으로 복구
         transform.position = new Vector3(transform.position.x,
                                          transform.position.y,
-                                         NORMAL_Z);       // 물리 충돌용 동일 z
-        sr.sortingOrder = 0;                      // BringToFront 로 재조정
-        outlineSR.sortingOrder = sr.sortingOrder - 1;
+                                         NORMAL_Z);
+        sr.sortingOrder = 0;
+        outlineSR.sortingOrder = -1;
     }
     public void SetFixed()
     {
@@ -139,27 +175,29 @@ public class StoneController : MonoBehaviour
 
         // 물리 충돌은 유지 (physCol.enabled = true)
     }
-
-    void OnMouseDown()
+    int activePointer = -1;
+    public void OnPointerDown(PointerEventData eventData)
     {
+        if (activePointer != -1) return;
+        activePointer = eventData.pointerId;
+
         if (state == StoneState.Background)     // Stub → Playable
         {
             StoneSpawner.Instance.SpawnPlayableAndBeginDrag(this);
-            StoneSpawner.Instance.RemoveStub(this);
-            CameraController.Instance.BeginDrag(this);
             return;
         }
         if (state == StoneState.Dropping){
             StartDragging();
-            CameraController.Instance.BeginDrag(this);
         }
+        dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
     }
 
-    void OnMouseDrag()
+    public void OnDrag(PointerEventData eventData)
     {
+        if (eventData.pointerId != activePointer) return;
         if (state != StoneState.Dragging) return;
 
-        Vector2 mouseWorld = ScreenToWorld();
+        Vector2 mouseWorld = ScreenToWorld(eventData.position);
 
         // 회전 중
         if (isRotating)
@@ -186,8 +224,11 @@ public class StoneController : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    public void OnPointerUp(PointerEventData eventData)
     {
+        if (eventData.pointerId != activePointer) return;
+        activePointer = -1;
+
         if (state != StoneState.Dragging) return;
 
         state = StoneState.Dropping;
@@ -201,8 +242,52 @@ public class StoneController : MonoBehaviour
         sr.color = Color.white;
 
         StoneSpawner.Instance.NotifyPlaced(this);
-        StoneSpawner.Instance.ScheduleRandomStone(4f);
-        CameraController.Instance.EndDrag();
+    }
+    
+
+    void StartDragging() //드래그 중 돌의 상태 설정
+    {
+        state = StoneState.Dragging;
+        gameObject.tag = "DraggingStone";
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        rb.isKinematic = true;
+        rb.gravityScale = 0;
+
+        dragOffset = transform.position - (Vector3)ScreenToWorld();
+        holdTimer = 0;
+        holdStartPos = ScreenToWorld();
+        isRotating = false;
+
+        if (physCol) physCol.enabled = false;
+
+        sr.color = new Color(1, 1, 1, 0.5f);
+    }
+
+    Vector2 ScreenToWorld() =>
+    Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+    Vector2 ScreenToWorld(Vector2 screenPos) =>
+        Camera.main.ScreenToWorldPoint(screenPos);
+
+    
+    Vector2 GetCurrentPointerWorld()
+    {
+        // 마우스(-1) vs 터치(0,1,2…)
+        if (activePointer < 0)
+            return ScreenToWorld(Input.mousePosition);
+
+#if UNITY_EDITOR    // 에디터·PC 테스트용: 마우스만 사용
+        return ScreenToWorld(Input.mousePosition);
+#else
+    foreach (Touch t in Input.touches)
+        if (t.fingerId == activePointer)
+            return ScreenToWorld(t.position);
+
+    // 해당 fingerId가 없을 때는 마지막 좌표 그대로 반환
+    return lastPointerWorld;
+#endif
     }
     void CreateOutlineObject() //자식 스프라이트를 통해 붉은 테두리 형성
     {
@@ -220,31 +305,5 @@ public class StoneController : MonoBehaviour
 
         outlineSR.transform.localScale = Vector3.one * 1.04f;
         outlineSR.enabled = false;
-    }
-
-    void StartDragging() //드래그 중 돌의 상태 설정
-    {
-        state = StoneState.Dragging;
-        gameObject.tag = "DraggingStone";
-
-        dragOffset = transform.position - (Vector3)ScreenToWorld();
-        holdTimer = 0;
-        holdStartPos = ScreenToWorld();
-        isRotating = false;
-
-        rb.isKinematic = true;
-        rb.gravityScale = 0;
-        if (physCol) physCol.enabled = false;
-
-        sr.color = new Color(1, 1, 1, 0.5f);
-    }
-
-    Vector2 ScreenToWorld() =>
-        Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-    void FixedUpdate()
-    {
-        if (isRotating && state == StoneState.Dragging)
-            rb.angularVelocity = rotateSpeed;
     }
 }

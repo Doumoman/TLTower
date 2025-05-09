@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: NZ Stone
   m_EditorClassIdentifier: 
   stoneName: NZ
-  icon: {fileID: -1543450480, guid: 56081af9955972449a3c2ba8ef7e9992, type: 3}
-  comment: 
-  size: 0.2
-  mass: 1
-  friction: 1
-  prefab: {fileID: 3439678003130652555, guid: 8e6234e008e62114297574e117df0952, type: 3}
+  sprite: {fileID: -1258950554, guid: c284e28dce3013046bbef3582e1356d4, type: 3}
+  backgroundPrefab: {fileID: 1384864364383070363, guid: 097964f25ee870b41b4c9dd0b20106d8, type: 3}
+  playablePrefab: {fileID: 6879320011222045551, guid: 1132f537cebe99d4cae4f86b36486d10, type: 3}
+  mass: 10
+  angularDrag: 0.05
+  gravityScale: 1
+  material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
+  spawnChance: 0.201
