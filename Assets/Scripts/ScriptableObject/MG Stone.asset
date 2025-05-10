@@ -20,4 +20,4 @@ MonoBehaviour:
   angularDrag: 0.05
   gravityScale: 1
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
-  spawnChance: 0.197
+  spawnChance: 0.125

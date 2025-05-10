@@ -16,8 +16,8 @@ MonoBehaviour:
   sprite: {fileID: -1842234426, guid: c284e28dce3013046bbef3582e1356d4, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: 90a32b49b9633764aa2fd9e2000c2f28, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: 155989efb8eb72c4b862172e595e4bf9, type: 3}
-  mass: 10
+  mass: 2
   angularDrag: 0.05
-  gravityScale: 2
+  gravityScale: 1
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
-  spawnChance: 0.197
+  spawnChance: 0.5
