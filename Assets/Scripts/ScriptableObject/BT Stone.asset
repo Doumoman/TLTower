@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: BT Stone
   m_EditorClassIdentifier: 
   stoneName: BT
-  sprite: {fileID: -1842234426, guid: c284e28dce3013046bbef3582e1356d4, type: 3}
+  sprites:
+  - {fileID: 557131675, guid: 3339039cf3d30074f84a629663527f85, type: 3}
+  - {fileID: -936784497, guid: 3339039cf3d30074f84a629663527f85, type: 3}
+  - {fileID: -156289064, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
+  - {fileID: -873981387, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
+  - {fileID: 231781605, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
+  - {fileID: 2053489800, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: 90a32b49b9633764aa2fd9e2000c2f28, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: 155989efb8eb72c4b862172e595e4bf9, type: 3}
   mass: 2

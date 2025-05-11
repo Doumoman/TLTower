@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: ZY Stone
   m_EditorClassIdentifier: 
   stoneName: ZY
-  sprite: {fileID: -1145628983, guid: c284e28dce3013046bbef3582e1356d4, type: 3}
+  sprites:
+  - {fileID: 1807136874, guid: 3339039cf3d30074f84a629663527f85, type: 3}
+  - {fileID: 1512222852, guid: 3339039cf3d30074f84a629663527f85, type: 3}
+  - {fileID: 1265911507, guid: 3339039cf3d30074f84a629663527f85, type: 3}
+  - {fileID: 673231511, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: aab706cf09b66b941962cfbbb5e2e23a, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: e0d6bb78ecf964b49a71ccec4229e589, type: 3}
   mass: 1
   angularDrag: 0.05
   gravityScale: 1
   material2D: {fileID: 6200000, guid: 1597eeea41d97dc41a4e183c8aa2f498, type: 2}
-  spawnChance: 0.125
+  spawnChance: 0.15
