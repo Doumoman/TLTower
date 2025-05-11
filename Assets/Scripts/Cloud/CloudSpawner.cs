@@ -22,23 +22,22 @@ public class CloudSpawner : MonoBehaviour
     void Start()
     {   
         if(numberOfClouds>ScreenDivision){
-            Debug.Log("numberOfClouds는 ScreenDivision - 2 이하여야 합니다.");
             numberOfClouds = ScreenDivision-2;
         }
 
         if(numberOfClouds<0){
-            Debug.Log("numberOfClouds는 0보다 커야 합니다.");
             numberOfClouds = 0;
         }
-
     }
 
     void Update()
     {
-        if(MainCamera.transform.position.y > cameraThreshold){
-            cameraThreshold += FrequencyY;
-            SavePositions();
+        if (MainCamera.transform.position.y <= cameraThreshold)
+        {
+            return;
         }
+        cameraThreshold += FrequencyY;
+        SavePositions();
     }
     void SavePositions(){
         List<Vector2> positions = new List<Vector2>();
@@ -54,8 +53,6 @@ public class CloudSpawner : MonoBehaviour
     
     void SpawnCloud(List<Vector2> positions){
         //화면을 N개의 조각으로 나누고 각 조각에 구름을 생성
-        GameObject cloud = new GameObject(CloudPrefab.name);
-        Destroy(cloud);
         //positions에서 랜덤으로 위치를 선택하여 구름을 생성
         int pos = Random.Range(numberOfClouds/2, ScreenDivision - numberOfClouds/2);
         int rand = Random.Range(-Randomness, Randomness);
@@ -69,7 +66,7 @@ public class CloudSpawner : MonoBehaviour
 
         for(int i=0; i<positions.Count; i++){
             if(i>=posmin && i<=posmax){
-                Instantiate(cloud, positions[i], Quaternion.identity);
+                Instantiate(CloudPrefab, positions[i], Quaternion.identity);
             }
         }
     }   
