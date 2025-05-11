@@ -12,7 +12,7 @@ public class StoneFixer : MonoBehaviour
     }
 
     [Header("Settings")]
-    public int threshold = 50;                   // 10개씩 묶음
+    public int threshold = 48;                   // 48개씩 묶음
 
     [Header("UI")]
     public TextMeshProUGUI remainingTMP;         // 남은 돌 표시
