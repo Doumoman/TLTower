@@ -33,8 +33,8 @@ public class StoneController : MonoBehaviour,
 
     Rigidbody2D rb;
     SpriteRenderer sr;
-    Collider2D physCol;   // isTrigger = false
-    Collider2D clickCol;  // isTrigger = true
+    PolygonCollider2D physCol;   
+    PolygonCollider2D clickCol;   
 
     Vector3 dragOffset;
     Vector2 holdStartPos;
@@ -48,8 +48,8 @@ public class StoneController : MonoBehaviour,
         sr = GetComponent<SpriteRenderer>();
         gameObject.tag = "Stone";
         var cols = GetComponents<Collider2D>();
-        physCol = cols.FirstOrDefault(c => !c.isTrigger);
-        clickCol = cols.FirstOrDefault(c => c.isTrigger);
+        //physCol = cols.FirstOrDefault(c => !c.isTrigger);
+        //clickCol = cols.FirstOrDefault(c => c.isTrigger);
 
         if (clickCol == null)
             Debug.LogWarning($"[{name}] Trigger Collider(ClickCol) 가 없습니다!", this);
@@ -108,34 +108,42 @@ public class StoneController : MonoBehaviour,
         if (isRotating && state == StoneState.Dragging)
             rb.angularVelocity = rotateSpeed;
     }
-    public void InitAsBackground(StoneData data)
+    public void InitAsBackground(StoneData data, Sprite spr)
     {
         Data = data;
-
         state = StoneState.Background;
-        sr.sprite = data.sprite;
-        outlineSR.sprite = data.sprite;
+
+        sr.sprite = spr;
+        outlineSR.sprite = spr;
+        outlineSR.enabled = false;
         gameObject.tag = "BGStone";
+
+        BuildColliders(spr);
 
         if (rb) rb.simulated = false;
         if (physCol) physCol.enabled = false;
-
         sr.color = Color.white;
         sr.sortingOrder = STUB_ORDER;
         outlineSR.sortingOrder = STUB_ORDER - 1;
-
         transform.position = new Vector3(transform.position.x,
                                          transform.position.y,
                                          STUB_Z);
     }
 
+
     // Playable(Dragging 시작)
-    public void InitAsPlayable(StoneData data)
+    public void InitAsPlayable(StoneData data, Sprite spr)
     {
         Data = data;
-
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";
+
+        sr.sprite = spr;
+        outlineSR.sprite = spr;
+        outlineSR.enabled = false;
+        sr.color = new Color(1, 1, 1, .5f);
+
+        BuildColliders(spr);
 
         if (!rb) rb = gameObject.AddComponent<Rigidbody2D>();
         rb.mass = data.mass;
@@ -143,22 +151,38 @@ public class StoneController : MonoBehaviour,
         rb.gravityScale = 0f;
         rb.isKinematic = true;
 
-        if (physCol)
-        {
-            physCol.enabled = false;
-            if (data.material2D) physCol.sharedMaterial = data.material2D;
-        }
-
-        sr.sprite = data.sprite;
-        outlineSR.sprite = data.sprite;
-        outlineSR.enabled = false;
-        sr.color = new Color(1, 1, 1, .5f);
-
         transform.position = new Vector3(transform.position.x,
                                          transform.position.y,
                                          NORMAL_Z);
         sr.sortingOrder = 0;
         outlineSR.sortingOrder = -1;
+    }
+    void BuildColliders(Sprite spr)
+    {
+        // 기존 Collider 제거
+        foreach (var c in GetComponents<PolygonCollider2D>())
+            Destroy(c);
+
+        // ① 물리용
+        physCol = gameObject.AddComponent<PolygonCollider2D>();
+        physCol.isTrigger = false;
+
+        // PhysicsMaterial2D 적용
+        if (Data && Data.material2D)
+            physCol.sharedMaterial = Data.material2D;
+
+        // ② 클릭용 (조금 키워서 집기 편하게)
+        clickCol = gameObject.AddComponent<PolygonCollider2D>();
+        clickCol.isTrigger = true;
+        clickCol.pathCount = physCol.pathCount;
+        for (int i = 0; i < physCol.pathCount; ++i)
+        {
+            var path = physCol.GetPath(i);
+            // 5%씩 확대
+            for (int j = 0; j < path.Length; ++j)
+                path[j] *= 1.05f;
+            clickCol.SetPath(i, path);
+        }
     }
     public void SetFixed()
     {
@@ -186,7 +210,7 @@ public class StoneController : MonoBehaviour,
             StoneSpawner.Instance.SpawnPlayableAndBeginDrag(this);
             return;
         }
-        if (state == StoneState.Dropping){
+        if (state == StoneState.Dropping || state == StoneState.Settled){
             StartDragging();
         }
         dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
@@ -194,6 +218,7 @@ public class StoneController : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (physCol) physCol.enabled = false;
         if (eventData.pointerId != activePointer) return;
         if (state != StoneState.Dragging) return;
 
@@ -251,6 +276,7 @@ public class StoneController : MonoBehaviour,
         gameObject.tag = "DraggingStone";
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+        if (physCol) physCol.enabled = false;
 
         rb.isKinematic = true;
         rb.gravityScale = 0;

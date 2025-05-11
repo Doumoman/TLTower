@@ -40,12 +40,16 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
-        StoneData data = GetRandomStoneData();           // 확률 반영
-        var prefab = data.backgroundPrefab;
+        StoneData data = GetRandomStoneData();
+        GameObject go = Instantiate(data.backgroundPrefab, slot.position,
+                                       Quaternion.identity, slot);
 
-        GameObject go = Instantiate(prefab, slot.position, Quaternion.identity, slot);
+        Sprite chosenSpr = data.GetRandomSprite();
+        var sr = go.GetComponent<SpriteRenderer>();
+        if (sr) sr.sprite = chosenSpr;
+
         var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
-        sc.InitAsBackground(data);
+        sc.InitAsBackground(data, chosenSpr);
 
         slotToStub[slot] = sc;
         active.Add(sc);
@@ -73,7 +77,7 @@ public class StoneSpawner : MonoBehaviour
         StoneData data = stub.Data;
 
         // Stub 오브젝트를 바로 Playable로 변환
-        stub.InitAsPlayable(data);
+        stub.InitAsPlayable(data, stub.GetComponent<SpriteRenderer>().sprite);
         BringToFront(stub.GetComponent<SpriteRenderer>());
 
         // 슬롯 해제 & 재스폰 예약
