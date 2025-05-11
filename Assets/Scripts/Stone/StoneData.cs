@@ -5,7 +5,16 @@ public class StoneData : ScriptableObject
 {
     [Header("기본 정보")]
     public string stoneName;
-    public Sprite sprite;
+    public Sprite[] sprites;
+
+    public Sprite GetRandomSprite() =>
+        sprites != null && sprites.Length > 0
+            ? sprites[Random.Range(0, sprites.Length)]
+            : null;
+
+    public Sprite GetSprite(int idx) =>
+        sprites != null && idx >= 0 && idx < sprites.Length
+            ? sprites[idx] : null;
 
     [Header("Prefab")]
     public GameObject backgroundPrefab;   // Stub 용
