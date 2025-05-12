@@ -11,8 +11,6 @@ public class NewBehaviourScript : MonoBehaviour
     public float springFrequency = 6f;
     public float springDamping = 0.5f;
     public float mass = 1f;
-    public float drag = 0.5f;
-    public float angularDrag = 0.5f;
     public float gravityScale = 0.3f;
 
     void Start(){
@@ -23,8 +21,6 @@ public class NewBehaviourScript : MonoBehaviour
         for (int i = 0; i<children.Count; i++){
             var a = children[i];
             a.mass = mass;
-            a.drag = drag;
-            a.angularDrag = angularDrag;
             a.gravityScale = gravityScale;
 
             for(int j=i+1; j<children.Count; j++){
