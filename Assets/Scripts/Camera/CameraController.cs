@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
     public static CameraController Instance { get; private set; }
-
+    Coroutine _centerRoutine;
     [Header("카메라와 함께 Y축으로 움직일 돌 스폰 위치")]
     public Transform[] followWithCamera = new Transform[4];
 
@@ -14,12 +15,12 @@ public class CameraController : MonoBehaviour
 
     [Header("Speed Settings")]
     [SerializeField] private float dragSensitivity = 0.2f;   // 손가락 이동 → 카메라 이동 비율(0.0~1.0)
-    [SerializeField] private float followSmooth = 0.15f;  // 돌 부드럽게 따라가기 (돌 집을때)
 
+    private float _pendingCenterY = float.NaN;
     private bool _userMoveInput;        // 드래그 중
     private Vector3 _lastPointerWorldPos; // 직전 포인터 위치(월드)
     private Vector3 _directionForce;      // 이동값 (관성)
-
+    private float _targetCenterY;
     private StoneController _dragTarget;  // 집고 있는 돌
     private Vector3 _baseCamPos;          // 드래그 시작 시점 카메라 위치
     private Camera _cam;
@@ -38,7 +39,6 @@ public class CameraController : MonoBehaviour
             return;
         }
         Instance = this;
-
         _cam = GetComponent<Camera>();
     }
 
@@ -60,20 +60,21 @@ public class CameraController : MonoBehaviour
     public void EndDrag() //외부에서 돌 드래그 상태 입력받기
     {
         _dragTarget = null;
+        
     }
 
     private void Update()
     {
-        if (_dragTarget == null)
+        if (StoneController.AnyStoneBeingDragged)
         {
-            HandlePointerInput();   // 손가락/마우스 입력
-            ReduceDirectionForce(); // 관성 감속
+            _directionForce = Vector3.zero;
+            UpdateFollowers();               
+            return;
         }
-        else
-        {
-            FollowDragTarget();     // 돌 따라가기
-        }
-        MoveCamera();    // 실제 카메라 이동
+        ReduceDirectionForce();
+        MoveCamera();
+        HandlePointerInput();
+
         UpdateFollowers(); // followWithCamera 동기화
     }
 
@@ -136,19 +137,7 @@ public class CameraController : MonoBehaviour
     }
     private float _smoothVelocity;  // SmoothDamp 내부 상태
    
-    private void FollowDragTarget() //드래그로 잡은 돌 따라가기
-
-    {
-        if (!_dragTarget) return;
-
-        float targetY = _dragTarget.transform.position.y;      // 목표 Y
-        float newY = Mathf.SmoothDamp(transform.position.y, // 현 Y, 목표 Y
-                                         targetY,
-                                         ref _smoothVelocity,
-                                         followSmooth);
-
-        _directionForce = new Vector3(0f, newY - transform.position.y, 0f);
-    }
+    
 
     private void MoveCamera() //카메라 이동 (Y축 전용)
     {
@@ -179,5 +168,38 @@ public class CameraController : MonoBehaviour
             p.y = transform.position.y + _followYOffset[i];
             tf.position = p;
         }
+    }
+    public void CenterOnY(float y, float duration = 0.5f)
+    {
+        if (_centerRoutine != null)
+            StopCoroutine(_centerRoutine);
+
+        _centerRoutine = StartCoroutine(CoCenterY(y, duration));
+    }
+    IEnumerator CoCenterY(float targetY, float dur)
+    {
+        float startY = transform.position.y;
+        float t = 0f;
+
+        while (t < dur)
+        {
+            t += Time.deltaTime;
+            float ratio = Mathf.Clamp01(t / dur);
+            float newY = Mathf.SmoothStep(startY, targetY, ratio);
+
+            Vector3 pos = transform.position;
+            pos.y = newY;
+            transform.position = pos;
+
+            UpdateFollowers();   // 스폰 위치 실시간 보정
+            yield return null;
+        }
+
+        Vector3 finalPos = transform.position;
+        finalPos.y = targetY;
+        transform.position = finalPos;
+
+        _directionForce = Vector3.zero;     // 관성 초기화
+        _centerRoutine = null;
     }
 }

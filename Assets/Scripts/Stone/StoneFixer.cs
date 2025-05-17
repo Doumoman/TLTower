@@ -32,8 +32,10 @@ public class StoneFixer : MonoBehaviour
 
         // 최고 높이 갱신
         if (sc.transform.position.y > HighestSettledY)
+        {
             HighestSettledY = sc.transform.position.y;
-
+            CameraController.Instance.CenterOnY(HighestSettledY);
+        }
         // 중복 방지
         if (!batch.Contains(sc)) batch.Add(sc);
         UpdateUI();
