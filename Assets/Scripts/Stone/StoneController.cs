@@ -18,6 +18,7 @@ public class StoneController : MonoBehaviour,
     public StoneState state = StoneState.Background;
     public int stoneTypeIndex = 0;
     public StoneData Data { get; private set; }
+    public static bool AnyStoneBeingDragged { get; private set; }
 
     [Header("StoneSettled")]
     SpriteRenderer outlineSR;
@@ -134,6 +135,7 @@ public class StoneController : MonoBehaviour,
     // Playable(Dragging 시작)
     public void InitAsPlayable(StoneData data, Sprite spr)
     {
+        AnyStoneBeingDragged = true;
         Data = data;
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";
@@ -163,7 +165,7 @@ public class StoneController : MonoBehaviour,
         foreach (var c in GetComponents<PolygonCollider2D>())
             Destroy(c);
 
-        // ① 물리용
+        // 물리용
         physCol = gameObject.AddComponent<PolygonCollider2D>();
         physCol.isTrigger = false;
 
@@ -171,7 +173,7 @@ public class StoneController : MonoBehaviour,
         if (Data && Data.material2D)
             physCol.sharedMaterial = Data.material2D;
 
-        // ② 클릭용 (조금 키워서 집기 편하게)
+        // 클릭용 (조금 키워서 집기 편하게)
         clickCol = gameObject.AddComponent<PolygonCollider2D>();
         clickCol.isTrigger = true;
         clickCol.pathCount = physCol.pathCount;
@@ -190,7 +192,7 @@ public class StoneController : MonoBehaviour,
 
         state = StoneState.Fixed;
         gameObject.tag = "FixedStone";
-
+        physCol.enabled = true;
         rb.isKinematic = true;
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
@@ -218,6 +220,7 @@ public class StoneController : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
+        AnyStoneBeingDragged = true;
         if (physCol) physCol.enabled = false;
         if (eventData.pointerId != activePointer) return;
         if (state != StoneState.Dragging) return;
@@ -267,11 +270,15 @@ public class StoneController : MonoBehaviour,
         sr.color = Color.white;
 
         StoneSpawner.Instance.NotifyPlaced(this);
+        CameraController.Instance.EndDrag();
+        AnyStoneBeingDragged = false;
     }
     
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
+        AnyStoneBeingDragged = true;
+        CameraController.Instance.BeginDrag(this);
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";
         rb.velocity = Vector2.zero;
