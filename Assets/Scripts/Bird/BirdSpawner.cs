@@ -6,10 +6,11 @@ public class BirdSpawner : MonoBehaviour
 {
     private int span;
     private float time;
+    public static float cycle;
 
     [Header("settings")]
-    public float ratioOfBird = 0f;
-    public float cycle = 4f;
+    public float birdChance = 0f;
+    public float cycleValue = 4f;
 
     [Header("References")]
     public GameObject birdPoop;
@@ -19,6 +20,7 @@ public class BirdSpawner : MonoBehaviour
     {
         span = Random.Range(5, 11);
         time = 0f;
+        cycle = cycleValue;
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class BirdSpawner : MonoBehaviour
         time += Time.deltaTime;
         if (time >= cycle * span)
         {
-            if (Random.value > ratioOfBird) CreateBirdPoop();
+            if (Random.value > birdChance) CreateBirdPoop();
             else CreateBird();
             span = Random.Range(1, 11);
             time = 0f;
@@ -53,18 +55,10 @@ public class BirdSpawner : MonoBehaviour
     //랜덤 x좌표에서 PlacedStone의 표면에 앉는 새 생성
     void CreateBird()
     {
-
+        
         Vector2 hitPoint = new Vector2();
         GameObject stone = null;
         RandomPoint();
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-        hitPoint = hit.point;
-        stone = hit.collider.gameObject;
-        GameObject aliveBird = Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
-        Debug.Log(stone);
-        Debug.Log(hit.collider.gameObject.tag);
-        aliveBird.GetComponent<Bird>().Init(stone, hitPoint);
-        /*
         int safty = 100;
         while (safty-- > 0)
         {
@@ -76,10 +70,7 @@ public class BirdSpawner : MonoBehaviour
                 stone = hit.collider.gameObject;
                 break;
             }
-            else
-            {
-                continue;
-            }
+            else  continue;
         }
         if (hitPoint != Vector2.zero)
         {
@@ -91,6 +82,5 @@ public class BirdSpawner : MonoBehaviour
         {
             Debug.Log("can't find 'PlacedStone' by raycast");
         }
-        */
     }
 }
