@@ -192,14 +192,9 @@ public class StoneController : MonoBehaviour,
 
         state = StoneState.Fixed;
         gameObject.tag = "FixedStone";
-        physCol.enabled = true;
-        rb.isKinematic = true;
-        rb.gravityScale = 0;
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0;
-        outlineSR.enabled = false;          // 돌 고정되면 테두리 끄기
 
-        // 물리 충돌은 유지 (physCol.enabled = true)
+        if (physCol) physCol.isTrigger = false;
+        if (outlineSR) outlineSR.enabled = false;
     }
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)

@@ -15618,7 +15618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe912a38651a0224da5d09e82e4f7cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 10
+  threshold: 5
   remainingTMP: {fileID: 284519799}
   savePointPrefab: {fileID: 4362427236296667128, guid: 0d01af780dc8df04d98572781a40afac, type: 3}
 --- !u!1 &1921544820

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
 
 public class StoneFixer : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class StoneFixer : MonoBehaviour
             wave++;
             Vector3 spawnPos = new(
                 sc.transform.position.x,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
-                HighestSettledY + 3f,
+                HighestSettledY + 1.5f,
                 0f);
             currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
             // SavePoint 스크립트에 StoneFixer 참조를 자동으로 넘기려면 다음 라인 추가
@@ -65,20 +66,91 @@ public class StoneFixer : MonoBehaviour
     }
     public void FixAllStones()
     {
-        foreach (var s in FindObjectsOfType<StoneController>())
+        if (batch.Count == 0) return;
+
+        // Pile 루트 생성
+        GameObject pileRoot = new($"StonePile_Wave{wave}");
+        var pileRB = pileRoot.AddComponent<Rigidbody2D>();
+        pileRB.bodyType = RigidbodyType2D.Static;   // Static
+        var pileCC = pileRoot.AddComponent<CompositeCollider2D>();
+        pileCC.geometryType = CompositeCollider2D.GeometryType.Polygons; // Outlines
+
+        // 이번 wave 의 돌들을 자식으로 옮기고 usedByComposite 설정
+        foreach (var s in batch)
         {
-            if (s.state == StoneState.Settled)  
-                s.SetFixed();
+            if (s.state != StoneState.Settled && s.state != StoneState.Fixed) continue;
+
+            // 돌 상태 Fixed
+            s.SetFixed();
+
+            // Rigidbody 제거 → 정적 Collider 로 변환
+            if (s.TryGetComponent(out Rigidbody2D rb))
+                Destroy(rb);
+
+            // Collider 를 Composite 로 편입
+            if (s.TryGetComponent(out PolygonCollider2D pc2d))
+                pc2d.usedByComposite = true;
+
+            // Pile 루트의 자식으로 이동(월드 좌표 유지)
+            s.transform.SetParent(pileRoot.transform, true);
         }
 
+        // 내부 리스트 초기화·UI 리셋
         batch.Clear();
         UpdateUI();
 
+        // SavePoint 오브젝트 제거
         if (currentSavePoint) Destroy(currentSavePoint);
         currentSavePoint = null;
-        Debug.Log("[StoneFixer] All Settled stones fixed by SavePoint!");
-    }
 
+        Debug.Log($"[StoneFixer] Wave {wave} fixed → PileCollider 생성");
+        StartCoroutine(FuseAllStonesIntoOne());
+    }
+    IEnumerator FuseAllStonesIntoOne() // Pile된 객체들의 콜라이더를 하나의 콜라이더로 만들기
+    {
+        GameObject root = new("StonePile_All");
+        var rootRb = root.AddComponent<Rigidbody2D>();
+        rootRb.bodyType = RigidbodyType2D.Static;
+
+        var comp = root.AddComponent<CompositeCollider2D>();
+        comp.geometryType = CompositeCollider2D.GeometryType.Polygons;
+
+        // 돌 정리: 자식 편입 + usedByComposite
+        foreach (var s in FindObjectsOfType<StoneController>())
+        {
+            if (s.state != StoneState.Settled && s.state != StoneState.Fixed) continue;
+
+            // Rigidbody/Collider 유지한 채 자식으로
+            s.transform.SetParent(root.transform, true);
+
+            if (s.TryGetComponent(out PolygonCollider2D pc))
+                pc.usedByComposite = true;
+            if (s.TryGetComponent(out Rigidbody2D rb))
+                rb.bodyType = RigidbodyType2D.Static;   // 물리 무력화
+        }
+
+        yield return new WaitForFixedUpdate();
+
+        // 새 PolygonCollider2D에 경계 복사
+        var poly = root.AddComponent<PolygonCollider2D>();
+        poly.pathCount = comp.pathCount;
+        var pts = new List<Vector2>();
+        for (int i = 0; i < comp.pathCount; ++i)
+        {
+            pts.Clear();
+            comp.GetPath(i, pts);
+            poly.SetPath(i, pts.ToArray());
+        }
+
+        // 자식 돌의 Rigidbody/Collider 파괴
+        foreach (Transform child in root.transform)
+        {
+            Destroy(child.GetComponent<Rigidbody2D>());
+            Destroy(child.GetComponent<Collider2D>());
+                                                         
+        }
+        Destroy(comp);
+    }
     // 추락한 돌이 파괴되면 StoneDespawnZone → NotifyStoneLost 로 보고
     public void NotifyStoneLost(StoneController sc)
     {
