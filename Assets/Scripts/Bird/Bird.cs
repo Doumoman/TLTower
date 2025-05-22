@@ -114,12 +114,17 @@ public class Bird : MonoBehaviour
         coroutine = StartCoroutine(FlyAway());
     }
 
-    //돌 위를 향한 힘 + 회전 힘 가하기
+    //돌 가져가기
     void ForceRock()
     {
         Rigidbody2D rb = satStone.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * forcePower, ForceMode2D.Impulse);
-        rb.AddTorque(forcePower);
+        PolygonCollider2D[] cols = satStone.GetComponents<PolygonCollider2D>();
+        rb.isKinematic = true;
+        foreach (PolygonCollider2D col in cols)
+        {
+            col.enabled = false;
+        }
+        satStone.transform.SetParent(transform);
     }
 
     //돌의 표면까지 날아가기
@@ -149,7 +154,7 @@ public class Bird : MonoBehaviour
             Vector2 currentPoint = transform.position;
 
             transform.position = Vector2.SmoothDamp(currentPoint, goPoint, ref velocity, flyTime);
-            if (Vector2.Distance(goPoint, gameObject.transform.position) < 0.1f) break;
+            if (Vector2.Distance(goPoint, gameObject.transform.position) < 1f) break;
         }
         Destroy(gameObject);
         yield break;

@@ -63,14 +63,17 @@ public class BirdSpawner : MonoBehaviour
         while (safty-- > 0)
         {
             RandomPoint();
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-            if (hit.collider.gameObject.tag == "PlacedStone")
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 20);
+            foreach (RaycastHit2D hit in hits)
             {
-                hitPoint = hit.point;
-                stone = hit.collider.gameObject;
-                break;
+                if (hit.collider.gameObject.tag == "PlacedStone")
+                {
+                    hitPoint = hit.point;
+                    stone = hit.collider.gameObject;
+                    break;
+                }
             }
-            else  continue;
+            if (stone != null) break;
         }
         if (hitPoint != Vector2.zero)
         {
