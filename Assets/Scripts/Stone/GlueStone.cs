@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [RequireComponent(typeof(Collider2D)), RequireComponent(typeof(Rigidbody2D))]
-public class BirdPoop : MonoBehaviour
+public class GlueStone : MonoBehaviour
 {
     readonly List<StoneController> caught = new();
     bool fused;   // Fuse 한 번만 수행
@@ -59,18 +58,3 @@ public class BirdPoop : MonoBehaviour
         Destroy(gameObject);   // 새똥 오브젝트 제거
     }
 }
-
-
-//public class BirdPoop : MonoBehaviour
-//{
-//    private void OnCollisionEnter2D(Collision2D collision)
-//    {
-//        GameObject obj = collision.gameObject;
-//        //접촉 대상이 돌이면 고정 조인트 형성
-//        if (obj.tag == "FixedStone" || obj.tag == "PlacedStone")
-//        {
-//            FixedJoint2D joint2d = gameObject.AddComponent<FixedJoint2D>();
-//            joint2d.connectedBody = obj.GetComponent<Rigidbody2D>();
-//        }
-//    }
-//}

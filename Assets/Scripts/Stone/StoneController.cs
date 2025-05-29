@@ -259,7 +259,9 @@ public class StoneController : MonoBehaviour,
 
         rb.isKinematic = false;
         rb.gravityScale = 1f;
-        rb.angularVelocity = 0;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.Sleep();
 
         if (physCol) physCol.enabled = true;
         sr.color = Color.white;
