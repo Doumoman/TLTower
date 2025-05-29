@@ -18,8 +18,7 @@ public class Bird : MonoBehaviour
     [Header("Settings")]
     public float flyTime;
     public float moveDeadZone;
-    public float forceChance;
-    public float forcePower;
+    [Range(0, 1f)] public float forceChance;
 
     public void Init(GameObject stone, Vector2 surfacePoint)
     {

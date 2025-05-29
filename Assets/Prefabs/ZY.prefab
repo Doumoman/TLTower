@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2722820355028308453}
   - component: {fileID: 6327433974331182758}
   - component: {fileID: 56932997992521381}
+  - component: {fileID: 5662018368663158953}
   m_Layer: 0
   m_Name: ZY
   m_TagString: Untagged
@@ -191,3 +192,21 @@ MonoBehaviour:
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
+--- !u!114 &5662018368663158953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879320011222045551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8992f59c86eb7f346b912eaaa3c1a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFreezed: 0
+  playTest: 0
+  frozen: {fileID: 6200000, guid: 85d1cf8b6c697bc4e9448c067a86975d, type: 2}
+  freezeTIme: 3
+  unfreezeTime: 3
+  color: {r: 0, g: 1, b: 1, a: 0}

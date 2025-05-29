@@ -9,7 +9,7 @@ public class BirdSpawner : MonoBehaviour
     public static float cycle;
 
     [Header("settings")]
-    public float birdChance = 0f;
+    [Range(0, 1f)] public float birdChance = 0f;
     public float cycleValue = 4f;
 
     [Header("References")]

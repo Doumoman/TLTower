@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3109606894690586033}
   - component: {fileID: 6287619506704292845}
   - component: {fileID: 6163382586189140608}
+  - component: {fileID: 1099489602902519004}
   m_Layer: 0
   m_Name: BT_BG
   m_TagString: Untagged
@@ -206,3 +207,23 @@ PolygonCollider2D:
       - {x: 2.065, y: 0.65999997}
       - {x: 1.475, y: 1.7199999}
   m_UseDelaunayMesh: 0
+--- !u!114 &1099489602902519004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384864364383070363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8992f59c86eb7f346b912eaaa3c1a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unFreezeTimer: 0
+  freezeTimer: 0
+  playTest: 0
+  frozen: {fileID: 6200000, guid: 85d1cf8b6c697bc4e9448c067a86975d, type: 2}
+  freezeTime: 0
+  unfreezeTime: 3
+  timerResetTime: 0
+  color: {r: 0, g: 1, b: 1, a: 0}

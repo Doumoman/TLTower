@@ -10,6 +10,7 @@ TagManager:
   - Stone
   - FixedStone
   - CloudChild
+  - Snow
   layers:
   - Default
   - TransparentFX

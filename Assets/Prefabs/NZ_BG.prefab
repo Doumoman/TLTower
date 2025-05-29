@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3109606894690586033}
   - component: {fileID: 6287619506704292845}
   - component: {fileID: -6872587275993915356}
+  - component: {fileID: -7833135194309002756}
   m_Layer: 0
   m_Name: NZ_BG
   m_TagString: Untagged
@@ -194,3 +195,21 @@ PolygonCollider2D:
       - {x: 0.96999997, y: -1.5849999}
       - {x: 2.6799998, y: -0.295}
   m_UseDelaunayMesh: 0
+--- !u!114 &-7833135194309002756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384864364383070363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8992f59c86eb7f346b912eaaa3c1a2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFreezed: 0
+  playTest: 0
+  frozen: {fileID: 6200000, guid: 85d1cf8b6c697bc4e9448c067a86975d, type: 2}
+  freezeTIme: 3
+  unfreezeTime: 3
+  color: {r: 0, g: 1, b: 1, a: 0}
