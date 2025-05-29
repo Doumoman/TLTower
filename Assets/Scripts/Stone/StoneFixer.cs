@@ -64,6 +64,7 @@ public class StoneFixer : MonoBehaviour
         int remain = Mathf.Max(0, threshold - batch.Count); // 0 이하 방지
         remainingTMP.text = $"남은 돌: <b>{remain}</b>";
     }
+    #region 돌 고정 로직
     public void FixAllStones()
     {
         if (batch.Count == 0) return;
@@ -151,6 +152,9 @@ public class StoneFixer : MonoBehaviour
         }
         Destroy(comp);
     }
+    #endregion
+
+
     // 추락한 돌이 파괴되면 StoneDespawnZone → NotifyStoneLost 로 보고
     public void NotifyStoneLost(StoneController sc)
     {

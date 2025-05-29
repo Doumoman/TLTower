@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class BirdPoopDespawner : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.TryGetComponent<BirdPoop>(out BirdPoop _))
-        { 
-            Destroy(collision.gameObject);
+        if (other.TryGetComponent<BirdPoop>(out _))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
