@@ -29,6 +29,7 @@ public class RainSystemTest : MonoBehaviour
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
+            if (item.material2D != normal) continue;
             item.material2D = rainy;
         }
 
@@ -38,7 +39,8 @@ public class RainSystemTest : MonoBehaviour
             PolygonCollider2D[] colliders = stone.GetComponents<PolygonCollider2D>();
             foreach (var col in colliders)
             {
-                if (col.sharedMaterial == normal) col.sharedMaterial = rainy;
+                if (col.sharedMaterial != normal) continue;
+                col.sharedMaterial = rainy;
             }
         }
 
@@ -49,6 +51,7 @@ public class RainSystemTest : MonoBehaviour
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
+            if (item.material2D != rainy) continue;
             item.material2D = normal;
         }
 
@@ -58,7 +61,8 @@ public class RainSystemTest : MonoBehaviour
             PolygonCollider2D[] colliders = stone.GetComponents<PolygonCollider2D>();
             foreach (var col in colliders)
             {
-                if (col.sharedMaterial == rainy) col.sharedMaterial = normal;
+                if (col.sharedMaterial != rainy) continue; 
+                col.sharedMaterial = normal;
             }
         }
 

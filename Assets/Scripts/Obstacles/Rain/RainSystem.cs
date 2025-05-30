@@ -30,6 +30,7 @@ public class RainSystem : MonoBehaviour
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
+            if (item.material2D != normal) continue;
             item.material2D = rainy;
         }
 
@@ -40,6 +41,7 @@ public class RainSystem : MonoBehaviour
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
+            if (item.material2D != rainy) continue;
             item.material2D = normal;
         }
 
