@@ -264,6 +264,7 @@ public class StoneController : MonoBehaviour,
         rb.Sleep();
 
         if (physCol) physCol.enabled = true;
+        SetGroupPhysicsColliders(true);
         sr.color = Color.white;
 
         StoneSpawner.Instance.NotifyPlaced(this);
@@ -281,6 +282,7 @@ public class StoneController : MonoBehaviour,
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         if (physCol) physCol.enabled = false;
+        SetGroupPhysicsColliders(false);
 
         rb.isKinematic = true;
         rb.gravityScale = 0;
@@ -300,8 +302,13 @@ public class StoneController : MonoBehaviour,
 
     Vector2 ScreenToWorld(Vector2 screenPos) =>
         Camera.main.ScreenToWorldPoint(screenPos);
+    void SetGroupPhysicsColliders(bool enabled)
+    {
+        foreach (var col in GetComponentsInChildren<Collider2D>())
+            if (!col.isTrigger)           // 클릭용 Trigger 는 그대로 두고
+                col.enabled = enabled;
+    }
 
-    
     Vector2 GetCurrentPointerWorld()
     {
         // 마우스(-1) vs 터치(0,1,2…)
@@ -336,4 +343,6 @@ public class StoneController : MonoBehaviour,
         outlineSR.transform.localScale = Vector3.one * 1.04f;
         outlineSR.enabled = false;
     }
+    public void HideOutline() => outlineSR.enabled = false;
+    public void ShowOutline(Color c) { outlineSR.color = c; outlineSR.enabled = true; }
 }
