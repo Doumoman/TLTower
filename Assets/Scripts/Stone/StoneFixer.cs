@@ -161,4 +161,7 @@ public class StoneFixer : MonoBehaviour
         if (batch.Remove(sc))
             UpdateUI();
     }
+    public List<StoneController> GetBatch() { return batch; }
+    public int GetWave() { return wave; }
+    public void SetY(float yPos) { HighestSettledY = yPos; }
 }

@@ -38,7 +38,7 @@ public class StoneFreezer : MonoBehaviour
     {
         snowParticle = GameObject.Find("SnowParticle");
         ps = snowParticle.GetComponent<ParticleSystem>();
-        if (FreezerSettler.Instance != null) Destroy(this);
+        if (FreezerSettler.Instance == null) Destroy(this);
 
         //FreezerSettler를 통해 값 설정
         Sprite spr = gameObject.GetComponent<SpriteRenderer>().sprite;

@@ -28,6 +28,7 @@ public class SavePoint : MonoBehaviour
             alreadyTriggered = true;
             fixer?.FixAllStones();
         }
+        ResetStone.Instance.ColToSc(other);     //초기화 기준 돌 전달
     }
 
     /* 최초 생성 직후 주변에 겹친 돌이 있는지 검사 */
@@ -43,6 +44,7 @@ public class SavePoint : MonoBehaviour
             var stone = results[i].GetComponent<StoneController>();
             if (stone && stone.state == StoneState.Settled)
             {
+                ResetStone.Instance.GetSc(stone);     //초기화 기준 돌 전달
                 alreadyTriggered = true;
                 fixer?.FixAllStones();
                 break;

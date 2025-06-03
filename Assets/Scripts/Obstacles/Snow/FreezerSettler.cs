@@ -18,7 +18,7 @@ public class FreezerSettler : MonoBehaviour
 
     void Awake()
     {
-        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        if (Instance && Instance != this) { Destroy(this); return; }
         Instance = this;
     }
 

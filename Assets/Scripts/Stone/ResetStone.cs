@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class ResetStone : MonoBehaviour
+{
+    public static ResetStone Instance { get; private set; }
+    public GameObject platform;
+
+    StoneFixer sf;
+    int currentWave = 0;
+    StoneController sc = null;
+
+    private void Awake()
+    {
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        sf = StoneFixer.Instance;
+    }
+    public void DestroyStones()
+    {
+        foreach (var s in sf.GetBatch().ToList())
+        {
+            sf.NotifyStoneLost(s);
+            Destroy(s.gameObject);
+        }
+
+        if (sc != null)
+        {
+            Vector2 highPos = sc.transform.position;
+            sf.SetY(highPos.y);
+
+            if (currentWave != 0)
+            {
+                CreatePlatform(highPos);
+            }
+        }
+    }
+
+    //초기화시 위치 기준이 되는 돌의 stonecontroller를 얻음
+    public void GetSc(StoneController s)
+    {
+        sc = s;
+        currentWave = sf.GetWave();
+    }
+    public void ColToSc(Collider2D col)
+    {
+        sc = col.GetComponent<StoneController>();
+        currentWave = sf.GetWave();
+    }
+
+    void CreatePlatform(Vector2 spawnPos)
+    {
+        currentWave = 0;
+        Instantiate(platform, spawnPos, Quaternion.identity);
+    }
+}
