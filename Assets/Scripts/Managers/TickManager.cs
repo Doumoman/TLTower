@@ -9,16 +9,13 @@ public class TickManager : MonoBehaviour
     private float timer = 0f;
     public event EventHandler OnTickEvent;
 
-    public static TickManager Instance;
-    private void Awake()
+    public static TickManager instance;
+    public static TickManager Instance
     {
-        if (Instance == null)
+        get
         {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject); // 중복 방지
+            if (instance == null) instance = new TickManager();
+            return instance;
         }
     }
     public void StartTick()
@@ -28,19 +25,16 @@ public class TickManager : MonoBehaviour
 
     private IEnumerator EventEveryTick(float sec)
     {
-        float nextTime = Time.realtimeSinceStartup;
+        float nextTime = Time.time;
         while (true)
         {
-            nextTime += sec;
-            OnTickEvent?.Invoke(this, EventArgs.Empty);
+            float now = Time.time + sec;
+            float waitTime = nextTime - now;
 
-            float waitTime = nextTime - Time.realtimeSinceStartup;
-            if (waitTime > 0f)
-            {
-                yield return new WaitForSeconds(waitTime);
-                Debug.Log($"TickManager: Waited {waitTime} seconds for next tick.");
-            }
+            if (waitTime > 0) yield return new WaitForSeconds(waitTime);
             else yield return null;
+
+            OnTickEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 

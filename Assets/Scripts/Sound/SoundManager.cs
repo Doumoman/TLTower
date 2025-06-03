@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private SoundList[] AllSounds;
 
 
-    public float BgmVolume, SfxVolume; // 옵션에서는 BGM과 SFX의 볼륨만 조작
+    public float BgmVolume, SfxVolume; // 옵션에서 BGM과 SFX의 볼륨을 조작
     private float AmbVolume, BeatVolume, PadVolume, MelVolume; //내부 조작! 나중에 다른 Manager에서 필터 걸거나 볼륨 조절할 때 사용
 
 
