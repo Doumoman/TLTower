@@ -19,13 +19,15 @@ public class StoneSpawner : MonoBehaviour
     public Transform[] spawnSlots = new Transform[4];
 
     [Header("기타 옵션")]
-    public float defaultSpawnDelay = 3f;
+    public float defaultSpawnDelay = 2f;
+    //0이라면 tick이 얼마 남지 않았을 경우 바로 스폰하여 좋지 않으므로 tick이 2초 이하 남았다면 다음 tick에 스폰하도록 설정
     public Transform stonesParent;
 
     readonly Dictionary<Transform, StoneController> slotToStub = new();
     readonly Dictionary<Transform, Coroutine> slotTimer = new();
     readonly List<StoneController> active = new();
 
+    private List<System.Action> Actions = new(); // TickManager에서 호출할 액션 목록
     void Start()
     {
         if (!stonesParent) stonesParent = new GameObject("Stones").transform;
@@ -35,10 +37,17 @@ public class StoneSpawner : MonoBehaviour
         }
 
         foreach (var slot in spawnSlots) CreateStubAtSlot(slot);
+        TickManager.Instance.OnTickEvent += (sender, eventArgs) =>
+        {
+            foreach (var action in Actions)
+                action.Invoke();
+            
+            Actions.Clear();
+        }; // Tick에 액션 등록 후 실행행
     }
 
     // Stub 생성 
-    void CreateStubAtSlot(Transform slot)
+    public void CreateStubAtSlot(Transform slot)
     {
         StoneData data = GetRandomStoneData();
         GameObject go = Instantiate(data.backgroundPrefab, slot.position,
@@ -109,12 +118,19 @@ public class StoneSpawner : MonoBehaviour
         if (slotTimer.ContainsKey(slot)) return;
         slotTimer[slot] = StartCoroutine(RespawnCoroutine(slot, delay));
     }
+
     IEnumerator RespawnCoroutine(Transform slot, float delay)
     {
         yield return new WaitForSeconds(delay);
-        CreateStubAtSlot(slot);
+        TickCreateStubAtSlot(slot);
         slotTimer.Remove(slot);
     }
+
+    void TickCreateStubAtSlot(Transform slot)
+    {
+        Actions.Add(() => CreateStubAtSlot(slot));
+    }
+
     public void NotifyPlaced(StoneController sc)
     {
         // 아직 목록에 없으면 추가
