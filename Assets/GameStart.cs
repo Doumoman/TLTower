@@ -7,9 +7,6 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         TickManager tickManager = FindObjectOfType<TickManager>();
-        if (tickManager != null)
-        {
-            tickManager.StartTick();
-        }
+        tickManager?.StartTick();
     }
 }
