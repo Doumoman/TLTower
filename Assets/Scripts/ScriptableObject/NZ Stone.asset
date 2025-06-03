@@ -20,7 +20,7 @@ MonoBehaviour:
   backgroundPrefab: {fileID: 1384864364383070363, guid: 097964f25ee870b41b4c9dd0b20106d8, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: 1132f537cebe99d4cae4f86b36486d10, type: 3}
   mass: 4
-  angularDrag: 0.1
+  angularDrag: 0.2
   gravityScale: 1
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
-  spawnChance: 0.25
+  spawnChance: 0.2
