@@ -5,12 +5,14 @@ using UnityEngine;
 public class BirdSpawner : MonoBehaviour
 {
     private int span;
-    private float time;
+     private int spanCount = 0;
     public static float cycle;
 
     [Header("settings")]
-    [Range(0, 1f)] public float birdChance = 0f;
-    public float cycleValue = 4f;
+    [Range(0, 1f)] public float birdChance = 0.4f;
+    public int cycleSpanInit = 5; // 초기 생성 주기 (틱 단위)
+    public int cycleSpanMin = 7; // 이후 주기 (틱 단위)
+    public int cycleSpanMax = 10;
 
     [Header("References")]
     public GameObject birdPoop;
@@ -18,23 +20,36 @@ public class BirdSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        span = Random.Range(5, 11);
-        time = 0f;
-        cycle = cycleValue;
+        span = Random.Range(cycleSpanInit, cycleSpanMax);
+        spanCount = span;
+
+        TickManager.Instance.OnTickEvent += TickEvent;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TickEvent(object sender, System.EventArgs eventArgs)
     {
-        time += Time.deltaTime;
-        if (time >= cycle * span)
-        {
-            if (Random.value > birdChance) CreateBirdPoop();
-            else CreateBird();
-            span = Random.Range(1, 11);
-            time = 0f;
+        /*
+        if (spanCount == 사운드 길이){
+        Play("BirdAlert", Soundtype.MELODY, 0);
         }
+        */
 
+        if (spanCount-- <= 0 && Random.value > birdChance)
+        {
+            //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
+            CreateBird(); //사운드 딜레이 이후 새 생성
+            span = Random.Range(cycleSpanMin, cycleSpanMax);
+            spanCount = span;
+            Debug.Log("BirdSpawner: Created a bird.");
+        }
+        else if (spanCount-- <= 0)
+        {
+            //Play("BirdPoopSpawn", SoundType.SFX, 0); // 사운드 플레이
+            CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성성
+            span = Random.Range(cycleSpanMin, cycleSpanMax);
+            spanCount = span;
+            Debug.Log("BirdSpawner: Created a bird poop.");
+        }
     }
     void MakeNotice()
     {

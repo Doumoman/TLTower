@@ -32,10 +32,10 @@ public class ResetStone : MonoBehaviour
 
         if (sc != null)
         {
-            Vector2 highPos = sc.transform.position;
+            Vector2 highPos = new Vector2(0, sc.transform.position.y);
             sf.SetY(highPos.y);
 
-            if (currentWave != 0)
+            if (currentWave > 0)
             {
                 CreatePlatform(highPos);
             }
@@ -56,7 +56,7 @@ public class ResetStone : MonoBehaviour
 
     void CreatePlatform(Vector2 spawnPos)
     {
-        currentWave = 0;
+        currentWave = -1;
         Instantiate(platform, spawnPos, Quaternion.identity);
     }
 }
