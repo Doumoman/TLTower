@@ -6,6 +6,7 @@ using System.Linq;
 public class StoneSpawner : MonoBehaviour
 {
     public static StoneSpawner Instance { get; private set; }
+    public bool Penalty = false; // true면 다음 돌이 번뇌돌
     void Awake()
     {
         if (Instance && Instance != this) { Destroy(gameObject); return; }
@@ -14,6 +15,7 @@ public class StoneSpawner : MonoBehaviour
 
     [Header("Stone 목록 (SO)")]
     public List<StoneData> stoneDataList;      // Inspector에서 SO Drag & Drop
+    public StoneData penaltyStoneData; // Penalty 돌 데이터
 
     [Header("Spawn Slots (4개)")]
     public Transform[] spawnSlots = new Transform[4];
@@ -50,7 +52,10 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
-        StoneData data = GetRandomStoneData();
+        StoneData data;
+        if (Penalty) data = GetPenaltyStoneData();
+        else data = GetRandomStoneData();
+
         GameObject go = Instantiate(data.backgroundPrefab, slot.position,
                                        Quaternion.identity, slot);
 
@@ -83,6 +88,11 @@ public class StoneSpawner : MonoBehaviour
         return stoneDataList[0]; // fallback
     }
 
+    StoneData GetPenaltyStoneData()
+    {
+        return penaltyStoneData;
+    }
+
     // Stub → Playable 변환 
     int currentOrder;
     public void SpawnPlayableAndBeginDrag(StoneController stub)
@@ -97,6 +107,12 @@ public class StoneSpawner : MonoBehaviour
         Transform slot = stub.transform.parent;
         RemoveStubFromSlot(slot);
         ScheduleStub(slot, defaultSpawnDelay);
+
+        if (Penalty)
+        {
+            Penalty = false;
+            //Bosal.Speak("받아들였으니, 이제 그 무게는 너를 짓누르지 않을 것이라.");
+        }
     }
 
     void BringToFront(SpriteRenderer sr)
