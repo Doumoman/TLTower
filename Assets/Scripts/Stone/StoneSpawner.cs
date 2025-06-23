@@ -61,8 +61,8 @@ public class StoneSpawner : MonoBehaviour
         var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
         sc.InitAsBackground(data, chosenSpr);
 
-        if (go.TryGetComponent<StoneCounter>(out StoneCounter scnt)) go.AddComponent<StoneCounter>();
-        if (go.TryGetComponent<StoneFreezer>(out StoneFreezer sf)) go.AddComponent<StoneFreezer>();
+        if (!go.TryGetComponent<StoneCounter>(out StoneCounter scnt)) go.AddComponent<StoneCounter>();
+        if (!go.TryGetComponent<StoneFreezer>(out StoneFreezer sf)) go.AddComponent<StoneFreezer>();
 
         slotToStub[slot] = sc;
         active.Add(sc);
