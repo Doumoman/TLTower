@@ -191,3 +191,9 @@ MonoBehaviour:
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
+  autoConfigureDistance: 1
+  springDistance: 0.1
+  springFrequency: 12
+  springDamping: 0.9
+  springBreakForce: 0.3
+  stickyCloudLayerName: StickyCloud
