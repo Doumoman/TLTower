@@ -1,3 +1,4 @@
+/*
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -127,3 +128,4 @@ public class CloudAnchor : MonoBehaviour, IDragHandler, IPointerDownHandler, IPo
         return count;
     }
 }
+*/

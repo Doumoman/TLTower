@@ -12,6 +12,7 @@ TagManager:
   - CloudChild
   - Snow
   - Birdpoop
+  - StickyCloud
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - CloudChild
   - Water
   - UI
-  - 
-  - 
-  - 
+  - StickyCloud
+  - Dragging
+  - StickyLayer
   - 
   - 
   - 
