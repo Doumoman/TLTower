@@ -5070,7 +5070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &195804321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20889,6 +20889,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: -246.321, y: 90, z: -90}
+--- !u!1 &1281971015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281971017}
+  - component: {fileID: 1281971016}
+  m_Layer: 0
+  m_Name: ChapterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1281971016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281971015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapter: 0
+  stonesForChapter: 02000000030000000a0000001100000019000000
+  chance: 0.1
+  obstaclesSpan: 30
+  summonCount: 5
+  birdSpawner: {fileID: 195804320}
+  rain: {fileID: 1224223809}
+  wind: {fileID: 31691765}
+  snowParticle: {fileID: 48269757}
+--- !u!4 &1281971017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281971015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.988206, y: 30.979132, z: -0.091020845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343846265
 GameObject:
   m_ObjectHideFlags: 0
@@ -21830,3 +21883,4 @@ SceneRoots:
   - {fileID: 1243338725}
   - {fileID: 2336994}
   - {fileID: 1727458001}
+  - {fileID: 1281971017}
