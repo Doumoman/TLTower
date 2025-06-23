@@ -24,6 +24,7 @@ public class StoneData : ScriptableObject
     public float mass = 1f;
     public float angularDrag = 0.05f; // 회전마찰력 계수 클수록 회전이 잘 안됨
     public float gravityScale = 1f;
+    public Vector2 scale;
 
     [Tooltip("PhysicsMaterial2D를 연결하면 마찰·반발계수를 자동으로 적용")]
     public PhysicsMaterial2D material2D;
