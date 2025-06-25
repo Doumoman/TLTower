@@ -41,6 +41,12 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     public float springDamping = 0.5f;
     public float springBreakForce = 0f;
 
+    [Header("Gravity Zone (Sticky 전용)")]
+    [SerializeField] GameObject gravityZone;
+
+    [Header("Drag / Release Gravity")]
+    [SerializeField] float dragGravity = 0f;    // 끌 때
+    [SerializeField] float releasedGravity = 0.02f;
     Rigidbody2D anchorRb;
     readonly List<Rigidbody2D> childRbs = new();
 
@@ -54,6 +60,7 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         anchorRb.bodyType = RigidbodyType2D.Kinematic;
         anchorRb.gravityScale = 0f;
         anchorRb.simulated = true;
+        if (gravityZone) gravityZone.SetActive(false);
     }
 
     void Start()
@@ -134,8 +141,14 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     {
         curState = CloudState.Dragging;
         anchorRb.bodyType = RigidbodyType2D.Kinematic;
+        anchorRb.gravityScale = dragGravity;        // 중력 OFF
         anchorRb.WakeUp();
 
+        anchorRb.velocity = Vector2.zero;
+        anchorRb.angularVelocity = 0f;
+        ZeroChildrenVelocity();
+
+        SetChildrenGravity(dragGravity);            // 자식도 중력 OFF
         SetLayerRecursively(transform, draggingLayer);
     }
 
@@ -149,15 +162,39 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     {
         curState = CloudState.Sticky;
 
-        anchorRb.bodyType = RigidbodyType2D.Static;   // 다시 못 움직이게 하려면 그대로
-
+        anchorRb.bodyType = RigidbodyType2D.Dynamic;   // 다시 못 움직이게 하려면 그대로
+        anchorRb.gravityScale = releasedGravity;
+        SetChildrenGravity(releasedGravity);
         // StickyCloud 레이어로 전환
         SetLayerRecursively(transform, stickyLayer);
+        if (gravityZone) gravityZone.SetActive(true);
     }
     void SetLayerRecursively(Transform root, int layer)
     {
         root.gameObject.layer = layer;
         foreach (Transform c in root)
             SetLayerRecursively(c, layer);
+    }
+    void SetChildrenGravity(float g)
+    {
+        foreach (Transform c in transform)
+        {
+            if (gravityZone && c == gravityZone.transform) continue; // 블랙홀 제외
+            var rb = c.GetComponent<Rigidbody2D>();
+            if (rb) rb.gravityScale = g;
+        }
+    }
+    void ZeroChildrenVelocity()
+    {
+        foreach (Transform c in transform)
+        {
+            if (gravityZone && c == gravityZone.transform) continue; // 블랙홀 제외
+            var rb = c.GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            }
+        }
     }
 }

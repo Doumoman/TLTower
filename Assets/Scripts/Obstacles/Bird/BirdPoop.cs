@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D)), RequireComponent(typeof(Rigidbody2D))]
 public class BirdPoop : MonoBehaviour
 {
-    readonly List<StoneController> caught = new();
+    readonly List<StoneController> caught = new(); 
+    StoneController anchor;
     bool fused;   // Fuse 한 번만 수행
 
     void OnTriggerEnter2D(Collider2D col)
@@ -16,27 +16,53 @@ public class BirdPoop : MonoBehaviour
         if (!col.TryGetComponent(out StoneController sc)) return;
 
         // Settled 인 돌만 인정
-        if (sc.state is not (StoneState.Settled)) return;
+        if (sc.state != StoneState.Settled && sc.state != StoneState.Dropping)
+            return;
         // Fixed 돌이랑 부딪히면 제거
         if (sc.state is (StoneState.Fixed)) Destroy(gameObject); ;
 
         // 같은 Rigidbody(=이미 같은 덩어리)면 무시
-        var rbThis = sc.GetComponent<Rigidbody2D>();
-        if (caught.Exists(t => t.GetComponent<Rigidbody2D>() == rbThis)) return;
+        if (anchor == null)
+        {
+            StickTo(sc);   // 여기서 새똥 정지 & 고정
+            return;        // 두 번째 돌을 기다린다
+        }
 
-        caught.Add(sc);
+        if (sc == anchor || caught.Contains(sc)) return;
+
+        caught.Add(sc);                                   // 두 번째 돌 등록
         Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
 
         if (caught.Count >= 2)
             FuseNow();
     }
+    void StickTo(StoneController first)
+    {
+        anchor = first;
+        caught.Add(first);
+
+        // Rigidbody2D 를 그대로 두되 완전히 ‘멈춘’ 상태로 바꿈
+        var rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Kinematic; // 중력·충돌력 無
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        // 필요하면 회전/이동 모두 잠그기
+        // rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        foreach (var myCol in GetComponents<Collider2D>())
+            foreach (var stCol in first.GetComponentsInChildren<Collider2D>())
+                Physics2D.IgnoreCollision(myCol, stCol, true);
+        // 돌에 자식으로 붙이기 → 돌을 드래그하면 새똥도 같이 이동
+        transform.SetParent(first.transform, true);
+    }
     void FuseNow()
     {
+        if (anchor == null) return;
         fused = true;
         Debug.Log("[Glue] FuseNow");
 
         // 리더 선정--첫 번째 감지된 돌
-        var leader = caught[0];
+        var leader = anchor;
         var rbLead = leader.GetComponent<Rigidbody2D>();
         if (!rbLead) rbLead = leader.gameObject.AddComponent<Rigidbody2D>();
         rbLead.bodyType = RigidbodyType2D.Dynamic;   // 반드시 Dynamic/Static
@@ -46,6 +72,7 @@ public class BirdPoop : MonoBehaviour
         for (int i = 1; i < caught.Count; ++i)
         {
             var sc = caught[i];
+            if (sc == leader) continue;
             sc.SetFixed();
             sc.transform.SetParent(leader.transform, true);
             var rb = sc.GetComponent<Rigidbody2D>();
