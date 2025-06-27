@@ -6266,7 +6266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoneDataList:
-  - {fileID: 11400000, guid: 23381df1929afd047a482a0b80b4e779, type: 2}
+  - {fileID: 11400000, guid: d02c107b1d7f42c4481c61a594ba230f, type: 2}
+  - {fileID: 11400000, guid: eb18d4deb19372d49a563f953ac01fd8, type: 2}
+  - {fileID: 11400000, guid: 67f4426706a8a19409f9b6ac05e22185, type: 2}
+  - {fileID: 11400000, guid: 77803e316ce351540830fc0cb277e852, type: 2}
   penaltyStoneData:
   - {fileID: 11400000, guid: 7c0ab14be254ec44592eb9f66bf72d32, type: 2}
   spawnSlots:

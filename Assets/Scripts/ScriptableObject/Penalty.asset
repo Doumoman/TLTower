@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743695bf585153942b73b2122a8ab230, type: 3}
   m_Name: Penalty
   m_EditorClassIdentifier: 
+  typeId: 99
   stoneName: BN
   sprites:
   - {fileID: 21300000, guid: 719e38742b8405a41a4edd6259d84146, type: 3}

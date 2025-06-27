@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743695bf585153942b73b2122a8ab230, type: 3}
   m_Name: ZY Stone
   m_EditorClassIdentifier: 
+  typeId: 3
   stoneName: ZY
   sprites:
   - {fileID: 1807136874, guid: 3339039cf3d30074f84a629663527f85, type: 3}
@@ -23,5 +24,6 @@ MonoBehaviour:
   mass: 1
   angularDrag: 0.05
   gravityScale: 1
+  scale: {x: 0, y: 0}
   material2D: {fileID: 6200000, guid: 1597eeea41d97dc41a4e183c8aa2f498, type: 2}
   spawnChance: 0.15

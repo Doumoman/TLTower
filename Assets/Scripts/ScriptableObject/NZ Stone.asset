@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743695bf585153942b73b2122a8ab230, type: 3}
   m_Name: NZ Stone
   m_EditorClassIdentifier: 
+  typeId: 2
   stoneName: NZ
   sprites:
   - {fileID: -314587092, guid: 3339039cf3d30074f84a629663527f85, type: 3}
@@ -22,5 +23,6 @@ MonoBehaviour:
   mass: 4
   angularDrag: 0.2
   gravityScale: 1
+  scale: {x: 0, y: 0}
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   spawnChance: 0.2

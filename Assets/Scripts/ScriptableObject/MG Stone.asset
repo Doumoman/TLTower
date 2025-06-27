@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743695bf585153942b73b2122a8ab230, type: 3}
   m_Name: MG Stone
   m_EditorClassIdentifier: 
+  typeId: 1
   stoneName: MG
   sprites:
   - {fileID: 1515797465, guid: 3339039cf3d30074f84a629663527f85, type: 3}
@@ -23,5 +24,6 @@ MonoBehaviour:
   mass: 15
   angularDrag: 0.15
   gravityScale: 1
+  scale: {x: 0, y: 0}
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   spawnChance: 0.15
