@@ -4,24 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum chapter {ground, spring, summer, autumn, winter, space};
+public enum chapter {land, spring, summer, autumn, winter, space};
 public class ChapterManager : MonoBehaviour
 {
-    public chapter chapter = chapter.ground;
+    public chapter chapter = chapter.land;
+
+    [Header("References")]
+    public List<GameObject> springObstacles;
+    public List<GameObject> summerObstacles;
+    public List<GameObject> autumnObstacles;
+    public List<GameObject> winterObstacles;
+
+    [Header("Settings")]
     public int[] stonesForChapter = {  };
-    [Range(0, 1)] public float chance = 0.1f;
-    public float obstaclesSpan = 30f;
-    public int summonCount = 5;
+    
     int stoneCount = 0;
-    int summonCounter = 0;
     int idx = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
+    List<GameObject> currentObstacles = new List<GameObject>();
     public event EventHandler onChapterChage;
-
-    public GameObject birdSpawner;
-    public GameObject rain;
-    public GameObject wind;
-    public GameObject snowParticle;
+    public event EventHandler onSetteled;
 
     public static ChapterManager Instance;
 
@@ -37,91 +39,58 @@ public class ChapterManager : MonoBehaviour
         }
     }
 
-    //void Start()
-    //{
-    //    TickManager.Instance.OnTickEvent += TickEvent;
-    //}
-
     //돌 개수 늘어날 때 마다 챕터전환 확인
     void ChangeChapter()
     {
-        chapter[] arr = { chapter.ground, chapter.spring, chapter.summer,
+        chapter[] arr = { chapter.land, chapter.spring, chapter.summer,
             chapter.autumn, chapter.winter, chapter.space };
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])
         {
             chapter = arr[++idx];
+            SetObstacle();
             onChapterChage?.Invoke(this, EventArgs.Empty);
             Debug.Log(chapter);
         }
     }
-    public void AddCount() { stoneCount += 1; CreateObstacle(); ChangeChapter(); }
+    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); ChangeChapter(); }
     public void RemoveCount() { stoneCount -= 1; }
 
-    //void TickEvent(object sender, System.EventArgs eventArgs)
-    //{ 
-    //   
-    //}
 
-    void CreateObstacle()
+    void SetObstacle()
     {
-        //현재 챕터의 방해물 설정
+        //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         switch (idx)
         {
-            case 0:
+            case 0: //land
                 return;
-            case 1:
-                birdSpawner.SetActive(true);
+            case 1: //spring
+                obstacles = springObstacles;
                 return;
-            case 2:
-            case 3:
-                obstacles = new List<GameObject> { rain, wind }; break;
-            case 4:
-                obstacles = new List<GameObject> { wind, snowParticle }; break;
-            case 5:
-                return;
-
+            case 2: //summer
+                obstacles = summerObstacles;
+                break;
+            case 3: //autumn
+                obstacles = autumnObstacles;
+                break;
+            case 4: //winter
+                obstacles = winterObstacles;
+                break;
+            case 5: //space
+                break;
         }
 
-        //현재 챕터 방해물들 각각 확률적으로 소환
-        summonCounter += 1;
-        if (summonCounter >= summonCount)
+        //현재 챕터에 없는 이전 챕터 요소 비활성화
+        foreach (GameObject go in currentObstacles)
         {
-            foreach (GameObject go in obstacles)
-            {
-                if (UnityEngine.Random.value <= chance)
-                {
-                    if (go == snowParticle)
-                    {
-                        ParticleSystem ps = go.GetComponent<ParticleSystem>();
-                        ps.Play();
-                        if (co.TryGetValue(go, out Coroutine c)) StopCoroutine(co[go]);
-                        co.Add(go, StartCoroutine(StopParticle(go, obstaclesSpan)));
-                    }
-                    else
-                    {
-                        go.SetActive(true);
-                        if (co.TryGetValue(go, out Coroutine c)) StopCoroutine(co[go]);
-                        co.Add(go, StartCoroutine(DisableObject(go, obstaclesSpan)));
-                    }
-                }
-            }
-            summonCounter = 0;
+            if (!obstacles.Contains(go)) go.SetActive(false);
         }
-    }
 
-    IEnumerator DisableObject(GameObject go, float waittime)
-    {
-        yield return new WaitForSeconds(waittime);
-        go.SetActive(false);
-        co.Remove(go);
-    }
-
-    IEnumerator StopParticle(GameObject go, float waittime)
-    {
-        yield return new WaitForSeconds(waittime);
-        ParticleSystem ps = go.GetComponent<ParticleSystem>();
-        ps.Stop();
-        co.Remove(go);
+        currentObstacles = obstacles;
+        //현재 챕터 요소들 각각 활성화
+        foreach (GameObject go in obstacles)
+        {
+            go.SetActive(true);
+        }
     }
 }

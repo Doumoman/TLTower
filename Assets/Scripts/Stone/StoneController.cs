@@ -80,6 +80,7 @@ public class StoneController : MonoBehaviour,
                 }
                 outlineSR.enabled = true;
                 StoneFixer.Instance?.RegisterSettled(this); //Settled 됐다고 StoneFixer 에 보고
+                ChapterManager.Instance?.AddCount(); //ChapterManger 카운트 올리기
                 settleTimer = 0;
             }
         }
@@ -352,4 +353,10 @@ public class StoneController : MonoBehaviour,
     }
     public void HideOutline() => outlineSR.enabled = false;
     public void ShowOutline(Color c) { outlineSR.color = c; outlineSR.enabled = true; }
+
+    private void OnDestroy()
+    {
+        if (state == StoneState.Dropping) return;
+        ChapterManager.Instance?.RemoveCount();  //ChapterManger에 카운트 내리기
+    }
 }

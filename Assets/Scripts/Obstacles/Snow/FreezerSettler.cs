@@ -31,7 +31,6 @@ public class FreezerSettler : MonoBehaviour
         foreach (StoneData data in sdl)
         {
             freezeTime.Add(data, timeSetting[i++]);
-            Debug.Log(data.name + $"{timeSetting[i - 1]}");
         }
 
         //오류 방지

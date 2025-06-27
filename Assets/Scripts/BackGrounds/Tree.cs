@@ -12,9 +12,11 @@ public class Tree : MonoBehaviour
     public Sprite[] spring;
     public Sprite[] summer;
     public Sprite[] autumn;
+    public Sprite[] winter;
 
     float Z;
     Dictionary<chapter, Sprite[]> seasons;
+    Sprite[] currentSp;
     GameObject lastStem;
     ChapterManager cm;
 
@@ -24,14 +26,17 @@ public class Tree : MonoBehaviour
         Z = gameObject.transform.position.z;
         cm = ChapterManager.Instance;
         cm.onChapterChage += ChageSprite;
+
         seasons = new Dictionary<chapter, Sprite[]>()
         {
-            { chapter.ground, spring },
+            { chapter.land, spring },
             { chapter.spring, spring },
             { chapter.summer, summer },
             { chapter.autumn, autumn },
-            { chapter.winter, autumn }
+            { chapter.winter, winter },
+            { chapter.space, winter }
         };
+        currentSp = spring;
 
         if (!lastStem)
         {
@@ -40,9 +45,10 @@ public class Tree : MonoBehaviour
         }
     }
 
-
+    //나무를 계속 생성(space에선 생성x)
     void Update()
     {
+        if (ChapterManager.Instance.chapter == chapter.space) return;
         float lastY = lastStem.transform.position.y;
         if (StoneFixer.Instance.HighestSettledY > lastY)
         {
@@ -53,37 +59,22 @@ public class Tree : MonoBehaviour
         }
     }
 
+    //챕터가 바뀌면 챕터에 맞춰 스프라이트 전부 변경
     void ChageSprite(object sender, EventArgs eventArgs)
     {
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         Sprite[] sp = spring;
-        Sprite[] preSp= null;
 
         //챕터에 따라 스프라이트 선택
-        switch (cm.chapter)
-        {
-            case chapter.spring:
-                sp = spring;
-                break;
-            case chapter.summer:
-                sp = summer;
-                break;
-            case chapter.autumn:
-                sp = autumn;
-                break;
-            case chapter.winter:
-                break;
-        }
+        sp = seasons[ChapterManager.Instance.chapter];
         
-        if (spring.Contains(spriteRenderers[0].sprite)) preSp = spring;
-        else if (summer.Contains(spriteRenderers[0].sprite)) preSp = summer;
-        else if (autumn.Contains(spriteRenderers[0].sprite)) preSp = autumn;
-        
+        //이전 스프라이트 번호에 맞게 스프라이트 전환
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
-            if (preSp == null) break;
-            int index = Array.FindIndex(preSp, x => x == spriteRenderer.sprite);
+            if (currentSp == sp) break;
+            int index = Array.FindIndex(currentSp, x => x == spriteRenderer.sprite);
             spriteRenderer.sprite = sp[index];
         }
+        currentSp = sp;
     }
 }

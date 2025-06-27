@@ -1,30 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.InputManagerEntry;
 
 public class RainSystemTest : MonoBehaviour
 {
-    private ParticleSystem ps;
     private List<StoneData> stoneDatas = new List<StoneData>();
+    int stoneCount = 0;
+    Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
+    Coroutine co;
+
+    [Range(0, 1)] public float summerChance = 0.1f;
+    [Range(0, 1)] public float autumnChance = 0.1f;
+    public float span = 30;
+    public int count = 5;
 
     [Header("References")]
-    public GameObject rainParticle;
+    public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
 
-    private void Awake()
+    private void Start()
     {
-        if (rainParticle != null)
+        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
         {
-            ps = rainParticle.GetComponent<ParticleSystem>();
-        }
-        else
-        {
-            Debug.Log("파티클 오브젝트를 찾을 수 없습니다.");
-        }
+            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}
+        };
     }
-    private void OnEnable()
+
+    void MakeRain(bool autoStop = true)
     {
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
@@ -45,8 +51,30 @@ public class RainSystemTest : MonoBehaviour
         }
 
         ps.Play();
+
+        if (!autoStop) return;
+        if (co != null) StopCoroutine(co);
+        co = StartCoroutine(StopDelay());
     }
-    private void OnDisable()
+
+    private void AddStone(object sender, EventArgs eventArgs)
+    {
+        stoneCount++;
+        if (stoneCount >= count)
+        {
+            stoneCount = 0;
+            if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
+            MakeRain();
+        }
+    }
+
+    IEnumerator StopDelay()   //일정 시간 후 끄기
+    {
+        yield return new WaitForSeconds(span);
+        StopRain();
+        co = null;
+    }
+    private void StopRain()
     {
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
@@ -61,11 +89,20 @@ public class RainSystemTest : MonoBehaviour
             PolygonCollider2D[] colliders = stone.GetComponents<PolygonCollider2D>();
             foreach (var col in colliders)
             {
-                if (col.sharedMaterial != rainy) continue; 
+                if (col.sharedMaterial != rainy) continue;
                 col.sharedMaterial = normal;
             }
         }
 
         ps.Stop();
+    }
+    private void OnEnable()
+    {
+        ChapterManager.Instance.onSetteled += AddStone;
+    }
+    private void OnDisable()
+    { 
+        StopRain();
+        ChapterManager.Instance.onSetteled -= AddStone;
     }
 }
