@@ -22,6 +22,7 @@ public class StoneFixer : MonoBehaviour
     public GameObject savePointPrefab;                 // 막대 프리팹 (IsTrigger 콜라이더 포함)
     GameObject currentSavePoint;
     public float HighestSettledY { get; private set; } = 0f;
+    public float HighestFixedY { get; private set; } = 0f;
 
     readonly List<StoneController> batch = new();   // 이번 라운드 Settled
     int wave = 0;                                   // 몇 번째 묶음인지
@@ -37,6 +38,8 @@ public class StoneFixer : MonoBehaviour
             HighestSettledY = sc.transform.position.y;
             CameraController.Instance.CenterOnY(HighestSettledY);
         }
+        if (sc.transform.position.y > HighestFixedY)
+            HighestFixedY = sc.transform.position.y;
         // 중복 방지
         if (!batch.Contains(sc)) batch.Add(sc);
         UpdateUI();
@@ -100,6 +103,9 @@ public class StoneFixer : MonoBehaviour
         batch.Clear();
         UpdateUI();
 
+        HighestFixedY = GetHighestFixedYInScene();
+        CameraController.Instance.CenterOnY(HighestFixedY);
+
         // SavePoint 오브젝트 제거
         if (currentSavePoint) Destroy(currentSavePoint);
         currentSavePoint = null;
@@ -153,8 +159,34 @@ public class StoneFixer : MonoBehaviour
         Destroy(comp);
     }
     #endregion
+    float GetHighestFixedYInScene()
+    {
+        float top = 0f;
+        foreach (var s in FindObjectsOfType<StoneController>())
+            if (s.state == StoneState.Fixed && s.transform.position.y > top)
+                top = s.transform.position.y;
+        return top;
+    }
+    public void RefreshHeightsFromScene()
+    {
+        HighestSettledY = 0f;
+        HighestFixedY = 0f;
 
+        foreach (var s in FindObjectsOfType<StoneController>())
+        {
+            float y = s.transform.position.y;
 
+            if (s.state == StoneState.Settled && y > HighestSettledY)
+                HighestSettledY = y;
+
+            if (s.state == StoneState.Fixed && y > HighestFixedY)
+                HighestFixedY = y;
+        }
+
+        // Fixed 돌이 없으면 Settled 값이라도 써야 함
+        if (HighestFixedY < HighestSettledY)
+            HighestFixedY = HighestSettledY;
+    }
     // 추락한 돌이 파괴되면 StoneDespawnZone → NotifyStoneLost 로 보고
     public void NotifyStoneLost(StoneController sc)
     {

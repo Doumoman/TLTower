@@ -28,7 +28,9 @@ public class CameraController : MonoBehaviour
     // 터치한 지점으로부터 터치 드래그가 이루어지면 시작했던 위치와 드래그된 위치를 빼서 그 위치만큼 드래그가 되도록.
 
     [Header("Clamp Range")]
-    [SerializeField] private float minY = 0f;
+    [SerializeField] private float minY = 0f;          // 바닥
+    [SerializeField] private float topPadding = 1.5f;  // 돌 위에 보이는 여유 공간
+
 
     private void Awake()
     {
@@ -77,7 +79,6 @@ public class CameraController : MonoBehaviour
 
         UpdateFollowers(); // followWithCamera 동기화
     }
-
     private void HandlePointerInput() // 입력 처리 (Y축 전용)
     {
         bool pointerDown;
@@ -136,8 +137,22 @@ public class CameraController : MonoBehaviour
             _directionForce = Vector3.zero;
     }
     private float _smoothVelocity;  // SmoothDamp 내부 상태
-   
-    
+
+    private float TopLimit
+    {
+        get
+        {
+            // StoneFixer 싱글톤이 아직 없다면 제한 없음
+            if (StoneFixer.Instance == null)
+                return Mathf.Infinity;
+
+            // Fixed 높이가 있으면 우선, 없으면 Settled 높이라도 사용
+            float h = Mathf.Max(StoneFixer.Instance.HighestFixedY,
+                                StoneFixer.Instance.HighestSettledY);
+
+            return h + topPadding;
+        }
+    }
 
     private void MoveCamera() //카메라 이동 (Y축 전용)
     {
@@ -145,12 +160,8 @@ public class CameraController : MonoBehaviour
 
         Vector3 targetPos = transform.position + _directionForce;
 
-        // 위쪽 한계를 StoneFixer의 가장 높은 돌 로 설정 
-        float topLimit = StoneFixer.Instance              // 싱글톤이 살아있고
-                       ? StoneFixer.Instance.HighestSettledY // 가장 높은 Settled 돌 Y
-                       : Mathf.Infinity;                   // (없으면 무한)
 
-        targetPos.y = Mathf.Clamp(targetPos.y, minY, topLimit);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);
 
         targetPos.x = transform.position.x;
         targetPos.z = transform.position.z;
@@ -173,6 +184,17 @@ public class CameraController : MonoBehaviour
     {
         if (_centerRoutine != null)
             StopCoroutine(_centerRoutine);
+
+        if (duration <= 0f)
+        {
+            Vector3 pos = transform.position;
+            pos.y = y;
+            transform.position = pos;
+
+            _directionForce = Vector3.zero;   // 관성 제거
+            _userMoveInput = false;          // 입력 플래그 리셋
+            return;
+        }
 
         _centerRoutine = StartCoroutine(CoCenterY(y, duration));
     }
