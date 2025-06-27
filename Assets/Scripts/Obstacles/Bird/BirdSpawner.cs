@@ -34,21 +34,24 @@ public class BirdSpawner : MonoBehaviour
         }
         */
 
-        if (spanCount-- <= 0 && Random.value < birdChance)
+        if (spanCount-- <= 0)
         {
-            //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
-            CreateBird(); //사운드 딜레이 이후 새 생성
-            span = Random.Range(cycleSpanMin, cycleSpanMax);
-            spanCount = span;
-            Debug.Log("BirdSpawner: Created a bird.");
-        }
-        else if (spanCount-- <= 0)
-        {
-            //Play("BirdPoopSpawn", SoundType.SFX, 0); // 사운드 플레이
-            CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성성
-            span = Random.Range(cycleSpanMin, cycleSpanMax);
-            spanCount = span;
-            Debug.Log("BirdSpawner: Created a bird poop.");
+            if (Random.value < birdChance)
+            {
+                //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
+                CreateBird(); //사운드 딜레이 이후 새 생성
+                span = Random.Range(cycleSpanMin, cycleSpanMax);
+                spanCount = span;
+                Debug.Log("BirdSpawner: Created a bird.");
+            }
+            else
+            {
+                //Play("BirdPoopSpawn", SoundType.SFX, 0); // 사운드 플레이
+                CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성성
+                span = Random.Range(cycleSpanMin, cycleSpanMax);
+                spanCount = span;
+                Debug.Log("BirdSpawner: Created a bird poop.");
+            }
         }
     }
     void MakeNotice()

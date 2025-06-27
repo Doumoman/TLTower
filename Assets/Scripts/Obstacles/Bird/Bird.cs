@@ -14,6 +14,7 @@ public class Bird : MonoBehaviour
     //private FixedJoint2D joint;
     private Coroutine coroutine;
     private float timer;
+    private Animator animator;
 
     [Header("Settings")]
     public float flyTime;
@@ -28,6 +29,8 @@ public class Bird : MonoBehaviour
         coroutine = StartCoroutine(FlyToPoint(stone, surfacePoint));
         stonePoint = satStone.transform.position;
         timer = 0f;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -95,7 +98,8 @@ public class Bird : MonoBehaviour
     //날아가는 코루틴 함수를 실행
     void Go(bool istouched)
     {
-        //앉은 상태였으면 돌에 힘 가하기
+        animator.SetInteger("state", 2);
+        //앉은 상태였으면 일정 확률로 돌 가져가기
         if (state == BirdState.sat)
         {
             if (satStone != null)
@@ -116,6 +120,7 @@ public class Bird : MonoBehaviour
     //돌 가져가기
     void ForceRock()
     {
+        //물리법칙 비활성화 후 자식 오브젝트로 옮김
         Rigidbody2D rb = satStone.GetComponent<Rigidbody2D>();
         PolygonCollider2D[] cols = satStone.GetComponents<PolygonCollider2D>();
         rb.isKinematic = true;
@@ -124,6 +129,10 @@ public class Bird : MonoBehaviour
             col.enabled = false;
         }
         satStone.transform.SetParent(transform);
+
+        //StoneFixer에 돌 개수 감소 보고
+        StoneController sc = GetComponentInChildren<StoneController>();
+        if (sc != null) StoneFixer.Instance.NotifyStoneLost(sc);
     }
 
     //돌의 표면까지 날아가기
@@ -140,6 +149,7 @@ public class Bird : MonoBehaviour
             if (Vector2.Distance(flyPoint, gameObject.transform.position) < 0.1f) break;
         }
         state = BirdState.sat;
+        animator.SetInteger("state", 1);
     }
 
     //새 퇴장 함수
@@ -155,6 +165,7 @@ public class Bird : MonoBehaviour
             transform.position = Vector2.SmoothDamp(currentPoint, goPoint, ref velocity, flyTime);
             if (Vector2.Distance(goPoint, gameObject.transform.position) < 1f) break;
         }
+
         Destroy(gameObject);
         yield break;
     }

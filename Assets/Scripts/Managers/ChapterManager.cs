@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ public class ChapterManager : MonoBehaviour
     int summonCounter = 0;
     int idx = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
+    public event EventHandler onChapterChage;
 
     public GameObject birdSpawner;
     public GameObject rain;
@@ -34,12 +36,13 @@ public class ChapterManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        TickManager.Instance.OnTickEvent += TickEvent;
-    }
 
+    //void Start()
+    //{
+    //    TickManager.Instance.OnTickEvent += TickEvent;
+    //}
+
+    //돌 개수 늘어날 때 마다 챕터전환 확인
     void ChangeChapter()
     {
         chapter[] arr = { chapter.ground, chapter.spring, chapter.summer,
@@ -47,19 +50,21 @@ public class ChapterManager : MonoBehaviour
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])
         {
             chapter = arr[++idx];
+            onChapterChage?.Invoke(this, EventArgs.Empty);
             Debug.Log(chapter);
         }
     }
     public void AddCount() { stoneCount += 1; CreateObstacle(); ChangeChapter(); }
     public void RemoveCount() { stoneCount -= 1; }
 
-    void TickEvent(object sender, System.EventArgs eventArgs)
-    { 
-        
-    }
+    //void TickEvent(object sender, System.EventArgs eventArgs)
+    //{ 
+    //   
+    //}
 
     void CreateObstacle()
     {
+        //현재 챕터의 방해물 설정
         List<GameObject> obstacles = new List<GameObject>();
         switch (idx)
         {
@@ -78,12 +83,13 @@ public class ChapterManager : MonoBehaviour
 
         }
 
+        //현재 챕터 방해물들 각각 확률적으로 소환
         summonCounter += 1;
         if (summonCounter >= summonCount)
         {
             foreach (GameObject go in obstacles)
             {
-                if (Random.value <= chance)
+                if (UnityEngine.Random.value <= chance)
                 {
                     if (go == snowParticle)
                     {

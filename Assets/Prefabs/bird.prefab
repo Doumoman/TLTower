@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5058231083119010829}
   - component: {fileID: 3292505520622588891}
+  - component: {fileID: 3746864081178183173}
   m_Layer: 0
   m_Name: birdimage
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.2943, y: 0.9244, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7419946587606634449}
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9999
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.022523403, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 93cc36ce6454d534490e4b6f0f1c2eb9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3746864081178183173
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251198313253123841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2818f6750890e44099d5251d5cb9e99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2276942907412917377
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,10 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd2a7be54621f54695e9b16051f6f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fly: {fileID: 0}
+  sat: {fileID: 0}
   flyTime: 0.8
   moveDeadZone: 0.5
   forceChance: 0.3
-  forcePower: 10
 --- !u!50 &-3809265463360559408
 Rigidbody2D:
   serializedVersion: 4
