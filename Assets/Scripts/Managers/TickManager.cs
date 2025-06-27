@@ -6,7 +6,6 @@ using UnityEngine;
 public class TickManager : MonoBehaviour
 {
     public float Tick = 4f; // 이벤트 발생시킬 시간 설정
-    private float timer = 0f;
     public event EventHandler OnTickEvent;
 
     public static TickManager instance;
@@ -14,15 +13,16 @@ public class TickManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             Instance = this;
         }
-        else {
-    Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
         }
     }
-    
+
     public void StartTick()
     {
         StartCoroutine(EventEveryTick(Tick));
@@ -53,4 +53,32 @@ public class TickManager : MonoBehaviour
     {
         StopCoroutine(EventEveryTick(Tick));
     }
+
+    //ticks만큼 대기하는 메서드, TickManager.Instance.WaitForTicks(2, () => 다음 동작); 과 같이 호출
+    public void WaitForTicks(int ticks, Action onComplete)
+{
+    int count = 0;
+
+    void Handler()
+    {
+        count++;
+        if (count >= ticks)
+        {
+            OnTickEvent -= (sender, e) => Handler();
+            onComplete?.Invoke();
+        }
+    }
+
+    EventHandler handler = null;
+    handler = (sender, e) =>
+    {
+        count++;
+        if (count >= ticks)
+        {
+            OnTickEvent -= handler;
+            onComplete?.Invoke();
+        }
+    };
+    OnTickEvent += handler;
+}
 }

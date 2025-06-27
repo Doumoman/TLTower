@@ -20,6 +20,8 @@ public class StoneController : MonoBehaviour,
     public StoneData Data { get; private set; }
     public static bool AnyStoneBeingDragged { get; private set; }
 
+    public bool DespawnerCheck = false; //StoneDespawnerZone에서 collider가 두 번 적용되는 버그 방지
+
     [Header("StoneSettled")]
     SpriteRenderer outlineSR;
     [SerializeField] float settleCheckTime = .3f;
@@ -71,6 +73,11 @@ public class StoneController : MonoBehaviour,
             if (settleTimer >= settleCheckTime)
             {
                 state = StoneState.Settled;
+                if (stoneTypeIndex == 99)
+                {
+                    PenaltyManager.Instance.PenaltyStoneSettled(); // 번뇌돌 Settled 보고, PenaltyManager에서 효과 관리
+                    Debug.Log("번뇌돌 Settled");
+                }
                 outlineSR.enabled = true;
                 StoneFixer.Instance?.RegisterSettled(this); //Settled 됐다고 StoneFixer 에 보고
                 settleTimer = 0;

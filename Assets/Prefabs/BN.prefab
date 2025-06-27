@@ -490,5 +490,5 @@ MonoBehaviour:
   autoConfigureDistance: 1
   springDistance: 0.1
   springFrequency: 6
-  springDamping: 0.9
+  springDamping: 0.895
   springBreakForce: 0

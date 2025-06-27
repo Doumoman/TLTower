@@ -6,7 +6,7 @@ using System.Linq;
 public class StoneSpawner : MonoBehaviour
 {
     public static StoneSpawner Instance { get; private set; }
-    public bool Penalty = false; // true면 다음 돌이 번뇌돌
+    public static bool Penalty = false; // true면 다음 돌이 번뇌돌, PenaltyManager에서 관리
     void Awake()
     {
         if (Instance && Instance != this) { Destroy(gameObject); return; }
@@ -15,7 +15,7 @@ public class StoneSpawner : MonoBehaviour
 
     [Header("Stone 목록 (SO)")]
     public List<StoneData> stoneDataList;      // Inspector에서 SO Drag & Drop
-    public StoneData penaltyStoneData; // Penalty 돌 데이터
+    public List<StoneData> penaltyStoneData; // Penalty 돌 데이터
 
     [Header("Spawn Slots (4개)")]
     public Transform[] spawnSlots = new Transform[4];
@@ -53,13 +53,21 @@ public class StoneSpawner : MonoBehaviour
     void CreateStubAtSlot(Transform slot)
     {
         StoneData data;
-        if (Penalty) data = GetPenaltyStoneData();
-        else data = GetRandomStoneData();
+        Sprite chosenSpr;
+        if (Penalty)
+        {
+            data = GetPenaltyStoneData();
+            chosenSpr = data.GetRandomSprite();
+        }
+        else
+        {
+            data = GetRandomStoneData();
+            chosenSpr = data.GetRandomSprite();
+        }
 
         GameObject go = Instantiate(data.backgroundPrefab, slot.position,
                                        Quaternion.identity, slot);
 
-        Sprite chosenSpr = data.GetRandomSprite();
         var sr = go.GetComponent<SpriteRenderer>();
         if (sr) sr.sprite = chosenSpr;
 
@@ -90,7 +98,8 @@ public class StoneSpawner : MonoBehaviour
 
     StoneData GetPenaltyStoneData()
     {
-        return penaltyStoneData;
+        Penalty = false; // Penalty 상태 초기화
+        return penaltyStoneData[0];
     }
 
     // Stub → Playable 변환 
@@ -107,12 +116,6 @@ public class StoneSpawner : MonoBehaviour
         Transform slot = stub.transform.parent;
         RemoveStubFromSlot(slot);
         ScheduleStub(slot, defaultSpawnDelay);
-
-        if (Penalty)
-        {
-            Penalty = false;
-            //Bosal.Speak("받아들였으니, 이제 그 무게는 너를 짓누르지 않을 것이라.");
-        }
     }
 
     void BringToFront(SpriteRenderer sr)
