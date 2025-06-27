@@ -31,4 +31,9 @@ public class StoneData : ScriptableObject
 
     [Header("스폰 확률 (전체 합 = 1이면 직관적, 아니어도 상관없음)")]
     [Range(0f, 1f)] public float spawnChance = 0.2f;
+
+    public static implicit operator Sprite(StoneData v)
+    {
+        throw new System.NotImplementedException();
+    }
 }

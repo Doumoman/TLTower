@@ -5840,10 +5840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd58fb64b25e1445a1a04b91b10eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Penalty: 0
   stoneDataList:
   - {fileID: 11400000, guid: 23381df1929afd047a482a0b80b4e779, type: 2}
-  penaltyStoneData: {fileID: 11400000, guid: 7c0ab14be254ec44592eb9f66bf72d32, type: 2}
+  penaltyStoneData:
+  - {fileID: 11400000, guid: 7c0ab14be254ec44592eb9f66bf72d32, type: 2}
   spawnSlots:
   - {fileID: 515064293}
   - {fileID: 747080343}
@@ -16091,10 +16091,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoneSpawner: {fileID: 0}
-  PenaltyTimer: 0.5
+  Rain: {fileID: 1224223809}
   BosalWarning: 3
   TreeCount: 5
   PenaltyStone: 7
+  PenaltyTicks: 2
 --- !u!4 &1276775305
 Transform:
   m_ObjectHideFlags: 0
@@ -21732,9 +21733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd58fb64b25e1445a1a04b91b10eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Penalty: 0
   stoneDataList: []
-  penaltyStoneData: {fileID: 0}
+  penaltyStoneData:
+  - {fileID: 0}
   spawnSlots:
   - {fileID: 515064293}
   - {fileID: 747080343}
@@ -21931,10 +21932,11 @@ SceneRoots:
   - {fileID: 643607966}
   - {fileID: 437266827}
   - {fileID: 195804322}
-  - {fileID: 1591900209}
   - {fileID: 1224223810}
+  - {fileID: 1591900209}
   - {fileID: 31691766}
   - {fileID: 1243338725}
   - {fileID: 2336994}
   - {fileID: 1727458001}
   - {fileID: 1276775305}
+  - {fileID: 1281971017}
