@@ -34,21 +34,6 @@ public class StoneController : MonoBehaviour,
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
 
-    [Header("Sticky-Spring Settings")]
-    [Tooltip("자연스러운 거리를 쓰고 싶으면 true")]
-    public bool autoConfigureDistance = true;
-
-    [Tooltip("autoConfigureDistance=false일 때 거리")]
-    public float springDistance = 0.1f;
-
-    [Tooltip("오실레이션(Hz). 클수록 빳빳함")]
-    public float springFrequency = 6f;
-
-    [Range(0, 1)] public float springDamping = 0.9f;
-
-    [Tooltip("0 = 절대 끊어지지 않음")]
-    public float springBreakForce = 0f;
-
     Rigidbody2D rb;
     SpriteRenderer sr;
     PolygonCollider2D physCol;   
@@ -318,40 +303,7 @@ public class StoneController : MonoBehaviour,
 
         sr.color = new Color(1, 1, 1, 0.5f);
     }
-    /*
-    [Header("구름 상호작용")]
-    [SerializeField] string stickyCloudLayerName = "StickyCloud";
-    int stickyLayer;
-    SpringJoint2D stickJoint;
-    bool stuckOnce;
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        // Dropping·Settled 상태에서만
-        if (state != StoneState.Dropping && state != StoneState.Settled) return;
-        if (col.collider.gameObject.layer != stickyLayer) return;
-        if (stuckOnce) return;                         // 이미 붙었다면 무시
 
-        ContactPoint2D cp = col.GetContact(0);         // 첫 번째 접촉점
-        Vector2 hitPoint = cp.point;                  // 월드 좌표
-
-        stickJoint = gameObject.AddComponent<SpringJoint2D>();
-
-        stickJoint.autoConfigureConnectedAnchor = false;
-        stickJoint.connectedBody = null;            // 월드 좌표 기준
-        stickJoint.connectedAnchor = hitPoint;        // 바로 그 지점
-
-        stickJoint.autoConfigureDistance = false;
-        stickJoint.distance = 0f;                // 0 → 완전 붙음
-        stickJoint.frequency = springFrequency;   // 인스펙터 값
-        stickJoint.dampingRatio = springDamping;     // 인스펙터 값
-        stickJoint.breakForce = springBreakForce;  // 인스펙터 값
-
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-
-        stuckOnce = true;        // 다시 만들지 않도록 표시
-    }
-*/
     Vector2 ScreenToWorld() =>
     Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
