@@ -6,9 +6,9 @@ using UnityEngine;
 public class PenaltyManager : MonoBehaviour
 {
     private int counter; // 페널티 카운트
-    public bool BNstone; // 정화되지 않은 번뇌돌 카운트
+    public bool BnStone; // 정화되지 않은 번뇌돌 카운트
     public StoneSpawner StoneSpawner;
-    public GameObject Rain;
+    public RainSystemTest Rain;
     public BosalManager Bosal;
     public static PenaltyManager Instance { get; private set; }
     void Awake()
@@ -33,7 +33,7 @@ public class PenaltyManager : MonoBehaviour
     IEnumerator WaitTicksUntilRain(int ticks)
     {
         yield return TickManager.Instance.TickWait(ticks);
-        if (!Rain.activeSelf) Rain.SetActive(true); // 비 활성화
+        Rain.MakeRain(false); // 비 활성화
         Bosal.Speak("번뇌는 받아들이지 않으면 비처럼 스며드나니.");
     }
     public void PenaltyCount()
@@ -63,7 +63,7 @@ public class PenaltyManager : MonoBehaviour
     public void Penalty()
     {
         StoneSpawner.Penalty = true; // 다음 돌은 번뇌돌
-        BNstone = true;
+        BnStone = true;
         StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때
@@ -78,8 +78,7 @@ public class PenaltyManager : MonoBehaviour
         Debug.Log($"PenaltyStoneSettled called.");
         StoneSpawner.Penalty = false; // 번뇌돌이 정착되면 다음 돌은 일반 돌
         counter = 0;
-        if (Rain.activeSelf)
-            Rain.SetActive(false); // 비 비활성화
+        Rain.StopRain(); // 비 비활성화
         Debug.Log($"번뇌돌 정화! 현재 카운트: {counter}");
         Bosal.Speak("받아들였으니, 이제 그 무게는 너를 짓누르지 않을 것이다.");
         //TreeColorReset();
