@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StoneData", menuName = "Stone/New StoneData")]
 public class StoneData : ScriptableObject
 {
+    [Header("고유 ID (중복 금지)")]
+    public int typeId;
+
     [Header("기본 정보")]
     public string stoneName;
     public Sprite[] sprites;

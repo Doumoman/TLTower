@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743695bf585153942b73b2122a8ab230, type: 3}
   m_Name: ZZZZ
   m_EditorClassIdentifier: 
+  typeId: 88
   stoneName: dd
   sprites:
   - {fileID: 7482667652216324306, guid: 9790501e260757443aa3f6f031fc58fa, type: 3}
@@ -20,5 +21,6 @@ MonoBehaviour:
   mass: 1
   angularDrag: 0.05
   gravityScale: 1
+  scale: {x: 0, y: 0}
   material2D: {fileID: 0}
   spawnChance: 1

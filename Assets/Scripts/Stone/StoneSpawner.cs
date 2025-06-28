@@ -48,7 +48,8 @@ public class StoneSpawner : MonoBehaviour
             Actions.Clear();
         }; // Tick에 액션 등록 후 실행
     }
-
+    StoneData GetStoneDataById(int id) =>
+    stoneDataList.Find(d => d.typeId == id);
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
@@ -72,6 +73,7 @@ public class StoneSpawner : MonoBehaviour
         if (sr) sr.sprite = chosenSpr;
 
         var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
+        sc.SetTypeId(data.typeId);
         sc.InitAsBackground(data, chosenSpr);
 
         if (!go.TryGetComponent<StoneFreezer>(out StoneFreezer sf)) go.AddComponent<StoneFreezer>();
@@ -163,4 +165,59 @@ public class StoneSpawner : MonoBehaviour
     public void ScheduleRandomStone(float delay) =>  // 기존 API 유지
         spawnSlots.FirstOrDefault(s => !slotToStub.ContainsKey(s) && !slotTimer.ContainsKey(s))
                    ?.Let(slot => ScheduleStub(slot, delay));
+
+    StoneData GetStoneDataByIndex(int idx)
+    {
+        if (idx < 0 || idx >= stoneDataList.Count)
+        {
+            Debug.LogError($"잘못된 stoneTypeIndex = {idx}");
+            return stoneDataList[0];
+        }
+        return stoneDataList[idx];
+    }
+    public StoneController SpawnFixedStone(int typeId, Vector2 pos, float rotZ)
+    {
+        StoneData data = GetStoneDataById(typeId);
+        Sprite spr = data.GetRandomSprite();      // 같은 모양을 저장하려면 spriteIndex도 SaveData에 저장
+
+        // 프리팹 인스턴스화 (parent는 Stones 폴더)
+        GameObject go = Instantiate(
+            data.backgroundPrefab,
+            pos,
+            Quaternion.Euler(0, 0, rotZ),
+            stonesParent);
+
+        // 스프라이트/Collider 셋업
+        var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
+        sc.SetTypeId(typeId);
+        sc.InitAsBackground(data, spr);  // Collider 두 개 생성
+        sc.SetFixed();                   // 상태·태그 → Fixed
+
+        // 3) 내부 리스트 관리
+        if (!active.Contains(sc))
+            active.Add(sc);
+
+        return sc;
+    }
+    public void ResetAfterClear()
+    {
+        // 배경 돌·Active 리스트·코루틴 모두 초기화
+        foreach (var kv in slotTimer)
+            if (kv.Value != null) StopCoroutine(kv.Value);
+        slotTimer.Clear();
+
+        slotToStub.Clear();
+        active.Clear();
+    }
+    public void RebuildStubSlots()
+    {
+        foreach (var slot in spawnSlots)
+        {
+            // 혹시 남아 있는 자식 오브젝트가 있으면 제거
+            foreach (Transform child in slot) Destroy(child.gameObject);
+
+            // 새 Stub 하나 생성
+            CreateStubAtSlot(slot);
+        }
+    }
 }

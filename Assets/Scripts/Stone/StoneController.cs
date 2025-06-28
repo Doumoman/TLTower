@@ -17,6 +17,8 @@ public class StoneController : MonoBehaviour,
 
     public StoneState state = StoneState.Background;
     public int stoneTypeIndex = 0;
+    public int typeId { get; private set; }   // ← 이전 stoneTypeIndex 대체
+    public void SetTypeId(int id) => typeId = id;
     public StoneData Data { get; private set; }
     public static bool AnyStoneBeingDragged { get; private set; }
 
@@ -201,7 +203,18 @@ public class StoneController : MonoBehaviour,
         state = StoneState.Fixed;
         gameObject.tag = "FixedStone";
 
-        if (physCol) physCol.isTrigger = false;
+        gameObject.layer = LayerMask.NameToLayer("FixedStone");
+
+        if (physCol)
+        {
+            physCol.enabled = true;
+            physCol.isTrigger = false;
+        }
+        if (!TryGetComponent(out Rigidbody2D rb))
+            rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = true;
+
         if (outlineSR) outlineSR.enabled = false;
     }
     int activePointer = -1;
