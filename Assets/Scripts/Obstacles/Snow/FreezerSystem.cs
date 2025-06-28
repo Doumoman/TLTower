@@ -15,6 +15,7 @@ public class FreezerSystem : MonoBehaviour
     public int count = 5;
 
     public ParticleSystem ps;
+    public List<ParticleSystem> psList;  //그냥 눈에 보이는 용도의 파티클들
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,8 @@ public class FreezerSystem : MonoBehaviour
 
     void MakeSnow(bool autoStop = true)
     {
-        fs.freezeOnStart = true;
+        fs.freezeOnStart = true;  //생성시 부터 얼려서 돌 생성하기
+        foreach (ParticleSystem p in psList) p.Play();
 
         if (!autoStop) return;
         if (co != null) StopCoroutine(co);
@@ -52,6 +54,7 @@ public class FreezerSystem : MonoBehaviour
     void StopSnow()
     {
         fs.freezeOnStart = false;
+        foreach (ParticleSystem p in psList) p.Stop();
     }
 
     private void OnEnable() 
