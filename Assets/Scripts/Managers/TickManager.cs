@@ -7,13 +7,12 @@ public class TickManager : MonoBehaviour
 {
     public float Tick = 4f; // 이벤트 발생시킬 시간 설정
     public event EventHandler OnTickEvent;
+    public int tickCount = 0;
 
-    public static TickManager instance;
-    public static TickManager Instance;
-
+    public static TickManager Instance { get; private set; }
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -39,8 +38,9 @@ public class TickManager : MonoBehaviour
 
             if (waitTime > 0f)
             {
+                tickCount++;
                 yield return new WaitForSeconds(waitTime);
-                Debug.Log("틱!");
+                Debug.Log("틱! 현재 틱 카운트: " + tickCount);
             }
             else
             {
@@ -51,34 +51,16 @@ public class TickManager : MonoBehaviour
 
     public void StopTick()
     {
-        StopCoroutine(EventEveryTick(Tick));
+        StopAllCoroutines();
     }
 
-    //ticks만큼 대기하는 메서드, TickManager.Instance.WaitForTicks(2, () => 다음 동작); 과 같이 호출
-    public void WaitForTicks(int ticks, Action onComplete)
-{
-    int count = 0;
-
-    void Handler()
+    public IEnumerator TickWait(int ticks)
     {
-        count++;
-        if (count >= ticks)
-        {
-            OnTickEvent -= (sender, e) => Handler();
-            onComplete?.Invoke();
-        }
+        int startTick = tickCount;
+        yield return new WaitUntil
+        (
+            () =>
+            tickCount >= startTick + ticks
+        );
     }
-
-    EventHandler handler = null;
-    handler = (sender, e) =>
-    {
-        count++;
-        if (count >= ticks)
-        {
-            OnTickEvent -= handler;
-            onComplete?.Invoke();
-        }
-    };
-    OnTickEvent += handler;
-}
 }

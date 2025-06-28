@@ -26,6 +26,7 @@ public class StoneDespawnZone : MonoBehaviour
         //stone이 penaltystone이라면 PenaltyManager에서 PenaltyTrash 호출
         if (stone.state == StoneState.Dropping && stone.stoneTypeIndex == 99)
         {
+            PenaltyManager.Instance.BNstone = true;
             stone.DespawnerCheck = true;
             penaltyManager.PenaltyTrash();
         }
