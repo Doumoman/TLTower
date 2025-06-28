@@ -41,7 +41,7 @@ public class StoneFixer : MonoBehaviour
         if (sc.transform.position.y > HighestFixedY)
             HighestFixedY = sc.transform.position.y;
         // 중복 방지
-        if (!batch.Contains(sc)) batch.Add(sc);
+        if (!batch.Contains(sc)) { batch.Add(sc); ChapterManager.Instance?.AddCount(); }//ChapterManger 카운트 올리기
         UpdateUI();
 
         //조건 달성: 세이브포인트 생성 
