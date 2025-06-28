@@ -5086,11 +5086,11 @@ Transform:
   m_GameObject: {fileID: 113163051}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 5.51, z: -5.88}
+  m_LocalPosition: {x: -2.25, y: 5.51, z: 4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1322940010}
+  m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &113163053
 ParticleSystemRenderer:
@@ -5183,7 +5183,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9991,6 +9991,11 @@ MonoBehaviour:
   span: 30
   count: 7
   ps: {fileID: 48269760}
+  psList:
+  - {fileID: 113163054}
+  - {fileID: 466288392}
+  - {fileID: 932835496}
+  - {fileID: 1532207370}
 --- !u!1 &195804320
 GameObject:
   m_ObjectHideFlags: 0
@@ -10658,11 +10663,11 @@ Transform:
   m_GameObject: {fileID: 466288389}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.51, y: 5.51, z: -5.88}
+  m_LocalPosition: {x: 11.51, y: 5.51, z: 4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1322940010}
+  m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &466288391
 ParticleSystemRenderer:
@@ -10755,7 +10760,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -16042,11 +16047,11 @@ Transform:
   m_GameObject: {fileID: 932835493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 5.51, z: -5.88}
+  m_LocalPosition: {x: -2.25, y: 5.51, z: 4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1322940010}
+  m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &932835495
 ParticleSystemRenderer:
@@ -16139,7 +16144,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -36525,10 +36530,6 @@ Transform:
   m_Children:
   - {fileID: 952612108}
   - {fileID: 1084451171}
-  - {fileID: 113163052}
-  - {fileID: 466288390}
-  - {fileID: 932835494}
-  - {fileID: 1532207368}
   m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343846265
@@ -36627,6 +36628,10 @@ Transform:
   - {fileID: 48269758}
   - {fileID: 1280793120}
   - {fileID: 753061527}
+  - {fileID: 113163052}
+  - {fileID: 466288390}
+  - {fileID: 932835494}
+  - {fileID: 1532207368}
   - {fileID: 1322940010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37018,11 +37023,11 @@ Transform:
   m_GameObject: {fileID: 1532207367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.93, y: 5.51, z: -5.88}
+  m_LocalPosition: {x: 12.93, y: 5.51, z: 4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1322940010}
+  m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1532207369
 ParticleSystemRenderer:
@@ -37115,7 +37120,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

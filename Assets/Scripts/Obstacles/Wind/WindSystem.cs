@@ -53,7 +53,7 @@ public class WindSystem : MonoBehaviour
         }
     }
 
-    void MakeWind(bool autoStop = true)
+    public void MakeWind(bool autoStop = true)
     {
         //크기 설정
         ParticleSystem.ShapeModule shape = wind.shape;
@@ -77,7 +77,7 @@ public class WindSystem : MonoBehaviour
         StopWind();
         co = null;
     }
-    void StopWind() { wind.Stop(); }
+    public void StopWind() { wind.Stop(); }
 
     private void AddStone(object sender, EventArgs eventArgs)
     {

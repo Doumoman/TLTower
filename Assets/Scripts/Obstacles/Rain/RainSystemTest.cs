@@ -30,7 +30,7 @@ public class RainSystemTest : MonoBehaviour
         };
     }
 
-    void MakeRain(bool autoStop = true)
+    public void MakeRain(bool autoStop = true)
     {
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
@@ -74,7 +74,7 @@ public class RainSystemTest : MonoBehaviour
         StopRain();
         co = null;
     }
-    private void StopRain()
+    public void StopRain()
     {
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
