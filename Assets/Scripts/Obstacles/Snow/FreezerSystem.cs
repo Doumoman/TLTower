@@ -34,7 +34,7 @@ public class FreezerSystem : MonoBehaviour
         }
     }
 
-    void MakeSnow(bool autoStop = true)
+    public void MakeSnow(bool autoStop = true)
     {
         fs.freezeOnStart = true;  //생성시 부터 얼려서 돌 생성하기
         foreach (ParticleSystem p in psList) p.Play();
@@ -51,7 +51,7 @@ public class FreezerSystem : MonoBehaviour
         co = null;
     }
 
-    void StopSnow()
+    public void StopSnow()
     {
         fs.freezeOnStart = false;
         foreach (ParticleSystem p in psList) p.Stop();
