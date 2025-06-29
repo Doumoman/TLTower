@@ -1,42 +1,71 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputManagerEntry;
 
 public class RainSystem : MonoBehaviour
 {
-    private ParticleSystem ps;
     private List<StoneData> stoneDatas = new List<StoneData>();
 
+    int stoneCount = 0;
+    Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
+    Coroutine co;
+
+    [Range(0, 1)] public float summerChance = 0.1f;
+    [Range(0, 1)] public float autumnChance = 0.1f;
+    public float span = 30;
+    public int count = 5;
+
     [Header("References")]
-    public GameObject rainParticle;
+    public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
 
 
     private void Awake()
     {
-        if (rainParticle != null)
+        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
         {
-            ps = rainParticle.GetComponent<ParticleSystem>();
-        }
-        else
-        {
-            Debug.Log("파티클 오브젝트를 찾을 수 없습니다");
-        }
+            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}
+        };
     }
 
-    private void OnEnable()
+    public void MakeRain(bool autoStop = true)
     {
+        //돌 데이터마다 마찰데이터 변경
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
             if (item.material2D != normal) continue;
             item.material2D = rainy;
         }
-
         ps.Play();
+
+        if (!autoStop) return;
+        if (co != null) StopCoroutine(co);
+        co = StartCoroutine(StopDelay());
     }
-    private void OnDisable()
+
+    private void AddStone(object sender, EventArgs eventArgs)
+    {
+        stoneCount++;
+        if (stoneCount >= count)
+        {
+            stoneCount = 0;
+            if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
+            MakeRain();
+        }
+    }
+
+    IEnumerator StopDelay()   //일정 시간 후 끄기
+    {
+        yield return new WaitForSeconds(span);
+        ps.Stop();
+        co = null;
+    }
+
+    public void StopRain()
     {
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
@@ -55,5 +84,14 @@ public class RainSystem : MonoBehaviour
             }
         }
         ps.Stop();
+    }
+    private void OnEnable()
+    {
+        ChapterManager.Instance.onSetteled += AddStone;
+    }
+    private void OnDisable()
+    {
+        StopRain();
+        ChapterManager.Instance.onSetteled -= AddStone;
     }
 }

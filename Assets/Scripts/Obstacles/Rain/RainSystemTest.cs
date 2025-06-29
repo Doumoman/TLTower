@@ -22,7 +22,7 @@ public class RainSystemTest : MonoBehaviour
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
 
-    private void Start()
+    private void Awake()
     {
         seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
         {

@@ -40,19 +40,20 @@ public class ChapterManager : MonoBehaviour
     }
 
     //돌 개수 늘어날 때 마다 챕터전환 확인
-    void ChangeChapter()
+    public void ChangeChapter()
     {
         chapter[] arr = { chapter.land, chapter.spring, chapter.summer,
             chapter.autumn, chapter.winter, chapter.space };
-        if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])
+        if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
             chapter = arr[++idx];
             SetObstacle();
             onChapterChage?.Invoke(this, EventArgs.Empty);
+            stoneCount = 0;
             Debug.Log(chapter);
         }
     }
-    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); ChangeChapter(); }
+    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
     public void RemoveCount() { stoneCount -= 1; }
 
 
@@ -60,23 +61,23 @@ public class ChapterManager : MonoBehaviour
     {
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
-        switch (idx)
+        switch (chapter)
         {
-            case 0: //land
+            case chapter.land: //land
                 return;
-            case 1: //spring
+            case chapter.spring: //spring
                 obstacles = springObstacles;
-                return;
-            case 2: //summer
+                break;
+            case chapter.summer: //summer
                 obstacles = summerObstacles;
                 break;
-            case 3: //autumn
+            case chapter.autumn: //autumn
                 obstacles = autumnObstacles;
                 break;
-            case 4: //winter
+            case chapter.winter: //winter
                 obstacles = winterObstacles;
                 break;
-            case 5: //space
+            case chapter.space: //space
                 break;
         }
 
