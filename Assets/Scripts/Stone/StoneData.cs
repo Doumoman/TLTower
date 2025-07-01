@@ -10,10 +10,14 @@ public class StoneData : ScriptableObject
     public string stoneName;
     public Sprite[] sprites;
 
-    public Sprite GetRandomSprite() =>
-        sprites != null && sprites.Length > 0
-            ? sprites[Random.Range(0, sprites.Length)]
-            : null;
+    public Sprite GetRandomSprite(out int idx)
+    {
+        idx = 0;
+        if (sprites == null || sprites.Length == 0) return null;
+
+        idx = Random.Range(0, sprites.Length);
+        return sprites[idx];
+    }
 
     public Sprite GetSprite(int idx) =>
         sprites != null && idx >= 0 && idx < sprites.Length

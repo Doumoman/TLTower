@@ -6,6 +6,7 @@ using UnityEngine;
 public class StoneInfo
 {
     public int typeId;
+    public int spriteIndex;
     public float x, y;
     public float rot;
 }
