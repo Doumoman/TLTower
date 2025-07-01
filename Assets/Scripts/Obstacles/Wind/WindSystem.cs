@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindSystem : MonoBehaviour
+public class WindSystem : CountBasedObstacle
 {
     private const float Z_SIZE = 8.5f;
     private const float X_POSITION = 15;
@@ -13,8 +13,7 @@ public class WindSystem : MonoBehaviour
     [Range(0, 1)] public float summerChance = 0.1f;
     [Range(0, 1)] public float autumnChance = 0.1f;
     [Range(0, 1)] public float winterChance = 0.1f;
-    public float span = 30;
-    public int count = 5;
+    public float duration = 30;
 
     [Header("References")]
     public ParticleSystem wind;
@@ -23,16 +22,32 @@ public class WindSystem : MonoBehaviour
     public float width = 6f;
     public bool left = false;
 
-    int stoneCount = 0;
     Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
     Coroutine co;
 
-    private void Start()
+
+    public override void MakeObstacle(bool autoStop = true)
     {
-        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
-        {
-            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}, {chapter.winter, winterChance}
-        };
+        //크기 설정
+        ParticleSystem.ShapeModule shape = wind.shape;
+        shape.scale = new Vector3(width, 1, Z_SIZE);
+        shape = windcol.shape;
+        shape.scale = new Vector3(width, 1, Z_SIZE);
+        //힘 설정
+        ParticleSystem.CollisionModule collision = windcol.collision;
+        collision.colliderForce = force;
+
+        wind.Play();
+
+        if (!autoStop) return;
+        if (co != null) StopCoroutine(co);
+        co = StartCoroutine(StopDelay());
+    }
+
+    public override void RandomlyMake()
+    {
+        if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
+        MakeObstacle();
     }
 
     private void Update()
@@ -73,30 +88,24 @@ public class WindSystem : MonoBehaviour
 
     IEnumerator StopDelay()   //일정 시간 후 끄기
     {
-        yield return new WaitForSeconds(span);
+        yield return new WaitForSeconds(duration);
         StopWind();
         co = null;
     }
     public void StopWind() { wind.Stop(); }
 
-    private void AddStone(object sender, EventArgs eventArgs)
+    protected override void OnEnable()
     {
-        stoneCount++;
-        if (stoneCount >= count)
+        base.OnEnable();
+        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
         {
-            stoneCount = 0;
-            if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
-            MakeWind();
-        }
+            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}, {chapter.winter, winterChance}
+        };
     }
-    private void OnEnable()
+    protected override void OnDisable()
     {
-        ChapterManager.Instance.onSetteled += AddStone;
-    }
-    private void OnDisable()
-    {
+        base.OnDisable();
         StopWind();
-        ChapterManager.Instance.onSetteled -= AddStone;
     }
 
 }

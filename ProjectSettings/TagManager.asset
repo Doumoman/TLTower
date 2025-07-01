@@ -13,6 +13,7 @@ TagManager:
   - Snow
   - Birdpoop
   - StickyCloud
+  - Cloud
   layers:
   - Default
   - TransparentFX

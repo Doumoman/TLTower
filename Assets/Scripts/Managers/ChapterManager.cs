@@ -39,6 +39,16 @@ public class ChapterManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        //시작 챕터 감지
+        chapter[] arr = { chapter.land, chapter.spring, chapter.summer,
+            chapter.autumn, chapter.winter, chapter.space };
+        idx = Array.IndexOf(arr, chapter);
+        SetObstacle();
+        onChapterChage?.Invoke(this, EventArgs.Empty);
+    }
+
     //돌 개수 늘어날 때 마다 챕터전환 확인
     public void ChangeChapter()
     {

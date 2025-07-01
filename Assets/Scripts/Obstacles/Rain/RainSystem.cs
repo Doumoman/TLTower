@@ -4,34 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputManagerEntry;
 
-public class RainSystem : MonoBehaviour
+public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();
 
-    int stoneCount = 0;
     Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
     Coroutine co;
 
     [Range(0, 1)] public float summerChance = 0.1f;
     [Range(0, 1)] public float autumnChance = 0.1f;
-    public float span = 30;
-    public int count = 5;
+    public float duration = 30;
 
     [Header("References")]
     public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
 
-
-    private void Awake()
-    {
-        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
-        {
-            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}
-        };
-    }
-
-    public void MakeRain(bool autoStop = true)
+    public override void MakeObstacle(bool autoStop = true)
     {
         //돌 데이터마다 마찰데이터 변경
         stoneDatas = StoneSpawner.Instance.stoneDataList;
@@ -47,20 +36,15 @@ public class RainSystem : MonoBehaviour
         co = StartCoroutine(StopDelay());
     }
 
-    private void AddStone(object sender, EventArgs eventArgs)
+    public override void RandomlyMake()
     {
-        stoneCount++;
-        if (stoneCount >= count)
-        {
-            stoneCount = 0;
-            if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
-            MakeRain();
-        }
+        if (UnityEngine.Random.value > seasonChances[ChapterManager.Instance.chapter]) return; //확률 벗어나면 생성 안함
+        MakeObstacle();
     }
 
     IEnumerator StopDelay()   //일정 시간 후 끄기
     {
-        yield return new WaitForSeconds(span);
+        yield return new WaitForSeconds(duration);
         ps.Stop();
         co = null;
     }
@@ -85,13 +69,17 @@ public class RainSystem : MonoBehaviour
         }
         ps.Stop();
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        ChapterManager.Instance.onSetteled += AddStone;
+        base.OnEnable();
+        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
+        {
+            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}
+        };
     }
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         StopRain();
-        ChapterManager.Instance.onSetteled -= AddStone;
     }
 }
