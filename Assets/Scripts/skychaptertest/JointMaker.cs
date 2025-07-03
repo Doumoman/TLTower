@@ -69,14 +69,16 @@ public class JointMaker : MonoBehaviour
     {
         JointMaker jm = joint.connectedBody.GetComponent<JointMaker>();
 
-        Destroy(joint);
+        //Destroy는 프레임 끝에서 뒤늦게 실행되므로 비활성화를 통해 끊긴 걸 바로 표시
+        joint.enabled = false;
         jm.RemoveInit(this);
+        DestroyUnenabled();
     }
 
     public List<Joint2D> GetJointList()
     {
         List<Joint2D> joint2Ds = new List<Joint2D>();
-        joint2Ds = new List<Joint2D>(gameObject.GetComponents<Joint2D>());
+        joint2Ds = new List<Joint2D>(gameObject.GetComponents<Joint2D>()).FindAll(x => x.enabled == true);
         return joint2Ds;
     }
 
@@ -86,6 +88,7 @@ public class JointMaker : MonoBehaviour
         foreach (Joint2D joint in joint2Ds) Destroy(joint);
         this.GetComponent<SpriteRenderer>().color = Color.white;
         Destroy(this);
+
     }
 
     public bool IsConnected() { return isconnected; }
@@ -106,4 +109,10 @@ public class JointMaker : MonoBehaviour
         foreach (JointMaker jm in jmList) if (!jms.Contains(jm)) jm.DFS(ref jms);    
     }
 
+    //비활성화된 joint2D만 삭제하기
+    public void DestroyUnenabled()
+    {
+        List<Joint2D> unenabledJoints = new List<Joint2D>(gameObject.GetComponents<Joint2D>()).FindAll(x => x.enabled == false);
+        foreach (Joint2D joint in unenabledJoints) Destroy(joint);
+    }
 }
