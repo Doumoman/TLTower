@@ -18,7 +18,21 @@ public class StoneController : MonoBehaviour,
     public StoneState state = StoneState.Background;
     public int stoneTypeIndex = 0;
     public int typeId { get; private set; }   // ← 이전 stoneTypeIndex 대체
+    public int spriteIndex { get; private set; }
     public void SetTypeId(int id) => typeId = id;
+    public int GetSpriteIndexSafe()
+    {
+        if (spriteIndex >= 0) return spriteIndex;                 // 이미 기록돼 있으면 그대로
+
+        if (Data == null || Data.sprites == null) return 0;       // 예외 대비
+
+        // 현재 SpriteRenderer가 들고 있는 스프라이트가 배열 몇 번째인지 역-검색
+        var sr = GetComponent<SpriteRenderer>();
+        int idx = System.Array.IndexOf(Data.sprites, sr.sprite);
+        spriteIndex = idx < 0 ? 0 : idx;                          // 못 찾으면 0으로
+        return spriteIndex;
+    }
+    public void SetSpriteIndex(int idx) => spriteIndex = idx;
     public StoneData Data { get; private set; }
     public static bool AnyStoneBeingDragged { get; private set; }
 

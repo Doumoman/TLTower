@@ -53,28 +53,19 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
-        StoneData data;
-        Sprite chosenSpr;
-        if (Penalty)
-        {
-            data = GetPenaltyStoneData();
-            chosenSpr = data.GetRandomSprite();
-        }
-        else
-        {
-            data = GetRandomStoneData();
-            chosenSpr = data.GetRandomSprite();
-        }
+        StoneData data = Penalty ? GetPenaltyStoneData()
+                             : GetRandomStoneData();
+
+        int idx;
+        Sprite spr = data.GetRandomSprite(out idx);
 
         GameObject go = Instantiate(data.backgroundPrefab, slot.position,
                                        Quaternion.identity, slot);
 
-        var sr = go.GetComponent<SpriteRenderer>();
-        if (sr) sr.sprite = chosenSpr;
-
         var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
         sc.SetTypeId(data.typeId);
-        sc.InitAsBackground(data, chosenSpr);
+        sc.SetSpriteIndex(idx);
+        sc.InitAsBackground(data, spr);
 
         if (!go.TryGetComponent<StoneFreezer>(out StoneFreezer sf)) go.AddComponent<StoneFreezer>();
 
@@ -175,10 +166,10 @@ public class StoneSpawner : MonoBehaviour
         }
         return stoneDataList[idx];
     }
-    public StoneController SpawnFixedStone(int typeId, Vector2 pos, float rotZ)
+    public StoneController SpawnFixedStone(int typeId, int spriteIdx, Vector2 pos, float rotZ)
     {
         StoneData data = GetStoneDataById(typeId);
-        Sprite spr = data.GetRandomSprite();      // 같은 모양을 저장하려면 spriteIndex도 SaveData에 저장
+        Sprite spr = data.GetSprite(spriteIdx);      // 같은 모양을 저장하려면 spriteIndex도 SaveData에 저장
 
         // 프리팹 인스턴스화 (parent는 Stones 폴더)
         GameObject go = Instantiate(
@@ -190,6 +181,7 @@ public class StoneSpawner : MonoBehaviour
         // 스프라이트/Collider 셋업
         var sc = go.GetComponent<StoneController>() ?? go.AddComponent<StoneController>();
         sc.SetTypeId(typeId);
+        sc.SetSpriteIndex(spriteIdx);
         sc.InitAsBackground(data, spr);  // Collider 두 개 생성
         sc.SetFixed();                   // 상태·태그 → Fixed
 

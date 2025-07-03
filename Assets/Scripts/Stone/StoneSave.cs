@@ -24,6 +24,7 @@ public class SaveSystem : MonoBehaviour
             data.stones.Add(new StoneInfo
             {
                 typeId = st.typeId,
+                spriteIndex = st.GetSpriteIndexSafe(),
                 x = st.transform.position.x,
                 y = st.transform.position.y,
                 rot = st.transform.eulerAngles.z
@@ -52,6 +53,7 @@ public class SaveSystem : MonoBehaviour
         foreach (var info in data.stones)
             StoneSpawner.Instance.SpawnFixedStone(
                 info.typeId,
+                info.spriteIndex,
                 new Vector2(info.x, info.y),
                 info.rot);
 
