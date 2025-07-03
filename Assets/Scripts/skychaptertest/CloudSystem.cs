@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class CloudSystem : MonoBehaviour
 {
-    private List<GameObject> jointedList = new List<GameObject>();
+    public GameObject checkPoint;
+    private List<JointMaker> nodes = new List<JointMaker>();
+
     public static CloudSystem Instance;
 
     private void Awake()
@@ -13,14 +16,36 @@ public class CloudSystem : MonoBehaviour
         Instance = this;
     }
 
-    public void NotifyJoint(GameObject go)
+    public void SetCheckPoint(GameObject go)
     {
-        jointedList.Add(go);
+        checkPoint = go;
+        nodes.Clear();
     }
 
-    public void NotifyBreak(Rigidbody2D rb)
+    public void NotifyJoint(JointMaker jm)
     {
-
+        if (!nodes.Contains(jm)) nodes.Add(jm);
     }
 
+    //검사 및 능력 박탈 함수
+    public void ExamineAndDeprive()
+    {
+        //체크포인트를 기점으로 깊이우선탐색 검사 실행
+        JointMaker jm = checkPoint.GetComponent<JointMaker>();
+        List<JointMaker> jmList = new List<JointMaker>();
+        jm.DFS(ref jmList);
+
+
+        //검사 초기화 및 고립대상들 삭제
+        foreach (JointMaker node in nodes)
+        {
+            if (jmList.Contains(node))
+            {
+                node.ResetSearch();
+                continue;
+            }
+            node.UnConnected();
+        }
+        nodes = jmList;
+    }
 }
