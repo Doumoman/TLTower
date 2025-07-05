@@ -218,12 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c57daff576544e42a74c22faa12b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 5
   followSpeed: 1
   summerChance: 0.1
   autumnChance: 0.1
   winterChance: 0.1
-  span: 30
-  count: 5
+  duration: 30
   wind: {fileID: 1243338724}
   windcol: {fileID: 1071991622}
   force: 100
@@ -10632,9 +10632,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 487581246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3c55fbcfc1ca35c4f986a39b0ef2c695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitTicks: 3
+  fadeSpeed: 0.5
 --- !u!114 &487581248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21778,10 +21780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6410bcf80ed708c4a94a7e334c7e6b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 5
   summerChance: 0.1
   autumnChance: 0.1
-  span: 30
-  count: 5
+  duration: 30
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
@@ -37147,10 +37149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21563f188f91d4e47b45b69e34e26a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 5
   summerChance: 0.1
   autumnChance: 0.1
-  span: 30
-  count: 5
+  duration: 30
   ps: {fileID: 0}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}

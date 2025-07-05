@@ -39,6 +39,7 @@ public class BirdSpawner : MonoBehaviour
             if (Random.value < birdChance)
             {
                 //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
+                BosalManager.Instance.BirdSpeak();
                 CreateBird(); //사운드 딜레이 이후 새 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
                 spanCount = span;
@@ -47,7 +48,7 @@ public class BirdSpawner : MonoBehaviour
             else
             {
                 //Play("BirdPoopSpawn", SoundType.SFX, 0); // 사운드 플레이
-                CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성성
+                CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
                 spanCount = span;
                 Debug.Log("BirdSpawner: Created a bird poop.");
@@ -68,6 +69,7 @@ public class BirdSpawner : MonoBehaviour
     void CreateBirdPoop()
     {
         RandomPoint();
+        BosalManager.Instance.BirdPoopSpeak();
         Instantiate(birdPoop, transform.position, Quaternion.Euler(0, 0, 90));
     }
     //랜덤 x좌표에서 PlacedStone의 표면에 앉는 새 생성
@@ -91,7 +93,11 @@ public class BirdSpawner : MonoBehaviour
                     break;
                 }
             }
-            if (stone != null) break;
+            if (stone != null)
+            {
+                BosalManager.Instance.BirdPeaceSpeak();
+                break;
+            }
         }
         if (hitPoint != Vector2.zero)
         {
