@@ -36,6 +36,7 @@ public class FreezerSystem : TickBasedObstacle
     public void StopSnow()
     {
         fs.freezeOnStart = false;
+        foreach (ParticleSystem p in psList) p.Stop();
         TickManager.Instance.OnTickEvent += OnTick;  //틱카운트 재개
     }
 
@@ -43,7 +44,6 @@ public class FreezerSystem : TickBasedObstacle
     { 
         base.OnEnable();
 
-        foreach (ParticleSystem p in psList) p.Play();
         snowPs.Play();
         fs = FreezerSettler.Instance;
     }
@@ -51,9 +51,7 @@ public class FreezerSystem : TickBasedObstacle
     {
         base.OnDisable();
 
-        foreach (ParticleSystem p in psList) p.Stop();
-        StopSnow();
-        TickManager.Instance.OnTickEvent -= OnTick;  //틱카운트 끄기
+        StopSnow(); 
         snowPs.Stop();
     }
 }

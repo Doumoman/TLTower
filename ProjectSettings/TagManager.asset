@@ -14,8 +14,6 @@ TagManager:
   - Birdpoop
   - StickyCloud
   - Cloud
-  - FlowCloud
-  - DraggingCloud
   layers:
   - Default
   - TransparentFX

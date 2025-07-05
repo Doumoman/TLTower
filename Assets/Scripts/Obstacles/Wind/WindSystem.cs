@@ -70,7 +70,20 @@ public class WindSystem : CountBasedObstacle
 
     public void MakeWind(bool autoStop = true)
     {
-        MakeObstacle(autoStop);
+        //크기 설정
+        ParticleSystem.ShapeModule shape = wind.shape;
+        shape.scale = new Vector3(width, 1, Z_SIZE);
+        shape = windcol.shape;
+        shape.scale = new Vector3(width, 1, Z_SIZE);
+        //힘 설정
+        ParticleSystem.CollisionModule collision = windcol.collision;
+        collision.colliderForce = force;
+
+        wind.Play();
+
+        if (!autoStop) return;
+        if (co != null) StopCoroutine(co);
+        co = StartCoroutine(StopDelay());
     }
 
     IEnumerator StopDelay()   //일정 시간 후 끄기
