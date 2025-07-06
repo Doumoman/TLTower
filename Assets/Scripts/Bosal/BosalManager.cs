@@ -20,28 +20,29 @@ public class BosalManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
-    private int InputTimer = 0; // 무입력 시간 카운트
-    [SerializeField] private int NoInputTime = 15; // 15초 동안 무입력이면 무입력 대사 출력
-    private bool NoInput = false;
-    [SerializeField] private int NoSpeakTime = 30; // 무대사면 30초마다 무입력 대사 출력
-
-
+    [Header("text")]
     TextMeshProUGUI bosalText;
 
     [Header("properties")]
+
+
+    [SerializeField] private int NoInputTime = 15; // 15초 동안 무입력이면 무입력 대사 출력
+    [SerializeField] private int NoSpeakTime = 30; // 무대사면 30초마다 무입력 대사 출력
     [SerializeField] private int waitTicks = 3; // 보살 말하는 시간
     [SerializeField] private float fadeSpeed = 0.5f;
+    [SerializeField] private float FontSize = 50;
+    public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
 
-
-
+    private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
+    private float lastInputTime;
+    private float lastSpeaktime;
+    private bool NoScriptOnce = false;
     public List<System.Action> Actions = new(); // Tick에 등록할 액션들
     void Start()
     {
         bosalText = GetComponentInChildren<TextMeshProUGUI>();
+        bosalText.fontSize = FontSize;
         bosalText.text = "";
-        bosalText.fontSize = 30;
         bosalText.color = Color.white;
         bosalText.alignment = TextAlignmentOptions.MidlineLeft;
 
@@ -91,63 +92,43 @@ public class BosalManager : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    public void Speak(string script, bool bl = false, int ticks = -1)
+    public void ChangeFontSize(float times)
     {
-        if (bl)
-        {
-            DontSpeakTwice = true;
-        }
-        if (DontSpeakTwice)
-        {
-            DontSpeakTwice = false;
-            return;
-        }
-        StopAllCoroutines(); // 이전 대사 중지
-        bosalText.text = script;
-        StartCoroutine(FadeIn());
-        if (ticks < 0) ticks = waitTicks; // 기본 대기 시간 설정
-        StartCoroutine(WaitUntilFadeOut(ticks));
-        Debug.Log("보살 대사: " + script);
+        bosalText.fontSize = times * FontSize;
     }
-    public void SpeakFromData(string str, int idx, bool bl = false, int ticks = -1)
+    public void Speak(string script, int idx = -1, bool del = false)
     {
-        if (bl) DontSpeakTwice = true;
+        // 외부 요인으로 장애물이 소환되는 경우 외부 요인 대사가 먼저이므로
+        // bl = true로 뒤 대사를 취소
+        // ex) 장마 + 비 내리기 = 장마 대사만 출력
+
         if (DontSpeakTwice)
         {
-            DontSpeakTwice = false;
+            if (!del) DontSpeakTwice = false;
+            Debug.Log($"보살 대사 \"{script}\" 취소됨");
             return;
         }
-        string selectScript = ScriptDataLoader.Instance.FindScriptData(str, idx);
+
+        if (del) DontSpeakTwice = true;
+
+        string selectScript; //출력할 대사
+
+        //idx가 있다면 scriptMap을 직접 탐색
+        if (idx > 0) selectScript = ScriptDataLoader.Instance.FindData(script, idx);
+
+        //아니면 대사를 scriptIdx 순서대로 출력 (google sheet 참고)
+        else selectScript = ScriptDataLoader.Instance.GetNext(script);
+
+        //커스텀 대사
+        if (script == "") selectScript = script;
+
         StartCoroutine(FadeIn());
+
         bosalText.text = selectScript;
-        if (ticks < 0) ticks = waitTicks; // 기본 대기 시간 설정
-        StartCoroutine(WaitUntilFadeOut(ticks));
+
+        StartCoroutine(WaitUntilFadeOut(waitTicks)); // 대사 유지
+
         Debug.Log("보살 대사: " + selectScript);
-    }
-    public void ManualSpeak(string script, bool bl = false)
-    {
-        if (bl) DontSpeakTwice = true;
-        if (DontSpeakTwice)
-        {
-            DontSpeakTwice = false;
-            return;
-        }
-        StartCoroutine(FadeIn());
-        bosalText.text = script;
-        Debug.Log("보살 대사: " + script);
-    }
-    public void ManualSpeakFromData(string situation, int idx, bool bl = false)
-    {
-        if (bl) DontSpeakTwice = true;
-        if (DontSpeakTwice)
-        {
-            DontSpeakTwice = false;
-            return;
-        }
-        string selectScript = ScriptDataLoader.Instance.FindScriptData(situation, idx);
-        bosalText.text = selectScript;
-        Debug.Log("보살 대사: " + selectScript);
-        StartCoroutine(FadeIn());
     }
 
     public void ManualSpeakStop()
@@ -157,104 +138,39 @@ public class BosalManager : MonoBehaviour
     }
 
     /*
+    NoInputTime 동안 Input이 없으면 무입력 상황 처리
     무대사면 NoSpeakTime마다 무입력 상황인지 확인
     무입력 상황이면 무입력 대사 출력
     아니면 무대사 대사 출력
     */
-    private void OnInputReceived()
-    {
-        InputTimer = 0;
-        NoInput = false;
-    }
 
-    private int idleIndex = 0;
-    private int zeroIndex = 0;
-    private int birdIndex = 0;
-    private int windIndex = 0;
-    private int heavyRainIndex = 0;
-
-    private int quitIndex = 0;
-    private int UDIndex = 0;
-    private int birdSpeakCount = 0;
-    private int birdStoneIndex = 0;
-    private int birdPoopIndex = 0;
-    private int birdPeaceIndex = 0;
-    [DoNotSerialize] public int rainIndex = 0;
-    [SerializeField] private float birdSpeakChance = 0.5f;
-    [SerializeField] private int birdSpeakInterval = 2;
-
-    public IEnumerator CheckNoSpeak()
+    public void OnClick() { lastInputTime = Time.time; }
+    public void OnSpeak()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(NoSpeakTime);
-            if (NoInput)
-            {
-                SpeakFromData("idle", idleIndex % 3 + 1);
-                idleIndex++;
-            }
-            else
-            {
-                SpeakFromData("ZeroState", zeroIndex % 3 + 1);
-                zeroIndex++;
-            }
-        }
-    }
-
-    public void BirdSpeak()
-    {
-        if (birdSpeakCount < birdSpeakInterval)
-        {
-            float rand = UnityEngine.Random.value;
-            if (rand > birdSpeakChance)
-            {
-                SpeakFromData("Bird", birdIndex % 3 + 1);
-                birdIndex++;
-                birdSpeakCount++;
-            }
-        }
-        else
-        {
-            SpeakFromData("Bird", birdIndex % 3 + 1);
-            birdIndex++;
-            birdSpeakCount = 0;
-        }
-    }
-    public void BirdStoneSpeak()
-    {
-        SpeakFromData("BirdStone", birdStoneIndex % 3 + 1);
-        birdStoneIndex++;
-    }
-
-    public void BirdPoopSpeak()
-    {
-        SpeakFromData("BirdPoop", birdPoopIndex % 3 + 1);
-        birdPoopIndex++;
-    }
-
-    public void BirdPeaceSpeak()
-    {
-        SpeakFromData("BirdPeace", birdPeaceIndex % 3 + 1);
-        birdPeaceIndex++;
-    }
-
-    public void WindSpeak()
-    {
-        SpeakFromData("WindStart", windIndex % 3 + 1);
-        windIndex++;
-    }
-
-    public void HeavyRainSpeak()
-    {
-        SpeakFromData("HeavyRain", heavyRainIndex % 3 + 1);
-        heavyRainIndex++;
+        lastSpeaktime = Time.time;
+        NoScriptOnce = false; // 없다면 Update에서 계속 호출
     }
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        float now = Time.time;
+
+        bool noInput = now - lastInputTime >= NoInputTime;
+        bool noScript = now - lastSpeaktime >= NoSpeakTime;
+
+        if (noScript && !NoScriptOnce && !NoIdle)
         {
-            OnInputReceived();
+            NoScriptOnce = true;
+            if (noInput)
+            {
+                Speak("ZeroState");
+                Debug.Log("무입력");
+            }
+            else
+            {
+                Speak("idle");
+                Debug.Log("무대사");
+            }
         }
     }
 }

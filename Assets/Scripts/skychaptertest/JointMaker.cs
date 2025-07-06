@@ -5,8 +5,8 @@ using UnityEngine;
 public class JointMaker : MonoBehaviour
 {
     public float breakForce;
-    [SerializeField] private List<JointMaker> initial = new List<JointMaker>();  //이 오브젝트에 joint2D를 형성한 오브젝트. 중복 연결 방지용
-    [SerializeField]private bool isconnected = false;
+    private List<JointMaker> initial = new List<JointMaker>();  //이 오브젝트에 joint2D를 형성한 오브젝트. 중복 연결 방지용
+    private bool isconnected = false;
     private bool isNotyfied = false;
 
 
@@ -24,17 +24,16 @@ public class JointMaker : MonoBehaviour
     }
 
 
-    //이전 구름의 조인트 해제시 initial 리스트에서 제거하기. 그리고 검사 실행
+    //initial 리스트에서 제거하기. 그리고 검사 실행
     public void RemoveInit(JointMaker jm)
     {
         initial.Remove(jm);
         CloudSystem.Instance.ExamineAndDeprive();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) { MakeJoint(collision.gameObject); }
-    
-    public void MakeJoint(GameObject other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject other = collision.gameObject;
         if (!other.CompareTag("Cloud") || 
             (other.TryGetComponent<JointMaker>(out JointMaker jm) && initial.Contains(jm))) return; //initial의 오브젝트라면 실행 안함
 
@@ -59,6 +58,7 @@ public class JointMaker : MonoBehaviour
                 jm = other.AddComponent<JointMaker>();
                 jm.Init(this);
                 jm.breakForce = breakForce;
+
             }
 
         }
@@ -72,45 +72,23 @@ public class JointMaker : MonoBehaviour
         //Destroy는 프레임 끝에서 뒤늦게 실행되므로 비활성화를 통해 끊긴 걸 바로 표시
         joint.enabled = false;
         jm.RemoveInit(this);
-    }
-
-    //구름 드래그시 앞의 구름과의 연결 끊기
-    public void DraggingBreak()
-    {
-        foreach (JointMaker jm in initial)
-        {
-            Joint2D[] joints = jm.GetComponents<Joint2D>();
-            foreach (Joint2D joint in joints)
-            {
-                if (joint.connectedBody == this.GetComponent<Rigidbody2D>()) joint.breakForce = 0;
-            }
-        }
+        DestroyUnenabled();
     }
 
     public List<Joint2D> GetJointList()
     {
-        DestroyUnenabled();
-
         List<Joint2D> joint2Ds = new List<Joint2D>();
         joint2Ds = new List<Joint2D>(gameObject.GetComponents<Joint2D>()).FindAll(x => x.enabled == true);
         return joint2Ds;
     }
 
-    //비활성화된 joint2D만 삭제하기
-    public void DestroyUnenabled()
-    {
-        List<Joint2D> unenabledJoints = new List<Joint2D>(gameObject.GetComponents<Joint2D>()).FindAll(x => x.enabled == false);
-        foreach (Joint2D joint in unenabledJoints) Destroy(joint);
-    }
-
-    //이 스크립트를 삭제 및 조인트 모두 해제
     public void UnConnected()
     {
         List<Joint2D> joint2Ds = GetJointList();
-        foreach (Joint2D joint in joint2Ds) joint.enabled = false;
+        foreach (Joint2D joint in joint2Ds) Destroy(joint);
         this.GetComponent<SpriteRenderer>().color = Color.white;
-        this.enabled = false;
         Destroy(this);
+
     }
 
     public bool IsConnected() { return isconnected; }
@@ -129,5 +107,12 @@ public class JointMaker : MonoBehaviour
 
         //연결된 것들 중 탐색 안된 것 모두 검사
         foreach (JointMaker jm in jmList) if (!jms.Contains(jm)) jm.DFS(ref jms);    
+    }
+
+    //비활성화된 joint2D만 삭제하기
+    public void DestroyUnenabled()
+    {
+        List<Joint2D> unenabledJoints = new List<Joint2D>(gameObject.GetComponents<Joint2D>()).FindAll(x => x.enabled == false);
+        foreach (Joint2D joint in unenabledJoints) Destroy(joint);
     }
 }

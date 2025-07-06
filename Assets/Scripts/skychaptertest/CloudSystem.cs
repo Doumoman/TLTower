@@ -6,7 +6,7 @@ using UnityEngine;
 public class CloudSystem : MonoBehaviour
 {
     public GameObject checkPoint;
-    [SerializeField]private List<JointMaker> nodes = new List<JointMaker>();
+    private List<JointMaker> nodes = new List<JointMaker>();
 
     public static CloudSystem Instance;
 
@@ -19,7 +19,6 @@ public class CloudSystem : MonoBehaviour
     public void SetCheckPoint(GameObject go)
     {
         checkPoint = go;
-        go.AddComponent<JointMaker>();
         nodes.Clear();
     }
 

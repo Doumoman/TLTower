@@ -39,7 +39,7 @@ public class BirdSpawner : MonoBehaviour
             if (Random.value < birdChance)
             {
                 //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
-                BosalManager.Instance.BirdSpeak();
+                BosalManager.Instance.Speak("Bird");
                 CreateBird(); //사운드 딜레이 이후 새 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
                 spanCount = span;
@@ -65,12 +65,20 @@ public class BirdSpawner : MonoBehaviour
         float highY = StoneFixer.Instance.HighestSettledY;
         transform.position = new Vector2(Random.Range(-8.5f, 8.5f), highY + 10);
     }
-
-    void GetStonePoint(out Vector2 hitPoint, out GameObject stone)
+    //랜덤 x좌표에 새똥 생성
+    void CreateBirdPoop()
     {
-        hitPoint = Vector2.zero;
-        stone = null;
-
+        RandomPoint();
+        BosalManager.Instance.Speak("BirdPoop");
+        Instantiate(birdPoop, transform.position, Quaternion.Euler(0, 0, 90));
+    }
+    //랜덤 x좌표에서 PlacedStone의 표면에 앉는 새 생성
+    void CreateBird()
+    {
+        
+        Vector2 hitPoint = new Vector2();
+        GameObject stone = null;
+        RandomPoint();
         int safty = 100;
         while (safty-- > 0)
         {
@@ -87,31 +95,10 @@ public class BirdSpawner : MonoBehaviour
             }
             if (stone != null)
             {
-                BosalManager.Instance.BirdPeaceSpeak();
+                BosalManager.Instance.Speak("BirdPeace");
                 break;
             }
         }
-    }
-    void GetStonePoint(out Vector2 hitPoint) => GetStonePoint(out hitPoint, out GameObject _);
-
-    //랜덤 x좌표에 새똥 생성
-    void CreateBirdPoop()
-    {
-        GetStonePoint(out Vector2 hitpoint);
-        if (hitpoint != Vector2.zero)
-        {
-            Instantiate(birdPoop, transform.position, Quaternion.Euler(0, 0, 90));
-        }
-        else
-        {
-            Debug.Log("can't find 'PlacedStone' by raycast");
-        }
-    }
-    //랜덤 x좌표에서 PlacedStone의 표면에 앉는 새 생성
-    void CreateBird()
-    {
-        GetStonePoint(out Vector2 hitPoint, out GameObject stone);
-
         if (hitPoint != Vector2.zero)
         {
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성

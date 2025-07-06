@@ -51,7 +51,7 @@ public class RainSystemTest : CountBasedObstacle
             }
         }
 
-        BosalManager.Instance.SpeakFromData("RainStart", BosalManager.Instance.rainIndex % 3 + 1);
+        BosalManager.Instance.Speak("RainStart");
         ps.Play();
 
         if (!autoStop) return;
