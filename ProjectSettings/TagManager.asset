@@ -16,6 +16,7 @@ TagManager:
   - Cloud
   - FlowCloud
   - DraggingCloud
+  - FlowerPoint
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: flower
+    uniqueID: 534908513
     locked: 0
