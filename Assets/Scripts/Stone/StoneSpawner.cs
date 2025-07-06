@@ -6,19 +6,14 @@ using System.Linq;
 public class StoneSpawner : MonoBehaviour
 {
     public static StoneSpawner Instance { get; private set; }
-    public static bool Penalty = false; // true면 다음 돌이 번뇌돌, PenaltyManager에서 관리
-    void Awake()
-    {
-        if (Instance && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-    }
-
     [Header("Stone 목록 (SO)")]
     public List<StoneData> stoneDataList;      // Inspector에서 SO Drag & Drop
     public List<StoneData> penaltyStoneData; // Penalty 돌 데이터
 
-    [Header("Spawn Slots (4개)")]
-    public Transform[] spawnSlots = new Transform[4];
+    [Header("Spawn Slots (FlowerPoint 태그)")]
+    public List<Transform> spawnSlots = new();         // Inspector 필요 X
+
+    readonly HashSet<Transform> knownSlots = new();
 
     [Header("기타 옵션")]
     public float defaultSpawnDelay = 2f;
@@ -29,16 +24,17 @@ public class StoneSpawner : MonoBehaviour
     readonly Dictionary<Transform, Coroutine> slotTimer = new();
     readonly List<StoneController> active = new();
 
+    public static bool Penalty = false; // true면 다음 돌이 번뇌돌, PenaltyManager에서 관리
+    void Awake()
+    {
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
     private List<System.Action> Actions = new(); // TickManager에서 호출할 액션 목록
     void Start()
     {
         if (!stonesParent) stonesParent = new GameObject("Stones").transform;
-        if (stoneDataList.Count == 0 || spawnSlots.Any(s => s == null))
-        {
-            Debug.LogError("StoneSpawner ▶ SO or Slot 설정 오류"); enabled = false; return;
-        }
-
-        foreach (var slot in spawnSlots) CreateStubAtSlot(slot);
+        
 
         TickManager.Instance.OnTickEvent += (sender, eventArgs) =>
         {
@@ -47,7 +43,35 @@ public class StoneSpawner : MonoBehaviour
             
             Actions.Clear();
         }; // Tick에 액션 등록 후 실행
+
+        StartCoroutine(MonitorFlowerPoints());
     }
+    IEnumerator MonitorFlowerPoints()
+    {
+        while (true)
+        {
+            // 현재 씬에 존재하는 FlowerPoint 전부 스캔
+            foreach (var tr in GameObject.FindGameObjectsWithTag("FlowerPoint")
+                                         .Select(go => go.transform))
+            {
+                // 아직 등록되지 않은 슬롯이면 즉시 추가 + Stub 생성
+                if (!knownSlots.Contains(tr))
+                {
+                    knownSlots.Add(tr);
+                    spawnSlots.Add(tr);
+                    CreateStubAtSlot(tr);
+                }
+            }
+
+            /* 옵션: 사라진 슬롯 제거
+            knownSlots.RemoveWhere(t => t == null);
+            spawnSlots.RemoveAll(t => t == null);
+            */
+
+            yield return new WaitForSeconds(0.5f);   // 주기 조정 가능
+        }
+    }
+
     StoneData GetStoneDataById(int id) =>
     stoneDataList.Find(d => d.typeId == id);
     // Stub 생성 

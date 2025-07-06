@@ -73,7 +73,7 @@ public class BirdPoop : MonoBehaviour
         {
             var sc = caught[i];
             if (sc == leader) continue;
-            sc.SetFixed();
+            sc.Glued();
             sc.transform.SetParent(leader.transform, true);
             var rb = sc.GetComponent<Rigidbody2D>();
             if (rb) Destroy(rb);

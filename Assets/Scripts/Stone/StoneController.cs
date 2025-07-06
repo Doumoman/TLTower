@@ -230,6 +230,25 @@ public class StoneController : MonoBehaviour,
 
         if (outlineSR) outlineSR.enabled = false;
     }
+    public void Glued()
+    {
+        state = StoneState.Settled;
+        gameObject.tag = "PlacedStone";
+
+        gameObject.layer = LayerMask.NameToLayer("FixedStone");
+
+        if (physCol)
+        {
+            physCol.enabled = true;
+            physCol.isTrigger = false;
+        }
+        if (!TryGetComponent(out Rigidbody2D rb))
+            rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = true;
+
+        if (outlineSR) outlineSR.enabled = false;
+    }
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
     {

@@ -45,7 +45,7 @@ public class GlueStone : MonoBehaviour
         for (int i = 1; i < caught.Count; ++i)
         {
             var sc = caught[i];
-            sc.SetFixed();
+            sc.Glued();
             sc.transform.SetParent(leader.transform, true);
             var rb = sc.GetComponent<Rigidbody2D>();
             if (rb) Destroy(rb);
