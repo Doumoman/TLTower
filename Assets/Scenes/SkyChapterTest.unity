@@ -10932,8 +10932,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55fbcfc1ca35c4f986a39b0ef2c695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoInputTime: 15
+  NoSpeakTime: 30
   waitTicks: 3
   fadeSpeed: 0.5
+  FontSize: 50
+  NoIdle: 1
 --- !u!1 &515064292
 GameObject:
   m_ObjectHideFlags: 0
@@ -11773,29 +11777,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819280625}
-  - component: {fileID: 819280624}
   - component: {fileID: 819280626}
   m_Layer: 0
-  m_Name: SkychapterManager
+  m_Name: CloudSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &819280624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819280623}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6333ff40e66d12d48ac1d7438b64fbb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityForce: 9.81
-  seta: 270
 --- !u!4 &819280625
 Transform:
   m_ObjectHideFlags: 0
@@ -16788,21 +16777,33 @@ MonoBehaviour:
   - {fileID: 4189720576255285942, guid: 8300018ecbe2ac94aa71a541834cb292, type: 3}
   - {fileID: 6623367166774501824, guid: 7704132bd0227494fb502f36c1335e21, type: 3}
   spring:
-  - {fileID: 21300000, guid: e2daf6713c3f7784a9b7560eac8598c3, type: 3}
-  - {fileID: 21300000, guid: 0df426dd8f6473447b4455b8212e4f48, type: 3}
-  - {fileID: 21300000, guid: 0b1932661977b04478d2b8e322147cf0, type: 3}
+  - {fileID: 21300000, guid: 6d1fc574e6d9cfe4880dfcfe2d88df69, type: 3}
+  - {fileID: 21300000, guid: 95b63173552c1c44388b907dad2cd99a, type: 3}
+  - {fileID: 21300000, guid: 8c1053646b1ab1b4caabaff52a406fb7, type: 3}
+  springFlowerFront:
+  - {fileID: 21300000, guid: fff47abeff9eb5d4d81f0c772e7bf569, type: 3}
+  - {fileID: 21300000, guid: 8ae24e76f737c3847b97259b88838e61, type: 3}
+  - {fileID: 21300000, guid: 49c603451552d7041af3b80047c5e558, type: 3}
   summer:
-  - {fileID: 21300000, guid: 469fb00708739344189e6ef620600d4d, type: 3}
-  - {fileID: 21300000, guid: dbe9da7dede18cc429f02db0a31c4707, type: 3}
-  - {fileID: 21300000, guid: 1ec03873f0cdc5c43ab1dc0febac97f8, type: 3}
+  - {fileID: 21300000, guid: 40b78c5c3c9ff7d4c9bff63a2ee42623, type: 3}
+  - {fileID: 21300000, guid: ed37d8d670fabd04b81cd2672d0ec816, type: 3}
+  - {fileID: 21300000, guid: cab48a70cc4a6364b9993a6d0990626b, type: 3}
+  summerFlowerFront:
+  - {fileID: 21300000, guid: 1c0160875e6774348a0bf4e1bd1d0115, type: 3}
+  - {fileID: 21300000, guid: 9f35ea2630c935f48b2ae2cbd260329f, type: 3}
+  - {fileID: 21300000, guid: 10ba2fbdd04395542a28d8145a3db643, type: 3}
   autumn:
   - {fileID: 21300000, guid: 55b6a73b53b661f48bfdefbfee0e5e42, type: 3}
   - {fileID: 21300000, guid: 10e88de8fd8655b4a977836bb23ab832, type: 3}
   - {fileID: 21300000, guid: cad24a755da78344d97d810e984ee2d3, type: 3}
   winter:
-  - {fileID: 21300000, guid: ed89b336bcf0cc948beaf0755c09853e, type: 3}
-  - {fileID: 21300000, guid: 26bff3a0bfccd964da7ffa77cef9cf5a, type: 3}
-  - {fileID: 21300000, guid: bfe5c6e6d96ad0f4c96f0200a4e0bafb, type: 3}
+  - {fileID: 21300000, guid: 6d1fc574e6d9cfe4880dfcfe2d88df69, type: 3}
+  - {fileID: 21300000, guid: 95b63173552c1c44388b907dad2cd99a, type: 3}
+  - {fileID: 21300000, guid: 8c1053646b1ab1b4caabaff52a406fb7, type: 3}
+  winterFlowerFront:
+  - {fileID: 21300000, guid: fff47abeff9eb5d4d81f0c772e7bf569, type: 3}
+  - {fileID: 21300000, guid: 8ae24e76f737c3847b97259b88838e61, type: 3}
+  - {fileID: 21300000, guid: 49c603451552d7041af3b80047c5e558, type: 3}
 --- !u!1 &1047487981
 GameObject:
   m_ObjectHideFlags: 0
@@ -27379,6 +27380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakForce: 10
   initial: []
+  isconnected: 0
 --- !u!50 &1273010027
 Rigidbody2D:
   serializedVersion: 4
@@ -32321,14 +32323,21 @@ MonoBehaviour:
   chapter: 3
   springObstacles:
   - {fileID: 195804320}
+  - {fileID: 1047487981}
+  - {fileID: 295361025}
   summerObstacles:
   - {fileID: 195804320}
+  - {fileID: 1047487981}
+  - {fileID: 295361025}
   autumnObstacles:
   - {fileID: 31691765}
   - {fileID: 1224223809}
   - {fileID: 816022579}
+  - {fileID: 819280623}
   winterObstacles:
   - {fileID: 1322940009}
+  - {fileID: 1047487981}
+  - {fileID: 295361025}
   stonesForChapter: 0a0000000a0000000a0000000a0000000a000000
 --- !u!4 &1281971017
 Transform:
@@ -32340,6 +32349,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.988206, y: 30.979132, z: -0.091020845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296408617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296408619}
+  - component: {fileID: 1296408618}
+  m_Layer: 0
+  m_Name: SkyChapterWaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296408618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296408617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2287ef807c85dc14bb9b8bb45d8313c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1296408619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296408617}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43300,5 +43353,6 @@ SceneRoots:
   - {fileID: 642538840}
   - {fileID: 363019259}
   - {fileID: 748791106}
+  - {fileID: 1296408619}
   - {fileID: 819280625}
   - {fileID: 1946475}

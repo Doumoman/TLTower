@@ -385,4 +385,9 @@ public class StoneController : MonoBehaviour,
         if (state == StoneState.Dropping) return;
         ChapterManager.Instance?.RemoveCount();  //ChapterManger에 카운트 내리기
     }
+
+    public static void SetAnyStoneBeingDragged(bool value)   //구름 드래그시 카메라 움직임을 멈추기 위함
+    {
+        AnyStoneBeingDragged = value;
+    }
 }

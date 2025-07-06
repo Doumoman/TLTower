@@ -74,7 +74,7 @@ public class JointMaker : MonoBehaviour
         jm.RemoveInit(this);
     }
 
-    //구름 드래그시 앞의 구름과의 연결 끊기
+    //구름 드래그시 initial의 구름과의 연결 끊기
     public void DraggingBreak()
     {
         foreach (JointMaker jm in initial)
@@ -104,13 +104,15 @@ public class JointMaker : MonoBehaviour
     }
 
     //이 스크립트를 삭제 및 조인트 모두 해제
-    public void UnConnected()
+    public void OnDestroy()
     {
         List<Joint2D> joint2Ds = GetJointList();
-        foreach (Joint2D joint in joint2Ds) joint.enabled = false;
+        foreach (Joint2D joint in joint2Ds)
+        {
+            joint.enabled = false;
+            Destroy(joint);
+        }
         this.GetComponent<SpriteRenderer>().color = Color.white;
-        this.enabled = false;
-        Destroy(this);
     }
 
     public bool IsConnected() { return isconnected; }
