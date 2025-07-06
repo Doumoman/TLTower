@@ -99,6 +99,11 @@ public class Tree : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in flowerSp)
         {
             if (currentFlowerSp == sp) break;
+            if (sp == null)
+            {
+                spriteRenderer.sprite = null; 
+                continue;
+            }
             int index = Array.FindIndex(currentFlowerSp, x => x == spriteRenderer.sprite);
             spriteRenderer.sprite = sp[index];
         }
