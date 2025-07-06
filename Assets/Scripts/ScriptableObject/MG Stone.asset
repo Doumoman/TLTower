@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: -1883817360, guid: 3339039cf3d30074f84a629663527f85, type: 3}
   - {fileID: 657498418, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
   - {fileID: 1934004094, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
+  - {fileID: -600799857, guid: 1be85edb6975f3746a3beb15c3d40fa6, type: 3}
+  - {fileID: 823001786, guid: 1be85edb6975f3746a3beb15c3d40fa6, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: fbaafd02959f5e74582e07475c8edff8, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: f3be5c5275d35c54c82250f4e8d892c0, type: 3}
   mass: 15

@@ -10347,7 +10347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5483c283a5fe64fb5e1e5a3d59f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdChance: 0
+  birdChance: 0.25
   cycleSpanInit: 5
   cycleSpanMin: 7
   cycleSpanMax: 10
@@ -11489,13 +11489,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoInputTime: 15
   NoSpeakTime: 30
-  waitTicks: 3
-  fadeSpeed: 0.5
-  rainIndex: 0
-  birdSpeakChance: 0.5
-  birdSpeakInterval: 2
-  NoInputTime: 5
-  NoSpeakTime: 10
   waitTicks: 3
   fadeSpeed: 0.5
   FontSize: 50
@@ -33837,7 +33830,7 @@ MonoBehaviour:
   - {fileID: 142037665}
   - {fileID: 1322940009}
   - {fileID: 1757047012}
-  stonesForChapter: 0a0000000a0000000a0000000a0000000a000000
+  stonesForChapter: 0100000064000000e803000010270000a0860100
 --- !u!4 &1281971017
 Transform:
   m_ObjectHideFlags: 0
@@ -40058,7 +40051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe912a38651a0224da5d09e82e4f7cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 10
+  threshold: 18
   remainingTMP: {fileID: 284519799}
   savePointPrefab: {fileID: 4362427236296667128, guid: 0d01af780dc8df04d98572781a40afac, type: 3}
 --- !u!1 &1739338647
