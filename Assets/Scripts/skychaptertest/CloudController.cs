@@ -16,6 +16,7 @@ public class CloudController : MonoBehaviour,
     public float backGroudWindForce;
     CloudState state = CloudState.flow;
 
+    public static bool AnyCloudBeingDragged { get; private set; }  
     Vector3 dragOffset;
     Vector2 holdStartPos;
     Vector2 lastPointerWorld;
@@ -157,7 +158,7 @@ public class CloudController : MonoBehaviour,
 
         if (col) col.isTrigger = false;
         sr.color = Color.white;
-        StoneController.SetAnyStoneBeingDragged(false);
+        AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
 
@@ -166,8 +167,8 @@ public class CloudController : MonoBehaviour,
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
-        StoneController.SetAnyStoneBeingDragged(true);
-        CameraController.Instance.BeginDrag(null);
+        AnyCloudBeingDragged = true;
+        CameraController.Instance.BeginDrag(this);
 
         state = CloudState.Dragging;
         gameObject.tag = "DraggingCloud";
