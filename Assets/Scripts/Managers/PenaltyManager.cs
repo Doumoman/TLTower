@@ -33,8 +33,8 @@ public class PenaltyManager : MonoBehaviour
     IEnumerator WaitTicksUntilRain(int ticks)
     {
         yield return TickManager.Instance.TickWait(ticks);
-        Bosal.Speak("번뇌는 받아들이지 않으면 비처럼 스며드나니.", true);
-        Rain.MakeRain(false); // 비 활성화
+        Bosal.Speak("번뇌는 받아들이지 않으면 비처럼 스며드나니.", -1, true);
+        Rain.MakeRain(true); // 비 활성화
 
     }
     public void PenaltyCount()

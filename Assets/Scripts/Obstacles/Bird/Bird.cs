@@ -106,11 +106,7 @@ public class Bird : MonoBehaviour
             {
                 if (istouched) ForceRock();
                 else if (!istouched && Random.value < forceChance) ForceRock();
-                else
-                {
-                    BosalManager.Instance.BirdPeaceSpeak();
-                    Debug.Log("birdPeace");
-                }
+                else BosalManager.Instance.Speak("BirdPeace");
             }
         }
 
@@ -140,8 +136,7 @@ public class Bird : MonoBehaviour
         if (sc != null) StoneFixer.Instance.NotifyStoneLost(sc);
 
         //사운드와 대사 효과
-        BosalManager.Instance.BirdStoneSpeak();
-        Debug.Log("birdStone");
+        BosalManager.Instance.Speak("BirdStone");
     }
 
     //돌의 표면까지 날아가기

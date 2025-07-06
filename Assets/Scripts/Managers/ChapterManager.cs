@@ -74,26 +74,28 @@ public class ChapterManager : MonoBehaviour
         switch (chapter)
         {
             case chapter.land: //land
-                BosalManager.Instance.SpeakFromData("TempleStart", 1);
+                BosalManager.Instance.Speak("TempleStart");
+                BosalManager.Instance.NoIdle = false; //true;
                 return;
             case chapter.spring: //spring
                 obstacles = springObstacles;
-                StartCoroutine(BosalManager.Instance.CheckNoSpeak());
-                BosalManager.Instance.SpeakFromData("FindTree", 1);
+                BosalManager.Instance.Speak("FindTree");
+                BosalManager.Instance.NoIdle = false;
                 break;
             case chapter.summer: //summer
                 obstacles = summerObstacles;
-                BosalManager.Instance.SpeakFromData("EnterSummer", 1);
+                BosalManager.Instance.Speak("EnterSummer");
                 break;
             case chapter.autumn: //autumn
                 obstacles = autumnObstacles;
-                BosalManager.Instance.SpeakFromData("EnterAutumn", 1);
+                BosalManager.Instance.Speak("EnterAutumn");
                 break;
             case chapter.winter: //winter
                 obstacles = winterObstacles;
-                BosalManager.Instance.SpeakFromData("BeforeEnterWinter", 1);
+                BosalManager.Instance.Speak("BeforeEnterWinter");
                 break;
             case chapter.space: //space
+                BosalManager.Instance.NoIdle = true;
                 break;
         }
 

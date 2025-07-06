@@ -11469,7 +11469,7 @@ GameObject:
   - component: {fileID: 487581248}
   - component: {fileID: 487581247}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BosalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11487,13 +11487,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55fbcfc1ca35c4f986a39b0ef2c695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoInputTime: 15
-  NoSpeakTime: 30
+  NoInputTime: 5
+  NoSpeakTime: 10
   waitTicks: 3
   fadeSpeed: 0.5
-  rainIndex: 0
-  birdSpeakChance: 0.5
-  birdSpeakInterval: 2
+  FontSize: 50
+  NoIdle: 1
 --- !u!114 &487581248
 MonoBehaviour:
   m_ObjectHideFlags: 0
