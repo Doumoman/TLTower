@@ -8,14 +8,6 @@ using UnityEngine.Rendering;
 public class SoundPlayer : MonoBehaviour
 {
     private AudioSource audioSource;
-    public string ClipName
-    {
-        get
-        {
-            return audioSource.clip.name;
-        }
-    }
-
     public void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,28 +18,23 @@ public class SoundPlayer : MonoBehaviour
     {
 
     }
-    public void InitSound(AudioClip clip)
-    {
-        audioSource.clip = clip;
-    }
 
-    public void Play(AudioMixerGroup audioMixer, bool isLoop = true, int loopTicks = 0)
-    {
-        audioSource.outputAudioMixerGroup = audioMixer;
-        if (loopTicks != 0) { StartCoroutine(Looping(loopTicks)); } // 틱 단위 루프
-        else audioSource.loop = isLoop; //그냥 루프 or one-shot
+    /*    public void Play(AudioMixerGroup audioMixer, bool isLoop = true, int loopTicks = 0)
+                {
+                    audioSource.outputAudioMixerGroup = audioMixer;
+                    if (loopTicks != 0) { StartCoroutine(Looping(loopTicks)); } // 틱 단위 루프
+                    else audioSource.loop = isLoop; //그냥 루프 or one-shot
 
-        if (isLoop) StartCoroutine(OneShot(audioSource.clip.length));
-    }
+                    if (isLoop) StartCoroutine(OneShot(audioSource.clip.length));
+                }
 
-    private IEnumerator Looping(int loopTicks)
-    {
-        TickManager tickManager = FindObjectOfType<TickManager>();
-        yield return new WaitForSeconds(tickManager.Tick * loopTicks);
-    }
+                private IEnumerator Looping(int loopTicks)
+                {
+                    yield return new WaitForSeconds(TickManager.Instance.Tick * loopTicks);
+                }
 
-    private IEnumerator OneShot(float length) {
-        yield return new WaitForSeconds(length);
-        Destroy(gameObject);
-    }
+                private IEnumerator OneShot(float length) {
+                    yield return new WaitForSeconds(length);
+                    Destroy(gameObject);
+                }*/
 }
