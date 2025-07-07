@@ -150,6 +150,17 @@ public class CameraController : MonoBehaviour
     {
         get
         {
+            if (ChapterManager.Instance.chapter == chapter.autumn)
+            {
+                // CloudSystem 싱글톤이 아직 없다면 제한 없음
+                if (CloudSystem.Instance == null)
+                    return Mathf.Infinity;
+
+                float y = CloudSystem.Instance.HighestJointY;
+
+                return y + topPadding;
+            }
+
             // StoneFixer 싱글톤이 아직 없다면 제한 없음
             if (StoneFixer.Instance == null)
                 return Mathf.Infinity;

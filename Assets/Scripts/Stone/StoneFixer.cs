@@ -10,6 +10,7 @@ public class StoneFixer : MonoBehaviour
     {
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+        Debug.Log("StoneFixer Instance Set!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     [Header("Settings")]

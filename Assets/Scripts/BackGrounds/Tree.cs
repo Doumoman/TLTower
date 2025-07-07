@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Tree : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class Tree : MonoBehaviour
             { chapter.land, springFlowerFront },
             { chapter.spring, springFlowerFront },
             { chapter.summer, summerFlowerFront },
-            { chapter.autumn, null },
+            { chapter.autumn, springFlowerFront },
             { chapter.winter, winterFlowerFront },
             { chapter.space, winterFlowerFront }
         };
@@ -63,7 +64,7 @@ public class Tree : MonoBehaviour
     //나무를 계속 생성(space에선 생성x)
     void Update()
     {
-        if (ChapterManager.Instance.chapter == chapter.space) return;
+        if (cm.chapter == chapter.space) return;
         float lastY = lastStem.transform.position.y;
         if (StoneFixer.Instance.HighestSettledY > lastY)
         {
@@ -71,6 +72,9 @@ public class Tree : MonoBehaviour
             lastStem = Instantiate(stem[idx], gameObject.transform);
             lastStem.transform.position = new Vector3(0, lastY + 21.6f, Z);
             lastStem.GetComponent<SpriteRenderer>().sprite = seasons[cm.chapter][idx];
+            SpriteRenderer sr = Array.Find(lastStem.GetComponentsInChildren<SpriteRenderer>(),x => x.sortingLayerName == "flower"); //꽃잎 spriteRenderer
+            if (cm.chapter == chapter.autumn) sr.enabled = false;
+            else sr.sprite = seasonFlower[cm.chapter][idx];
         }
     }
 
@@ -78,35 +82,32 @@ public class Tree : MonoBehaviour
     void ChageSprite(object sender, EventArgs eventArgs)
     {
         List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
-        Sprite[] sp = null;
-        List<SpriteRenderer> suhangmokSp = spriteRenderers.FindAll(x => x.sortingLayerName == "Default" );
+        Sprite[] sp1;
+        List<SpriteRenderer> suhangmokSp = spriteRenderers.FindAll(x => x.sortingLayerName == "suhangmok");
         List<SpriteRenderer> flowerSp = spriteRenderers.FindAll(x => x.sortingLayerName == "flower");
 
         //챕터에 따라 스프라이트 선택
-        sp = seasons[ChapterManager.Instance.chapter];
+        sp1 = seasons[cm.chapter];
         //이전 스프라이트 번호에 맞게 스프라이트 전환
         foreach (SpriteRenderer spriteRenderer in suhangmokSp)
         {
-            if (currentSp == sp) break;
+            if (currentSp == sp1) break;
             int index = Array.FindIndex(currentSp, x => x == spriteRenderer.sprite);
-            spriteRenderer.sprite = sp[index];
+            spriteRenderer.sprite = sp1[index];
         }
-        currentSp = sp;
+        currentSp = sp1;
 
-        //챕터에 따라 스프라이트 선택
-        sp = seasonFlower[ChapterManager.Instance.chapter];
-        //이전 스프라이트 번호에 맞게 스프라이트 전환
+        sp1 = seasonFlower[cm.chapter];
         foreach (SpriteRenderer spriteRenderer in flowerSp)
         {
-            if (currentFlowerSp == sp) break;
-            if (sp == null)
-            {
-                spriteRenderer.sprite = null; 
-                continue;
-            }
+            //가을 챕터는 꽃잎 안보이기
+            if (cm.chapter == chapter.autumn) { spriteRenderer.enabled = false; continue; }
+            else spriteRenderer.enabled = true;
+
+            if (currentFlowerSp == sp1) break;
             int index = Array.FindIndex(currentFlowerSp, x => x == spriteRenderer.sprite);
-            spriteRenderer.sprite = sp[index];
+            spriteRenderer.sprite = sp1[index];
         }
-        currentFlowerSp = sp;
+        currentFlowerSp = sp1;
     }
 }

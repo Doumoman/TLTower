@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkyCloudSpawner : MonoBehaviour
@@ -20,8 +21,9 @@ public class SkyCloudSpawner : MonoBehaviour
             yield return new WaitForSeconds(span);
 
             //무작위 y위치로 구름 생성
+            xPos = transform.position.x;
             Transform t = Instantiate(skyCloud);
-            t.position = new Vector2(xPos, Random.Range(-5, 5));
+            t.position = new Vector2(xPos, transform.position.y + Random.Range(-5, 5));
         }
     }
 
