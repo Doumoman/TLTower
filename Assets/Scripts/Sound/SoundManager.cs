@@ -1,14 +1,13 @@
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 public enum Sound
 {
-    Bgm,
-    Effect,
-    LoopEffect,
+    Bgm, //loop 안됨. 자세한 재생은 SoundPlayer에서 따로 지정.
+    Sfx,
+    Voice, //보살 대사
+    Ambience, //Ambience 사운드들로로 SFX 아니고 BGM에 들어감!
+
     MaxCount
 }
 
@@ -23,9 +22,11 @@ public class SoundManager : MonoBehaviour
             {
                 return null;
             }
+            if (!_initialized) instance.Init();
             return instance;
         }
     }
+    private static bool _initialized = false; 
     private void Awake()
     {
         if (instance == null)
@@ -41,34 +42,28 @@ public class SoundManager : MonoBehaviour
         // 만약 플레이어 프렙스에 저장된 bgm과 effect의 Volume값이 있다면 불러온다. 게임이 꺼졌다 켜져도 전의 값을 유지하기 위함.
         if (!PlayerPrefs.HasKey("bgmVolume")) PlayerPrefs.SetFloat("bgmVolume", 1.0f);
         if (!PlayerPrefs.HasKey("effectVolume")) PlayerPrefs.SetFloat("effectVolume", 1.0f);
+        if (!PlayerPrefs.HasKey("voiceVolume")) PlayerPrefs.SetFloat("voiceVolume", 1.0f);
 
         Init();
     }
-
-    AudioClip bgmMain; // 메인 오디오클립
-    AudioClip bgmStage1; // 스테이지 오디오클립
-    AudioClip bgmStage2;
-    AudioClip bgmStage3;
-    AudioClip win;
-    AudioClip lose;
-    AudioClip ending;
-    private AudioSource audioSource1; // 배경음 오디오소스, 배경음들을 저장해서 사용함
-    private AudioSource audioSource2; // 효과음 오디오소스, 효과음들을 저장해서 사용함
+    private AudioSource[] bgmTracks = new AudioSource[15]; // bgm은 루프되지 않음! 현재 재생할 bgm 소스들을 15개까지 큐잉해서 사용
 
 
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
-    Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+    Dictionary<string, AudioClip> _audioClips = new();
 
     public AudioMixer audioMixer;
 
     public float currentBGMVolume { get; set; }
     public float currentEffectVolume { get; set; }
+    public float currentVoiceVolume { get; set; }
 
     public void Init()
     {
         currentBGMVolume = PlayerPrefs.GetFloat("bgmVolume");
         currentEffectVolume = PlayerPrefs.GetFloat("effectVolume");
-        audioMixer = Resources.Load<AudioMixer>("NewMixer");
+        currentVoiceVolume = PlayerPrefs.GetFloat("voiceVolume");
+        audioMixer = Resources.Load<AudioMixer>("Mixer");
         AudioMixerGroup[] audioMixerGroups = audioMixer.FindMatchingGroups("Master");
 
         //GameObject root = GameObject.Find("@Sound");
@@ -83,13 +78,25 @@ public class SoundManager : MonoBehaviour
             GameObject go = new GameObject { name = soundNames[i] };
             _audioSources[i] = go.AddComponent<AudioSource>();
             go.transform.parent = root.transform;
-            go.GetComponent<AudioSource>().outputAudioMixerGroup = audioMixerGroups[i + 1];
+
+            // Ambience는 BGM 그룹으로 묶기, loop 켜기
+            if ((Sound)i == Sound.Ambience)
+            {
+                _audioSources[i].outputAudioMixerGroup = audioMixerGroups[1]; // BGM
+                _audioSources[i].loop = true;
+            }
+            else
+                _audioSources[i].outputAudioMixerGroup = audioMixerGroups[i + 1]; // SFX, Voice               
         }
+        _audioSources[(int)Sound.Ambience].loop = true;
 
-        _audioSources[(int)Sound.Bgm].loop = true;
-        _audioSources[(int)Sound.LoopEffect].loop = true;
-
+        for (int i = 0; i < bgmTracks.Length; i++)
+        {
+            bgmTracks[i] = gameObject.AddComponent<AudioSource>();
+            bgmTracks[i].outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
+        }
     }
+
     public void Clear()
     {
         foreach (AudioSource audioSource in _audioSources)
@@ -99,15 +106,24 @@ public class SoundManager : MonoBehaviour
         }
         _audioClips.Clear();
     }
-    public void Play(AudioClip audioClip, Sound type = Sound.Effect, float pitch = 1.0f)
+    public void Play(AudioClip audioClip, Sound type = Sound.Sfx, float pitch = 1.0f)
     {
         if (audioClip == null)
         {
+            Debug.Log("AudioClip is null");
             return;
+        }
+        if (_audioSources[(int)type] == null)
+        {
+            Debug.Log($"AudioSource for {type} is null");
         }
         if (type == Sound.Bgm)
         {
-            AudioSource audioSource = _audioSources[(int)Sound.Bgm];
+            PlayBGM(audioClip);
+        }
+        else if (type == Sound.Ambience)
+        {
+            AudioSource audioSource = _audioSources[(int)Sound.Ambience];
             if (audioSource.isPlaying)
                 audioSource.Stop();
             audioSource.pitch = pitch;
@@ -115,31 +131,36 @@ public class SoundManager : MonoBehaviour
             audioSource.volume = PlayerPrefs.GetFloat("bgmVolume");
             audioSource.Play();
         }
-        else if (type == Sound.LoopEffect)
-        {
-            AudioSource audioSource = _audioSources[(int)Sound.LoopEffect];
-            if (audioSource.isPlaying)
-                audioSource.Stop();
-            audioSource.pitch = pitch;
-            audioSource.clip = audioClip;
-            audioSource.volume = PlayerPrefs.GetFloat("effectVolume");
-            audioSource.Play();
-        }
         else
         {
-            AudioSource audioSource = _audioSources[(int)Sound.Effect];
+            AudioSource audioSource = _audioSources[(int)Sound.Sfx];
 
             audioSource.pitch = pitch;
             audioSource.volume = PlayerPrefs.GetFloat("effectVolume");
             audioSource.PlayOneShot(audioClip);
         }
     }
-    public void Play(string path, Sound type = Sound.Effect, float pitch = 1.0f)
+    public void Play(string path, Sound type = Sound.Sfx, float pitch = 1.0f)
     {
         AudioClip audioClip = GetOrAddAudioClip(path, type);
         Play(audioClip, type, pitch);
     }
-    AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Effect)
+
+    public void PlayBGM(AudioClip audioClip)
+    {
+        Debug.Log($"BGM Playing : {audioClip}");
+        for (int i = 0; i < bgmTracks.Length; i++)
+        {
+            if (!bgmTracks[i].isPlaying)
+            {
+                bgmTracks[i].clip = audioClip;
+                bgmTracks[i].volume = PlayerPrefs.GetFloat("bgmVolume");
+                bgmTracks[i].Play();
+                return;
+            }
+        }
+    }
+    AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Sfx)
     {
         if (path.Contains("Sounds/") == false)
             path = $"Sounds/{path}";
@@ -159,297 +180,79 @@ public class SoundManager : MonoBehaviour
         }
 
         if (audioClip == null)
-            Debug.Log($"AudioClip Missing {path}");
+            Debug.Log($"AudioClip Missing : {path}");
 
         return audioClip;
     }
-    public bool isBGMPlaying()
+    public void Stop(string clip = "")
     {
-        return _audioSources[(int)Sound.Bgm].isPlaying;
-    }
-    public void StopLoopEffect()
-    {
-        AudioSource audioSource = _audioSources[(int)Sound.LoopEffect];
-        audioSource.clip = null;
-        audioSource.Stop();
+        if (clip == "")
+        {
+            foreach (var src in _audioSources) src.Stop();
+            foreach (var src in bgmTracks) src.Stop();
+            return;
+        }
+        if (System.Enum.TryParse(clip, out Sound soundType))
+        {
+            if (soundType == Sound.Bgm)
+                foreach (var src in bgmTracks) src.Stop();
+            else _audioSources[(int)soundType].Stop();
+            return;
+        }
+        foreach (var src in bgmTracks)
+        {
+            if (src.clip != null && src.clip.name == clip)
+            {
+                src.Stop();
+                return;
+            }
+        }
+
+        foreach (var src in _audioSources)
+        {
+            if (src.clip != null && src.clip.name == clip)
+            {
+                src.Stop();
+                return;
+            }
+        }
+
+        Debug.LogWarning($"Stop AudioClip Missing : {clip}");
     }
 
-    void Start() // 게임 처음 시작시 음악세팅
+    public void BgmOff(string path)
     {
-
-        // audioSource에 AudioSource 컴포넌트를 추가
-        audioSource1 = gameObject.AddComponent<AudioSource>();
-        audioSource2 = gameObject.AddComponent<AudioSource>();
-        audioSource1.loop = true;
-
-        // 오디오 클립에 오디오 추가 (배경음악)
-        bgmMain = Resources.Load<AudioClip>("Sounds/main");
-        bgmStage1 = Resources.Load<AudioClip>("Sounds/1stageTheme_first_dream");
-        bgmStage2 = Resources.Load<AudioClip>("Sounds/2stageTheme_foggy_classroom");
-        bgmStage3 = Resources.Load<AudioClip>("Sounds/3stage");
-        win = Resources.Load<AudioClip>("Sounds/win");
-        lose = Resources.Load<AudioClip>("Sounds/lose");
-        ending = Resources.Load<AudioClip>("Sounds/EndingBGM");
-
-
-        MainBgmOn(); // 게임 시작시 메인메뉴에서 오프닝Bgm 재생
+        for (int i = 0; i < bgmTracks.Length; i++) bgmTracks[i].Stop();
     }
 
-    public void MainBgmOn()
-    {
-        audioSource1.clip = bgmMain;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume"); // 플레이어프렙스에서 bgmVolume 값 가져오기
-        audioSource1.Play();
-    }
-    public void Stage1BgmOn()
-    {
-        audioSource1.clip = bgmStage1;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
-    public void Stage2BgmOn()
-    {
-        audioSource1.clip = bgmStage2;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
-    public void Stage3BgmOn()
-    {
-        audioSource1.clip = bgmStage3;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
-    public void winBgmOn()
-    {
-        audioSource1.clip = win;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
-    public void loseBgmOn()
-    {
-        audioSource1.clip = lose;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
-    public void EndingBgmOn()
-    {
-        audioSource1.clip = ending;
-        audioSource1.volume = PlayerPrefs.GetFloat("bgmVolume");
-        audioSource1.Play();
-    }
     //옵션창 음향 슬라이더에서 값 변경시 오디오소스의 볼륨을 조절하고 이 값을 플레이어 프렙스에 저장
     public void OnBgmVolumeChange(float volume)
     {
-        audioSource1.volume = volume;
+        for (int i = 0; i < bgmTracks.Length; i++) bgmTracks[i].volume = volume;
+        _audioSources[(int)Sound.Ambience].volume = volume;
         PlayerPrefs.SetFloat("bgmVolume", volume);
+
     }
     public void OnEffectVolumeChange(float volume)
     {
-        audioSource2.volume = volume;
+        _audioSources[(int)Sound.Sfx].volume = volume;
         PlayerPrefs.SetFloat("effectVolume", volume);
+    }
+    public void OnVoiceVolumeChange(float volume)
+    {
+        _audioSources[(int)Sound.Voice].volume = volume;
+        PlayerPrefs.SetFloat("voiceVolume", volume);
     }
 
     // 원하는 곳에 효과음 추가 위한 함수
-    // SoundManager.Instance.EffectSoundOn("Walk")와 같이 사용
-    public void EffectSoundOn(string effectName)
+    // SoundManager.Instance.PlayOneShot("Walk")와 같이 사용
+    public void PlayOneShot(string effectName)
     {
+        var source = _audioSources[(int)Sound.Sfx];
         string effect = "Sounds/" + effectName;
         AudioClip effectClip = Resources.Load<AudioClip>(effect);
-        audioSource2.volume = PlayerPrefs.GetFloat("effectVolume"); // 플레이어프렙스에서 effectVolume 값 가져오기
-        audioSource2.clip = effectClip;
-        audioSource2.PlayOneShot(effectClip);
-    }
-
-    public void EffectSoundOff()
-    {
-        audioSource2.Stop();
+        source.volume = PlayerPrefs.GetFloat("effectVolume"); // 플레이어프렙스에서 effectVolume 값 가져오기
+        source.clip = effectClip;
+        source.PlayOneShot(effectClip);
     }
 }
-/*
-public enum SoundType
-{
-    SFX,
-    AMB,
-    BEAT,
-    PAD,
-    MELODY,
-    OTHERS,
-}
-
-[RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
-public class SoundManager : MonoBehaviour
-{
-    [Header("Sounds")]
-    [SerializeField] private AudioMixer Mixer;
-    [SerializeField] private SoundList[] AllSounds;
-
-
-    public float BgmVolume, SfxVolume; // 옵션에서 BGM과 SFX의 볼륨을 조작
-    private float AmbVolume, BeatVolume, PadVolume, MelVolume; //내부 조작! 나중에 다른 Manager에서 필터 걸거나 볼륨 조절할 때 사용
-
-
-    private Dictionary<string, AudioClip> AudioDict; //저장된 사운드 목록
-    private List<SoundPlayer> CurrentSounds; //현재 생성된 SoundPlayer의 목록
-    public static SoundManager instance;
-    private void Awake()
-    {
-        string[] names = Enum.GetNames(typeof(SoundType));
-        Array.Resize(ref AllSounds, names.Length);
-
-        for (int i = 0; i < AllSounds.Length; i++)
-        {
-            AllSounds[i].name = names[i];
-        }
-
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-
-        else Destroy(instance);
-    }//싱글톤 패턴
-
-    private void Start()
-    {
-        TickManager Tick = GetComponent<TickManager>();
-        Tick.OnTickEvent += TickEvent; //OnTickEvent 
-
-        AudioDict = new Dictionary<string, AudioClip>();
-        foreach (SoundList soundList in AllSounds)
-        {
-            foreach (AudioClip clip in soundList.Sounds)
-            {
-                AudioDict.Add(clip.name, clip);
-            }
-        }
-
-        CurrentSounds = new List<SoundPlayer>();
-    }
-    private void TickEvent(object sender, System.EventArgs eventArgs)
-    {
-
-    }
-    private AudioClip GetClip(string clipName)
-    {
-        AudioClip clip = AudioDict[clipName];
-        return clip;
-    }//사운드 이름으로 찾아서 반환하기
-
-    public void Stop(string clipName)
-    {
-        foreach (SoundPlayer audioPlayer in CurrentSounds)
-        {
-            if (audioPlayer.ClipName == clipName)
-            {
-                CurrentSounds.Remove(audioPlayer);
-                Destroy(audioPlayer.gameObject);
-            }
-        }
-    } //현재 재생중인 사운드 종료
-
-    public void Play(string clipName, SoundType type = 0, int loopTicks = 0)
-    {
-        switch (type)
-        {
-            case SoundType.SFX: //1회 실행
-                {
-                    GameObject obj = new GameObject("SoundPlayer");
-                    SoundPlayer soundPlayer = obj.AddComponent<SoundPlayer>();
-                    soundPlayer.InitSound(GetClip(clipName));
-                    soundPlayer.Play(Mixer.FindMatchingGroups("SFX")[0], false);
-                    break;
-                }
-            case SoundType.AMB: //tick에 상관없이 재생. tick에 상관없이 loop
-                {
-                    GameObject obj = new GameObject("SoundPlayer");
-                    SoundPlayer soundPlayer = obj.AddComponent<SoundPlayer>();
-                    soundPlayer.InitSound(GetClip(clipName));
-                    soundPlayer.Play(Mixer.FindMatchingGroups("AMB")[0], true);
-                    break;
-                }
-            case SoundType.BEAT: //tick에 맞춰서 재생, loopTick 틱마다 틱 맞춰서 loop
-                TickPlay(clipName, type, loopTicks);
-                break;
-            case SoundType.PAD: //tick에 맞춰서 재생, loopTick 틱마다 틱 맞춰서 loop
-                TickPlay(clipName, type, loopTicks);
-                break;
-            case SoundType.MELODY: //tick에 맞춰서 재생, loopTick 틱마다 맞춰서 loop
-                TickPlay(clipName, type, loopTicks);
-                break;
-            default: //tick 상관 없이 실행 후 loop
-                {
-                    GameObject obj = new GameObject("SoundPlayer");
-                    SoundPlayer soundPlayer = obj.AddComponent<SoundPlayer>();
-                    soundPlayer.InitSound(GetClip(clipName));
-                    soundPlayer.Play(Mixer.FindMatchingGroups("BGM")[0], true);
-                    break;
-                }
-        }
-    }
-    
-    //그냥 Play시 Tick에 상관없이 한 번 재생하고 끝
-    //type을 명시한다면 SoundPlayer에서 sound를 type에 맞게 재생
-    //loopTicks를 적는다면 loopTicks마다 재생
-    
-
-    
-    //tick을 기다림에 관한 함수들
-    //tick이 시작되기 전까지 호출된 함수들의 string을 저장해서 
-    
-    private void TickPlay(string clipName, SoundType type, int loopTicks)
-    {
-        WaitingPlay[clipName] = (type, loopTicks);
-    }
-
-    private Dictionary<string, (SoundType type, int loop)> WaitingPlay = new();
-
-    private void TickEvent()
-    {
-        foreach (var v in WaitingPlay)
-        {
-            string name = v.Key;
-            SoundType type = v.Value.type;
-            int loop = v.Value.loop;
-            bool val = false;
-
-            switch (type) {
-                case SoundType.BEAT:
-                    {
-                        val = true;
-                        break;
-                    }
-                case SoundType.PAD:
-                    {
-                        val = true;
-                        break;
-                    }
-                case SoundType.MELODY:
-                    {
-                        val = true;
-                        break;
-                    }
-                default:
-                    {
-                        val = false;
-                        break;
-                    }
-            }
-
-            GameObject obj = new GameObject("SoundPlayer");
-            SoundPlayer soundPlayer = obj.AddComponent<SoundPlayer>();
-            soundPlayer.InitSound(GetClip(name));
-            soundPlayer.Play(Mixer.FindMatchingGroups("AMB")[0], val);
-            CurrentSounds.Add(soundPlayer);
-        }
-        WaitingPlay.Clear();
-    }
-
-    [Serializable]
-    public struct SoundList
-    {
-        [HideInInspector] public string name;
-        [SerializeField] public AudioClip[] Sounds;
-    }
-}
-*/
