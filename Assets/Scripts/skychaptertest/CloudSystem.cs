@@ -26,6 +26,7 @@ public class CloudSystem : MonoBehaviour
     public void NotifyJoint(JointMaker jm)
     {
         if (!nodes.Contains(jm)) nodes.Add(jm);
+        ExamineAndDeprive();
     }
 
     //검사 및 능력 박탈 함수
@@ -45,7 +46,7 @@ public class CloudSystem : MonoBehaviour
                 node.ResetSearch();
                 continue;
             }
-            node.UnConnected();
+            Destroy(node);
         }
         nodes = jmList;
     }

@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _directionForce;      // 이동값 (관성)
     private float _targetCenterY;
     private StoneController _dragTarget;  // 집고 있는 돌
+    private CloudController _dragCloudTarget; // 집고 있는 구름
     private Vector3 _baseCamPos;          // 드래그 시작 시점 카메라 위치
     private Camera _cam;
     private readonly List<float> _followYOffset = new(); // followWithCamera[i].y - cam.y 
@@ -59,6 +60,13 @@ public class CameraController : MonoBehaviour
         _directionForce = Vector3.zero; // 관성 초기화
     }
 
+    public void BeginDrag(CloudController c) //외부에서 구름 드래그 상태 입력받기
+    {
+        _dragCloudTarget = c;
+        _baseCamPos = transform.position;
+        _directionForce = Vector3.zero; // 관성 초기화
+    }
+
     public void EndDrag() //외부에서 돌 드래그 상태 입력받기
     {
         _dragTarget = null;
@@ -67,7 +75,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (StoneController.AnyStoneBeingDragged)
+        if (StoneController.AnyStoneBeingDragged || CloudController.AnyCloudBeingDragged)
         {
             _directionForce = Vector3.zero;
             UpdateFollowers();               
