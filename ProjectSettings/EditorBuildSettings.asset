@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/main.unity
+    path: Assets/Scenes/oldmain.unity
     guid: 26b45213d5c75364ea5dc10a0f0390f8
   - enabled: 1
     path: Assets/Scenes/TLTower.unity
