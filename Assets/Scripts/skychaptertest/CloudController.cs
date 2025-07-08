@@ -11,9 +11,12 @@ public class CloudController : MonoBehaviour,
                                IDragHandler
 {
     Rigidbody2D rb;
+    Rigidbody2D[] rbChildren;
     Collider2D col;
+    Collider2D[] colChildren;
     SpriteRenderer sr;
     public float backGroudWindForce;
+    public float flowSpeed = -1;
     CloudState state = CloudState.flow;
 
     public static bool AnyCloudBeingDragged { get; private set; }  
@@ -33,10 +36,14 @@ public class CloudController : MonoBehaviour,
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        rbChildren = GetComponentsInChildren<Rigidbody2D>();
+        colChildren = GetComponentsInChildren<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
 
         rb.gravityScale = 0;
         col.isTrigger = true;
+        foreach (var rbChild in rbChildren) rbChild.gravityScale = 0;
+        foreach (var col in colChildren) col.isTrigger = true;
 
         gameObject.tag = "FlowCloud";
     }
@@ -71,15 +78,18 @@ public class CloudController : MonoBehaviour,
 
             lastPointerWorld = curWorld;
         }
+        if (state == CloudState.flow)
+        {
+            Vector2 moveVetor = new Vector2(flowSpeed, 0);
+            transform.Translate(moveVetor * Time.deltaTime);
+        }
+        if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
     }
 
     private void FixedUpdate()
     {
-        if (state != CloudState.Dragging) 
-            rb.AddForce(new Vector2(backGroudWindForce, 0), ForceMode2D.Impulse);
         if (isRotating && state == CloudState.Dragging)
             rb.angularVelocity = rotateSpeed;
-
     }
 
     void CheckOverlap()
@@ -157,6 +167,7 @@ public class CloudController : MonoBehaviour,
         rb.Sleep();
 
         if (col) col.isTrigger = false;
+        foreach (Collider2D col in colChildren) col.isTrigger = false;
         sr.color = Color.white;
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
@@ -175,6 +186,7 @@ public class CloudController : MonoBehaviour,
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         if (col) col.isTrigger = true;
+        foreach (Collider2D col in colChildren) col.isTrigger = true;
 
         rb.isKinematic = true;
 
