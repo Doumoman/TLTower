@@ -28,7 +28,7 @@ TagManager:
   - Dragging
   - StickyLayer
   - FixedStone
-  - 
+  - CloudMoving
   - 
   - 
   - 
@@ -51,6 +51,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backGround
+    uniqueID: 835170029
+    locked: 0
+  - name: suhangmok
+    uniqueID: 2222939861
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

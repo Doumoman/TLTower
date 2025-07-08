@@ -32,6 +32,11 @@ public class StoneController : MonoBehaviour,
         spriteIndex = idx < 0 ? 0 : idx;                          // 못 찾으면 0으로
         return spriteIndex;
     }
+    public void RefreshCachedRefs()
+    {
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
+    }
     public void SetSpriteIndex(int idx) => spriteIndex = idx;
     public StoneData Data { get; private set; }
     public static bool AnyStoneBeingDragged { get; private set; }
