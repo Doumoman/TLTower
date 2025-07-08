@@ -38083,28 +38083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fa3fd9e7d990748a2ef91a59c64e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allStageData:
-  - stage: 0
-    states:
-    - stateNumber: 0
-      playInfos:
-      - clipName: 
-        cycle: 0
-        delay: 0
-  - stage: 0
-    states:
-    - stateNumber: 0
-      playInfos: []
-    - stateNumber: 0
-      playInfos: []
-  - stage: 0
-    states: []
-  - stage: 0
-    states: []
-  - stage: 0
-    states: []
-  - stage: 0
-    states: []
 --- !u!114 &1672179259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38117,6 +38095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9019c88eb644a45a91820cb468789a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundStateDB: {fileID: 0}
 --- !u!1 &1727457998
 GameObject:
   m_ObjectHideFlags: 0

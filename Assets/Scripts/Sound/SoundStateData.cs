@@ -7,11 +7,17 @@ public class SoundStateData : MonoBehaviour
 {
     public enum Stage
     {
-        Ground, Spring, Summer, Autumn, Winter, Space
+        Ground,
+        Spring,
+        Summer,
+        Autumn,
+        Winter,
+        Space,
+        Count
     }
 
     [System.Serializable]
-    public class SoundPlayInfo
+    public class ClipData
     {
         public string clipName;
         public int cycle;
@@ -19,38 +25,32 @@ public class SoundStateData : MonoBehaviour
     }
 
     [System.Serializable]
-    public class SoundStates
+    public class State
     {
-        public int stateNumber;
-        public List<SoundPlayInfo> playInfos;
+        [Tooltip("동시에 재생할 사운드클립 정보")]
+        public List<ClipData> clipDataList = new();
     }
 
     [System.Serializable]
     public class StageSoundData
     {
-        public Stage stage;
-        public List<SoundStates> states;
+        public List<State> States = new();
     }
-    public List<StageSoundData> allStageData;
-    private Dictionary<Stage, Dictionary<int, SoundStates>> _runtimeData;
 
-    void Awake()
+    [CreateAssetMenu(fileName = "SoundStateDB", menuName = "Sound State Database", order = 1)]
+    public class SoundStateDB : ScriptableObject
     {
-        _runtimeData = new Dictionary<Stage, Dictionary<int, SoundStates>>();
-        foreach (var stageData in allStageData)
+        public StageSoundData[] stageData = new StageSoundData[(int)Stage.Count];
+
+        private void OnValidate()
         {
-            var stateDict = new Dictionary<int, SoundStates>();
-            foreach (var state in stageData.states)
-                stateDict[state.stateNumber] = state;
-            _runtimeData[stageData.stage] = stateDict;
-        }
-    }
+            int stageCount = System.Enum.GetValues(typeof(Stage)).Length;
+            if (stageData == null || stageData.Length != stageCount)
+                stageData = new StageSoundData[stageCount];
 
-    public SoundStates GetStateData(Stage stage, int stateNumber)
-    {
-        if (_runtimeData.TryGetValue(stage, out var stateDict))
-            if (stateDict.TryGetValue(stateNumber, out var stageData))
-                return stageData;
-        return null;
+            for (int i = 0; i < stageCount; i++)
+                if (stageData[i] == null)
+                    stageData[i] = new StageSoundData();
+        }
     }
 }

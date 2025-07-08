@@ -82,20 +82,19 @@ public class ChapterManager : MonoBehaviour
                 return;
             case chapter.spring: //spring
                 obstacles = springObstacles;
-                BosalManager.Instance.Speak("FindTree");
+                BosalManager.Instance.Speak("SpringFirst");
                 BosalManager.Instance.NoIdle = false;
                 break;
             case chapter.summer: //summer
                 obstacles = summerObstacles;
-                BosalManager.Instance.Speak("EnterSummer");
+                BosalManager.Instance.Speak("SummerFirst");
                 break;
             case chapter.autumn: //autumn
                 obstacles = autumnObstacles;
-                BosalManager.Instance.Speak("EnterAutumn");
+                BosalManager.Instance.Speak("AutumnFirst");
                 break;
             case chapter.winter: //winter
                 obstacles = winterObstacles;
-                BosalManager.Instance.Speak("BeforeEnterWinter");
                 break;
             case chapter.space: //space
                 BosalManager.Instance.NoIdle = true;
