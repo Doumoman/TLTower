@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,20 +12,38 @@ public class SkyCloudSpawner : MonoBehaviour
 
     Coroutine co = null;
     private float xPos;
+    private int directionalForce = 1;
 
     IEnumerator MakeCloud()
     {
         while (true)
         {
             //무작위 대기시간 설정
-            float span = Random.Range(spanMin, spanMax);
+            float span = UnityEngine.Random.Range(spanMin, spanMax);
             yield return new WaitForSeconds(span);
 
             //무작위 y위치로 구름 생성
             xPos = transform.position.x;
             Transform t = Instantiate(skyCloud);
-            t.position = new Vector2(xPos, transform.position.y + Random.Range(-5, 5));
+            t.position = new Vector2(xPos, transform.position.y + UnityEngine.Random.Range(-5, 5));
+            CloudController cc = t.GetComponent<CloudController>();
+            cc.flowSpeed *= directionalForce;
         }
+        co = null;
+    }
+
+    public void Changedirection()
+    {
+        if (co != null)
+        {
+            StopCoroutine(co);
+            co = null;
+        }
+        Debug.Log(xPos);
+        xPos *= -1;
+        Debug.Log(xPos);
+        directionalForce *= -1;
+        co = StartCoroutine(MakeCloud());
     }
 
     private void OnEnable()
@@ -38,6 +57,7 @@ public class SkyCloudSpawner : MonoBehaviour
         if (co != null)
         {
             StopCoroutine(co);
+            co = null;
         }
     }
 }

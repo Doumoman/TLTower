@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -7,6 +8,7 @@ public class CloudSystem : MonoBehaviour
 {
     public GameObject savePoint;
     [SerializeField]private List<JointMaker> nodes = new List<JointMaker>();
+    public GameObject cloudSpawner;
 
     public float HighestJointY {  get; private set; }
     public static CloudSystem Instance { get; private set; }
@@ -19,15 +21,22 @@ public class CloudSystem : MonoBehaviour
 
     private void Start()
     {
-        HighestJointY = StoneFixer.Instance.HighestSettledY;
+        if (nodes == null) HighestJointY = StoneFixer.Instance.HighestSettledY;
+        else FindHighestJM();
     }
 
     public void SetSavePoint(GameObject go)
     {
         savePoint = go;
-        nodes.Clear();
-        go.AddComponent<JointMaker>();
+        float force = nodes[0].breakForce;
+        DestroyAll(true);
+        JointMaker jm = go.AddComponent<JointMaker>();
+        jm.breakForce = force;
         FindHighestJM();
+        CameraController.Instance.CenterOnY(HighestJointY+5);
+
+        //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
+        //cs.Changedirection();
     }
 
     //구름 조인트시 호출됨
@@ -73,9 +82,13 @@ public class CloudSystem : MonoBehaviour
     }
 
     //jointMaker모두 없애기
-    public void DestroyAll()
+    public void DestroyAll(bool preventReJoint = false)
     {
-        foreach (JointMaker node in nodes) Destroy(node);
+        foreach (JointMaker node in nodes)
+        {
+            if (preventReJoint) node.gameObject.tag = "Untagged";
+            Destroy(node);
+        }
         nodes.Clear();
     }
 }

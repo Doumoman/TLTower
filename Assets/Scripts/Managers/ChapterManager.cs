@@ -46,8 +46,8 @@ public class ChapterManager : MonoBehaviour
             chapter.autumn, chapter.winter, chapter.space };
         idx = Array.IndexOf(arr, chapter);
 
-        List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
-        if (idx > 0 && idx < 5) currentObstacles = obList[idx];
+        //List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
+        //if (idx > 0 && idx < 5) currentObstacles = obList[idx];
         SetObstacle();
         onChapterChage?.Invoke(this, EventArgs.Empty);
     }

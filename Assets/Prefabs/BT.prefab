@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   stoneTypeIndex: 0
+  DespawnerCheck: 0
   settleCheckTime: 0.3
   settleVelocityEps: 0.05
   holdToRotate: 0.75
@@ -206,9 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8992f59c86eb7f346b912eaaa3c1a2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFreezed: 0
+  unFreezeTimer: 0
+  freezeTimer: 0
   playTest: 0
   frozen: {fileID: 6200000, guid: 85d1cf8b6c697bc4e9448c067a86975d, type: 2}
-  freezeTIme: 3
+  freezeTime: 0
   unfreezeTime: 3
+  timerResetTime: 0
   color: {r: 0, g: 1, b: 1, a: 0}

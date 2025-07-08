@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: 86d6aaa83679d51408b0eded02798f1a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rock_mega_dark_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1494
+        width: 595
+        height: 528
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347d1f0e31652a44abfa236fdd9153de
+      internalID: -253199205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_4
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1546
+        width: 681
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e613471c26ceaf4fbcb5acc56439152
+      internalID: 784181730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 906
+        width: 594
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c746981923d7d44fbf09392450638f1
+      internalID: 1828609507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_12
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 975
+        width: 763
+        height: 411
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500db3f003571104e9852b965c9f6db7
+      internalID: -8128382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_29
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 432
+        width: 630
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5089308a4f55274cae6c32405a516d6
+      internalID: -1997388667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_32
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 402
+        width: 738
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9feb2adb24c4fd499b5894ca8df46e6
+      internalID: 1279568327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_35
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 18
+        width: 702
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea27678933c60e449a3943ddd1c107ab
+      internalID: 1418761205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_dark_36
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 17
+        width: 582
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526e8b169d590504d9f38cfaf8bf1fca
+      internalID: -1426009586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rock_mega_dark_0: -253199205
+      rock_mega_dark_1: 1243709517
+      rock_mega_dark_10: 1828609507
+      rock_mega_dark_11: 1837541153
+      rock_mega_dark_12: -8128382
+      rock_mega_dark_13: 79513876
+      rock_mega_dark_14: -484461416
+      rock_mega_dark_15: 174136417
+      rock_mega_dark_16: 942165425
+      rock_mega_dark_17: -1456563200
+      rock_mega_dark_18: 1386610368
+      rock_mega_dark_19: -1784992820
+      rock_mega_dark_2: 507220042
+      rock_mega_dark_20: 281265996
+      rock_mega_dark_21: -843500149
+      rock_mega_dark_22: -2143018182
+      rock_mega_dark_23: 1734085170
+      rock_mega_dark_24: 942097240
+      rock_mega_dark_25: -2136971207
+      rock_mega_dark_26: 400264713
+      rock_mega_dark_27: 2075978501
+      rock_mega_dark_28: -1865051208
+      rock_mega_dark_29: -1997388667
+      rock_mega_dark_3: 283130028
+      rock_mega_dark_30: 1843138543
+      rock_mega_dark_31: 1938494073
+      rock_mega_dark_32: 1279568327
+      rock_mega_dark_33: -806236599
+      rock_mega_dark_34: 1075997361
+      rock_mega_dark_35: 1418761205
+      rock_mega_dark_36: -1426009586
+      rock_mega_dark_4: 784181730
+      rock_mega_dark_5: 751446330
+      rock_mega_dark_6: 1562967667
+      rock_mega_dark_7: -1058941458
+      rock_mega_dark_8: -737047663
+      rock_mega_dark_9: 1324662579
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
