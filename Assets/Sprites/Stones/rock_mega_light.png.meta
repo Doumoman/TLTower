@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9aaafe4268cd964b8de6df751017be9
+guid: 90189c62503e1b043b0cc1d58672f1da
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,122 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rock2_0
+      name: rock_mega_light_0
       rect:
         serializedVersion: 2
-        x: 262
-        y: 456
-        width: 326
-        height: 204
+        x: 65
+        y: 1494
+        width: 595
+        height: 528
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 86, y: 93}
-        - {x: 66, y: 96}
-        - {x: -115, y: 96}
-        - {x: -139, y: 82}
-        - {x: -139, y: -97}
-        - {x: 93, y: -97}
-        - {x: 116, y: -96}
-        - {x: 154, y: -80}
-        - {x: 155, y: -72}
-        - {x: 155, y: 1}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd9fb7a7f38bfa41963cd6a4905bfb1
-      internalID: -1265600572
+      spriteID: b87bb4db674286a4b8ad9d2755b05e6a
+      internalID: 794887299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rock2_1
+      name: rock_mega_light_4
       rect:
         serializedVersion: 2
-        x: 762
-        y: 462
-        width: 330
-        height: 192
+        x: 697
+        y: 1514
+        width: 721
+        height: 501
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 37, y: 96}
-        - {x: -56, y: 96}
-        - {x: -152, y: 58}
-        - {x: -158, y: -23}
-        - {x: -158, y: -91}
-        - {x: -111, y: -91}
-        - {x: 81, y: -45}
-        - {x: 135, y: -20}
-        - {x: 153, y: 6}
-        - {x: 153, y: 33}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa74e8ee564bdf246ab400c7c2c6d4a0
-      internalID: 1614723044
+      spriteID: 24b76731cc9392b41a97252b9d1e602f
+      internalID: -255407254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rock2_2
+      name: rock_mega_light_8
       rect:
         serializedVersion: 2
-        x: 272
-        y: 148
-        width: 328
-        height: 243
+        x: 42
+        y: 888
+        width: 593
+        height: 522
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 55, y: 110.5}
-        - {x: -118, y: 110.5}
-        - {x: -124, y: 108.5}
-        - {x: -133, y: 36.5}
-        - {x: -133, y: -34.5}
-        - {x: -70, y: -83.5}
-        - {x: 48, y: -83.5}
-        - {x: 153, y: 27.5}
-        - {x: 153, y: 66.5}
-        - {x: 147, y: 96.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad17dbf3b924c054685846cbbcbf46d2
-      internalID: -745297124
+      spriteID: 147aa0b0f1c07fb4ca30d5eda08c6291
+      internalID: -879774652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rock2_3
+      name: rock_mega_light_10
       rect:
         serializedVersion: 2
-        x: 798
-        y: 174
-        width: 420
-        height: 240
+        x: 663
+        y: 975
+        width: 760
+        height: 453
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -142, y: 116}
-        - {x: -193, y: 69}
-        - {x: -205, y: 13}
-        - {x: -205, y: -114}
-        - {x: 179, y: -114}
-        - {x: 202, y: -21}
-        - {x: 202, y: 116}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efc6f585b59488d4ab5e514b090f9b9c
-      internalID: 836853847
+      spriteID: 98fc21e3978ef1343be894689aaf170f
+      internalID: 287403338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_light_23
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 402
+        width: 738
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33310e9e835c96c43839f67376fbc0c5
+      internalID: -1871224953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_light_24
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 413
+        width: 631
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97100af79a37d1a46bb83896e630dfe2
+      internalID: 640454732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_light_26
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 18
+        width: 704
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502921c2ad241164e983f26d225c7bb3
+      internalID: 2005055983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_mega_light_27
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 17
+        width: 582
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdfa1c0887798649a0b68dd2e8cb12c
+      internalID: -2138253592
       vertices: []
       indices: 
       edges: []
@@ -241,10 +288,35 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rock2_0: -1265600572
-      rock2_1: 1614723044
-      rock2_2: -745297124
-      rock2_3: 836853847
+      rock_mega_light_0: 794887299
+      rock_mega_light_1: -100512521
+      rock_mega_light_10: 287403338
+      rock_mega_light_11: -1152327619
+      rock_mega_light_12: 1123091782
+      rock_mega_light_13: 1747062474
+      rock_mega_light_14: 2118209044
+      rock_mega_light_15: -1179858490
+      rock_mega_light_16: 610344430
+      rock_mega_light_17: -609062986
+      rock_mega_light_18: -1600012513
+      rock_mega_light_19: -1273628505
+      rock_mega_light_2: -1570989118
+      rock_mega_light_20: -537718774
+      rock_mega_light_21: -646458095
+      rock_mega_light_22: 1808682602
+      rock_mega_light_23: -1871224953
+      rock_mega_light_24: 640454732
+      rock_mega_light_25: -12018784
+      rock_mega_light_26: 2005055983
+      rock_mega_light_27: -2138253592
+      rock_mega_light_28: 16199009
+      rock_mega_light_3: 2034967592
+      rock_mega_light_4: -255407254
+      rock_mega_light_5: -751287049
+      rock_mega_light_6: 1878832260
+      rock_mega_light_7: -797152774
+      rock_mega_light_8: -879774652
+      rock_mega_light_9: 344575509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

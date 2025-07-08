@@ -15,10 +15,22 @@ MonoBehaviour:
   typeId: 3
   stoneName: ZY
   sprites:
-  - {fileID: 1512222852, guid: 3339039cf3d30074f84a629663527f85, type: 3}
-  - {fileID: 673231511, guid: 033fc4547f056d745a01921f7cc4c239, type: 3}
-  - {fileID: 1048454617, guid: 1be85edb6975f3746a3beb15c3d40fa6, type: 3}
-  - {fileID: 967679868, guid: 1be85edb6975f3746a3beb15c3d40fa6, type: 3}
+  - {fileID: -1192757672, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -6580858, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 1155928796, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 1370723017, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 1579881268, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -1627080734, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -191951355, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 656182174, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 16390293, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -190151974, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -1406833109, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -1738748372, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 391674895, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 437253649, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -1173689219, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: 1461371344, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: aab706cf09b66b941962cfbbb5e2e23a, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: e0d6bb78ecf964b49a71ccec4229e589, type: 3}
   mass: 2

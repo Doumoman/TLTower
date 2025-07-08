@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: e4638f7731841f64daef6b4ed6348721
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rock_flat_light_1
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 1321
+        width: 339
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a90016f35da1241a31f0a37aa1b780
+      internalID: -1068423613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1212
+        width: 184
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5511aae7594683b4db8b925f1f519545
+      internalID: -1345319612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_3
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1271
+        width: 132
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9d887c7d633bf45bc2ac41a96e7a16
+      internalID: -1960301619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_4
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1288
+        width: 151
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd55b14b18559c49a87ff71550927a1
+      internalID: 994177169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 312
+        width: 199
+        height: 822
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f9c1f558ae2b84684c15065fcb0c46
+      internalID: -638664173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 813
+        width: 790
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325850020c2c25c458348b90b65dee63
+      internalID: 694186029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_25
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 474
+        width: 803
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 270057ed091d11f498f208463762f8c5
+      internalID: 1799664300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock_flat_light_37
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 174
+        width: 847
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4264f858e1e05c418c31c270bc535fd
+      internalID: 545517606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rock_flat_light_0: -1490182968
+      rock_flat_light_1: -1068423613
+      rock_flat_light_10: -638664173
+      rock_flat_light_11: 694186029
+      rock_flat_light_12: 14754522
+      rock_flat_light_13: 303929803
+      rock_flat_light_14: 1324860075
+      rock_flat_light_15: -1026502325
+      rock_flat_light_16: -1532351415
+      rock_flat_light_17: -1927737022
+      rock_flat_light_18: -60617921
+      rock_flat_light_19: 203028974
+      rock_flat_light_2: -1345319612
+      rock_flat_light_20: -1808552809
+      rock_flat_light_21: 1356556599
+      rock_flat_light_22: 1415843057
+      rock_flat_light_23: 1408211179
+      rock_flat_light_24: 1877648175
+      rock_flat_light_25: 1799664300
+      rock_flat_light_26: -1473622156
+      rock_flat_light_27: 952612852
+      rock_flat_light_28: -1798769528
+      rock_flat_light_29: 317483276
+      rock_flat_light_3: -1960301619
+      rock_flat_light_30: -1415966481
+      rock_flat_light_31: -1725483473
+      rock_flat_light_32: -1475173350
+      rock_flat_light_33: 2101945722
+      rock_flat_light_34: 275336620
+      rock_flat_light_35: -305649824
+      rock_flat_light_36: -2087092295
+      rock_flat_light_37: 545517606
+      rock_flat_light_4: 994177169
+      rock_flat_light_5: 146041461
+      rock_flat_light_6: -600350854
+      rock_flat_light_7: -630773779
+      rock_flat_light_8: -2145584822
+      rock_flat_light_9: 1529648944
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
