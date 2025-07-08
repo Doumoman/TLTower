@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 
-public class SoundPlayer : MonoBehaviour
+public class ChapterSoundManager : MonoBehaviour
 {
-    [SerializeField] private SoundStateData.SoundStateDB soundStateDB;
+    [SerializeField] private SoundStateDB soundStateDB;
     [SerializeField] private SoundStateData.Stage currentStage = SoundStateData.Stage.Ground;
     [SerializeField] private int currentStateIndex = 0;
     [SerializeField] private float ambienceFadeDuration = 4f;

@@ -36,21 +36,4 @@ public class SoundStateData : MonoBehaviour
     {
         public List<State> States = new();
     }
-
-    [CreateAssetMenu(fileName = "SoundStateDB", menuName = "Sound State Database", order = 1)]
-    public class SoundStateDB : ScriptableObject
-    {
-        public StageSoundData[] stageData = new StageSoundData[(int)Stage.Count];
-
-        private void OnValidate()
-        {
-            int stageCount = System.Enum.GetValues(typeof(Stage)).Length;
-            if (stageData == null || stageData.Length != stageCount)
-                stageData = new StageSoundData[stageCount];
-
-            for (int i = 0; i < stageCount; i++)
-                if (stageData[i] == null)
-                    stageData[i] = new StageSoundData();
-        }
-    }
 }
