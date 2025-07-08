@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 967679868, guid: 1be85edb6975f3746a3beb15c3d40fa6, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: aab706cf09b66b941962cfbbb5e2e23a, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: e0d6bb78ecf964b49a71ccec4229e589, type: 3}
-  mass: 1
+  mass: 2
   angularDrag: 0.3
   gravityScale: 1
   scale: {x: 0, y: 0}

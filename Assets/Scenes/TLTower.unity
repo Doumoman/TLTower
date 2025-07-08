@@ -11665,7 +11665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -175.7}
+  m_AnchoredPosition: {x: 326.40002, y: -128.52002}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -18207,7 +18207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 209.1, y: -79}
+  m_AnchoredPosition: {x: 448.00003, y: -31.820023}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050707038
@@ -23561,7 +23561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 209.1, y: -129.18}
+  m_AnchoredPosition: {x: 448, y: -82}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169692345
@@ -28860,7 +28860,7 @@ MonoBehaviour:
   BosalWarning: 3
   TreeCount: 5
   PenaltyStone: 7
-  RainTicks: 5
+  RainTicks: 7
 --- !u!4 &1276775305
 Transform:
   m_ObjectHideFlags: 0
@@ -33736,7 +33736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapter: 1
+  chapter: 2
   springObstacles:
   - {fileID: 195804320}
   summerObstacles:
@@ -33752,7 +33752,7 @@ MonoBehaviour:
   - {fileID: 142037665}
   - {fileID: 1322940009}
   - {fileID: 1757047012}
-  stonesForChapter: 0100000064000000e803000010270000a0860100
+  stonesForChapter: 0100000002000000e803000010270000a0860100
 --- !u!4 &1281971017
 Transform:
   m_ObjectHideFlags: 0
@@ -34033,7 +34033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -129.18}
+  m_AnchoredPosition: {x: 326.40002, y: -82.000015}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -39981,7 +39981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe912a38651a0224da5d09e82e4f7cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 18
+  threshold: 8
   remainingTMP: {fileID: 284519799}
   savePointPrefab: {fileID: 4362427236296667128, guid: 0d01af780dc8df04d98572781a40afac, type: 3}
 --- !u!1 &1739338647
@@ -45349,7 +45349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 209.1, y: -175.7}
+  m_AnchoredPosition: {x: 448.00003, y: -128.52002}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037386059
@@ -45628,7 +45628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -79.00001}
+  m_AnchoredPosition: {x: 326.40002, y: -31.820023}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100203732
