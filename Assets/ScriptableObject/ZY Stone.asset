@@ -15,22 +15,15 @@ MonoBehaviour:
   typeId: 3
   stoneName: ZY
   sprites:
-  - {fileID: -1192757672, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -6580858, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 1155928796, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 1370723017, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 1579881268, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -1627080734, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -191951355, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 656182174, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 16390293, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -190151974, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -1406833109, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -1738748372, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 391674895, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 437253649, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: -1173689219, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
-  - {fileID: 1461371344, guid: 433e1ff433fecda4597c82cbe2628606, type: 3}
+  - {fileID: -768309923, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: 1011742299, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: 1694653001, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: 957152919, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: -396477964, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: 443447097, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: -109172279, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: -1700338760, guid: e90284e567be14647aba6e8846607372, type: 3}
+  - {fileID: -829298758, guid: e90284e567be14647aba6e8846607372, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: aab706cf09b66b941962cfbbb5e2e23a, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: e0d6bb78ecf964b49a71ccec4229e589, type: 3}
   mass: 2
