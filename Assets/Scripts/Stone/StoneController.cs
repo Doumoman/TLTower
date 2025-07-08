@@ -50,6 +50,10 @@ public class StoneController : MonoBehaviour,
 
     float settleTimer = 0f;
 
+    const string DRAG_LAYER = "DraggingStone";   // 드래그 전용 Sorting Layer
+    string originalSortingLayer;                 // 복구용 레이어 이름
+    int originalOrder;
+
     [Header("Drag & Rotate")]
     public float holdToRotate = 0.75f;
     public float rotateSpeed = -90f;
@@ -102,6 +106,30 @@ public class StoneController : MonoBehaviour,
                 outlineSR.enabled = true;
                 StoneFixer.Instance?.RegisterSettled(this); //Settled 됐다고 StoneFixer 에 보고
                 settleTimer = 0;
+            }
+        }
+        if (state == StoneState.Dragging)
+        {
+            // 아직 전환 전이라면 한 번만 수행
+            if (sr.sortingLayerName != DRAG_LAYER)
+            {
+                originalSortingLayer = sr.sortingLayerName;
+                originalOrder = sr.sortingOrder;
+
+                sr.sortingLayerName = DRAG_LAYER;
+                sr.sortingOrder = 30_000;          // 충분히 큰 값
+                outlineSR.sortingLayerID = sr.sortingLayerID;
+                outlineSR.sortingOrder = sr.sortingOrder - 1;
+            }
+        }
+        else   // Dragging 상태가 아닐 때는 원래 레이어로 복귀
+        {
+            if (sr.sortingLayerName == DRAG_LAYER)
+            {
+                sr.sortingLayerName = originalSortingLayer;
+                sr.sortingOrder = originalOrder;
+                outlineSR.sortingLayerID = sr.sortingLayerID;
+                outlineSR.sortingOrder = sr.sortingOrder - 1;
             }
         }
         if (state == StoneState.Dragging && !isRotating)
@@ -312,6 +340,11 @@ public class StoneController : MonoBehaviour,
 
         if (state != StoneState.Dragging) return;
 
+        sr.sortingLayerName = originalSortingLayer;
+        sr.sortingOrder = originalOrder;
+        outlineSR.sortingLayerID = sr.sortingLayerID;
+        outlineSR.sortingOrder = sr.sortingOrder - 1;
+
         state = StoneState.Dropping;
         gameObject.tag = "PlacedStone";
 
@@ -337,6 +370,12 @@ public class StoneController : MonoBehaviour,
         CameraController.Instance.BeginDrag(this);
         state = StoneState.Dragging;
         gameObject.tag = "DraggingStone";
+
+        sr.sortingLayerName = DRAG_LAYER;
+        sr.sortingOrder = 30_000;         // flower(3)보다 훨씬 큰 값
+        outlineSR.sortingLayerID = sr.sortingLayerID;
+        outlineSR.sortingOrder = sr.sortingOrder - 1;
+
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         if (physCol) physCol.enabled = false;

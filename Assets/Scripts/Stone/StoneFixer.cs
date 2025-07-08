@@ -72,7 +72,7 @@ public class StoneFixer : MonoBehaviour
     public void FixAllStones()
     {
         if (batch.Count == 0) return;
-
+        ResetStone.Instance.CreatePlatform();
         // Pile 루트 생성
         GameObject pileRoot = new($"StonePile_Wave{wave}");
         var pileRB = pileRoot.AddComponent<Rigidbody2D>();

@@ -63,3 +63,6 @@ TagManager:
   - name: flower
     uniqueID: 534908513
     locked: 0
+  - name: DraggingStone
+    uniqueID: 4100938263
+    locked: 0

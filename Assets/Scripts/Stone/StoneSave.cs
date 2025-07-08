@@ -16,6 +16,7 @@ public class SaveSystem : MonoBehaviour
     {
         StoneSaveData data = new();
         data.wave = StoneFixer.Instance.GetWave();
+        data.platformY = StoneFixer.Instance.HighestFixedY;
 
         foreach (var st in FindObjectsOfType<StoneController>())
         {
@@ -48,6 +49,9 @@ public class SaveSystem : MonoBehaviour
         // JSON → 객체 
         string json = File.ReadAllText(path);
         StoneSaveData data = JsonUtility.FromJson<StoneSaveData>(json);
+
+        Vector2 platPos = new Vector2(0f, data.platformY - 1.5f);
+        ResetStone.Instance.CreatePlatform(platPos);
 
         // Fixed 돌 재생성
         foreach (var info in data.stones)
