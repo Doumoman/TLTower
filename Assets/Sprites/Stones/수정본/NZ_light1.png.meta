@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3c9380b4ce8cb142b09dcdd3eff05fc
+guid: 342774058a59d474799a2e22cdcc2ec6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NZ_light1_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1768
+        width: 1140
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa971e0100c69c544a300646688eb75f
+      internalID: -486824576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NZ_light1_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1386
+        width: 1110
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42928b37e36977842b8a7d00590b0ac7
+      internalID: 1805742213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NZ_light1_15
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1146
+        width: 1060
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3dba743fe0e0346bc24c7c25d4af34
+      internalID: -635387139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NZ_light1_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 660
+        width: 1049
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903c846061a0cda4080f0de7b1fa912a
+      internalID: -924114880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NZ_light1_0: 1347185465
+      NZ_light1_1: -486824576
+      NZ_light1_10: 587624043
+      NZ_light1_11: 287982390
+      NZ_light1_12: -495821684
+      NZ_light1_13: -879800304
+      NZ_light1_14: -1839315506
+      NZ_light1_15: -635387139
+      NZ_light1_16: 1183624090
+      NZ_light1_17: 1078703445
+      NZ_light1_18: -924114880
+      NZ_light1_19: -600208697
+      NZ_light1_2: 1925912213
+      NZ_light1_20: 861798287
+      NZ_light1_21: 1513278610
+      NZ_light1_22: 236778658
+      NZ_light1_3: 295137142
+      NZ_light1_4: -1465448555
+      NZ_light1_5: 1805742213
+      NZ_light1_6: -1143994033
+      NZ_light1_7: -324806312
+      NZ_light1_8: -1341862291
+      NZ_light1_9: -2089381443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
