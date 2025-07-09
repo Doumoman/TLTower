@@ -134,7 +134,7 @@ public class StoneFixer : MonoBehaviour
             while (true)
             {
                 var info = animator.GetCurrentAnimatorStateInfo(0);
-                if (info.IsName(fadeState) && info.normalizedTime >= 1f)
+                if (info.IsName(fadeState) && info.normalizedTime >= 0.99f)
                     break;
                 yield return null;
             }

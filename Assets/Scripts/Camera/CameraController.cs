@@ -180,7 +180,7 @@ public class CameraController : MonoBehaviour
         Vector3 targetPos = transform.position + _directionForce;
 
 
-        targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);
+        targetPos.y = Mathf.Clamp(targetPos.y, TopLimit-5f, TopLimit);
 
         targetPos.x = transform.position.x;
         targetPos.z = transform.position.z;
