@@ -222,14 +222,14 @@ RectTransform:
   m_GameObject: {fileID: 3206088170698528774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6963863059198656164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: 0, y: 179.99995}
   m_SizeDelta: {x: 1083, y: 988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6007034985975113083
@@ -490,7 +490,7 @@ RectTransform:
   m_GameObject: {fileID: 4132039300192749323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4263355308485038340}
@@ -502,7 +502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70.00004}
+  m_AnchoredPosition: {x: 0, y: 170}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4303838527252298908
@@ -875,7 +875,7 @@ RectTransform:
   m_GameObject: {fileID: 5187166139086443024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3739987703762828625}
@@ -884,7 +884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5266602222422233762
@@ -990,7 +990,7 @@ RectTransform:
   m_GameObject: {fileID: 5536939949906625098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6963863059198656164}
@@ -1157,7 +1157,7 @@ RectTransform:
   m_GameObject: {fileID: 6199810337095150111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6963863059198656164}
@@ -1335,6 +1335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9868670a6e348404baee21b4ab1691fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  scaler: {fileID: 0}
+  fixedOrthoSize: 5
   pausepanel: {fileID: 6404112263945726606}
 --- !u!1 &6807048738821690614
 GameObject:
@@ -1711,7 +1714,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3968910420037224243}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
-        m_MethodName: SetLandscape18x9
+        m_MethodName: Set2by1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1746,7 +1749,7 @@ RectTransform:
   m_GameObject: {fileID: 8828038968989189309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 572256484527535248}
@@ -1757,7 +1760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70.00002}
+  m_AnchoredPosition: {x: 0, y: 170}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9167121522007317393
@@ -1796,7 +1799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.7, y: 126.1}
+  m_AnchoredPosition: {x: -5.7, y: 140}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7879404677523084263
@@ -1985,7 +1988,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3968910420037224243}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
-        m_MethodName: SetLandscape16x9
+        m_MethodName: Set16by9
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
