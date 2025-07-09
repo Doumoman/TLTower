@@ -19,6 +19,12 @@ public class Tree : MonoBehaviour
     public Sprite[] winter;
     public Sprite[] winterFlowerFront;
 
+    [Header("Fade-out Settings")]
+    [SerializeField] float fadeDuration = 1f;
+    static readonly List<Tree> _allTrees = new();   // 씬의 모든 Tree 인스턴스
+    static bool _globalFadeStarted;
+    bool _registered;
+
     float Z;
     Dictionary<chapter, Sprite[]> seasons;
     Dictionary<chapter, Sprite[]> seasonFlower;
@@ -26,11 +32,25 @@ public class Tree : MonoBehaviour
     Sprite[] currentFlowerSp;
     GameObject lastStem;
     ChapterManager cm;
+    void Awake()
+    {
+        // ChapterManager 캐싱
+        cm = ChapterManager.Instance;
+
+        // 자신을 정적 리스트에 등록
+        _allTrees.Add(this);
+        _registered = true;
+    }
+    void OnDestroy()
+    {
+        if (_registered) _allTrees.Remove(this);
+    }
 
     void Start()
     {
         Z = gameObject.transform.position.z;
         cm = ChapterManager.Instance;
+        
         cm.onChapterChage += ChageSprite;
 
         seasons = new Dictionary<chapter, Sprite[]>()
@@ -74,7 +94,14 @@ public class Tree : MonoBehaviour
     //나무를 계속 생성(space에선 생성x)
     void Update()
     {
-        if (cm.chapter == chapter.space) return;
+        if (cm.chapter == chapter.space && !_globalFadeStarted)
+        {
+            _globalFadeStarted = true;
+            StartCoroutine(CoFadeAndDisableAll());
+            return;              // 이후 로직은 더 이상 필요 없음
+        }
+        if (_globalFadeStarted) return;
+
         float lastY = lastStem.transform.position.y;
         if (StoneFixer.Instance.HighestSettledY > lastY)
         {
@@ -119,5 +146,32 @@ public class Tree : MonoBehaviour
             spriteRenderer.sprite = sp1[index];
         }
         currentFlowerSp = sp1;
+    }
+    static IEnumerator CoFadeAndDisableAll()
+    {
+        // 리스트 스냅샷(페이드 중 Destroy로 빠져도 안전)
+        var targets = _allTrees.ToArray();
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / Mathf.Max(0.0001f, targets.First().fadeDuration);
+
+            foreach (var tree in targets)
+            {
+                if (tree == null) continue;
+                foreach (var sr in tree.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    Color c = sr.color;
+                    c.a = Mathf.Lerp(1f, 0f, t);
+                    sr.color = c;
+                }
+            }
+            yield return null;
+        }
+
+        // 완전히 투명 후, 전부 비활성화
+        foreach (var tree in targets)
+            if (tree) tree.gameObject.SetActive(false);
     }
 }

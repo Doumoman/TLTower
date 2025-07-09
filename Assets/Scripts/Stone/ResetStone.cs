@@ -11,15 +11,17 @@ public class ResetStone : MonoBehaviour
     StoneFixer sf;
     int currentWave = 0;
     StoneController sc = null;
-
+    ChapterManager cm;
     private void Awake()
     {
+        cm = ChapterManager.Instance;
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
     // Start is called before the first frame update
     void Start()
     {
+        cm = ChapterManager.Instance;
         sf = StoneFixer.Instance;
     }
     public void DestroyStones()
@@ -56,6 +58,7 @@ public class ResetStone : MonoBehaviour
 
     public void CreatePlatform()
     {
+        
         float y = StoneFixer.Instance.HighestFixedY;
         Vector2 spawnPos = new Vector2(0f, y);
 

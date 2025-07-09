@@ -62,7 +62,8 @@ public class StoneController : MonoBehaviour,
     Rigidbody2D rb;
     SpriteRenderer sr;
     PolygonCollider2D physCol;   
-    PolygonCollider2D clickCol;   
+    PolygonCollider2D clickCol;
+    ChapterManager cm;
 
     Vector3 dragOffset;
     Vector2 holdStartPos;
@@ -84,8 +85,15 @@ public class StoneController : MonoBehaviour,
         if (physCol == null && state != StoneState.Background)
             Debug.LogWarning($"[{name}] Physics Collider(PhysCol) 가 없습니다!", this);
         CreateOutlineObject(); // 빨간색 테두리 형성
+        cm = ChapterManager.Instance;
+        cm.onChapterChage += OnChapterChanged;
     }
-
+    void OnChapterChanged(object sender, System.EventArgs e)
+    {
+        if (cm.chapter == chapter.space)
+            Destroy(gameObject);
+    }
+    
     void Update()
     {
         if (state == StoneState.Dropping)
@@ -445,9 +453,10 @@ public class StoneController : MonoBehaviour,
     public void HideOutline() => outlineSR.enabled = false;
     public void ShowOutline(Color c) { outlineSR.color = c; outlineSR.enabled = true; }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
+        if (cm) cm.onChapterChage -= OnChapterChanged;
         if (state == StoneState.Dropping) return;
-        ChapterManager.Instance?.RemoveCount();  //ChapterManger에 카운트 내리기
+        ChapterManager.Instance?.RemoveCount();
     }
 }

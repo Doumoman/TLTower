@@ -8,4 +8,8 @@ public class TestButton : MonoBehaviour
     {
         AnimationManager.Instance.Play();
     }
+    public void Lower()
+    {
+        CameraController.Instance.LowerBackgrounds();
+    }
 }

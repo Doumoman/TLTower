@@ -19,7 +19,7 @@ public class StoneSpawner : MonoBehaviour
     public float defaultSpawnDelay = 2f;
     //0이라면 tick이 얼마 남지 않았을 경우 바로 스폰하여 좋지 않으므로 tick이 2초 이하 남았다면 다음 tick에 스폰하도록 설정
     public Transform stonesParent;
-
+    ChapterManager cm;
     readonly Dictionary<Transform, StoneController> slotToStub = new();
     readonly Dictionary<Transform, Coroutine> slotTimer = new();
     readonly List<StoneController> active = new();
@@ -27,12 +27,14 @@ public class StoneSpawner : MonoBehaviour
     public static bool Penalty = false; // true면 다음 돌이 번뇌돌, PenaltyManager에서 관리
     void Awake()
     {
+        cm = ChapterManager.Instance;
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
     private List<System.Action> Actions = new(); // TickManager에서 호출할 액션 목록
     void Start()
     {
+        cm = ChapterManager.Instance;
         if (!stonesParent) stonesParent = new GameObject("Stones").transform;
         
 
@@ -166,6 +168,11 @@ public class StoneSpawner : MonoBehaviour
 
     void TickCreateStubAtSlot(Transform slot)
     {
+        if (cm.chapter == chapter.space)
+        {
+            Debug.Log("생성금지");
+            return;
+        }
         Actions.Add(() => CreateStubAtSlot(slot));
     }
 

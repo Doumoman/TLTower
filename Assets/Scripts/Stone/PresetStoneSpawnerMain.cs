@@ -6,7 +6,7 @@ using UnityEngine;
 /// • 돌은 MainStoneController 두 상태(Settled·Dragging)로 동작  
 /// • StoneFreezer 자동 제거
 /// </summary>
-public class PresetStoneSpawner : MonoBehaviour
+public class PresetStoneSpawnerMain : MonoBehaviour
 {
     [System.Serializable]
     public struct StonePreset

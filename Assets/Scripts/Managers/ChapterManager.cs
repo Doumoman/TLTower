@@ -68,17 +68,29 @@ public class ChapterManager : MonoBehaviour
         {
             chapter = arr[++idx];
             SetObstacle();
-            StoneFixer.Instance.threshold = stonesForChapter[idx];
+            /* space 챕터에는 threshold 가 없으므로 안전 체크 */
+            if (idx < stonesForChapter.Length)
+                StoneFixer.Instance.threshold = stonesForChapter[idx];
             StoneFixer.Instance.NotifyStoneLost(null);
             onChapterChage?.Invoke(this, EventArgs.Empty);
             stoneCount = 0;
             Debug.Log(chapter);
         }
-        if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter || chapter == chapter.space)
+        if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
         {
             Debug.Log("Play");
             AnimationManager.Instance.Play();
         }
+        if (chapter == chapter.space)
+        {
+            Debug.Log("PlayBck");
+            CameraController.Instance.LowerBackgrounds();
+        }
+    }
+    void RemoveAllCheckpoints()
+    {
+        foreach (var cp in GameObject.FindGameObjectsWithTag("Checkpoint"))
+            Destroy(cp);
     }
     public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
     public void RemoveCount() { stoneCount -= 1; }
