@@ -8,6 +8,7 @@ public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();
     Coroutine co;
+    bool nonStop = false;
 
     public float duration = 30;
 
@@ -15,6 +16,12 @@ public class RainSystem : CountBasedObstacle
     public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
+
+    protected override void AddStone(object sender, EventArgs eventArgs)
+    {
+        if (nonStop || co != null) return; //실행중에는 카운트 안함
+        base.AddStone(sender, eventArgs);
+    }
 
     public override void MakeObstacle(bool autoStop = true)
     {
@@ -27,7 +34,7 @@ public class RainSystem : CountBasedObstacle
         }
         ps.Play();
 
-        if (!autoStop) return;
+        if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
         co = StartCoroutine(StopDelay());
     }
@@ -64,6 +71,8 @@ public class RainSystem : CountBasedObstacle
             }
         }
         ps.Stop();
+        stoneCount = 0;
+        nonStop = false;
     }
     protected override void OnEnable()
     {

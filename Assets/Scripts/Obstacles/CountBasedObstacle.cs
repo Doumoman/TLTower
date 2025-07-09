@@ -11,7 +11,7 @@ public abstract class CountBasedObstacle : MonoBehaviour
     protected int stoneCount = 0;
     public int count = 5;
 
-    protected void AddStone(object sender, EventArgs eventArgs)
+    protected virtual void AddStone(object sender, EventArgs eventArgs)
     {
         stoneCount++;
         if (stoneCount >= count)

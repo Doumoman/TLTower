@@ -20,7 +20,13 @@ public class WindSystem : CountBasedObstacle
     public bool left = false;
 
     Coroutine co;
+    bool nonStop = false;
 
+    protected override void AddStone(object sender, EventArgs eventArgs)
+    {
+        if (nonStop || co != null) return; //실행중에는 카운트 안함
+        base.AddStone(sender, eventArgs);
+    }
 
     public override void MakeObstacle(bool autoStop = true)
     {
@@ -35,7 +41,7 @@ public class WindSystem : CountBasedObstacle
 
         wind.Play();
 
-        if (!autoStop) return;
+        if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
         co = StartCoroutine(StopDelay());
     }
@@ -75,7 +81,12 @@ public class WindSystem : CountBasedObstacle
         StopWind();
         co = null;
     }
-    public void StopWind() { wind.Stop(); }
+    public void StopWind()
+    {
+        wind.Stop();
+        stoneCount = 0;
+        nonStop = false;
+    }
 
     protected override void OnEnable()
     {
