@@ -247,19 +247,21 @@ public class StoneController : MonoBehaviour,
         if (state == StoneState.Fixed) return;
 
         state = StoneState.Fixed;
-        gameObject.tag = "FixedStone";
-
+        tag = "FixedStone";
         gameObject.layer = LayerMask.NameToLayer("FixedStone");
 
-        if (physCol)
+        foreach (var col in GetComponents<Collider2D>())
+            Destroy(col);                         // 모든 2D 콜라이더 파괴
+
+        if (TryGetComponent(out Rigidbody2D rb))
         {
-            physCol.enabled = true;
-            physCol.isTrigger = false;
+            rb.bodyType = RigidbodyType2D.Static;
+            rb.simulated = false;
         }
-        if (!TryGetComponent(out Rigidbody2D rb))
-            rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Static;
-        rb.simulated = true;
+
+        // 스프라이트 렌더러 레이어 변경
+        if (TryGetComponent(out SpriteRenderer sr))
+            sr.sortingLayerName = "backGround";
 
         if (outlineSR) outlineSR.enabled = false;
     }
