@@ -50,7 +50,7 @@ public class StoneFixer : MonoBehaviour
         {
             wave++;
             Vector3 spawnPos = new(
-                sc.transform.position.x,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
+                0f,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
                 HighestSettledY + 1.5f,
                 0f);
             currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
@@ -108,11 +108,41 @@ public class StoneFixer : MonoBehaviour
         CameraController.Instance.CenterOnY(HighestFixedY);
 
         // SavePoint 오브젝트 제거
-        if (currentSavePoint) Destroy(currentSavePoint);
-        currentSavePoint = null;
+        if (currentSavePoint)
+        {
+            StartCoroutine(RemoveSavePointAfterFade(currentSavePoint));
+            currentSavePoint = null;          // 코루틴이 참조를 가지고 있으므로 안전
+        }
 
         Debug.Log($"[StoneFixer] Wave {wave} fixed → PileCollider 생성");
         StartCoroutine(FuseAllStonesIntoOne());
+    }
+    IEnumerator RemoveSavePointAfterFade(GameObject sp)
+    {
+        if (!sp) yield break;
+
+        var animator = sp.GetComponent<Animator>();
+        if (animator && animator.runtimeAnimatorController)
+        {
+            const string fadeState = "SavePointFadeout";
+            animator.speed = 0.99f;
+
+            // 스테이트 ‘강제’ 진입
+            animator.Play(fadeState, 0, 0f);          // (layer = 0, normalizedTime = 0)
+
+            while (true)
+            {
+                var info = animator.GetCurrentAnimatorStateInfo(0);
+                if (info.IsName(fadeState) && info.normalizedTime >= 1f)
+                    break;
+                yield return null;
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        Destroy(sp); 
     }
     IEnumerator FuseAllStonesIntoOne() // Pile된 객체들의 콜라이더를 하나의 콜라이더로 만들기
     {
