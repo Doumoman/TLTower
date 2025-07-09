@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyTime: 0.8
   moveDeadZone: 0.5
-  forceChance: 0.3
+  forceChance: 0
 --- !u!50 &-3809265463360559408
 Rigidbody2D:
   serializedVersion: 4

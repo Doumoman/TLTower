@@ -10446,12 +10446,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5483c283a5fe64fb5e1e5a3d59f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdChance: 0.25
-  cycleSpanInit: 5
-  cycleSpanMin: 7
-  cycleSpanMax: 10
+  birdChance: 1
+  cycleSpanInit: 2
+  cycleSpanMin: 1
+  cycleSpanMax: 2
+  sittime: 5
+  waitAfterFeather: 3
   birdPoop: {fileID: 4791323934794703054, guid: 00331c9013c08404591077b3cbb609d2, type: 3}
   bird: {fileID: 2276942907412917377, guid: 795342520eaee8648bd0fa6016f46946, type: 3}
+  feather: {fileID: 4456362738015972997, guid: 5fddc2d76b021b8428494351173d6a5e, type: 3}
 --- !u!4 &195804322
 Transform:
   m_ObjectHideFlags: 0
@@ -33483,7 +33486,8 @@ MonoBehaviour:
   chapter: 8
   seasonalObstacles:
   - season: 1
-    obstacles: []
+    obstacles:
+    - {fileID: 195804320}
   - season: 2
     obstacles: []
   - season: 3
@@ -43967,7 +43971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1548268845
 MonoBehaviour:
   m_ObjectHideFlags: 0
