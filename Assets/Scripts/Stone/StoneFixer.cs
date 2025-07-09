@@ -191,8 +191,8 @@ public class StoneFixer : MonoBehaviour
     // 추락한 돌이 파괴되면 StoneDespawnZone → NotifyStoneLost 로 보고
     public void NotifyStoneLost(StoneController sc)
     {
-        if (batch.Remove(sc))
-            UpdateUI();
+        batch.Remove(sc);
+        UpdateUI();
     }
     public List<StoneController> GetBatch() { return batch; }
     public int GetWave() { return wave; }

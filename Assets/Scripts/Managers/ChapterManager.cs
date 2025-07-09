@@ -54,6 +54,8 @@ public class ChapterManager : MonoBehaviour
         //List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
         //if (idx > 0 && idx < 5) currentObstacles = obList[idx];
         SetObstacle();
+        StoneFixer.Instance.threshold = stonesForChapter[idx];
+        StoneFixer.Instance.NotifyStoneLost(null);
         onChapterChage?.Invoke(this, EventArgs.Empty);
     }
 
@@ -66,6 +68,8 @@ public class ChapterManager : MonoBehaviour
         {
             chapter = arr[++idx];
             SetObstacle();
+            StoneFixer.Instance.threshold = stonesForChapter[idx];
+            StoneFixer.Instance.NotifyStoneLost(null);
             onChapterChage?.Invoke(this, EventArgs.Empty);
             stoneCount = 0;
             Debug.Log(chapter);
