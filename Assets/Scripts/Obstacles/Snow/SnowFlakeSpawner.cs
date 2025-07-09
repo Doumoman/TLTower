@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class SnowFlakeSpawner : CountBasedObstacle
 {
-
-    Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
-
-    [Range(0, 1)] public float winterChance = 0.1f;
-
     public GameObject snowFlake;
 
 
@@ -33,8 +28,6 @@ public class SnowFlakeSpawner : CountBasedObstacle
     protected override void OnEnable()
     {
         base.OnEnable();
-
-        seasonChances = new Dictionary<chapter, float> { { chapter.winter, winterChance } };
     }
 
     protected override void OnDisable()

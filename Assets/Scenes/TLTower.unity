@@ -218,11 +218,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c57daff576544e42a74c22faa12b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Chance:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   count: 5
   followSpeed: 1
-  summerChance: 0.1
-  autumnChance: 0.1
-  winterChance: 0.1
   duration: 30
   wind: {fileID: 1243338724}
   windcol: {fileID: 1071991622}
@@ -22372,9 +22380,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6410bcf80ed708c4a94a7e334c7e6b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Chance:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   count: 5
-  summerChance: 0.1
-  autumnChance: 0.1
   duration: 30
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
@@ -32318,7 +32335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1281971017}
-  - component: {fileID: 1281971016}
+  - component: {fileID: 1281971018}
   m_Layer: 0
   m_Name: ChapterManager
   m_TagString: Untagged
@@ -32326,35 +32343,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1281971016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281971015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chapter: 1
-  springObstacles:
-  - {fileID: 195804320}
-  summerObstacles:
-  - {fileID: 195804320}
-  - {fileID: 1224223809}
-  - {fileID: 31691765}
-  autumnObstacles:
-  - {fileID: 195804320}
-  - {fileID: 1224223809}
-  - {fileID: 31691765}
-  winterObstacles:
-  - {fileID: 31691765}
-  - {fileID: 142037665}
-  - {fileID: 1322940009}
-  - {fileID: 1757047012}
-  stonesForChapter: 0100000002000000e803000010270000a0860100
 --- !u!4 &1281971017
 Transform:
   m_ObjectHideFlags: 0
@@ -32370,6 +32358,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281971018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281971015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapter: 1
+  seasonalObstacles:
+  - season: 1
+    obstacles: []
+  - season: 2
+    obstacles: []
+  - season: 3
+    obstacles:
+    - {fileID: 195804320}
+  - season: 4
+    obstacles:
+    - {fileID: 1224223809}
+  - season: 5
+    obstacles:
+    - {fileID: 31691765}
+  - season: 6
+    obstacles:
+    - {fileID: 195804320}
+    - {fileID: 31691765}
+    - {fileID: 1224223809}
+  - season: 7
+    obstacles:
+    - {fileID: 195804320}
+    - {fileID: 31691765}
+    - {fileID: 1224223809}
+  - season: 8
+    obstacles: []
+  - season: 9
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 31691765}
+    - {fileID: 1757047012}
+  - season: 10
+    obstacles: []
+  stonesForChapter: 00000000060000000d0000000d0000000d0000000d0000000d000000120000000000000012000000
 --- !u!1 &1322940009
 GameObject:
   m_ObjectHideFlags: 0
@@ -38017,9 +38053,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21563f188f91d4e47b45b69e34e26a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Chance:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   count: 5
-  summerChance: 0.1
-  autumnChance: 0.1
   duration: 30
   ps: {fileID: 0}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
@@ -38252,8 +38297,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4f172451f9a1d4b936c886eedf03e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Chance:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   count: 7
-  winterChance: 0.7
   snowFlake: {fileID: 5686642361273476377, guid: 7ffa52fade8c2564a825a30822935deb, type: 3}
 --- !u!4 &1757047014
 Transform:

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,7 +20,7 @@ public class CloudController : MonoBehaviour,
     public float flowSpeed = -1;
     CloudState state = CloudState.flow;
 
-    public static bool AnyCloudBeingDragged { get; private set; }  
+    public static bool AnyCloudBeingDragged { get; private set; }
     Vector3 dragOffset;
     Vector2 holdStartPos;
     Vector2 lastPointerWorld;
@@ -36,8 +37,8 @@ public class CloudController : MonoBehaviour,
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        rbChildren = GetComponentsInChildren<Rigidbody2D>();
-        colChildren = GetComponentsInChildren<Collider2D>();
+        rbChildren = GetComponentsInChildren<Rigidbody2D>().Where<Rigidbody2D>(c => c.gameObject != gameObject).ToArray();
+        colChildren = GetComponentsInChildren<Collider2D>().Where<Collider2D>(c => c.gameObject != gameObject).ToArray();
         sr = GetComponent<SpriteRenderer>();
 
         rb.gravityScale = 0;
@@ -92,18 +93,18 @@ public class CloudController : MonoBehaviour,
             rb.angularVelocity = rotateSpeed;
     }
 
-    void CheckOverlap()
-    {
-        Collider2D[] results = new Collider2D[10];
-        ContactFilter2D filter = new ContactFilter2D { useTriggers = false };
-
-        int count = col.OverlapCollider(filter, results);
-        for (int i = 0;  i < count; i++)
-        {
-            GameObject go = results[i].gameObject;
-            if (go.TryGetComponent<JointMaker>(out JointMaker jm)) jm.MakeJoint(gameObject);
-        }
-    }
+    //void CheckOverlap()
+    //{
+    //    Collider2D[] results = new Collider2D[10];
+    //    ContactFilter2D filter = new ContactFilter2D { useTriggers = false };
+    //
+    //    int count = col.OverlapCollider(filter, results);
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //        GameObject go = results[i].gameObject;
+    //        if (go.TryGetComponent<JointMaker>(out JointMaker jm)) jm.MakeJoint(gameObject);
+    //    }
+    //}
 
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
@@ -111,10 +112,10 @@ public class CloudController : MonoBehaviour,
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
 
-        StartDragging();
-        dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
         if (this.TryGetComponent<JointMaker>(out JointMaker jm))
             jm.DraggingBreak();
+        StartDragging();
+        dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -164,14 +165,20 @@ public class CloudController : MonoBehaviour,
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+        foreach (Rigidbody2D rb in rbChildren)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.isKinematic = false;
+        }
         rb.Sleep();
 
-        if (col) col.isTrigger = false;
+        //if (col) col.isTrigger = false;
         foreach (Collider2D col in colChildren) col.isTrigger = false;
         sr.color = Color.white;
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
-        CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
+        //CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
 
     }
 
@@ -185,10 +192,12 @@ public class CloudController : MonoBehaviour,
         gameObject.tag = "DraggingCloud";
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+        foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
         if (col) col.isTrigger = true;
         foreach (Collider2D col in colChildren) col.isTrigger = true;
 
         rb.isKinematic = true;
+        foreach (Rigidbody2D rb in rbChildren) rb.isKinematic = true;
 
         dragOffset = transform.position - (Vector3)ScreenToWorld();
         holdTimer = 0;

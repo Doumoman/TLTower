@@ -10,9 +10,6 @@ public class WindSystem : CountBasedObstacle
 
     [Header("Settings")]
     public float followSpeed = 1f;
-    [Range(0, 1)] public float summerChance = 0.1f;
-    [Range(0, 1)] public float autumnChance = 0.1f;
-    [Range(0, 1)] public float winterChance = 0.1f;
     public float duration = 30;
 
     [Header("References")]
@@ -22,7 +19,6 @@ public class WindSystem : CountBasedObstacle
     public float width = 6f;
     public bool left = false;
 
-    Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
     Coroutine co;
 
 
@@ -84,10 +80,6 @@ public class WindSystem : CountBasedObstacle
     protected override void OnEnable()
     {
         base.OnEnable();
-        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
-        {
-            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}, {chapter.winter, winterChance}
-        };
     }
     protected override void OnDisable()
     {

@@ -37,7 +37,12 @@ public class Tree : MonoBehaviour
         {
             { chapter.land, spring },
             { chapter.spring, spring },
+            { chapter.spring2, spring },
+            { chapter.spring3, spring },
             { chapter.summer, summer },
+            { chapter.summer2, summer },
+            { chapter.summer3, summer },
+            { chapter.summer4, summer },
             { chapter.autumn, autumn },
             { chapter.winter, winter },
             { chapter.space, winter }
@@ -46,7 +51,12 @@ public class Tree : MonoBehaviour
         {
             { chapter.land, springFlowerFront },
             { chapter.spring, springFlowerFront },
+            { chapter.spring2, springFlowerFront },
+            { chapter.spring3, springFlowerFront },
             { chapter.summer, summerFlowerFront },
+            { chapter.summer2, summerFlowerFront },
+            { chapter.summer3, summerFlowerFront },
+            { chapter.summer4, summerFlowerFront },
             { chapter.autumn, springFlowerFront },
             { chapter.winter, winterFlowerFront },
             { chapter.space, winterFlowerFront }

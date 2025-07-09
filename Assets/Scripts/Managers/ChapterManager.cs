@@ -4,19 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum chapter {land, spring, summer, autumn, winter, space};
+[System.Serializable]
+public class SeasonObstacle
+{
+    public chapter season; // or Season enum
+    public List<GameObject> obstacles;
+}
+
+public enum chapter {land, spring, spring2, spring3,  summer, summer2, summer3, summer4, autumn, winter, space};
 public class ChapterManager : MonoBehaviour
 {
     public chapter chapter = chapter.land;
 
     [Header("References")]
-    public List<GameObject> springObstacles;
-    public List<GameObject> summerObstacles;
-    public List<GameObject> autumnObstacles;
-    public List<GameObject> winterObstacles;
+    public List<SeasonObstacle> seasonalObstacles;
 
     [Header("Settings")]
-    public int[] stonesForChapter = {  };
+    [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
+    public int[] stonesForChapter = new int[(int)chapter.space];
     
     int stoneCount = 0;
     int idx = 0;
@@ -55,7 +60,7 @@ public class ChapterManager : MonoBehaviour
     //돌 개수 늘어날 때 마다 챕터전환 확인
     public void ChangeChapter()
     {
-        chapter[] arr = { chapter.land, chapter.spring, chapter.summer,
+        chapter[] arr = { chapter.land, chapter.spring, chapter.spring2, chapter.spring3, chapter.summer, chapter.summer2, chapter.summer3, chapter.summer4,
             chapter.autumn, chapter.winter, chapter.space };
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
@@ -69,11 +74,19 @@ public class ChapterManager : MonoBehaviour
     public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
     public void RemoveCount() { stoneCount -= 1; }
 
+    public List<GameObject> GetObstaclesByChapter(chapter c)
+    {
+        var entry = seasonalObstacles.Find(x => x.season == c);
+        return entry != null ? entry.obstacles : new List<GameObject>();
+    }
+
+
 
     void SetObstacle()
     {
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
+        obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
         switch (chapter)
         {
             case chapter.land: //land
@@ -81,20 +94,23 @@ public class ChapterManager : MonoBehaviour
                 BosalManager.Instance.NoIdle = false; //true;
                 return;
             case chapter.spring: //spring
-                obstacles = springObstacles;
                 BosalManager.Instance.Speak("FindTree");
                 BosalManager.Instance.NoIdle = false;
                 break;
+            case chapter.spring2:
+            case chapter.spring3:
+                break;
             case chapter.summer: //summer
-                obstacles = summerObstacles;
                 BosalManager.Instance.Speak("EnterSummer");
                 break;
+            case chapter.summer2:
+            case chapter.summer3:
+            case chapter.summer4:
+                break;
             case chapter.autumn: //autumn
-                obstacles = autumnObstacles;
                 BosalManager.Instance.Speak("EnterAutumn");
                 break;
             case chapter.winter: //winter
-                obstacles = winterObstacles;
                 BosalManager.Instance.Speak("BeforeEnterWinter");
                 break;
             case chapter.space: //space

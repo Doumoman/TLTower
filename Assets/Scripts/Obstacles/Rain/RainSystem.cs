@@ -7,12 +7,8 @@ using static UnityEngine.InputManagerEntry;
 public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();
-
-    Dictionary<chapter, float> seasonChances = new Dictionary<chapter, float>();
     Coroutine co;
 
-    [Range(0, 1)] public float summerChance = 0.1f;
-    [Range(0, 1)] public float autumnChance = 0.1f;
     public float duration = 30;
 
     [Header("References")]
@@ -72,10 +68,6 @@ public class RainSystem : CountBasedObstacle
     protected override void OnEnable()
     {
         base.OnEnable();
-        seasonChances = new Dictionary<chapter, float>   //챕터별 확률 설정
-        {
-            {chapter.summer, summerChance}, {chapter.autumn, autumnChance}
-        };
     }
     protected override void OnDisable()
     {

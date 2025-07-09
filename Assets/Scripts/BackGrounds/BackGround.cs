@@ -26,9 +26,14 @@ public class BackGround : MonoBehaviour
         switch (ChapterManager.Instance.chapter)
         {
             case chapter.spring:
+            case chapter.spring2:
+            case chapter.spring3:
                 sr.sprite = spring;
                 break;
             case chapter.summer:
+            case chapter.summer2:
+            case chapter.summer3:
+            case chapter.summer4:
                 sr.sprite = summer;
                 break;
             case chapter.autumn:

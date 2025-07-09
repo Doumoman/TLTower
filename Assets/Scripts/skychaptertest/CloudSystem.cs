@@ -30,8 +30,10 @@ public class CloudSystem : MonoBehaviour
         savePoint = go;
         float force = nodes[0].breakForce;
         DestroyAll(true);
+
         JointMaker jm = go.AddComponent<JointMaker>();
         jm.breakForce = force;
+        go.AddComponent<JointMakerPhysics>();
         FindHighestJM();
         CameraController.Instance.CenterOnY(HighestJointY+5);
 
@@ -69,11 +71,7 @@ public class CloudSystem : MonoBehaviour
         //검사 초기화 및 고립대상들 삭제
         foreach (JointMaker node in nodes)
         {
-            if (jmList.Contains(node))
-            {
-                node.ResetSearch();
-                continue;
-            }
+            if (jmList.Contains(node)) continue;
             Destroy(node);
         }
         nodes = jmList;
@@ -86,7 +84,6 @@ public class CloudSystem : MonoBehaviour
     {
         foreach (JointMaker node in nodes)
         {
-            if (preventReJoint) node.gameObject.tag = "Untagged";
             Destroy(node);
         }
         nodes.Clear();
