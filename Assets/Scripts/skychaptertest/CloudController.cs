@@ -43,6 +43,8 @@ public class CloudController : MonoBehaviour,
 
         rb.gravityScale = 0;
         col.isTrigger = true;
+        rb.isKinematic = true;
+        foreach (var rbChild in rbChildren) rbChild.isKinematic = true;
         foreach (var rbChild in rbChildren) rbChild.gravityScale = 0;
         foreach (var col in colChildren) col.isTrigger = true;
 
