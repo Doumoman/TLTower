@@ -269,7 +269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spanMin: 1
   spanMax: 2
-  skyCloud: {fileID: 8955931177086699428, guid: 80aba91256a64d24ea3a2fbba5aef30e, type: 3}
+  skyCloud:
+  - {fileID: 619677952725524264, guid: 39a4778325bcd8040a1329829897f530, type: 3}
+  - {fileID: 7532421635959847389, guid: e5e1f0036c8a4074ead1b3ab5f07407d, type: 3}
+  - {fileID: 2144978920086071233, guid: 8c08d061d6007c44cbe30e3c96008715, type: 3}
 --- !u!4 &39309204
 Transform:
   m_ObjectHideFlags: 0

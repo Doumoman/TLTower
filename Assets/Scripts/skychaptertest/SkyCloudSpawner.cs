@@ -8,7 +8,7 @@ public class SkyCloudSpawner : MonoBehaviour
 {
     public float spanMin;
     public float spanMax;
-    public Transform skyCloud;
+    public Transform[] skyCloud;
 
     Coroutine co = null;
     private float xPos;
@@ -24,7 +24,8 @@ public class SkyCloudSpawner : MonoBehaviour
 
             //무작위 y위치로 구름 생성
             xPos = transform.position.x;
-            Transform t = Instantiate(skyCloud);
+            int idx = UnityEngine.Random.Range(0, skyCloud.Length);
+            Transform t = Instantiate(skyCloud[idx]);
             t.position = new Vector2(xPos, transform.position.y + UnityEngine.Random.Range(-5, 5));
             CloudController cc = t.GetComponent<CloudController>();
             cc.flowSpeed *= directionalForce;
