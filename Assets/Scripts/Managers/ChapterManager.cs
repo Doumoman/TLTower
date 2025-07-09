@@ -74,6 +74,11 @@ public class ChapterManager : MonoBehaviour
             stoneCount = 0;
             Debug.Log(chapter);
         }
+        if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter || chapter == chapter.space)
+        {
+            Debug.Log("Play");
+            AnimationManager.Instance.Play();
+        }
     }
     public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
     public void RemoveCount() { stoneCount -= 1; }

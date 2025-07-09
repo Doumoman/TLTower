@@ -21,7 +21,7 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] RectTransform rightCloud;
 
     [Tooltip("X축 이동 거리 (+왼쪽 → 오른쪽, -오른쪽 → 왼쪽)")]
-    [SerializeField] float xDistance = 1400f;
+    [SerializeField] float xDistance = 2000f;
     [Tooltip("Y축 하강 거리 (양쪽 공통, 양수면 아래로)")]
     [SerializeField] float yDistance = 1000f;
     [Tooltip("X축 이동 시간")]

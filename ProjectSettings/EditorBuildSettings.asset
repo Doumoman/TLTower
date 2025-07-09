@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TLTower.unity
     guid: e2af98b160a08ec439b65fa579a87f89
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/main.unity
     guid: 011adaa415fcf2441919783e7ab41e4d
   m_configObjects:
