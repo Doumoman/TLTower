@@ -27648,7 +27648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1276775304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32559,31 +32559,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapter: 9
+  chapter: 1
   seasonalObstacles:
   - season: 1
     obstacles: []
   - season: 2
-    obstacles: []
+    obstacles:
+    - {fileID: 195804320}
   - season: 3
     obstacles:
     - {fileID: 195804320}
   - season: 4
     obstacles:
-    - {fileID: 1224223809}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 5
     obstacles:
     - {fileID: 31691765}
+    - {fileID: 1276775303}
   - season: 6
     obstacles:
     - {fileID: 195804320}
     - {fileID: 31691765}
-    - {fileID: 1224223809}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 7
     obstacles:
     - {fileID: 195804320}
     - {fileID: 31691765}
-    - {fileID: 1224223809}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 8
     obstacles: []
   - season: 9
@@ -32594,7 +32599,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 10
     obstacles: []
-  stonesForChapter: 05000000150000006400000064000000640000006400000064000000640000006400000001000000
+  stonesForChapter: 0500000005000000080000000d00000008000000080000000d000000150000006400000001000000
 --- !u!1 &1322940009
 GameObject:
   m_ObjectHideFlags: 0
