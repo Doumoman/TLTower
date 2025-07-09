@@ -8,7 +8,7 @@ public class SoundStateDB : ScriptableObject
 
     private void OnValidate()
     {
-        int stageCount = System.Enum.GetValues(typeof(SoundStateData.Stage)).Length;
+        int stageCount = (int)SoundStateData.Stage.Count;
         while (stageData.Count < stageCount)
             stageData.Add(new SoundStateData.StageSoundData());
     }

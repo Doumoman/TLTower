@@ -40,6 +40,7 @@ public class StoneTimelineTrigger : MonoBehaviour
         {
             director.Play();
             alreadyPlayed = true;
+            ChapterSoundManager.Instance.NextState();
         }
     }
 

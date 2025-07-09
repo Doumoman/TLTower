@@ -12,4 +12,227 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a780991dbe8342499548c853dbef35b, type: 3}
   m_Name: SoundStateDB
   m_EditorClassIdentifier: 
-  stageData: []
+  stageData:
+  - States:
+    - clipDataList:
+      - clipName: ground_ambient_001
+        cycle: 0
+        delay: 0
+  - States:
+    - clipDataList:
+      - clipName: spring_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: spring_beat_001
+        cycle: 2
+        delay: 0
+    - clipDataList:
+      - clipName: spring_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: spring_beat_001
+        cycle: 2
+        delay: 0
+      - clipName: spring_melody_001
+        cycle: 24
+        delay: 0
+      - clipName: spring_melody_002
+        cycle: 24
+        delay: 8
+      - clipName: spring_melody_003
+        cycle: 24
+        delay: 16
+    - clipDataList:
+      - clipName: spring_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: spring_beat_001
+        cycle: 2
+        delay: 0
+  - States: []
+  - States:
+    - clipDataList:
+      - clipName: autumn_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: autumn_beat_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_002
+        cycle: 12
+        delay: 6
+    - clipDataList:
+      - clipName: autumn_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: autumn_beat_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_002
+        cycle: 12
+        delay: 6
+      - clipName: autumn_pad_001
+        cycle: 6
+        delay: 0
+      - clipName: autumn_pad_002
+        cycle: 12
+        delay: 3
+    - clipDataList:
+      - clipName: autumn_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: autumn_beat_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_001
+        cycle: 12
+        delay: 0
+      - clipName: autumn_melody_002
+        cycle: 12
+        delay: 6
+      - clipName: autumn_pad_004
+        cycle: 24
+        delay: 0
+      - clipName: autumn_pad_005
+        cycle: 24
+        delay: 3
+      - clipName: autumn_pad_006
+        cycle: 24
+        delay: 6
+      - clipName: autumn_pad_007
+        cycle: 24
+        delay: 9
+      - clipName: autumn_pad_001
+        cycle: 24
+        delay: 12
+      - clipName: autumn_pad_002
+        cycle: 24
+        delay: 15
+      - clipName: autumn_pad_001
+        cycle: 24
+        delay: 18
+      - clipName: autumn_pad_003
+        cycle: 24
+        delay: 21
+    - clipDataList:
+      - clipName: autumn_ambient_001
+        cycle: 0
+        delay: 0
+  - States:
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: winter_beat_001
+        cycle: 3
+        delay: 0
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: winter_beat_001
+        cycle: 3
+        delay: 0
+      - clipName: winter_pad_001
+        cycle: 6
+        delay: 0
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: winter_beat_001
+        cycle: 3
+        delay: 0
+      - clipName: winter_pad_001
+        cycle: 6
+        delay: 0
+      - clipName: winter_melody_001
+        cycle: 3
+        delay: 0
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: winter_beat_001
+        cycle: 3
+        delay: 0
+      - clipName: winter_melody_002
+        cycle: 6
+        delay: 0
+      - clipName: winter_melody_003
+        cycle: 6
+        delay: 3
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: winter_beat_001
+        cycle: 3
+        delay: 0
+      - clipName: winter_pad_001
+        cycle: 6
+        delay: 0
+      - clipName: winter_pad_001
+        cycle: 6
+        delay: 0
+    - clipDataList:
+      - clipName: winter_ambient_001
+        cycle: 0
+        delay: 0
+  - States:
+    - clipDataList:
+      - clipName: space_beat_001
+        cycle: 2
+        delay: 0
+    - clipDataList:
+      - clipName: space_beat_001
+        cycle: 2
+        delay: 0
+      - clipName: space_pad_001
+        cycle: 4
+        delay: 0
+    - clipDataList:
+      - clipName: space_beat_001
+        cycle: 2
+        delay: 0
+      - clipName: space_pad_001
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_002
+        cycle: 4
+        delay: 0
+    - clipDataList:
+      - clipName: space_beat_001
+        cycle: 2
+        delay: 0
+      - clipName: space_pad_001
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_002
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_003
+        cycle: 4
+        delay: 0
+    - clipDataList:
+      - clipName: space_beat_001
+        cycle: 2
+        delay: 0
+      - clipName: space_pad_001
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_002
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_003
+        cycle: 4
+        delay: 0
+      - clipName: space_pad_004
+        cycle: 4
+        delay: 0

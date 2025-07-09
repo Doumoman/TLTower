@@ -23,7 +23,6 @@ public class SoundManager : MonoBehaviour
             {
                 return null;
             }
-            if (!_initialized) instance.Init();
             return instance;
         }
     }
@@ -34,6 +33,7 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            Init();
         }
         else
         {
@@ -50,6 +50,9 @@ public class SoundManager : MonoBehaviour
     private AudioSource[] bgmTracks = new AudioSource[15]; // bgm은 루프되지 않음! 현재 재생할 bgm 소스들을 15개까지 큐잉해서 사용
     private AudioSource[] ambTracks = new AudioSource[2];
     private int currentAmbienceIndex = 0;
+    private string currentAmbience = "";
+    public int CurrentAmbienceIndex => currentAmbienceIndex;
+    public string CurrentAmbience => currentAmbience;
 
 
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
@@ -100,9 +103,12 @@ public class SoundManager : MonoBehaviour
         }
         for (int i = 0; i < ambTracks.Length; i++)
         {
-            ambTracks[i] = gameObject.AddComponent<AudioSource>();
-            ambTracks[i].loop = true;
-            ambTracks[i].volume = 0f;
+            if (ambTracks[i] == null)
+            {
+                ambTracks[i] = gameObject.AddComponent<AudioSource>();
+                ambTracks[i].outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
+                ambTracks[i].loop = true;
+            }
         }
     }
 
@@ -139,6 +145,7 @@ public class SoundManager : MonoBehaviour
             audioSource.clip = audioClip;
             audioSource.volume = PlayerPrefs.GetFloat("bgmVolume");
             audioSource.Play();
+            Debug.Log($"audioClip played : {audioClip}");
         }
         else if (type == Sound.Voice)
         {
@@ -148,6 +155,7 @@ public class SoundManager : MonoBehaviour
             audioSource.pitch = pitch;
             audioSource.volume = PlayerPrefs.GetFloat("voiceVolume");
             audioSource.PlayOneShot(audioClip);
+            Debug.Log($"audioClip played : {audioClip}");
         }
         else
         {
@@ -156,6 +164,7 @@ public class SoundManager : MonoBehaviour
             audioSource.pitch = pitch;
             audioSource.volume = PlayerPrefs.GetFloat("effectVolume");
             audioSource.PlayOneShot(audioClip);
+            Debug.Log($"audioClip played : {audioClip}");
         }
     }
     public void Play(string path, Sound type = Sound.Sfx, float pitch = 1.0f)
@@ -268,25 +277,32 @@ public class SoundManager : MonoBehaviour
     }
 
     public void FadeInAmbience(string clipName, float duration = 1.0f)
+{
+    int nextIndex = 1 - currentAmbienceIndex;
+    int fadingIndex = currentAmbienceIndex;
+
+    AudioSource nextSource = ambTracks[nextIndex];
+
+    AudioClip clip = GetOrAddAudioClip(clipName, Sound.Ambience);
+    nextSource.clip = clip;
+    nextSource.volume = 0f;
+    nextSource.Play();
+
+    StartCoroutine(FadeVolume(nextSource, PlayerPrefs.GetFloat("bgmVolume"), duration));
+    StartCoroutine(FadeAndStop(ambTracks[fadingIndex], duration));
+
+    currentAmbienceIndex = nextIndex;
+    currentAmbience = clipName;
+}
+    public void FadeOutAmbience(int index, float duration = 1.0f)
     {
-        int nextIndex = 1 - currentAmbienceIndex;
-        AudioSource nextSource = ambTracks[nextIndex];
+        AudioSource source = ambTracks[index];
 
-        AudioClip clip = GetOrAddAudioClip(clipName, Sound.Ambience);
-        nextSource.clip = clip;
-        nextSource.volume = 0f;
-        nextSource.Play();
-
-        StartCoroutine(FadeVolume(nextSource, PlayerPrefs.GetFloat("bgmVolume"), duration));
-        currentAmbienceIndex = nextIndex;
-    }
-
-    public void FadeOutAmbience(float duration = 1.0f)
-    {
-        int fadingIndex = currentAmbienceIndex;
-        AudioSource source = ambTracks[fadingIndex];
-
-        StartCoroutine(FadeAndStop(source, duration));
+        if (source.isPlaying)
+        {
+            Debug.Log($"[Ambience] Fading out index {index}");
+            StartCoroutine(FadeAndStop(source, duration));
+        }
     }
     private IEnumerator FadeVolume(AudioSource source, float targetVolume, float duration)
     {

@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.Rendering;
 
 public class ChapterSoundManager : MonoBehaviour
 {
@@ -11,73 +9,113 @@ public class ChapterSoundManager : MonoBehaviour
     [SerializeField] private SoundStateData.Stage currentStage = SoundStateData.Stage.Ground;
     [SerializeField] private int currentStateIndex = 0;
     [SerializeField] private float ambienceFadeDuration = 4f;
-    private string currentAmbienceClip = null;
 
-    private class QueuedSound
-    {
-        public string name;
-        public Sound channel;
-    }
-
-    private class LoopedSound
-    {
-        public string clipName;
-        public int cycle;
-        public int delay;
-    }
     private List<QueuedSound> playQueue = new();
     private List<LoopedSound> loopedSounds = new();
     private int tickCount = 0;
 
-    private void OnEnable()
+    public static ChapterSoundManager Instance { get; private set; }
+
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        SetStage(currentStage);
+        if (TickManager.Instance != null)
+            TickManager.Instance.OnTickEvent += OnTick;
+        else
+            StartCoroutine(WaitForTickManager());
+    }
+
+    private IEnumerator WaitForTickManager()
+    {
+        while (TickManager.Instance == null) yield return null;
         TickManager.Instance.OnTickEvent += OnTick;
     }
+
     private void OnDisable()
     {
-        TickManager.Instance.OnTickEvent -= OnTick;
+        if (TickManager.Instance != null)
+            TickManager.Instance.OnTickEvent -= OnTick;
     }
+
     private void OnTick(object sender, EventArgs e)
     {
         tickCount++;
+
         foreach (var loop in loopedSounds)
-            if (tickCount - loop.delay >= 0 && (tickCount - loop.delay) % loop.cycle == 0)
+        {
+            if (loop.cycle <= 0) continue;
+            if (tickCount >= loop.delay && (tickCount - loop.delay) % loop.cycle == 0)
                 TickPlay(loop.clipName, "Bgm");
+        }
+
         foreach (var sound in playQueue)
             SoundManager.Instance.Play(sound.name, sound.channel);
 
         playQueue.Clear();
     }
+
     public void TickPlay(string name, string channel)
     {
         if (Enum.TryParse(channel, true, out Sound parsedChannel))
             playQueue.Add(new QueuedSound { name = name, channel = parsedChannel });
-        else Debug.Log($"no sound channel: {channel}");
+        else
+            Debug.LogWarning($"Invalid sound channel: {channel}");
     }
 
-    public void PlayLooped(string name, string channel, int c, int d)
+    public void PlayLooped(string name, string channel, int cycle, int delay)
     {
+        if (cycle <= 0)
+        {
+            PlayAmbienceIfChanged(name);
+            return;
+        }
+
         if (Enum.TryParse(channel, true, out Sound parsedChannel))
+        {
             loopedSounds.Add(new LoopedSound
             {
                 clipName = name,
-                cycle = c,
-                delay = d
+                cycle = cycle,
+                delay = delay
             });
-        else Debug.Log($"no sound channel: {channel}");
+        }
+        else Debug.LogWarning($"Invalid sound channel: {channel}");
+    }
+
+    public void PlayAmbienceIfChanged(string newClipName)
+    {
+        if (string.IsNullOrEmpty(newClipName)) return;
+
+        string currentClip = SoundManager.Instance.CurrentAmbience;
+        if (currentClip == newClipName) return;
+
+        int previousIndex = SoundManager.Instance.CurrentAmbienceIndex;
+
+        SoundManager.Instance.FadeInAmbience(newClipName, ambienceFadeDuration);
     }
 
     public void LoadLoopedFromDB(SoundStateData.Stage stage, int stateIndex)
     {
-        if (soundStateDB == null)
+        if (soundStateDB == null) { Debug.LogError("SoundStateDB is null"); return; }
+        if (stateIndex >= soundStateDB.stageData[(int)stage].States.Count) { Debug.LogError("Invalid State Index"); return; }
+
+        var clips = soundStateDB.stageData[(int)stage].States[stateIndex].clipDataList;
+        foreach (var clip in clips)
         {
-            Debug.Log("no DB");
-            return;
+            if (!string.IsNullOrEmpty(clip.clipName))
+                PlayLooped(clip.clipName, "Bgm", clip.cycle, clip.delay);
         }
-        var clipDataList = soundStateDB.stageData[(int)stage].States[stateIndex].clipDataList;
-        foreach (var clipData in clipDataList)
-            if (!string.IsNullOrEmpty(clipData.clipName))
-                PlayLooped(clipData.clipName, "Bgm", clipData.cycle, clipData.delay);
     }
 
     public void SetStage(SoundStateData.Stage stage)
@@ -93,30 +131,22 @@ public class ChapterSoundManager : MonoBehaviour
         var stageData = soundStateDB.stageData[(int)currentStage];
         if (currentStateIndex + 1 >= stageData.States.Count)
         {
-            int nextStageIndex = ((int)currentStage + 1) % ((int)SoundStateData.Stage.Count - 1); // Count 제외
-            currentStage = (SoundStateData.Stage)nextStageIndex;
-            currentStateIndex = 0;
-            loopedSounds.Clear();
-            LoadLoopedFromDB(currentStage, currentStateIndex);
+            int nextStageIndex = ((int)currentStage + 1) % ((int)SoundStateData.Stage.Count - 1);
+            SetStage((SoundStateData.Stage)nextStageIndex);
             return;
         }
 
         var prevState = stageData.States[currentStateIndex];
         var nextState = stageData.States[currentStateIndex + 1];
 
-        // 클립 이름 기준으로 set 생성
         var prevClips = new HashSet<string>();
-        foreach (var clip in prevState.clipDataList)
-            prevClips.Add(clip.clipName);
+        foreach (var clip in prevState.clipDataList) prevClips.Add(clip.clipName);
 
         var nextClips = new HashSet<string>();
-        foreach (var clip in nextState.clipDataList)
-            nextClips.Add(clip.clipName);
+        foreach (var clip in nextState.clipDataList) nextClips.Add(clip.clipName);
 
-        // 1. 이전 state에 없는 클립은 제거
         loopedSounds.RemoveAll(loop => !nextClips.Contains(loop.clipName));
 
-        // 2. 다음 state에 새롭게 추가된 클립은 예약 (현재 틱 기준으로 예약)
         int latestTick = tickCount;
         foreach (var loop in loopedSounds)
         {
@@ -130,23 +160,31 @@ public class ChapterSoundManager : MonoBehaviour
         {
             if (!prevClips.Contains(newClip.clipName))
             {
-                // 새로 들어온 클립만 추가 (가장 긴 클립이 끝난 뒤에 시작)
+                // Ambience는 여기서 제외하고 HandleAmbienceTransition에서 따로 다루도록
+                if (newClip.cycle <= 0) continue;
+
                 PlayLooped(newClip.clipName, "Bgm", newClip.cycle, latestTick);
             }
         }
-
-        string prevAmb = null, nextAmb = null;
-        foreach (var clip in prevState.clipDataList)
-            if (clip.cycle == 0) prevAmb = clip.clipName;
-        foreach (var clip in nextState.clipDataList)
-            if (clip.cycle == 0) nextAmb = clip.clipName;
-        if (!string.IsNullOrEmpty(nextAmb) && nextAmb != currentAmbienceClip)
+        var newAmbience = nextState.clipDataList.Find(c => c.cycle <= 0);
+        if (newAmbience != null)
         {
-            if (!string.IsNullOrEmpty(currentAmbienceClip)) SoundManager.Instance.FadeOutAmbience(ambienceFadeDuration);
-
-            SoundManager.Instance.FadeInAmbience(nextAmb, ambienceFadeDuration);
-            currentAmbienceClip = nextAmb;
+            PlayAmbienceIfChanged(newAmbience.clipName);
         }
+
         currentStateIndex++;
+    }
+
+    private class QueuedSound
+    {
+        public string name;
+        public Sound channel;
+    }
+
+    private class LoopedSound
+    {
+        public string clipName;
+        public int cycle;
+        public int delay;
     }
 }

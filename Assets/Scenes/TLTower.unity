@@ -38131,7 +38131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundStateDB: {fileID: 11400000, guid: 01a8b37f72dee014c9f80dcf0e305685, type: 2}
-  currentStage: 0
+  currentStage: 1
   currentStateIndex: 0
   ambienceFadeDuration: 4
 --- !u!1 &1727457998
