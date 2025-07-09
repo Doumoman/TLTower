@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -26,7 +27,7 @@ public class SoundManager : MonoBehaviour
             return instance;
         }
     }
-    private static bool _initialized = false; 
+    private static bool _initialized = false;
     private void Awake()
     {
         if (instance == null)
@@ -47,6 +48,8 @@ public class SoundManager : MonoBehaviour
         Init();
     }
     private AudioSource[] bgmTracks = new AudioSource[15]; // bgm은 루프되지 않음! 현재 재생할 bgm 소스들을 15개까지 큐잉해서 사용
+    private AudioSource[] ambTracks = new AudioSource[2];
+    private int currentAmbienceIndex = 0;
 
 
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
@@ -95,6 +98,12 @@ public class SoundManager : MonoBehaviour
             bgmTracks[i] = gameObject.AddComponent<AudioSource>();
             bgmTracks[i].outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
         }
+        for (int i = 0; i < ambTracks.Length; i++)
+        {
+            ambTracks[i] = gameObject.AddComponent<AudioSource>();
+            ambTracks[i].loop = true;
+            ambTracks[i].volume = 0f;
+        }
     }
 
     public void Clear()
@@ -131,6 +140,15 @@ public class SoundManager : MonoBehaviour
             audioSource.volume = PlayerPrefs.GetFloat("bgmVolume");
             audioSource.Play();
         }
+        else if (type == Sound.Voice)
+        {
+            AudioSource audioSource = _audioSources[(int)Sound.Voice];
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            audioSource.pitch = pitch;
+            audioSource.volume = PlayerPrefs.GetFloat("voiceVolume");
+            audioSource.PlayOneShot(audioClip);
+        }
         else
         {
             AudioSource audioSource = _audioSources[(int)Sound.Sfx];
@@ -166,17 +184,10 @@ public class SoundManager : MonoBehaviour
             path = $"Sounds/{path}";
         AudioClip audioClip = null;
 
-        if (type == Sound.Bgm)
+        if (_audioClips.TryGetValue(path, out audioClip) == false)
         {
             audioClip = GameManager.Resource.Load<AudioClip>(path);
-        }
-        else
-        {
-            if (_audioClips.TryGetValue(path, out audioClip) == false)
-            {
-                audioClip = GameManager.Resource.Load<AudioClip>(path);
-                _audioClips.Add(path, audioClip);
-            }
+            _audioClips.Add(path, audioClip);
         }
 
         if (audioClip == null)
@@ -220,7 +231,7 @@ public class SoundManager : MonoBehaviour
         Debug.LogWarning($"Stop AudioClip Missing : {clip}");
     }
 
-    public void BgmOff(string path)
+    public void BgmOff()
     {
         for (int i = 0; i < bgmTracks.Length; i++) bgmTracks[i].Stop();
     }
@@ -254,5 +265,57 @@ public class SoundManager : MonoBehaviour
         source.volume = PlayerPrefs.GetFloat("effectVolume"); // 플레이어프렙스에서 effectVolume 값 가져오기
         source.clip = effectClip;
         source.PlayOneShot(effectClip);
+    }
+
+    public void FadeInAmbience(string clipName, float duration = 1.0f)
+    {
+        int nextIndex = 1 - currentAmbienceIndex;
+        AudioSource nextSource = ambTracks[nextIndex];
+
+        AudioClip clip = GetOrAddAudioClip(clipName, Sound.Ambience);
+        nextSource.clip = clip;
+        nextSource.volume = 0f;
+        nextSource.Play();
+
+        StartCoroutine(FadeVolume(nextSource, PlayerPrefs.GetFloat("bgmVolume"), duration));
+        currentAmbienceIndex = nextIndex;
+    }
+
+    public void FadeOutAmbience(float duration = 1.0f)
+    {
+        int fadingIndex = currentAmbienceIndex;
+        AudioSource source = ambTracks[fadingIndex];
+
+        StartCoroutine(FadeAndStop(source, duration));
+    }
+    private IEnumerator FadeVolume(AudioSource source, float targetVolume, float duration)
+    {
+        float start = source.volume;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            source.volume = Mathf.Lerp(start, targetVolume, time / duration);
+            yield return null;
+        }
+
+        source.volume = targetVolume;
+    }
+
+    private IEnumerator FadeAndStop(AudioSource source, float duration)
+    {
+        float start = source.volume;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            source.volume = Mathf.Lerp(start, 0f, time / duration);
+            yield return null;
+        }
+
+        source.Stop();
+        source.clip = null;
     }
 }

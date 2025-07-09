@@ -15,19 +15,19 @@ MonoBehaviour:
   typeId: 2
   stoneName: NZ
   sprites:
-  - {fileID: -1068423613, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: -1345319612, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: -1960301619, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: 994177169, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: -638664173, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: 694186029, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: 1799664300, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
-  - {fileID: 545517606, guid: e4638f7731841f64daef6b4ed6348721, type: 3}
+  - {fileID: -486824576, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
+  - {fileID: 1805742213, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
+  - {fileID: -635387139, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
+  - {fileID: -924114880, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
+  - {fileID: -1990327074, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
+  - {fileID: -1022014253, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
+  - {fileID: -2011900971, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
+  - {fileID: -1462752781, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: 097964f25ee870b41b4c9dd0b20106d8, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: 1132f537cebe99d4cae4f86b36486d10, type: 3}
   mass: 8
   angularDrag: 0.2
   gravityScale: 1
   scale: {x: 0, y: 0}
-  material2D: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
+  material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   spawnChance: 0.2

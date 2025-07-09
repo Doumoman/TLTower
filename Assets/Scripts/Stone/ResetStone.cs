@@ -37,7 +37,7 @@ public class ResetStone : MonoBehaviour
 
             if (currentWave > 0)
             {
-                CreatePlatform(highPos);
+                CreatePlatform();
             }
         }
     }
@@ -54,9 +54,18 @@ public class ResetStone : MonoBehaviour
         currentWave = sf.GetWave();
     }
 
-    void CreatePlatform(Vector2 spawnPos)
+    public void CreatePlatform()
     {
+        float y = StoneFixer.Instance.HighestFixedY;
+        Vector2 spawnPos = new Vector2(0f, y);
+
         currentWave = -1;
         Instantiate(platform, spawnPos, Quaternion.identity);
     }
+    public void CreatePlatform(Vector2 spawnPos)
+    {
+        Vector3 pos = new Vector3(spawnPos.x, spawnPos.y, -8f);
+        Instantiate(platform, pos, Quaternion.identity);
+    }
+
 }

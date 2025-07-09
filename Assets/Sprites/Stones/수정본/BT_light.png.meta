@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: ae7581dc61f41bd4cb78a55a82673002
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BT_light_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1647
+        width: 498
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8125dac566857e439514b7abba88692
+      internalID: -941917470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_7
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1705
+        width: 552
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03e63f03f425f04fa63e16c696f464f
+      internalID: -2100770161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_18
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 1243
+        width: 445
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b984098b7128fb4a8fe0b0876543217
+      internalID: 312863867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1212
+        width: 522
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4ecb7a794fbe449815d4f56fe3e914
+      internalID: 1773397827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_42
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 798
+        width: 438
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59ce184ef9eb684986d8e718f15bf6f
+      internalID: 1040602687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 768
+        width: 434
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a984fe873fb7c4aabeb0a3fc6861df
+      internalID: 962757676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_56
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 438
+        width: 510
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ecec7c0258b604d842d979125133e9
+      internalID: 1292271185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_57
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 414
+        width: 458
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a477122d32877ca42a40b16b1edf8492
+      internalID: -400604574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_67
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 528
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cea3f5f06d90f644bb41088a13eb5f7
+      internalID: 413853046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BT_light_70
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 3
+        width: 438
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa7d3794d4c429428bf5d9e357faac6
+      internalID: 1841264901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BT_light_0: -941917470
+      BT_light_1: -164401014
+      BT_light_10: -1743061855
+      BT_light_11: -418372092
+      BT_light_12: 421444834
+      BT_light_13: -1442324256
+      BT_light_14: 89943943
+      BT_light_15: -278391407
+      BT_light_16: 1706266616
+      BT_light_17: -1269884858
+      BT_light_18: 312863867
+      BT_light_19: -955126961
+      BT_light_2: -851861440
+      BT_light_20: -424051346
+      BT_light_21: 1277657358
+      BT_light_22: 1773397827
+      BT_light_23: 1485953311
+      BT_light_24: 273595168
+      BT_light_25: -2041720391
+      BT_light_26: 438589468
+      BT_light_27: -991202451
+      BT_light_28: -102439696
+      BT_light_29: -2116580997
+      BT_light_3: 1120844782
+      BT_light_30: -269487439
+      BT_light_31: -4871213
+      BT_light_32: -1254728486
+      BT_light_33: 744924845
+      BT_light_34: -1842488171
+      BT_light_35: -689042878
+      BT_light_36: -824665985
+      BT_light_37: 1504625405
+      BT_light_38: -219448797
+      BT_light_39: 1131236516
+      BT_light_4: 1180347208
+      BT_light_40: 1804954248
+      BT_light_41: 83301798
+      BT_light_42: 1040602687
+      BT_light_43: -1531146208
+      BT_light_44: 962757676
+      BT_light_45: -833713493
+      BT_light_46: -1092304406
+      BT_light_47: 213012588
+      BT_light_48: -1400352621
+      BT_light_49: 1438629352
+      BT_light_5: 1085764382
+      BT_light_50: -1099826184
+      BT_light_51: 266634454
+      BT_light_52: 516732327
+      BT_light_53: -1073664257
+      BT_light_54: 220940813
+      BT_light_55: 1226105266
+      BT_light_56: 1292271185
+      BT_light_57: -400604574
+      BT_light_58: -1589074427
+      BT_light_59: -1919259853
+      BT_light_6: 1836253908
+      BT_light_60: 403378109
+      BT_light_61: 1126834440
+      BT_light_62: 1952538449
+      BT_light_63: -838436717
+      BT_light_64: 1820981174
+      BT_light_65: -1872671652
+      BT_light_66: 66648029
+      BT_light_67: 413853046
+      BT_light_68: -737140382
+      BT_light_69: 470783334
+      BT_light_7: -2100770161
+      BT_light_70: 1841264901
+      BT_light_71: 1435268788
+      BT_light_72: -943449787
+      BT_light_73: 2110401248
+      BT_light_74: 1026473924
+      BT_light_8: 460953995
+      BT_light_9: -1253919093
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

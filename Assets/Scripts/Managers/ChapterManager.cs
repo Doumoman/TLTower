@@ -47,7 +47,7 @@ public class ChapterManager : MonoBehaviour
     private void Start()
     {
         //시작 챕터 감지
-        chapter[] arr = { chapter.land, chapter.spring, chapter.summer,
+        chapter[] arr = { chapter.land, chapter.spring, chapter.spring2, chapter.spring3, chapter.summer, chapter.summer2, chapter.summer3, chapter.summer4,
             chapter.autumn, chapter.winter, chapter.space };
         idx = Array.IndexOf(arr, chapter);
 
@@ -94,24 +94,23 @@ public class ChapterManager : MonoBehaviour
                 BosalManager.Instance.NoIdle = false; //true;
                 return;
             case chapter.spring: //spring
-                BosalManager.Instance.Speak("FindTree");
+                BosalManager.Instance.Speak("SpringFirst");
                 BosalManager.Instance.NoIdle = false;
                 break;
             case chapter.spring2:
             case chapter.spring3:
                 break;
             case chapter.summer: //summer
-                BosalManager.Instance.Speak("EnterSummer");
+                BosalManager.Instance.Speak("SummerFirst");
                 break;
             case chapter.summer2:
             case chapter.summer3:
             case chapter.summer4:
                 break;
             case chapter.autumn: //autumn
-                BosalManager.Instance.Speak("EnterAutumn");
+                BosalManager.Instance.Speak("AutumnFirst");
                 break;
             case chapter.winter: //winter
-                BosalManager.Instance.Speak("BeforeEnterWinter");
                 break;
             case chapter.space: //space
                 BosalManager.Instance.NoIdle = true;
