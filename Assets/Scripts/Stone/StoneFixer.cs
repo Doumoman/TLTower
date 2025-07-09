@@ -124,8 +124,9 @@ public class StoneFixer : MonoBehaviour
         var animator = sp.GetComponent<Animator>();
         if (animator && animator.runtimeAnimatorController)
         {
+            Debug.Log("진입완료");
             const string fadeState = "SavePointFadeout";
-            animator.speed = 0.99f;
+            animator.speed = 1;
 
             // 스테이트 ‘강제’ 진입
             animator.Play(fadeState, 0, 0f);          // (layer = 0, normalizedTime = 0)
