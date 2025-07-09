@@ -31,10 +31,9 @@ public class JointMaker : MonoBehaviour
         CloudSystem.Instance.ExamineAndDeprive();
     }
 
-    public void MakeBoneJoint(JointMakerPhysics jmp, Collision2D collision)
+    public void MakeBoneJoint(JointMakerPhysics jmp, GameObject otherBone)
     {
         GameObject bone = jmp.gameObject;
-        GameObject otherBone = collision.gameObject;
 
         Debug.Log(otherBone.name);
         JointMaker jm = otherBone.GetComponent<JointMakerPhysics>().GetJointMaker();  //닿은 대상과 연결된 jm

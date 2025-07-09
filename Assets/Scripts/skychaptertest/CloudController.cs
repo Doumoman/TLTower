@@ -93,18 +93,14 @@ public class CloudController : MonoBehaviour,
             rb.angularVelocity = rotateSpeed;
     }
 
-    //void CheckOverlap()
-    //{
-    //    Collider2D[] results = new Collider2D[10];
-    //    ContactFilter2D filter = new ContactFilter2D { useTriggers = false };
-    //
-    //    int count = col.OverlapCollider(filter, results);
-    //    for (int i = 0; i < count; i++)
-    //    {
-    //        GameObject go = results[i].gameObject;
-    //        if (go.TryGetComponent<JointMaker>(out JointMaker jm)) jm.MakeJoint(gameObject);
-    //    }
-    //}
+    void CheckOverlap()
+    {
+        JointMakerPhysics[] jmps = GetComponentsInChildren<JointMakerPhysics>();
+        foreach (JointMakerPhysics jmp in jmps)
+        {
+            jmp.CheckOverlap();
+        }
+    }
 
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
@@ -178,7 +174,7 @@ public class CloudController : MonoBehaviour,
         sr.color = Color.white;
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
-        //CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
+        CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
 
     }
 
