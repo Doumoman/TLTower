@@ -229,6 +229,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
   count: 5
   followSpeed: 1
   duration: 30
@@ -22391,6 +22392,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
   count: 5
   duration: 30
   ps: {fileID: 1280793119}
@@ -32370,7 +32372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapter: 1
+  chapter: 9
   seasonalObstacles:
   - season: 1
     obstacles: []
@@ -38064,6 +38066,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
   count: 5
   duration: 30
   ps: {fileID: 0}
@@ -38267,6 +38270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
+  - 0
   - 0
   - 0
   - 0
