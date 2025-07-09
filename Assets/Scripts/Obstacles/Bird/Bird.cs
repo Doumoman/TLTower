@@ -15,14 +15,16 @@ public class Bird : MonoBehaviour
     private Coroutine coroutine;
     private float timer;
     private Animator animator;
+    private float sittime;
 
     [Header("Settings")]
     public float flyTime;
     public float moveDeadZone;
     [Range(0, 1f)] public float forceChance;
 
-    public void Init(GameObject stone, Vector2 surfacePoint)
+    public void Init(GameObject stone, Vector2 surfacePoint, float time)
     {
+        sittime = time;
         goPoint = new Vector2(-transform.position.x, transform.position.y);
         satStone = stone;
         state = BirdState.come;
@@ -48,7 +50,7 @@ public class Bird : MonoBehaviour
         {
             //일정 시간이 지나면 날아가기
             timer += Time.deltaTime;
-            if (timer > BirdSpawner.cycle)
+            if (timer > sittime)
             {
                 Go(false);
             }

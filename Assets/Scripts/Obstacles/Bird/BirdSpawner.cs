@@ -5,18 +5,21 @@ using UnityEngine;
 public class BirdSpawner : MonoBehaviour
 {
     private int span;
-     private int spanCount = 0;
-    public static float cycle;
+    private int spanCount = 0;
+    
 
     [Header("settings")]
     [Range(0, 1f)] public float birdChance = 0.4f;
     public int cycleSpanInit = 5; // 초기 생성 주기 (틱 단위)
     public int cycleSpanMin = 7; // 이후 주기 (틱 단위)
     public int cycleSpanMax = 10;
+    public float sittime = 10f;
+    public float waitAfterFeather = 4f;
 
     [Header("References")]
     public GameObject birdPoop;
     public GameObject bird;
+    public GameObject feather;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +58,11 @@ public class BirdSpawner : MonoBehaviour
             }
         }
     }
-    void MakeNotice()
+    GameObject MakeNotice()
     {
-
+        GameObject go = Instantiate(feather);
+        go.transform.position = this.transform.position;
+        return go;
     }
     //제일 높은 돌을 기준으로 일정 y좌표 위에서, 무작위로 위치 선정
     void RandomPoint()
@@ -94,10 +99,15 @@ public class BirdSpawner : MonoBehaviour
     }
     void GetStonePoint(out Vector2 hitPoint) => GetStonePoint(out hitPoint, out GameObject _);
 
+    void CreateBirdPoop() => StartCoroutine(DropBirdPoop());
     //랜덤 x좌표에 새똥 생성
-    void CreateBirdPoop()
+    IEnumerator DropBirdPoop()
     {
         GetStonePoint(out Vector2 hitpoint);
+        GameObject go = MakeNotice();
+        yield return new WaitForSeconds(waitAfterFeather); //예고 발생 후 기다리기
+        Destroy(go);
+
         if (hitpoint != Vector2.zero)
         {
             Instantiate(birdPoop, transform.position, Quaternion.Euler(0, 0, 90));
@@ -107,16 +117,22 @@ public class BirdSpawner : MonoBehaviour
             Debug.Log("can't find 'PlacedStone' by raycast");
         }
     }
+
+    void CreateBird() => StartCoroutine(SendBird());
+
     //랜덤 x좌표에서 PlacedStone의 표면에 앉는 새 생성
-    void CreateBird()
+    IEnumerator SendBird()
     {
         GetStonePoint(out Vector2 hitPoint, out GameObject stone);
+        GameObject go = MakeNotice();
+        yield return new WaitForSeconds(waitAfterFeather);
+        Destroy(go);
 
         if (hitPoint != Vector2.zero)
         {
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
             GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
-            aliveBird.GetComponent<Bird>().Init(stone, hitPoint);
+            aliveBird.GetComponent<Bird>().Init(stone, hitPoint, sittime);
         }
         else
         {
