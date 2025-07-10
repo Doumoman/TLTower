@@ -6,13 +6,10 @@ public class SaveSystem : MonoBehaviour
 {
     [SerializeField] StoneSpawner spawner;
     string path;
-    public static SaveSystem Instance { get; private set; }
+
     void Awake()
     {
-        if (Instance && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
         path = Path.Combine(Application.persistentDataPath, "stone_save.json");
-        Invoke(nameof(LoadGame), 0.05f);
     }
 
     public void SaveGame()
@@ -20,7 +17,6 @@ public class SaveSystem : MonoBehaviour
         StoneSaveData data = new();
         data.wave = StoneFixer.Instance.GetWave();
         data.platformY = StoneFixer.Instance.HighestFixedY;
-        data.chapter = (int)ChapterManager.Instance.chapter;
 
         foreach (var st in FindObjectsOfType<StoneController>())
         {
@@ -54,7 +50,6 @@ public class SaveSystem : MonoBehaviour
         string json = File.ReadAllText(path);
         StoneSaveData data = JsonUtility.FromJson<StoneSaveData>(json);
 
-        ChapterManager.Instance.LoadChapter((chapter)data.chapter);
         Vector2 platPos = new Vector2(0f, data.platformY - 1.5f);
         ResetStone.Instance.CreatePlatform(platPos);
 

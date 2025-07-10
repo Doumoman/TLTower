@@ -44,7 +44,7 @@ public class StoneFixer : MonoBehaviour
         // 중복 방지
         if (!batch.Contains(sc)) { batch.Add(sc); ChapterManager.Instance?.AddCount(); }//ChapterManger 카운트 올리기
         UpdateUI();
-        
+
         //조건 달성: 세이브포인트 생성 
         if (batch.Count >= threshold && currentSavePoint == null)
         {
@@ -113,7 +113,7 @@ public class StoneFixer : MonoBehaviour
             StartCoroutine(RemoveSavePointAfterFade(currentSavePoint));
             currentSavePoint = null;          // 코루틴이 참조를 가지고 있으므로 안전
         }
-        SaveSystem.Instance.SaveGame();
+
         Debug.Log($"[StoneFixer] Wave {wave} fixed → PileCollider 생성");
         StartCoroutine(FuseAllStonesIntoOne());
     }
