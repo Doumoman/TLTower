@@ -120,7 +120,7 @@ public class AnimationManager : MonoBehaviour
         var rb = go.GetComponent<Rigidbody2D>();
         rb.mass = p.stoneData.mass;
         rb.angularDrag = p.stoneData.angularDrag;
-        rb.gravityScale = 1f;
+        rb.gravityScale = 0f;
 
         /* 4) MainStone 초기화 (스프라이트 등) */
         mc.Init(spr, p.stoneData.mass, p.stoneData.angularDrag);
