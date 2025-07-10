@@ -128,7 +128,7 @@ public class BosalManager : MonoBehaviour
 
         StartCoroutine(WaitUntilFadeOut(waitTicks)); // 대사 유지
 
-        //SoundManager.Instance.Play("test", Sound.Bgm);
+        SoundManager.Instance.Play("test", Sound.Bgm);
         Debug.Log("보살 대사: " + selectScript);
     }
 

@@ -12,7 +12,6 @@ public class ResetStone : MonoBehaviour
     int currentWave = 0;
     StoneController sc = null;
     ChapterManager cm;
-    GameObject lastPlatform;
     private void Awake()
     {
         cm = ChapterManager.Instance;
@@ -56,25 +55,20 @@ public class ResetStone : MonoBehaviour
         sc = col.GetComponent<StoneController>();
         currentWave = sf.GetWave();
     }
-    void SpawnPlatformAt(Vector3 pos)
-    {
-        // 기존 플랫폼이 있으면 없애기
-        if (lastPlatform != null) Destroy(lastPlatform);
 
-        // 새 플랫폼 생성 & 기록
-        lastPlatform = Instantiate(platform, pos, Quaternion.identity);
-    }
     public void CreatePlatform()
     {
+        
         float y = StoneFixer.Instance.HighestFixedY;
-        Vector3 pos = new Vector3(0f, y, 0f);   // 필요하면 z 조정
+        Vector2 spawnPos = new Vector2(0f, y);
+
         currentWave = -1;
-        SpawnPlatformAt(pos);
+        Instantiate(platform, spawnPos, Quaternion.identity);
     }
     public void CreatePlatform(Vector2 spawnPos)
     {
         Vector3 pos = new Vector3(spawnPos.x, spawnPos.y, -8f);
-        SpawnPlatformAt(pos);
+        Instantiate(platform, pos, Quaternion.identity);
     }
 
 }
