@@ -20,7 +20,7 @@ public class RainSystemTest : CountBasedObstacle
 
     protected override void AddStone(object sender, EventArgs eventArgs)
     {
-        if (nonStop || co != null) return; //실행중에는 카운트 안함
+        if (nonStop || co != null || windOrRain) return; //실행중에는 카운트 안함
         base.AddStone(sender, eventArgs);
     }
 
@@ -37,6 +37,7 @@ public class RainSystemTest : CountBasedObstacle
 
     public void MakeRain(bool autoStop = true)
     {
+        if (windOrRain) return;
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {
@@ -57,6 +58,7 @@ public class RainSystemTest : CountBasedObstacle
 
         BosalManager.Instance.Speak("RainStart");
         ps.Play();
+        windOrRain = true;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -92,6 +94,7 @@ public class RainSystemTest : CountBasedObstacle
         ps.Stop();
         stoneCount = 0;
         nonStop = false;
+        windOrRain = false;
     }
     protected override void OnEnable()
     {

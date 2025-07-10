@@ -19,12 +19,13 @@ public class RainSystem : CountBasedObstacle
 
     protected override void AddStone(object sender, EventArgs eventArgs)
     {
-        if (nonStop || co != null) return; //실행중에는 카운트 안함
+        if (nonStop || co != null || windOrRain) return; //실행중에는 카운트 안함
         base.AddStone(sender, eventArgs);
     }
 
     public override void MakeObstacle(bool autoStop = true)
     {
+        if (windOrRain) return;
         //돌 데이터마다 마찰데이터 변경
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
@@ -33,6 +34,7 @@ public class RainSystem : CountBasedObstacle
             item.material2D = rainy;
         }
         ps.Play();
+        windOrRain = true;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -73,6 +75,7 @@ public class RainSystem : CountBasedObstacle
         ps.Stop();
         stoneCount = 0;
         nonStop = false;
+        windOrRain = false;
     }
     protected override void OnEnable()
     {

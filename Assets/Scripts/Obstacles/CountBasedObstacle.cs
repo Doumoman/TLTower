@@ -10,6 +10,7 @@ public abstract class CountBasedObstacle : MonoBehaviour
     [Range(0, 1)] public float[] Chance = new float[(int)chapter.space + 1];
     protected int stoneCount = 0;
     public int count = 5;
+    protected static bool windOrRain = false;
 
     protected virtual void AddStone(object sender, EventArgs eventArgs)
     {

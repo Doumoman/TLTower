@@ -24,12 +24,13 @@ public class WindSystem : CountBasedObstacle
 
     protected override void AddStone(object sender, EventArgs eventArgs)
     {
-        if (nonStop || co != null) return; //실행중에는 카운트 안함
+        if (nonStop || co != null || windOrRain) return; //실행중에는 카운트 안함
         base.AddStone(sender, eventArgs);
     }
 
     public override void MakeObstacle(bool autoStop = true)
     {
+        if (windOrRain) return;
         //크기 설정
         ParticleSystem.ShapeModule shape = wind.shape;
         shape.scale = new Vector3(width, 1, Z_SIZE);
@@ -40,6 +41,7 @@ public class WindSystem : CountBasedObstacle
         collision.colliderForce = force;
 
         wind.Play();
+        windOrRain = true;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -86,6 +88,7 @@ public class WindSystem : CountBasedObstacle
         wind.Stop();
         stoneCount = 0;
         nonStop = false;
+        windOrRain = false;
     }
 
     protected override void OnEnable()
