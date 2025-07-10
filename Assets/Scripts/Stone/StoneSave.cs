@@ -12,7 +12,7 @@ public class SaveSystem : MonoBehaviour
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         path = Path.Combine(Application.persistentDataPath, "stone_save.json");
-        Invoke(nameof(LoadGame), 0.05f);
+        //Invoke(nameof(LoadGame), 0.05f);
     }
 
     public void SaveGame()
