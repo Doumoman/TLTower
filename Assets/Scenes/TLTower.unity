@@ -32264,109 +32264,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: -246.321, y: 90, z: -90}
---- !u!1 &1281971015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1281971017}
-  - component: {fileID: 1281971018}
-  m_Layer: 0
-  m_Name: ChapterManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1281971017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281971015}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.988206, y: 30.979132, z: -0.091020845}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1281971018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281971015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chapter: 4
-  seasonalObstacles:
-  - season: 0
-    obstacles: []
-  - season: 1
-    obstacles: []
-  - season: 2
-    obstacles:
-    - {fileID: 195804320}
-  - season: 3
-    obstacles:
-    - {fileID: 195804320}
-  - season: 4
-    obstacles:
-    - {fileID: 1591900208}
-    - {fileID: 1276775303}
-  - season: 5
-    obstacles:
-    - {fileID: 31691765}
-    - {fileID: 1276775303}
-  - season: 6
-    obstacles:
-    - {fileID: 195804320}
-    - {fileID: 31691765}
-    - {fileID: 1591900208}
-    - {fileID: 1276775303}
-  - season: 7
-    obstacles:
-    - {fileID: 195804320}
-    - {fileID: 31691765}
-    - {fileID: 1591900208}
-    - {fileID: 1276775303}
-  - season: 8
-    obstacles: []
-  - season: 9
-    obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 31691765}
-    - {fileID: 1757047012}
-  - season: 10
-    obstacles: []
-  - season: 11
-    obstacles: []
-  - season: 12
-    obstacles: []
-  - season: 13
-    obstacles: []
-  - season: 14
-    obstacles: []
-  - season: 15
-    obstacles: []
-  - season: 16
-    obstacles: []
-  - season: 17
-    obstacles: []
-  - season: 18
-    obstacles: []
-  stonesForChapter: 0500000005000000080000000d0000000d0000000d0000000d0000001200000012000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1322940009
 GameObject:
   m_ObjectHideFlags: 0
@@ -38248,7 +38145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe912a38651a0224da5d09e82e4f7cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 8
+  threshold: 5
   remainingTMP: {fileID: 284519799}
   savePointPrefab: {fileID: 4362427236296667128, guid: 0d01af780dc8df04d98572781a40afac, type: 3}
 --- !u!1 &1757047012
@@ -43894,7 +43791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
@@ -44499,5 +44396,4 @@ SceneRoots:
   - {fileID: 550000669733837620}
   - {fileID: 1025869543}
   - {fileID: 55845245}
-  - {fileID: 1281971017}
   - {fileID: 1845564314}
