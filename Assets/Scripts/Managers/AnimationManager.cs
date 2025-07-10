@@ -94,40 +94,56 @@ public class AnimationManager : MonoBehaviour
 
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
-    
+
 
     public void SpawnSpaceStones()
     {
-        foreach (var p in presets)
-            SpawnSingleStone(p);
+        if (!CameraController.Instance) return;
+
+        float top = CameraController.Instance.CurrentTopLimit;   // 최고 Y
+        float minY = top - 3f;                                   // 범위 [top-3, top]
+
+        // 왼쪽(-5f) : 인덱스 0,1,2
+        int[] leftIdx = { 0, 1, 2 };
+        // 오른쪽(+5f) : 인덱스 3,4
+        int[] rightIdx = { 3, 4 };
+
+        foreach (int i in leftIdx)
+        {
+            var p = presets[i];
+            p.position = new Vector2(-5f,
+                       Random.Range(minY, top));   // Y 무작위
+            SpawnSingleStone(p, i);
+        }
+        foreach (int i in rightIdx)
+        {
+            var p = presets[i];
+            p.position = new Vector2(+5f,
+                       Random.Range(minY, top));
+            SpawnSingleStone(p, i);
+        }
     }
-    void SpawnSingleStone(StonePreset p)
+    void SpawnSingleStone(StonePreset p, int index)
     {
-        /* 1) 프리팹 인스턴스 */
+        /* 1) 새 GameObject 생성 ---------------------------- */
+        GameObject go = new GameObject($"SpaceStone_{index}");
+        go.transform.SetParent(stonesParent, false);
+        go.transform.position = p.position;
+        go.transform.rotation = Quaternion.Euler(0, 0, p.rotationZ);
+
+        /* 2) 필수 컴포넌트 부착 ----------------------------- */
+        var sr = go.AddComponent<SpriteRenderer>();          // 스프라이트
+        var mc = go.AddComponent<SpaceStoneController>();    // 스톤 로직
+        var rb = go.AddComponent<Rigidbody2D>();             // 물리
+
+        /* 3) StoneData에서 값만 뽑아 세팅 ------------------ */
         Sprite spr = p.stoneData.GetSprite(p.spriteIndex);
-        GameObject go = Instantiate(p.stoneData.backgroundPrefab,
-                                     p.position,
-                                     Quaternion.Euler(0, 0, p.rotationZ),
-                                     stonesParent);
+        sr.sprite = spr;
 
-        /* 2) MainStoneController 확보 */
-        var mc = go.GetComponent<SpaceStoneController>() ??
-                 go.AddComponent<SpaceStoneController>();
-
-        /* 3) Rigidbody2D 준비 + 파라미터 적용
-              (MainStoneController.Awake 에서 자동 생성되지만
-               mass·angularDrag 값을 넘기려면 Init 이전에 설정)         */
-        var rb = go.GetComponent<Rigidbody2D>();
         rb.mass = p.stoneData.mass;
         rb.angularDrag = p.stoneData.angularDrag;
-        rb.gravityScale = 1f;
+        rb.gravityScale = 0f;          // 무중력
 
-        /* 4) MainStone 초기화 (스프라이트 등) */
-        mc.Init(spr, p.stoneData.mass, p.stoneData.angularDrag);
-        // MainStoneController 는 기본이 Settled 상태이므로 추가 설정 불필요
-
-        /* 5) StoneFreezer 제거 (필요 없으므로) */
-        if (go.TryGetComponent<StoneFreezer>(out var freezer))
-            Destroy(freezer);
+        mc.Init(spr, index, rb.mass, rb.angularDrag);
     }
 }

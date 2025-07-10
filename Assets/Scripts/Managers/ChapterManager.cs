@@ -127,7 +127,7 @@ public class ChapterManager : MonoBehaviour
         {
             Debug.Log("Play");
             AnimationManager.Instance.Play();
-            SoundManager.Instance.Play("next_chapter");
+            //SoundManager.Instance.Play("next_chapter");
         }
         if (chapter == chapter.space)
         {
@@ -149,7 +149,21 @@ public class ChapterManager : MonoBehaviour
         return entry != null ? entry.obstacles : new List<GameObject>();
     }
 
+    public void LoadChapter(chapter ch)
+    {
+        chapter = ch;
 
+        // idx 재계산
+        chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
+        idx = System.Array.IndexOf(arr, ch);
+
+        SetObstacle();  // 장애물·사운드 등 새 챕터 세팅
+        if (idx < stonesForChapter.Length)
+            StoneFixer.Instance.threshold = stonesForChapter[idx];
+
+        StoneFixer.Instance.NotifyStoneLost(null);
+        onChapterChage?.Invoke(this, System.EventArgs.Empty);
+    }
 
     void SetObstacle()
     {
