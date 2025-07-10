@@ -103,6 +103,7 @@ public class ChapterManager : MonoBehaviour
         StoneFixer.Instance.threshold = stonesForChapter[idx];
         StoneFixer.Instance.NotifyStoneLost(null);
         onChapterChage?.Invoke(this, EventArgs.Empty);
+        Debug.Log("chaptermanager 챕터변환 실행");
     }
 
     //돌 개수 늘어날 때 마다 챕터전환 확인
@@ -154,7 +155,7 @@ public class ChapterManager : MonoBehaviour
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
-
+        /*
         // LAND
         if (chapter == chapter.land)
         {
@@ -255,7 +256,7 @@ public class ChapterManager : MonoBehaviour
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);
         }
-
+        */
         //현재 챕터에 없는 이전 챕터 요소 비활성화
         foreach (GameObject go in currentObstacles)
         {

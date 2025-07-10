@@ -14,38 +14,50 @@ public class BackGround : MonoBehaviour
     public Sprite space;
 
     SpriteRenderer sr;
+    Dictionary<chapter, Sprite> spriteForChaper;
 
-    private void Start()
+    private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         ChapterManager.Instance.onChapterChage += ChangeBackGround;
+
+        spriteForChaper = new Dictionary<chapter, Sprite>();
+        chapter[] c = (chapter[])System.Enum.GetValues(typeof(chapter));
+
+        foreach (chapter ch in c)
+        {
+            //문자열로 챕터 확인!
+            string s = ch.ToString();
+            if (s.Contains("land"))
+            {
+                spriteForChaper.Add(ch, land);
+            }
+            else if (s.Contains("spring"))
+            {
+                spriteForChaper.Add(ch, spring);
+            }
+            else if (s.Contains("summer"))
+            {
+                spriteForChaper.Add(ch, summer);
+            }
+            else if (s.Contains("autumn"))
+            {
+                spriteForChaper.Add(ch, autumn);
+            }
+            else if (s.Contains("winter"))
+            {
+                spriteForChaper.Add(ch, winter);
+            }
+            else if (s.Contains("space"))
+            {
+                spriteForChaper.Add(ch, space);
+            }
+        }
     }
 
     void ChangeBackGround(object sender, EventArgs eventArgs)
     {
-        switch (ChapterManager.Instance.chapter)
-        {
-            case chapter.spring:
-            case chapter.spring2:
-            case chapter.spring3:
-                sr.sprite = spring;
-                break;
-            case chapter.summer:
-            case chapter.summer2:
-            case chapter.summer3:
-            case chapter.summer4:
-                sr.sprite = summer;
-                break;
-            case chapter.autumn:
-                sr.sprite = autumn;
-                break;
-            case chapter.winter:
-                sr.sprite = winter;
-                break;
-            case chapter.space:
-                sr.sprite = space;
-                break;
-        }
+        sr.sprite = spriteForChaper[ChapterManager.Instance.chapter];
 
     }
 }

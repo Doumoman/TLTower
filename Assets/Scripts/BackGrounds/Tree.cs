@@ -36,51 +36,54 @@ public class Tree : MonoBehaviour
     {
         // ChapterManager 캐싱
         cm = ChapterManager.Instance;
+        cm.onChapterChage += ChageSprite;
+        Debug.Log("tree 챕터변환 등록");
 
         // 자신을 정적 리스트에 등록
         _allTrees.Add(this);
         _registered = true;
-    }
-    void OnDestroy()
-    {
-        if (_registered) _allTrees.Remove(this);
-    }
 
-    void Start()
-    {
         Z = gameObject.transform.position.z;
-        cm = ChapterManager.Instance;
-        
-        cm.onChapterChage += ChageSprite;
 
-        seasons = new Dictionary<chapter, Sprite[]>()
+        seasons = new Dictionary<chapter, Sprite[]>();
+        seasonFlower = new Dictionary<chapter, Sprite[]>();
+        chapter[] c = (chapter[])System.Enum.GetValues(typeof(chapter));
+
+        foreach (chapter ch in c)
         {
-            { chapter.land, spring },
-            { chapter.spring, spring },
-            { chapter.spring2, spring },
-            { chapter.spring3, spring },
-            { chapter.summer, summer },
-            { chapter.summer2, summer },
-            { chapter.summer3, summer },
-            { chapter.summer4, summer },
-            { chapter.autumn, autumn },
-            { chapter.winter, winter },
-            { chapter.space, winter }
-        };
-        seasonFlower = new Dictionary<chapter, Sprite[]>()
-        {
-            { chapter.land, springFlowerFront },
-            { chapter.spring, springFlowerFront },
-            { chapter.spring2, springFlowerFront },
-            { chapter.spring3, springFlowerFront },
-            { chapter.summer, summerFlowerFront },
-            { chapter.summer2, summerFlowerFront },
-            { chapter.summer3, summerFlowerFront },
-            { chapter.summer4, summerFlowerFront },
-            { chapter.autumn, springFlowerFront },
-            { chapter.winter, winterFlowerFront },
-            { chapter.space, winterFlowerFront }
-        };
+            //문자열로 챕터 확인!
+            string s = ch.ToString();
+            if (s.Contains("land"))
+            {
+                seasons.Add(ch, spring);
+                seasonFlower.Add(ch, springFlowerFront);
+            }
+            else if (s.Contains("spring"))
+            {
+                seasons.Add(ch, spring);
+                seasonFlower.Add(ch, springFlowerFront);
+            }
+            else if (s.Contains("summer"))
+            {
+                seasons.Add(ch, summer);
+                seasonFlower.Add(ch, summerFlowerFront);
+            }
+            else if (s.Contains("autumn"))
+            {
+                seasons.Add(ch, autumn);
+                seasonFlower.Add(ch, springFlowerFront);
+            }
+            else if (s.Contains("winter"))
+            {
+                seasons.Add(ch, winter);
+                seasonFlower.Add(ch, winterFlowerFront);
+            }
+            else if (s.Contains("space"))
+            {
+                seasons.Add(ch, winter);
+                seasonFlower.Add(ch, winterFlowerFront);
+            }
+        }
         currentSp = spring;
         currentFlowerSp = springFlowerFront;
 
@@ -89,6 +92,10 @@ public class Tree : MonoBehaviour
             lastStem = Instantiate(stem[0], gameObject.transform);
             lastStem.transform.position = new Vector3(0, -7, Z);
         }
+    }
+    void OnDestroy()
+    {
+        if (_registered) _allTrees.Remove(this);
     }
 
     //나무를 계속 생성(space에선 생성x)
