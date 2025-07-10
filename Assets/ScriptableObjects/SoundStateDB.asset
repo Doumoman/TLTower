@@ -15,6 +15,9 @@ MonoBehaviour:
   stageData:
   - States:
     - clipDataList:
+      - clipName: ground_beat_001
+        cycle: 1
+        delay: 0
       - clipName: ground_ambient_001
         cycle: 0
         delay: 0
@@ -24,31 +27,56 @@ MonoBehaviour:
         cycle: 0
         delay: 0
       - clipName: spring_beat_001
-        cycle: 2
-        delay: 0
-    - clipDataList:
-      - clipName: spring_ambient_001
-        cycle: 0
-        delay: 0
-      - clipName: spring_beat_001
-        cycle: 2
+        cycle: 1
         delay: 0
       - clipName: spring_melody_001
-        cycle: 24
-        delay: 0
+        cycle: 17
+        delay: 2
       - clipName: spring_melody_002
-        cycle: 24
-        delay: 8
+        cycle: 17
+        delay: 6
       - clipName: spring_melody_003
-        cycle: 24
-        delay: 16
+        cycle: 17
+        delay: 10
+      - clipName: spring_melody_004
+        cycle: 17
+        delay: 14
     - clipDataList:
       - clipName: spring_ambient_001
         cycle: 0
         delay: 0
       - clipName: spring_beat_001
-        cycle: 2
+        cycle: 1
         delay: 0
+    - clipDataList:
+      - clipName: spring_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: spring_beat_001
+        cycle: 1
+        delay: 0
+      - clipName: spring_melody_001
+        cycle: 4
+        delay: 1
+    - clipDataList:
+      - clipName: spring_ambient_001
+        cycle: 0
+        delay: 0
+      - clipName: spring_beat_001
+        cycle: 1
+        delay: 0
+      - clipName: spring_melody_001
+        cycle: 17
+        delay: 1
+      - clipName: spring_melody_002
+        cycle: 17
+        delay: 5
+      - clipName: spring_melody_003
+        cycle: 17
+        delay: 9
+      - clipName: spring_melody_004
+        cycle: 17
+        delay: 13
   - States: []
   - States:
     - clipDataList:

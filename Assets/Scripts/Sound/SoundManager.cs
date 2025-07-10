@@ -7,7 +7,7 @@ public enum Sound
     Bgm, //loop 안됨. 자세한 재생은 SoundPlayer에서 따로 지정.
     Sfx,
     Voice, //보살 대사
-    Ambience, //Ambience 사운드들로로 SFX 아니고 BGM에 들어감!
+    Ambience, //Ambience 사운드들로 SFX 아니고 BGM에 들어감!
 
     MaxCount
 }
@@ -26,7 +26,6 @@ public class SoundManager : MonoBehaviour
             return instance;
         }
     }
-    private static bool _initialized = false;
     private void Awake()
     {
         if (instance == null)
@@ -76,13 +75,13 @@ public class SoundManager : MonoBehaviour
         //root = new GameObject { name = "@Sound" };
         GameObject root = this.gameObject;
         //root.AddComponent<SoundManager>();
-        //Object.DontDestroyOnLoad(root);
+        DontDestroyOnLoad(root);
 
         string[] soundNames = System.Enum.GetNames(typeof(Sound));
         for (int i = 0; i < soundNames.Length - 1; i++)
         {
             GameObject go = new GameObject { name = soundNames[i] };
-            _audioSources[i] = go.AddComponent<AudioSource>();
+            if (!_audioSources[i]) _audioSources[i] = go.AddComponent<AudioSource>();
             go.transform.parent = root.transform;
 
             // Ambience는 BGM 그룹으로 묶기, loop 켜기
@@ -98,12 +97,12 @@ public class SoundManager : MonoBehaviour
 
         for (int i = 0; i < bgmTracks.Length; i++)
         {
-            bgmTracks[i] = gameObject.AddComponent<AudioSource>();
+            if (!bgmTracks[i]) bgmTracks[i] = gameObject.AddComponent<AudioSource>();
             bgmTracks[i].outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
         }
         for (int i = 0; i < ambTracks.Length; i++)
         {
-            if (ambTracks[i] == null)
+            if (!ambTracks[i])
             {
                 ambTracks[i] = gameObject.AddComponent<AudioSource>();
                 ambTracks[i].outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];

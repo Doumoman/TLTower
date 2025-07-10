@@ -13,6 +13,7 @@ public class ChapterSoundManager : MonoBehaviour
     private List<QueuedSound> playQueue = new();
     private List<LoopedSound> loopedSounds = new();
     private int tickCount = 0;
+    private int baseTick = 0;
 
     public static ChapterSoundManager Instance { get; private set; }
 
@@ -126,53 +127,117 @@ public class ChapterSoundManager : MonoBehaviour
         LoadLoopedFromDB(currentStage, currentStateIndex);
     }
 
+    private IEnumerator PlayOnceAfterTicks(string clipName, int delayTicks)
+    {
+        int targetTick = tickCount + delayTicks;
+        while (tickCount < targetTick)
+            yield return null;
+
+        TickPlay(clipName, "Bgm");
+    }
     public void NextState()
     {
         var stageData = soundStateDB.stageData[(int)currentStage];
+        bool isFinalStage = currentStage == SoundStateData.Stage.Count - 1;
+        bool isLastStateInStage = currentStateIndex + 1 >= stageData.States.Count;
+
+        if (isFinalStage && isLastStateInStage)
+        {
+            int finalEndTick = tickCount;
+
+            foreach (var loop in loopedSounds)
+            {
+                if (tickCount >= loop.delay)
+                {
+                    int last = loop.delay;
+                    while (last + loop.cycle <= tickCount)
+                        last += loop.cycle;
+
+                    finalEndTick = Mathf.Max(finalEndTick, last + loop.cycle);
+                }
+            }
+
+            loopedSounds.Clear();
+            PlayLooped("space_highlight", "Bgm", 1, finalEndTick);
+            return;
+        }
+        else if (isLastStateInStage)
+        {
+            var nextStage = currentStage + 1;
+            if (nextStage < SoundStateData.Stage.Count)
+            {
+                Transition(nextStage, 0);  // <- 여기에만 Transition 사용
+            }
+        }
+        else
+        {
+            Transition(currentStage, currentStateIndex + 1); // <- 여기에도 사용!
+        }
+    }
+
+    private void Transition(SoundStateData.Stage stage, int nextStateIndex)
+    {
+        Debug.Log($"[Transition] Transitioning to Stage: {stage}, StateIndex: {nextStateIndex}");
+
+        // tickCount 초기화
+        tickCount = 0;
+
+        // 현재 스테이지와 인덱스 갱신
+        currentStage = stage;
+        currentStateIndex = nextStateIndex;
+
+        // 기존 루프 제거
+        loopedSounds.Clear();
+
+        // 다음 state에 있는 클립 예약
+        var nextState = soundStateDB.stageData[(int)stage].States[nextStateIndex];
+        foreach (var clip in nextState.clipDataList)
+        {
+            if (!string.IsNullOrEmpty(clip.clipName))
+            {
+                PlayLooped(clip.clipName, "Bgm", clip.cycle, clip.delay);
+            }
+        }
+
+        // ambience 처리
+        string newAmbience = GetAmbienceFromState(nextState);
+        if (!string.IsNullOrEmpty(newAmbience))
+        {
+            PlayAmbienceIfChanged(newAmbience);
+        }
+    }
+
+    private string GetAmbienceFromState(SoundStateData.State state)
+    {
+        foreach (var clip in state.clipDataList)
+        {
+            if (clip.cycle == 0) // ambience는 cycle이 0이라고 가정
+                return clip.clipName;
+        }
+        return null;
+    }
+    public void NextState(string expectedNextStage)
+    {
+        var stageData = soundStateDB.stageData[(int)currentStage];
+
+        // 다음 State가 없으면 Stage 전환
         if (currentStateIndex + 1 >= stageData.States.Count)
         {
             int nextStageIndex = ((int)currentStage + 1) % ((int)SoundStateData.Stage.Count - 1);
+            string actualNextStageName = ((SoundStateData.Stage)nextStageIndex).ToString();
+
+            if (actualNextStageName != expectedNextStage)
+                return;
+
             SetStage((SoundStateData.Stage)nextStageIndex);
             return;
         }
 
-        var prevState = stageData.States[currentStateIndex];
-        var nextState = stageData.States[currentStateIndex + 1];
+        // 다음 State는 같은 Stage 내에 있으므로, Stage는 변하지 않음
+        if (currentStage.ToString() != expectedNextStage)
+            return;
 
-        var prevClips = new HashSet<string>();
-        foreach (var clip in prevState.clipDataList) prevClips.Add(clip.clipName);
-
-        var nextClips = new HashSet<string>();
-        foreach (var clip in nextState.clipDataList) nextClips.Add(clip.clipName);
-
-        loopedSounds.RemoveAll(loop => !nextClips.Contains(loop.clipName));
-
-        int latestTick = tickCount;
-        foreach (var loop in loopedSounds)
-        {
-            int last = loop.delay;
-            while (last + loop.cycle <= tickCount)
-                last += loop.cycle;
-            latestTick = Mathf.Max(latestTick, last + loop.cycle);
-        }
-
-        foreach (var newClip in nextState.clipDataList)
-        {
-            if (!prevClips.Contains(newClip.clipName))
-            {
-                // Ambience는 여기서 제외하고 HandleAmbienceTransition에서 따로 다루도록
-                if (newClip.cycle <= 0) continue;
-
-                PlayLooped(newClip.clipName, "Bgm", newClip.cycle, latestTick);
-            }
-        }
-        var newAmbience = nextState.clipDataList.Find(c => c.cycle <= 0);
-        if (newAmbience != null)
-        {
-            PlayAmbienceIfChanged(newAmbience.clipName);
-        }
-
-        currentStateIndex++;
+        NextState(); // 기존 함수 호출
     }
 
     private class QueuedSound

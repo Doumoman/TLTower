@@ -11,7 +11,7 @@ public class SeasonObstacle
     public List<GameObject> obstacles;
 }
 
-public enum chapter {land, spring, spring2, spring3,  summer, summer2, summer3, summer4, autumn, winter, space};
+public enum chapter {land, spring, spring2, spring3,  summer, summer2, summer3, summer4, autumn, autumn2, autumn3, autumn4, winter, space};
 public class ChapterManager : MonoBehaviour
 {
     public chapter chapter = chapter.land;
@@ -37,6 +37,7 @@ public class ChapterManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -113,23 +114,36 @@ public class ChapterManager : MonoBehaviour
             case chapter.land: //land
                 BosalManager.Instance.Speak("TempleStart");
                 BosalManager.Instance.NoIdle = false; //true;
+                ChapterSoundManager.Instance.SetStage(SoundStateData.Stage.Ground);
                 return;
             case chapter.spring: //spring
                 BosalManager.Instance.Speak("SpringFirst");
                 BosalManager.Instance.NoIdle = false;
+                Debug.Log("NextState 호출중");
+                ChapterSoundManager.Instance.NextState("Spring");
                 break;
             case chapter.spring2:
+                ChapterSoundManager.Instance.NextState("Spring");
+                break;
             case chapter.spring3:
+                ChapterSoundManager.Instance.NextState("Spring");
                 break;
             case chapter.summer: //summer
                 BosalManager.Instance.Speak("SummerFirst");
+                ChapterSoundManager.Instance.NextState("Summer");
                 break;
             case chapter.summer2:
+                ChapterSoundManager.Instance.NextState("Summer");
+                break;
             case chapter.summer3:
+                ChapterSoundManager.Instance.NextState("Summer");
+                break;
             case chapter.summer4:
+                ChapterSoundManager.Instance.NextState("Summer");
                 break;
             case chapter.autumn: //autumn
                 BosalManager.Instance.Speak("AutumnFirst");
+                ChapterSoundManager.Instance.NextState("Summer");
                 break;
             case chapter.winter: //winter
                 break;
