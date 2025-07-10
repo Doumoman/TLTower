@@ -15,14 +15,17 @@ MonoBehaviour:
   typeId: 2
   stoneName: NZ
   sprites:
-  - {fileID: -486824576, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
-  - {fileID: 1805742213, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
-  - {fileID: -635387139, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
-  - {fileID: -924114880, guid: 342774058a59d474799a2e22cdcc2ec6, type: 3}
-  - {fileID: -1990327074, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
-  - {fileID: -1022014253, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
-  - {fileID: -2011900971, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
-  - {fileID: -1462752781, guid: dafd57f165eadd34392d30047805c3c6, type: 3}
+  - {fileID: 636283014, guid: 61f5fb14130bd5246ada88cde7e4c293, type: 3}
+  - {fileID: -1704726233, guid: 61f5fb14130bd5246ada88cde7e4c293, type: 3}
+  - {fileID: 1515143007, guid: 61f5fb14130bd5246ada88cde7e4c293, type: 3}
+  - {fileID: 115281008, guid: 61f5fb14130bd5246ada88cde7e4c293, type: 3}
+  - {fileID: 2022251433, guid: 3fc22c9f415e359448e0e8ee163ae596, type: 3}
+  - {fileID: -2067992579, guid: 3fc22c9f415e359448e0e8ee163ae596, type: 3}
+  - {fileID: -1361397537, guid: 3fc22c9f415e359448e0e8ee163ae596, type: 3}
+  - {fileID: -673818369, guid: 3fc22c9f415e359448e0e8ee163ae596, type: 3}
+  - {fileID: 996566570, guid: e8a314aaf19501649ae688dc75155fe2, type: 3}
+  - {fileID: 58090388, guid: e8a314aaf19501649ae688dc75155fe2, type: 3}
+  - {fileID: -431223814, guid: e8a314aaf19501649ae688dc75155fe2, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: 097964f25ee870b41b4c9dd0b20106d8, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: 1132f537cebe99d4cae4f86b36486d10, type: 3}
   mass: 8

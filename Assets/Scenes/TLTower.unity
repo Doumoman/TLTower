@@ -43916,6 +43916,46 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[2]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[3]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[4]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[5]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[6]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[7]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[8]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: stonesForChapter.Array.data[9]
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[2].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 195804320}
@@ -44447,4 +44487,4 @@ SceneRoots:
   - {fileID: 550000669733837620}
   - {fileID: 1025869543}
   - {fileID: 55845245}
-  - {fileID: 1419119689}
+  - {fileID: 1281971017}
