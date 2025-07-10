@@ -117,7 +117,7 @@ public class Tree : MonoBehaviour
             lastStem.transform.position = new Vector3(0, lastY + 21.6f, Z);
             lastStem.GetComponent<SpriteRenderer>().sprite = seasons[cm.chapter][idx];
             SpriteRenderer sr = Array.Find(lastStem.GetComponentsInChildren<SpriteRenderer>(),x => x.sortingLayerName == "flower"); //꽃잎 spriteRenderer
-            if (cm.chapter == chapter.autumn) sr.enabled = false;
+            if (cm.chapter.ToString().Contains("autumn")) sr.enabled = false;
             else sr.sprite = seasonFlower[cm.chapter][idx];
         }
     }
@@ -145,7 +145,7 @@ public class Tree : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in flowerSp)
         {
             //가을 챕터는 꽃잎 안보이기
-            if (cm.chapter == chapter.autumn) { spriteRenderer.enabled = false; continue; }
+            if (cm.chapter.ToString().Contains("autumn")) { spriteRenderer.enabled = false; continue; }
             else spriteRenderer.enabled = true;
 
             if (currentFlowerSp == sp1) break;

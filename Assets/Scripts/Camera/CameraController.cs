@@ -153,7 +153,7 @@ public class CameraController : MonoBehaviour
             float limit;
 
             /* ① 가을 챕터일 때는 CloudSystem 기준 */
-            if (ChapterManager.Instance.chapter == chapter.autumn)
+            if (ChapterManager.Instance.chapter.ToString().Contains("autumn"))
             {
                 // CloudSystem 싱글톤이 아직 없다면 제한 없음
                 if (CloudSystem.Instance == null)
