@@ -90,6 +90,7 @@ public class StoneFreezer : MonoBehaviour
         if (freezeTimer > 0 && freezeTimer > freezeTime)
         {
             FreezeStone();
+            SoundManager.Instance.Play("rock_freeze_001");
             freezeTimer = 0f;
         }
 

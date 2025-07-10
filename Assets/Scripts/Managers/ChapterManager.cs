@@ -87,6 +87,7 @@ public class ChapterManager : MonoBehaviour
         {
             Debug.Log("Play");
             AnimationManager.Instance.Play();
+            SoundManager.Instance.Play("next_chapter");
         }
         if (chapter == chapter.space)
         {

@@ -294,6 +294,37 @@ public class SoundManager : MonoBehaviour
         source.PlayOneShot(effectClip);
     }
 
+    private List<AudioSource> loopingSfxSources = new();
+
+    public void PlaySfxLoop(string clipName)
+    {
+        AudioClip clip = GetOrAddAudioClip(clipName, Sound.Sfx);
+        if (clip = null) return;
+        AudioSource source = loopingSfxSources.Find(src => !src.isPlaying);
+        if (source == null)
+        {
+            source = gameObject.AddComponent<AudioSource>();
+            source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+            loopingSfxSources.Add(source);
+        }
+        source.clip = clip;
+        source.loop = true;
+        source.volume = PlayerPrefs.GetFloat("effectVolume");
+        source.Play();
+    }
+    public void StopSfxLoop(string clipName)
+    {
+        foreach (var src in loopingSfxSources)
+        {
+            if (src.isPlaying && src.clip != null && src.clip.name == clipName)
+            {
+                src.Stop();
+                src.clip = null;
+                return;
+            }
+        }
+    }
+
     public void FadeInAmbience(string clipName, float duration = 1.0f)
     {
         int nextIndex = 1 - currentAmbienceIndex;

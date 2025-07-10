@@ -94,8 +94,16 @@ public class JointMaker : MonoBehaviour
         {
             joint.enabled = false;
             Destroy(joint);
+            StartCoroutine(disconnect(disconnectionInterval));
         }
         this.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    [SerializeField] private float disconnectionInterval = 0.1f;
+    IEnumerator disconnect(float ReallyLongTime)
+    {
+        SoundManager.Instance.Play("cloud_disconnected");
+        yield return new WaitForSeconds(ReallyLongTime);
     }
 
     public void DFS(ref List<JointMaker> jms)

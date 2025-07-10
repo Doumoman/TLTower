@@ -52,6 +52,7 @@ public class CloudController : MonoBehaviour,
     }
 
     // Update is called once per frame
+
     void Update()
     {
         if (state == CloudState.Dragging && !isRotating)
@@ -66,6 +67,7 @@ public class CloudController : MonoBehaviour,
                 if (holdTimer >= holdToRotate)
                 {
                     // 회전 시작
+                    
                     isRotating = true;
                     holdTimer = 0f;
                     holdStartPos = curWorld;
@@ -88,11 +90,15 @@ public class CloudController : MonoBehaviour,
         }
         if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
     }
-
+    private bool isSoundCalled = false;
     private void FixedUpdate()
     {
         if (isRotating && state == CloudState.Dragging)
+        {
             rb.angularVelocity = rotateSpeed;
+            if (!isSoundCalled) SoundManager.Instance.PlaySfxLoop("cloud_rotate_01");
+            isSoundCalled = true;
+        }
     }
 
     void CheckOverlap()
@@ -109,6 +115,7 @@ public class CloudController : MonoBehaviour,
     {
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
+        SoundManager.Instance.Play("cloud_select_01");
 
         if (this.TryGetComponent<JointMaker>(out JointMaker jm))
             jm.DraggingBreak();
@@ -131,6 +138,7 @@ public class CloudController : MonoBehaviour,
             if (Vector2.Distance(mouseWorld, holdStartPos) >= moveDeadZone)
             {
                 isRotating = false;
+                SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
                 rb.angularVelocity = 0;
                 dragOffset = transform.position - (Vector3)mouseWorld;
             }
@@ -152,6 +160,9 @@ public class CloudController : MonoBehaviour,
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
+        isRotating = false;
+
         if (eventData.pointerId != activePointer) return;
         activePointer = -1;
 
@@ -159,6 +170,7 @@ public class CloudController : MonoBehaviour,
 
         state = CloudState.Dropped;
         gameObject.tag = "Cloud";
+        SoundManager.Instance.Play("cloud_deselect_01");
 
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;
