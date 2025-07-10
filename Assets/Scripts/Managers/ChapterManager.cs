@@ -11,7 +11,15 @@ public class SeasonObstacle
     public List<GameObject> obstacles;
 }
 
-public enum chapter {land, spring, spring2, spring3,  summer, summer2, summer3, summer4, autumn, autumn2, autumn3, autumn4, winter, space};
+public enum chapter
+{
+    land,
+    spring, spring2, spring3,
+    summer, summer2, summer3, summer4,
+    autumn, autumn2, autumn3, autumn4,
+    winter, winter2, winter3, winter4, winter5, winter6,
+    space
+}; //사운드 편의상 분류 수를 늘림
 public class ChapterManager : MonoBehaviour
 {
     public chapter chapter = chapter.land;
@@ -48,8 +56,7 @@ public class ChapterManager : MonoBehaviour
     private void Start()
     {
         //시작 챕터 감지
-        chapter[] arr = { chapter.land, chapter.spring, chapter.spring2, chapter.spring3, chapter.summer, chapter.summer2, chapter.summer3, chapter.summer4,
-            chapter.autumn, chapter.winter, chapter.space };
+        chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         idx = Array.IndexOf(arr, chapter);
 
         //List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
@@ -63,8 +70,7 @@ public class ChapterManager : MonoBehaviour
     //돌 개수 늘어날 때 마다 챕터전환 확인
     public void ChangeChapter()
     {
-        chapter[] arr = { chapter.land, chapter.spring, chapter.spring2, chapter.spring3, chapter.summer, chapter.summer2, chapter.summer3, chapter.summer4,
-            chapter.autumn, chapter.winter, chapter.space };
+        chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
             chapter = arr[++idx];
@@ -109,47 +115,106 @@ public class ChapterManager : MonoBehaviour
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
-        switch (chapter)
+
+        // LAND
+        if (chapter == chapter.land)
         {
-            case chapter.land: //land
-                BosalManager.Instance.Speak("TempleStart");
-                BosalManager.Instance.NoIdle = false; //true;
-                ChapterSoundManager.Instance.SetStage(SoundStateData.Stage.Ground);
-                return;
-            case chapter.spring: //spring
-                BosalManager.Instance.Speak("SpringFirst");
-                BosalManager.Instance.NoIdle = false;
-                Debug.Log("NextState 호출중");
-                ChapterSoundManager.Instance.NextState("Spring");
-                break;
-            case chapter.spring2:
-                ChapterSoundManager.Instance.NextState("Spring");
-                break;
-            case chapter.spring3:
-                ChapterSoundManager.Instance.NextState("Spring");
-                break;
-            case chapter.summer: //summer
-                BosalManager.Instance.Speak("SummerFirst");
-                ChapterSoundManager.Instance.NextState("Summer");
-                break;
-            case chapter.summer2:
-                ChapterSoundManager.Instance.NextState("Summer");
-                break;
-            case chapter.summer3:
-                ChapterSoundManager.Instance.NextState("Summer");
-                break;
-            case chapter.summer4:
-                ChapterSoundManager.Instance.NextState("Summer");
-                break;
-            case chapter.autumn: //autumn
-                BosalManager.Instance.Speak("AutumnFirst");
-                ChapterSoundManager.Instance.NextState("Summer");
-                break;
-            case chapter.winter: //winter
-                break;
-            case chapter.space: //space
-                BosalManager.Instance.NoIdle = true;
-                break;
+            BosalManager.Instance.Speak("TempleStart");
+            BosalManager.Instance.NoIdle = false;
+            ChapterSoundManager.Instance.SetStage(SoundStateData.Stage.Ground);
+            return;
+        }
+
+        // SPRING
+        if (chapter == chapter.spring)
+        {
+            BosalManager.Instance.Speak("SpringFirst");
+            BosalManager.Instance.NoIdle = false;
+            Debug.Log("NextState 호출중");
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 0);
+        }
+        else if (chapter == chapter.spring2)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 1);
+        }
+        else if (chapter == chapter.spring3)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 2);
+        }
+
+        // SUMMER
+        else if (chapter == chapter.summer)
+        {
+            BosalManager.Instance.Speak("SummerFirst");
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 0);
+        }
+        else if (chapter == chapter.summer2)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 1);
+        }
+        else if (chapter == chapter.summer3)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 2);
+        }
+        else if (chapter == chapter.summer4)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 3);
+        }
+
+        // AUTUMN
+        else if (chapter == chapter.autumn)
+        {
+            BosalManager.Instance.Speak("AutumnFirst");
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 0);
+        }
+        else if (chapter == chapter.autumn2)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 1);
+        }
+        else if (chapter == chapter.autumn3)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 2);
+        }
+        else if (chapter == chapter.autumn4)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 3);
+        }
+
+        // WINTER
+        else if (chapter == chapter.winter)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 0);
+        }
+        else if (chapter == chapter.winter2)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 1);
+        }
+        else if (chapter == chapter.winter3)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 2);
+        }
+        else if (chapter == chapter.winter4)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 3);
+        }
+        else if (chapter == chapter.winter5)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 4);
+        }
+        else if (chapter == chapter.winter6)
+        {
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 5);
+        }
+
+        // SPACE
+        else if (chapter == chapter.space)
+        {
+            BosalManager.Instance.NoIdle = true;
+            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Space, 0);
+        }
+        else
+        {
+            Debug.LogWarning("Unhandled chapter: " + chapter);
         }
 
         //현재 챕터에 없는 이전 챕터 요소 비활성화

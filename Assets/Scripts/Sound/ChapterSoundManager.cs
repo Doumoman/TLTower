@@ -175,7 +175,7 @@ public class ChapterSoundManager : MonoBehaviour
         }
     }
 
-    private void Transition(SoundStateData.Stage stage, int nextStateIndex)
+    public void Transition(SoundStateData.Stage stage, int nextStateIndex)
     {
         Debug.Log($"[Transition] Transitioning to Stage: {stage}, StateIndex: {nextStateIndex}");
 

@@ -43,10 +43,8 @@ public class SoundManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("bgmVolume")) PlayerPrefs.SetFloat("bgmVolume", 1.0f);
         if (!PlayerPrefs.HasKey("effectVolume")) PlayerPrefs.SetFloat("effectVolume", 1.0f);
         if (!PlayerPrefs.HasKey("voiceVolume")) PlayerPrefs.SetFloat("voiceVolume", 1.0f);
-
-        Init();
     }
-    private AudioSource[] bgmTracks = new AudioSource[15]; // bgm은 루프되지 않음! 현재 재생할 bgm 소스들을 15개까지 큐잉해서 사용
+    private AudioSource[] bgmTracks = new AudioSource[7]; // bgm은 루프되지 않음! 현재 재생할 bgm 소스들을 7개까지 큐잉해서 사용
     private AudioSource[] ambTracks = new AudioSource[2];
     private int currentAmbienceIndex = 0;
     private string currentAmbience = "";
@@ -93,7 +91,6 @@ public class SoundManager : MonoBehaviour
             else
                 _audioSources[i].outputAudioMixerGroup = audioMixerGroups[i + 1]; // SFX, Voice               
         }
-        _audioSources[(int)Sound.Ambience].loop = true;
 
         for (int i = 0; i < bgmTracks.Length; i++)
         {
@@ -109,6 +106,7 @@ public class SoundManager : MonoBehaviour
                 ambTracks[i].loop = true;
             }
         }
+        SoundLoadingManager.Instance.PreloadAllBGM();
     }
 
     public void Clear()
@@ -188,20 +186,42 @@ public class SoundManager : MonoBehaviour
     }
     AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Sfx)
     {
-        if (path.Contains("Sounds/") == false)
-            path = $"Sounds/{path}";
-        AudioClip audioClip = null;
+        string fullPath;
 
-        if (_audioClips.TryGetValue(path, out audioClip) == false)
+        if (_audioClips.TryGetValue(path, out var cachedClip))
+            return cachedClip;
+
+        if (path.StartsWith("Sounds/"))
         {
-            audioClip = GameManager.Resource.Load<AudioClip>(path);
-            _audioClips.Add(path, audioClip);
+            fullPath = path;
+        }
+        else
+        {
+            string folder = type switch
+            {
+                Sound.Bgm => "BGM",
+                Sound.Sfx => "SFX",
+                Sound.Voice => "Voice",
+                Sound.Ambience => "BGM", // ambience도 BGM 하위
+                _ => ""
+            };
+            fullPath = $"Sounds/{folder}/{path}";
         }
 
-        if (audioClip == null)
-            Debug.Log($"AudioClip Missing : {path}");
+        if (_audioClips.TryGetValue(fullPath, out var clip))
+            return clip;
 
-        return audioClip;
+        clip = GameManager.Resource.Load<AudioClip>(fullPath);
+        if (clip != null)
+        {
+            _audioClips[fullPath] = clip;
+        }
+        else
+        {
+            Debug.LogWarning($"[SoundManager] AudioClip not found at path: {fullPath}");
+        }
+
+        return clip;
     }
     public void Stop(string clip = "")
     {
@@ -271,28 +291,27 @@ public class SoundManager : MonoBehaviour
         string effect = "Sounds/" + effectName;
         AudioClip effectClip = Resources.Load<AudioClip>(effect);
         source.volume = PlayerPrefs.GetFloat("effectVolume"); // 플레이어프렙스에서 effectVolume 값 가져오기
-        source.clip = effectClip;
         source.PlayOneShot(effectClip);
     }
 
     public void FadeInAmbience(string clipName, float duration = 1.0f)
-{
-    int nextIndex = 1 - currentAmbienceIndex;
-    int fadingIndex = currentAmbienceIndex;
+    {
+        int nextIndex = 1 - currentAmbienceIndex;
+        int fadingIndex = currentAmbienceIndex;
 
-    AudioSource nextSource = ambTracks[nextIndex];
+        AudioSource nextSource = ambTracks[nextIndex];
 
-    AudioClip clip = GetOrAddAudioClip(clipName, Sound.Ambience);
-    nextSource.clip = clip;
-    nextSource.volume = 0f;
-    nextSource.Play();
+        AudioClip clip = GetOrAddAudioClip(clipName, Sound.Ambience);
+        nextSource.clip = clip;
+        nextSource.volume = 0f;
+        nextSource.Play();
 
-    StartCoroutine(FadeVolume(nextSource, PlayerPrefs.GetFloat("bgmVolume"), duration));
-    StartCoroutine(FadeAndStop(ambTracks[fadingIndex], duration));
+        StartCoroutine(FadeVolume(nextSource, PlayerPrefs.GetFloat("bgmVolume"), duration));
+        StartCoroutine(FadeAndStop(ambTracks[fadingIndex], duration));
 
-    currentAmbienceIndex = nextIndex;
-    currentAmbience = clipName;
-}
+        currentAmbienceIndex = nextIndex;
+        currentAmbience = clipName;
+    }
     public void FadeOutAmbience(int index, float duration = 1.0f)
     {
         AudioSource source = ambTracks[index];
@@ -332,5 +351,21 @@ public class SoundManager : MonoBehaviour
 
         source.Stop();
         source.clip = null;
+    }
+
+    public bool HasClip(string path)
+    {
+        if (!path.StartsWith("Sounds/"))
+            path = "Sounds/" + path;
+        return _audioClips.ContainsKey(path);
+    }
+
+    public void CacheClip(string path, AudioClip clip)
+    {
+        if (!path.StartsWith("Sounds/"))
+            path = "Sounds/" + path;
+
+        if (!_audioClips.ContainsKey(path) && clip != null)
+            _audioClips[path] = clip;
     }
 }
