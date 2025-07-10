@@ -21,6 +21,17 @@ public class PausePanel : MonoBehaviour
         //SoundManager.Instance.EffectSoundOn("3");
         pausepanel.SetActive(true);
     }
+    void Update()
+    {
+        // Android Back(PC·에디터에선 Esc) 입력 감지
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pausepanel.activeSelf)
+                Closepausepanel();   // 이미 열려 있으면 닫기
+            else
+                Openpausepanel();    // 닫혀 있으면 열기
+        }
+    }
     public void Closepausepanel()
     {
         //SoundManager.Instance.EffectSoundOn("3");
