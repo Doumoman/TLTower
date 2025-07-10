@@ -112,7 +112,7 @@ public class ChapterManager : MonoBehaviour
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
             chapter = arr[++idx];
-            //SetObstacle();
+            SetObstacle();
             /* space 챕터에는 threshold 가 없으므로 안전 체크 */
             if (idx < stonesForChapter.Length)
                 StoneFixer.Instance.threshold = stonesForChapter[idx];
