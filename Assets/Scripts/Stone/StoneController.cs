@@ -456,7 +456,6 @@ public class StoneController : MonoBehaviour,
     void OnDestroy()
     {
         if (cm) cm.onChapterChage -= OnChapterChanged;
-        if (state == StoneState.Dropping) return;
-        ChapterManager.Instance?.RemoveCount();
+        if (this.CompareTag("PlacedStone")) ChapterManager.Instance.RemoveCount();
     }
 }

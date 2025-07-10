@@ -58,6 +58,9 @@ TagManager:
   - name: suhangmok
     uniqueID: 2222939861
     locked: 0
+  - name: FixedStone
+    uniqueID: 437400273
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

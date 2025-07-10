@@ -28,6 +28,7 @@ public class ChapterManager : MonoBehaviour
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
+    public circleController yumju;
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
@@ -139,8 +140,8 @@ public class ChapterManager : MonoBehaviour
         foreach (var cp in GameObject.FindGameObjectsWithTag("Checkpoint"))
             Destroy(cp);
     }
-    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
-    public void RemoveCount() { stoneCount -= 1; }
+    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); yumju.testUP(); }
+    public void RemoveCount() { stoneCount -= 1; yumju.testDown(); }
 
     public List<GameObject> GetObstaclesByChapter(chapter c)
     {

@@ -8,9 +8,8 @@ using UnityEngine;
 //해결해야할 과제 - 회전 중간에 돌 개수 변경시 끊김(못하겠음), 색깔 추가하기
 public class circleController : MonoBehaviour
 {
-    public GameObject twentySeventh;
     public int rock;        //쌓은 돌의 개수
-    public float duration = 0.7f;
+    public float speed = 0.7f;
     RectTransform rect;
     public float seta0;     //회전 애니메이션에서 사용할 현재 각도
     public float seta1;     //회전 애니메이션에서 사용할 목표 각도
@@ -21,7 +20,7 @@ public class circleController : MonoBehaviour
     void Start()
     {
         rect = GetComponent<RectTransform>();
-        seta1 = -90f / 7 * rock;
+        seta1 = -360f / 11 * rock;
         rect.eulerAngles = new Vector3(0, 0, seta1);        
         rock0 = rock;
     }
@@ -48,12 +47,12 @@ public class circleController : MonoBehaviour
     {
         float t = 0f;
         seta0 = seta1;              //   **회전중에 다시 회전시작하면 끊김 발생**
-        seta1 = -90f / 7 * n;
+        seta1 = -360f / 11 * n;
         while (true)
         {
             yield return null;
             t += Time.unscaledDeltaTime;
-            float newZ = Mathf.Lerp(seta0, seta1, t / duration);
+            float newZ = Mathf.Lerp(seta0, seta1, t * speed);
             rect.eulerAngles = new Vector3(0, 0, newZ);
             if((Mathf.Abs(newZ - seta1)) < 0.05f)   //오차 범위 이내라면 종료
             {
@@ -64,10 +63,11 @@ public class circleController : MonoBehaviour
 
     public void testUP()
     {
-        rock++;
+        rock += 1;
     }
     public void testDown()
     {
-        rock--;
+        Debug.Log("sibal");
+        rock -= 1;
     }
 }

@@ -66,7 +66,7 @@ public class StoneFixer : MonoBehaviour
         if (!remainingTMP) return;
 
         int remain = Mathf.Max(0, threshold - batch.Count); // 0 이하 방지
-        remainingTMP.text = $"남은 돌: <b>{remain}</b>";
+        remainingTMP.text = $"<b>{remain}</b>";
     }
     #region 돌 고정 로직
     public void FixAllStones()
