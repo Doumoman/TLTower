@@ -65,6 +65,7 @@ public class PenaltyManager : MonoBehaviour
     {
         StoneSpawner.Penalty = true; // 다음 돌은 번뇌돌
         BnStone = true;
+        SoundManager.Instance.Play("Rain_start_001");
         StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때
@@ -81,6 +82,7 @@ public class PenaltyManager : MonoBehaviour
         counter = 0;
         Rain.StopRain(); // 비 비활성화
         Debug.Log($"번뇌돌 정화! 현재 카운트: {counter}");
+        SoundManager.Instance.Play("affliction_purified");
         Bosal.Speak("받아들였으니, 이제 그 무게는 너를 짓누르지 않을 것이다.");
         //TreeColorReset();
     }

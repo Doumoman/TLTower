@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 1521c80263028c2469d7f185f81ca063
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZY_ffinal1_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1625
+        width: 309
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0163ecac976865c49a0a74cc3883c717
+      internalID: -1250273009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1428
+        width: 372
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8cd14ac06cac942b52b248637add1b
+      internalID: 592990282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_14
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 979
+        width: 312
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52035cf569b55f498b8e9bcc5b83662
+      internalID: 476187159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_15
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 978
+        width: 220
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d962d10779e22e4494a7245074bc34d
+      internalID: 491691330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_25
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 540
+        width: 396
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012122f078354cf45a7a31fe7a604687
+      internalID: -420992431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_33
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 66
+        width: 258
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f48160c5f77a4944988e38fc6ffd457
+      internalID: 716147040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_37
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 108
+        width: 266
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e13ffa325774ad4ea4e51eca3c0e433
+      internalID: -1928478346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_39
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 84
+        width: 391
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605c7314d7de37d46a5c2414627225c8
+      internalID: 2059219547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZY_ffinal1_56
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85b7ca064d8dfe449a7a4f18f704608
+      internalID: 80310966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ZY_ffinal1_0: -1250273009
+      ZY_ffinal1_1: -1727949437
+      ZY_ffinal1_10: 445253082
+      ZY_ffinal1_11: 615361339
+      ZY_ffinal1_12: -183066738
+      ZY_ffinal1_13: 1031351964
+      ZY_ffinal1_14: 476187159
+      ZY_ffinal1_15: 491691330
+      ZY_ffinal1_16: -1345094521
+      ZY_ffinal1_17: 1973434684
+      ZY_ffinal1_18: 1445965329
+      ZY_ffinal1_19: -1976550136
+      ZY_ffinal1_2: -710886704
+      ZY_ffinal1_20: 1112859098
+      ZY_ffinal1_21: 1753236556
+      ZY_ffinal1_22: 30022633
+      ZY_ffinal1_23: 1919083893
+      ZY_ffinal1_24: 54414172
+      ZY_ffinal1_25: -420992431
+      ZY_ffinal1_26: 1738473778
+      ZY_ffinal1_27: 342290664
+      ZY_ffinal1_28: 1955581321
+      ZY_ffinal1_29: 552561228
+      ZY_ffinal1_3: 592990282
+      ZY_ffinal1_30: 715794662
+      ZY_ffinal1_31: -1566843839
+      ZY_ffinal1_32: -778880724
+      ZY_ffinal1_33: 716147040
+      ZY_ffinal1_34: -532176601
+      ZY_ffinal1_35: -566939415
+      ZY_ffinal1_36: -1937743885
+      ZY_ffinal1_37: -1928478346
+      ZY_ffinal1_38: -1017566548
+      ZY_ffinal1_39: 2059219547
+      ZY_ffinal1_4: -1874784933
+      ZY_ffinal1_40: -1858978909
+      ZY_ffinal1_41: -431401172
+      ZY_ffinal1_42: -771010004
+      ZY_ffinal1_43: -88535880
+      ZY_ffinal1_44: 1485507416
+      ZY_ffinal1_45: 404036498
+      ZY_ffinal1_46: 627598286
+      ZY_ffinal1_47: -1193558690
+      ZY_ffinal1_48: 1890475198
+      ZY_ffinal1_49: 1129467611
+      ZY_ffinal1_5: 161635815
+      ZY_ffinal1_50: 501466249
+      ZY_ffinal1_51: 588289584
+      ZY_ffinal1_52: 1968609867
+      ZY_ffinal1_53: 446437065
+      ZY_ffinal1_54: -694402572
+      ZY_ffinal1_55: -1454114240
+      ZY_ffinal1_56: 80310966
+      ZY_ffinal1_6: -1100036021
+      ZY_ffinal1_7: 962263507
+      ZY_ffinal1_8: -98133129
+      ZY_ffinal1_9: 1430199094
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
