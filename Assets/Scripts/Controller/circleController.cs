@@ -67,7 +67,6 @@ public class circleController : MonoBehaviour
     }
     public void testDown()
     {
-        Debug.Log("sibal");
         rock -= 1;
     }
 }
