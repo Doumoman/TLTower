@@ -16,5 +16,7 @@ public class StoneSaveData
 {
     public int wave;                 // 저장 당시 웨이브
     public float platformY;
+
+    public int chapter;
     public List<StoneInfo> stones = new();
 }
