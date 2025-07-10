@@ -269,7 +269,7 @@ public class StoneController : MonoBehaviour,
 
         // 스프라이트 렌더러 레이어 변경
         if (TryGetComponent(out SpriteRenderer sr))
-            sr.sortingLayerName = "backGround";
+            sr.sortingLayerName = "FixStone";
 
         if (outlineSR) outlineSR.enabled = false;
     }
