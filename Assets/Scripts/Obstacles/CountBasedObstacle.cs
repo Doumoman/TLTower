@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,14 @@ public abstract class CountBasedObstacle : MonoBehaviour
     protected int stoneCount = 0;
     public int count = 5;
     protected static bool windOrRain = false;
+
+    private void OnValidate()
+    {
+        if (Chance == null || Chance.Length != (int)chapter.space+1)
+        {
+            Chance = new float[(int)chapter.space+1];
+        }
+    }
 
     protected virtual void AddStone(object sender, EventArgs eventArgs)
     {

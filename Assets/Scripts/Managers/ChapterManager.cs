@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public class SeasonObstacle
@@ -50,6 +52,42 @@ public class ChapterManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (stonesForChapter == null || stonesForChapter.Length != (int)chapter.space)
+        {
+            stonesForChapter = new int[(int)chapter.space];
+        }
+
+        if (seasonalObstacles == null || seasonalObstacles.Count != (int)chapter.space+1)
+        {
+            List<SeasonObstacle> newItems = new List<SeasonObstacle>();
+            //for (int i = 0; i < Mathf.Min(seasonalObstacles?.Count ?? 0, (int)chapter.space)+1; i++)
+            foreach (SeasonObstacle se in seasonalObstacles)
+            {
+                newItems.Add(se); // 기존 값 유지
+            }
+            foreach (chapter c in Enum.GetValues(typeof(chapter)))
+            {
+                bool hasChapter = false;
+                foreach (SeasonObstacle se in newItems)
+                {
+                    if (se.season != c) continue;
+                    hasChapter = true;   //이미 추가된 챕터라면 건너뛰기
+                }
+
+                //새로운 챕터라면 추가하기!
+                if (!hasChapter)
+                {
+                    SeasonObstacle se = new SeasonObstacle();
+                    se.season = c;
+                    newItems.Add(se);
+                }
+            }
+            seasonalObstacles = newItems.OrderBy(se => se.season).ToList();
         }
     }
 

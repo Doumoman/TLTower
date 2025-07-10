@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5998775182032595482}
   - component: {fileID: 3161758201847993065}
   - component: {fileID: 1887434938215892725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_1
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 2792710583118038403}
   - component: {fileID: 7086518935293074280}
   - component: {fileID: 6001114082701913857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_8
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 5317158667993460908}
   - component: {fileID: 8732267824126456795}
   - component: {fileID: 1715109097547906598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_5
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 9095759205887181751}
   - component: {fileID: 5044956828591248714}
   - component: {fileID: 3479921591263362874}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_6
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 5610858744832544092}
   - component: {fileID: 7579664834082216421}
   - component: {fileID: 6643310800912038030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_2
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 3480756212714703379}
   - component: {fileID: 1140369887878796688}
   - component: {fileID: 4473349582523521789}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_7
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 4539393909889502302}
   - component: {fileID: 8390411164279746268}
   - component: {fileID: 2427609662452242868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_3
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   - component: {fileID: 3285149739649285916}
   - component: {fileID: 9175764425428883731}
   - component: {fileID: 2651397673319946360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_4
   m_TagString: Cloud
   m_Icon: {fileID: 0}

@@ -49,6 +49,7 @@ public class CloudController : MonoBehaviour,
         foreach (var col in colChildren) col.isTrigger = true;
 
         gameObject.tag = "FlowCloud";
+        sr.sortingLayerName = "FlowCloud";
     }
 
     // Update is called once per frame
@@ -186,6 +187,7 @@ public class CloudController : MonoBehaviour,
         //if (col) col.isTrigger = false;
         foreach (Collider2D col in colChildren) col.isTrigger = false;
         sr.color = Color.white;
+        sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
@@ -215,6 +217,7 @@ public class CloudController : MonoBehaviour,
         isRotating = false;
 
         sr.color = new Color(1, 1, 1, 0.5f);
+        sr.sortingLayerName = "DraggingStone";
     }
 
     Vector2 ScreenToWorld() =>

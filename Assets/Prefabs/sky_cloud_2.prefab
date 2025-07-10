@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2688906177848514636}
   - component: {fileID: 361952089043150040}
   - component: {fileID: 9159522408768278350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_3
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6251038599470339103}
   - component: {fileID: 5165720859200416283}
   - component: {fileID: 4779248359187212022}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_6
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 8005375871548961404}
   - component: {fileID: 7165284762470200421}
   - component: {fileID: 2037900177446791629}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_1
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 4060104410249894652}
   - component: {fileID: 4960253797089404072}
   - component: {fileID: 4067687563437969217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_4
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 4143750596977351421}
   - component: {fileID: 2839451296287548605}
   - component: {fileID: 5003567028398618066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_7
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   - component: {fileID: 822292420899778780}
   - component: {fileID: 8706091995081568380}
   - component: {fileID: 3272259741713506116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_5
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 889199184796794044}
   - component: {fileID: 8412602118710355407}
   - component: {fileID: 3315141843318272593}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_2
   m_TagString: Cloud
   m_Icon: {fileID: 0}

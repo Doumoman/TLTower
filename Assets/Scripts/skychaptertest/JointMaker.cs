@@ -37,7 +37,7 @@ public class JointMaker : MonoBehaviour
 
         Debug.Log(otherBone.name);
         JointMaker jm = otherBone.GetComponent<JointMakerPhysics>().GetJointMaker();  //닿은 대상과 연결된 jm
-        if (initial.Contains(jm)) return;       //initial에 등록된 JointMaker(이미 연결된거)면 실행 안함
+        if (initial.Contains(jm) || jm == this) return;       //initial에 등록된 JointMaker(이미 연결된거)면 실행 안함. 또는 자기 자신인 경우도(간혹 있음)
 
         //닿은 대상이 아직 joint2d를 형성하지 않은 구름이라면
         List<FixedJoint2D> joint2Ds = GetJointList(); 
