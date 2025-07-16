@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Scripts/Stone/FixedSpawner.cs.meta
+guid: ff5cd45e1fee0264b8c60e1168d31358
+========
+guid: b87314b32fbe18943af496e4b47136c6
+>>>>>>>> Stashed changes:Assets/Plugins/FMOD/platforms/html5/src/PlatformWebGL.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

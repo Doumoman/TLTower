@@ -49,7 +49,6 @@ public class CloudController : MonoBehaviour,
         foreach (var col in colChildren) col.isTrigger = true;
 
         gameObject.tag = "FlowCloud";
-        sr.sortingLayerName = "FlowCloud";
     }
 
     // Update is called once per frame
@@ -97,7 +96,7 @@ public class CloudController : MonoBehaviour,
         if (isRotating && state == CloudState.Dragging)
         {
             rb.angularVelocity = rotateSpeed;
-            if (!isSoundCalled) SoundManager.Instance.PlaySfxLoop("cloud_rotate_01");
+            //if (!isSoundCalled) SoundManager.Instance.PlaySfxLoop("cloud_rotate_01");
             isSoundCalled = true;
         }
     }
@@ -116,7 +115,7 @@ public class CloudController : MonoBehaviour,
     {
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
-        SoundManager.Instance.Play("cloud_select_01");
+        //SoundManager.Instance.Play("cloud_select_01");
 
         if (this.TryGetComponent<JointMaker>(out JointMaker jm))
             jm.DraggingBreak();
@@ -139,7 +138,7 @@ public class CloudController : MonoBehaviour,
             if (Vector2.Distance(mouseWorld, holdStartPos) >= moveDeadZone)
             {
                 isRotating = false;
-                SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
+                //SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
                 rb.angularVelocity = 0;
                 dragOffset = transform.position - (Vector3)mouseWorld;
             }
@@ -161,7 +160,7 @@ public class CloudController : MonoBehaviour,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
+        //SoundManager.Instance.StopSfxLoop("cloud_rotate_01");
         isRotating = false;
 
         if (eventData.pointerId != activePointer) return;
@@ -171,7 +170,7 @@ public class CloudController : MonoBehaviour,
 
         state = CloudState.Dropped;
         gameObject.tag = "Cloud";
-        SoundManager.Instance.Play("cloud_deselect_01");
+        //SoundManager.Instance.Play("cloud_deselect_01");
 
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;
@@ -187,7 +186,6 @@ public class CloudController : MonoBehaviour,
         //if (col) col.isTrigger = false;
         foreach (Collider2D col in colChildren) col.isTrigger = false;
         sr.color = Color.white;
-        sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
@@ -217,7 +215,6 @@ public class CloudController : MonoBehaviour,
         isRotating = false;
 
         sr.color = new Color(1, 1, 1, 0.5f);
-        sr.sortingLayerName = "DraggingStone";
     }
 
     Vector2 ScreenToWorld() =>

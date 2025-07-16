@@ -4,21 +4,32 @@ using UnityEngine.UI;
 public class SFXSlider : MonoBehaviour
 {
     [SerializeField] private Slider sfxSlider;
-    private SoundManager soundManager;
+
+    private const string PlayerPrefsKey = "effectVolume";
 
     void Start()
     {
-        // SoundManager 인스턴스를 찾음
-        soundManager = FindObjectOfType<SoundManager>();
+        // 저장된 값 불러오기 (없으면 1.0f)
+        float savedVolume = PlayerPrefs.GetFloat(PlayerPrefsKey, 1.0f);
 
-        // 저장된 슬라이더 값 불러오기
-        float savedVolume = PlayerPrefs.GetFloat("effectVolume", 1.0f); // 기본값은 1.0f
-        if (soundManager != null && sfxSlider != null)
+        // 슬라이더 초기화
+        if (sfxSlider != null)
         {
-            sfxSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
-            sfxSlider.onValueChanged.AddListener(SoundManager.Instance.OnEffectVolumeChange);
+            sfxSlider.value = savedVolume;
+            sfxSlider.onValueChanged.AddListener(OnSliderValueChanged);
         }
 
+        // FMOD에 초기 볼륨 적용
+        SoundManager.Instance?.SetSFXVolume(savedVolume);
     }
 
+    private void OnSliderValueChanged(float value)
+    {
+        // 볼륨 적용
+        SoundManager.Instance?.SetSFXVolume(value);
+
+        // 저장
+        PlayerPrefs.SetFloat(PlayerPrefsKey, value);
+        PlayerPrefs.Save();
+    }
 }

@@ -21,7 +21,7 @@ public class BosalManager : MonoBehaviour
         }
     }
     [Header("text")]
-    TextMeshProUGUI bosalText;
+    public TextMeshProUGUI bosalText;
 
     [Header("properties")]
 

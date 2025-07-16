@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 [System.Serializable]
 public class SeasonObstacle
@@ -28,7 +26,6 @@ public class ChapterManager : MonoBehaviour
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
-    public circleController yumju;
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
@@ -56,42 +53,6 @@ public class ChapterManager : MonoBehaviour
         }
     }
 
-    private void OnValidate()
-    {
-        if (stonesForChapter == null || stonesForChapter.Length != (int)chapter.space)
-        {
-            stonesForChapter = new int[(int)chapter.space];
-        }
-
-        if (seasonalObstacles == null || seasonalObstacles.Count != (int)chapter.space+1)
-        {
-            List<SeasonObstacle> newItems = new List<SeasonObstacle>();
-            //for (int i = 0; i < Mathf.Min(seasonalObstacles?.Count ?? 0, (int)chapter.space)+1; i++)
-            foreach (SeasonObstacle se in seasonalObstacles)
-            {
-                newItems.Add(se); // 기존 값 유지
-            }
-            foreach (chapter c in Enum.GetValues(typeof(chapter)))
-            {
-                bool hasChapter = false;
-                foreach (SeasonObstacle se in newItems)
-                {
-                    if (se.season != c) continue;
-                    hasChapter = true;   //이미 추가된 챕터라면 건너뛰기
-                }
-
-                //새로운 챕터라면 추가하기!
-                if (!hasChapter)
-                {
-                    SeasonObstacle se = new SeasonObstacle();
-                    se.season = c;
-                    newItems.Add(se);
-                }
-            }
-            seasonalObstacles = newItems.OrderBy(se => se.season).ToList();
-        }
-    }
-
     private void Start()
     {
         //시작 챕터 감지
@@ -104,7 +65,6 @@ public class ChapterManager : MonoBehaviour
         StoneFixer.Instance.threshold = stonesForChapter[idx];
         StoneFixer.Instance.NotifyStoneLost(null);
         onChapterChage?.Invoke(this, EventArgs.Empty);
-        Debug.Log("chaptermanager 챕터변환 실행");
     }
 
     //돌 개수 늘어날 때 마다 챕터전환 확인
@@ -127,8 +87,7 @@ public class ChapterManager : MonoBehaviour
         {
             Debug.Log("Play");
             AnimationManager.Instance.Play();
-            //SoundManager.Instance.Play("next_chapter");
-        }
+          }
         if (chapter == chapter.space)
         {
             Debug.Log("PlayBck");
@@ -140,8 +99,8 @@ public class ChapterManager : MonoBehaviour
         foreach (var cp in GameObject.FindGameObjectsWithTag("Checkpoint"))
             Destroy(cp);
     }
-    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); yumju.testUP(); }
-    public void RemoveCount() { stoneCount -= 1; yumju.testDown(); }
+    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
+    public void RemoveCount() { stoneCount -= 1; }
 
     public List<GameObject> GetObstaclesByChapter(chapter c)
     {
@@ -149,34 +108,19 @@ public class ChapterManager : MonoBehaviour
         return entry != null ? entry.obstacles : new List<GameObject>();
     }
 
-    public void LoadChapter(chapter ch)
-    {
-        chapter = ch;
 
-        // idx 재계산
-        chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
-        idx = System.Array.IndexOf(arr, ch);
-
-        SetObstacle();  // 장애물·사운드 등 새 챕터 세팅
-        if (idx < stonesForChapter.Length)
-            StoneFixer.Instance.threshold = stonesForChapter[idx];
-
-        StoneFixer.Instance.NotifyStoneLost(null);
-        onChapterChage?.Invoke(this, System.EventArgs.Empty);
-    }
 
     void SetObstacle()
     {
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
-        /*
+
         // LAND
         if (chapter == chapter.land)
         {
             BosalManager.Instance.Speak("TempleStart");
             BosalManager.Instance.NoIdle = false;
-            ChapterSoundManager.Instance.SetStage(SoundStateData.Stage.Ground);
             return;
         }
 
@@ -186,92 +130,88 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("SpringFirst");
             BosalManager.Instance.NoIdle = false;
             Debug.Log("NextState 호출중");
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 0);
         }
         else if (chapter == chapter.spring2)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 1);
         }
         else if (chapter == chapter.spring3)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Spring, 2);
         }
 
         // SUMMER
         else if (chapter == chapter.summer)
         {
             BosalManager.Instance.Speak("SummerFirst");
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 0);
         }
         else if (chapter == chapter.summer2)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 1);
+
         }
         else if (chapter == chapter.summer3)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 2);
+
         }
         else if (chapter == chapter.summer4)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Summer, 3);
+    
         }
 
         // AUTUMN
         else if (chapter == chapter.autumn)
         {
             BosalManager.Instance.Speak("AutumnFirst");
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 0);
+
         }
         else if (chapter == chapter.autumn2)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 1);
+
         }
         else if (chapter == chapter.autumn3)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 2);
+  
         }
         else if (chapter == chapter.autumn4)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Autumn, 3);
+ 
         }
 
         // WINTER
         else if (chapter == chapter.winter)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 0);
+
         }
         else if (chapter == chapter.winter2)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 1);
+
         }
         else if (chapter == chapter.winter3)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 2);
+
         }
         else if (chapter == chapter.winter4)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 3);
+
         }
         else if (chapter == chapter.winter5)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 4);
+
         }
         else if (chapter == chapter.winter6)
         {
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Winter, 5);
+
         }
 
         // SPACE
         else if (chapter == chapter.space)
         {
             BosalManager.Instance.NoIdle = true;
-            ChapterSoundManager.Instance.Transition(SoundStateData.Stage.Space, 0);
+
         }
         else
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);
         }
-        */
+
         //현재 챕터에 없는 이전 챕터 요소 비활성화
         foreach (GameObject go in currentObstacles)
         {

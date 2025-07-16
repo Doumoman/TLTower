@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 90d1f6adfe2359c448eda53aaa240942
+<<<<<<<< Updated upstream:Assets/Prefabs/Cloud.prefab.meta
+guid: dff8becde9e948e45962c42b944bd906
 PrefabImporter:
+========
+guid: 71c897c54e7715a4fa7f8021adf85f97
+TextScriptImporter:
+>>>>>>>> Stashed changes:Assets/FMODBanks/Autumn.bytes.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
