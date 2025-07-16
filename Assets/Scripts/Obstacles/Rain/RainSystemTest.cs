@@ -38,7 +38,6 @@ public class RainSystemTest : CountBasedObstacle
     public void MakeRain(bool autoStop = true)
     {
         if (windOrRain) return;
-        SoundManager.Instance.PlaySfxLoop("Rain_ambient_001");
         BosalManager.Instance.Speak("RainStart");
 
         stoneDatas = StoneSpawner.Instance.stoneDataList;
@@ -75,8 +74,6 @@ public class RainSystemTest : CountBasedObstacle
     }
     public void StopRain()
     {
-        SoundManager.Instance.StopSfxLoop("Rain_ambient_001");
-
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {

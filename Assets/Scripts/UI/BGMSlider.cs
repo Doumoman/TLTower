@@ -16,9 +16,12 @@ public class BGMSlider : MonoBehaviour
         if (soundManager != null && bgmSlider != null)
         {
             bgmSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
-            bgmSlider.onValueChanged.AddListener(SoundManager.Instance.OnBgmVolumeChange);
+            bgmSlider.onValueChanged.AddListener(OnBGMSliderChanged);
         }
     }
 
-    
+    void OnBGMSliderChanged(float value)
+    {
+        //SoundManager.Instance.bgmBus.setVolume(value);
+    }
 }

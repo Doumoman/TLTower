@@ -102,7 +102,7 @@ public class JointMaker : MonoBehaviour
     [SerializeField] private float disconnectionInterval = 0.1f;
     IEnumerator disconnect(float ReallyLongTime)
     {
-        SoundManager.Instance.Play("cloud_disconnected");
+        SoundManager.Instance.PlaySFX("cloud_disconnected");
         yield return new WaitForSeconds(ReallyLongTime);
     }
 

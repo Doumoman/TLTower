@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{aa16d41b-76c4-48f0-a840-986ddba2beb3}">
+		<property name="name">
+			<value>WinterState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d573b6e2-efa8-44f4-8213-a25a5af81c4a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6364a862-eb27-4546-a273-b5c8a5704c85}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6364a862-eb27-4546-a273-b5c8a5704c85}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

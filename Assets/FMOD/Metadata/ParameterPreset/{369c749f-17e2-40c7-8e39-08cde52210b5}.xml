@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{369c749f-17e2-40c7-8e39-08cde52210b5}">
+		<property name="name">
+			<value>SummerState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d573b6e2-efa8-44f4-8213-a25a5af81c4a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

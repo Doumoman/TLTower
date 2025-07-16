@@ -61,7 +61,7 @@ public class SoundManager : Singleton<SoundManager>
 
     private EventInstance BGM;
     private string current = "";
-    
+
     public void PlayBGM(string name, int state)
     {
         //이미 재생중이면 parameter만 바꾸기
@@ -98,4 +98,7 @@ public class SoundManager : Singleton<SoundManager>
             current = "";
         }
     }
+    public EventReference bgmBus;
+    public EventReference sfxBus;
+    public EventReference voiceBus;
 }

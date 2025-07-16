@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{04c016bd-62f6-4491-b4b9-f8e0bc72c237}">
+		<property name="name">
+			<value>SpringState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d573b6e2-efa8-44f4-8213-a25a5af81c4a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2b37b7d3-c511-42f4-81d0-6569b07391a4}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2b37b7d3-c511-42f4-81d0-6569b07391a4}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

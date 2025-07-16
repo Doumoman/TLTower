@@ -16,9 +16,12 @@ public class SFXSlider : MonoBehaviour
         if (soundManager != null && sfxSlider != null)
         {
             sfxSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
-            sfxSlider.onValueChanged.AddListener(SoundManager.Instance.OnEffectVolumeChange);
+            sfxSlider.onValueChanged.AddListener(OnEffectVolumeChange);
         }
-
     }
 
+    void OnEffectVolumeChange(float value)
+    {
+        //SoundManager.Instance.sfxBus.setVolume(value);
+    }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{804c696d-9e0d-4710-b69b-cc4a16ce3904}">
+		<property name="name">
+			<value>AutumnState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d573b6e2-efa8-44f4-8213-a25a5af81c4a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{dd01e32f-ad0d-4785-a674-4d88bdc7c1af}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{dd01e32f-ad0d-4785-a674-4d88bdc7c1af}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
