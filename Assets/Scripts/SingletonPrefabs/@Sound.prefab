@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6567368136419383344}
   - component: {fileID: 6771422413310716981}
-  - component: {fileID: 3869664419925847895}
   m_Layer: 0
   m_Name: '@Sound'
   m_TagString: Untagged
@@ -46,19 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 0f19a2be6a8267946bc7882ede8e0b2b, type: 2}
---- !u!114 &3869664419925847895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182378420530055067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9019c88eb644a45a91820cb468789a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundStateDB: {fileID: 11400000, guid: 01a8b37f72dee014c9f80dcf0e305685, type: 2}
-  currentStage: 0
-  currentStateIndex: 0
-  ambienceFadeDuration: 4

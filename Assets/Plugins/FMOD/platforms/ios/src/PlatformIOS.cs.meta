@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Plugins/FMOD/platforms/ios/src/PlatformIOS.cs.meta
+guid: bc1f51bc35d549941904cf062bae93a3
+========
+guid: b87314b32fbe18943af496e4b47136c6
+>>>>>>>> Stashed changes:Assets/Plugins/FMOD/platforms/html5/src/PlatformWebGL.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

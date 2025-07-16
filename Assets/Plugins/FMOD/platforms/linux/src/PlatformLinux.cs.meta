@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Plugins/FMOD/platforms/linux/src/PlatformLinux.cs.meta
+guid: 73549a74f689f0849a8271d9e908c514
+========
+guid: bc1f51bc35d549941904cf062bae93a3
+>>>>>>>> Stashed changes:Assets/Plugins/FMOD/platforms/ios/src/PlatformIOS.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
