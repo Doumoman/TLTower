@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: ffc051980dcc3ef4dba72bd474a60508
+<<<<<<<< Updated upstream:Assets/Scripts/Stone/FixedSpawner.cs.meta
+guid: b91305ef922e76648be0924d6e7be39e
+========
+guid: b87314b32fbe18943af496e4b47136c6
+>>>>>>>> Stashed changes:Assets/Plugins/FMOD/platforms/html5/src/PlatformWebGL.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
