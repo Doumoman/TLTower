@@ -18,8 +18,11 @@
 		<property name="maximum">
 			<value>5</value>
 		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
 		<property name="initialValue">
-			<value>0</value>
+			<value>1</value>
 		</property>
 	</object>
 </objects>

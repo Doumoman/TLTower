@@ -63,7 +63,6 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
             return scriptMap[(situation, 0)];
         }
     }
-
     public void ResetScriptMap()
     {
         foreach (var value in scriptMap)

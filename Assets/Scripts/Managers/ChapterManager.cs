@@ -125,9 +125,7 @@ public class ChapterManager : MonoBehaviour
         }
         if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
         {
-            Debug.Log("Play");
             AnimationManager.Instance.Play();
-            SoundManager.Instance.PlaySFX("next_chapter");
         }
         if (chapter == chapter.space)
         {
@@ -170,7 +168,7 @@ public class ChapterManager : MonoBehaviour
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
-        
+       /* 
         // LAND
         if (chapter == chapter.land)
         {
@@ -179,13 +177,11 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.NoIdle = false;
             return;
         }
-
         // SPRING
         if (chapter == chapter.spring)
         {
-            BosalManager.Instance.Speak("SpringFirst");
+            BosalManager.Instance.Speak("Spring");
             BosalManager.Instance.NoIdle = false;
-            SoundManager.Instance.PlayBGM("Spring", 1);
         }
         else if (chapter == chapter.spring2)
         {
@@ -251,7 +247,7 @@ public class ChapterManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);
-        }
+        }*/
         //현재 챕터에 없는 이전 챕터 요소 비활성화
         foreach (GameObject go in currentObstacles)
         {

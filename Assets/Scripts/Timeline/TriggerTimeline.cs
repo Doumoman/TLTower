@@ -27,7 +27,8 @@ public class StoneTimelineTrigger : MonoBehaviour
         // ContactFilter 기본값: Nothing → NoFilter()로 초기화
         filter.NoFilter();
         filter.useTriggers = true;   // 트리거 콜라이더도 포함
-
+        SoundManager.Instance.PlayBGM("Ground", 0);
+        BosalManager.Instance.Speak("TempleStart");
     }
 
     void Update()
@@ -40,7 +41,9 @@ public class StoneTimelineTrigger : MonoBehaviour
         {
             director.Play();
             alreadyPlayed = true;
-            Debug.Log("NextState 호출중");
+            Debug.Log("다음 챕터 진입중...");
+            SoundManager.Instance.PlaySFX("next_chapter");
+            SoundManager.Instance.PlayBGM("Spring", 2);
         }
     }
 

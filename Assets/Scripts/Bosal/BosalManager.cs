@@ -48,14 +48,17 @@ public class BosalManager : Singleton<BosalManager>
     IEnumerator FadeIn()
     {
         Debug.Log("FadeIn Start");
-        while (bosalText.color.a < 1f)
+        if (bosalText!=null)
         {
-            Color c = bosalText.color;
-            c.a += fadeSpeed * Time.deltaTime;
-            bosalText.color = c;
-            yield return null;
+            while (bosalText.color.a < 1f)
+            {
+                Color c = bosalText.color;
+                c.a += fadeSpeed * Time.deltaTime;
+                bosalText.color = c;
+                yield return null;
+            }
+            Debug.Log("FadeIn End");
         }
-        Debug.Log("FadeIn End");
     }
 
     IEnumerator FadeOut()
@@ -111,12 +114,23 @@ public class BosalManager : Singleton<BosalManager>
 
         StartCoroutine(FadeIn());
 
-        bosalText.text = selectScript;
+        if(bosalText) bosalText.text = selectScript;
 
         StartCoroutine(WaitUntilFadeOut(waitTicks)); // 대사 유지
 
         //SoundManager.Instance.Play("test", Sound.Bgm);
         Debug.Log("보살 대사: " + selectScript);
+
+        int no;
+        string str;
+        if (ScriptDataLoader.Instance.currentIndex.TryGetValue(script, out int val))
+        {
+            no = val;
+        }
+        else no = 0;
+        str = script + no;
+        SoundManager.Instance.PlayVoice(str);
+        Debug.Log(str + " queued!");
     }
 
     public void ManualSpeakStop()

@@ -14,6 +14,7 @@ public class SoundManager : Singleton<SoundManager>
         BGM = RuntimeManager.CreateInstance(str);
 
         BGM.start();
+        Debug.Log(str + " playing!");
     }
 
     public void TickPlay(string path)
@@ -33,11 +34,12 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void PlaySFX(string path)
     {
-        RuntimeManager.PlayOneShot(path);
+        RuntimeManager.PlayOneShot("event:/SFX/" + path);
+        Debug.Log(path + " Playing!");
     }
     public void PlayVoice(string path)
     {
-        StartCoroutine(QueueVoice(path));
+        StartCoroutine(QueueVoice("event:/Voice/" + path));
     }
 
     private Dictionary<string, EventInstance> loopedSFX = new Dictionary<string, EventInstance>();
@@ -49,6 +51,7 @@ public class SoundManager : Singleton<SoundManager>
         }
         EventInstance instance = RuntimeManager.CreateInstance(path);
         instance.start();
+        Debug.Log(path + " Playing!");
         loopedSFX[path] = instance;
     }
 
@@ -65,9 +68,8 @@ public class SoundManager : Singleton<SoundManager>
     private IEnumerator QueueVoice(string path)
     {
         while (isVoicePlaying) yield return null;
-
-        Voice = RuntimeManager.CreateInstance(path);
-        Voice.start();
+        StartCoroutine(WaitAndSpeak(path));
+        Debug.Log($"보살 음성 : {path}");
         isVoicePlaying = true;
 
         PLAYBACK_STATE state;
@@ -102,7 +104,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         //새 BGM 재생
-        string path = $"event:/{name}";
+        string path = $"event:/BGM/{name}";
         TickPlay(path);
 
         string paramName2 = name + "State";
@@ -118,5 +120,13 @@ public class SoundManager : Singleton<SoundManager>
             BGM.clearHandle();
             current = "";
         }
+    }
+
+    [SerializeField] private float speakTerm = 1f;
+    IEnumerator WaitAndSpeak(string path)
+    {
+        yield return new WaitForSeconds(speakTerm);
+        Voice = RuntimeManager.CreateInstance(path);
+        Voice.start();
     }
 }
