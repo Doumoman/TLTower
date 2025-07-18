@@ -9,21 +9,25 @@ using System.Linq;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    public void Play(string str)
+    public void Play(string str, int state)
     {
-        BGM = RuntimeManager.CreateInstance(str);
-
+        string path = $"event:/BGM/{str}";
+        BGM = RuntimeManager.CreateInstance(path);
         BGM.start();
-        Debug.Log(str + " playing!");
+
+        string paramName2 = "parameter:/" + str + "State";
+        BGM.setParameterByName(paramName2, state);
+        Debug.Log($"Parameter {paramName2} set to {state}, {path} playing!!");
+
     }
 
-    public void TickPlay(string path)
+    public void TickPlay(string path, int state)
     {
         // 이벤트 핸들러 등록
         void OnTickHandler(object sender, EventArgs e)
         {
             // 재생
-            Play(path);
+            Play(path, state);
 
             // 이벤트 핸들러 제거 (한 번만 실행되도록)
             TickManager.Instance.OnTickEvent -= OnTickHandler;
@@ -91,8 +95,10 @@ public class SoundManager : Singleton<SoundManager>
         //이미 재생중이면 parameter만 바꾸기
         if (BGM.isValid() && current == name)
         {
-            string paramName = name + "State";
+            string paramName = "parameter:/" + name + "State";
+            // parameter:/SpringState
             BGM.setParameterByName(name, state);
+            Debug.Log($"Parameter {paramName} set to {state}!");
             return;
         }
 
@@ -104,11 +110,8 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         //새 BGM 재생
-        string path = $"event:/BGM/{name}";
-        TickPlay(path);
-
-        string paramName2 = name + "State";
-        BGM.setParameterByName(paramName2, state);
+        TickPlay(name,state);
+        current = name;
     }
 
     public void StopBGM()

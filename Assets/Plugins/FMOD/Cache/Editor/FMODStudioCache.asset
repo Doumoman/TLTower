@@ -705,7 +705,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638884691671811123
+  lastModified: 638884701333448559
   FileSizes:
   - Name: Desktop
     Value: 16719456
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 2
-  Default: 1
+  Default: 0
   ID:
     data1: 2981179839
     data2: 299963522
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -4981199625140788448}
   cacheVersion: 131848
-  cacheTime: 638884691671811123
+  cacheTime: 638884701333448559
   SerializableEventsDict:
   - key: event:/autumn/autumn
     index: 0
