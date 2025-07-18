@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{42772e0e-df31-4791-8439-3f763a338863}">
+		<property name="assetPath">
+			<value>rock_fall_02.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.3771428571428572</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7a0c825c-d741-4ff0-8aed-ef9c54341485}</destination>
+		</relationship>
+	</object>
+</objects>

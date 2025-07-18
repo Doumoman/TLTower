@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8cf18fef-ea0c-4799-a68e-655e4e429c5c}">
+		<property name="assetPath">
+			<value>Snowflake_001.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8734693877551019</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7a0c825c-d741-4ff0-8aed-ef9c54341485}</destination>
+		</relationship>
+	</object>
+</objects>

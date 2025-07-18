@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{1ed9ec5b-ab1c-4e9f-8f77-1589e132f651}">
 		<property name="name">
-			<value>cloud_deselect_01</value>
+			<value>cloud_deselect</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{f69d8ff2-73fb-4c91-8b02-8a19b98f9259}">
+		<property name="volume">
+			<value>-14</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{41aa65da-1cef-439e-91f6-344516914bea}</destination>
 		</relationship>

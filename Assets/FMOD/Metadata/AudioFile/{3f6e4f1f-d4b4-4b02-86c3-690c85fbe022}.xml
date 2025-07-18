@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{3f6e4f1f-d4b4-4b02-86c3-690c85fbe022}">
+		<property name="assetPath">
+			<value>bird_poop.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4106122448979592</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7a0c825c-d741-4ff0-8aed-ef9c54341485}</destination>
+		</relationship>
+	</object>
+</objects>

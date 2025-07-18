@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{289e2f5c-f4ad-4e92-8100-78e670842540}">
 		<property name="name">
-			<value>cloud_disconnected_01</value>
+			<value>cloud_disconnected</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
