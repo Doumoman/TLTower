@@ -12,7 +12,8 @@ public class SceneLoader: MonoBehaviour
     }
     public void LoadGame()
     {
-         SceneManager.LoadScene("TLTower");
-         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("TLTower");
+        Time.timeScale = 1.0f;
+        SoundManager.Instance.PlaySFX("game_start");
     }
 }

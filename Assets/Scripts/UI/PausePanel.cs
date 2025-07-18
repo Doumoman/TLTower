@@ -18,7 +18,7 @@ public class PausePanel : MonoBehaviour
     // Start is called before the first frame update
     public void Openpausepanel()
     {
-        //SoundManager.Instance.EffectSoundOn("3");
+        SoundManager.Instance.PlaySFX("pause");
         pausepanel.SetActive(true);
     }
     void Update()
@@ -34,11 +34,13 @@ public class PausePanel : MonoBehaviour
     }
     public void Closepausepanel()
     {
-        //SoundManager.Instance.EffectSoundOn("3");
+        SoundManager.Instance.PlaySFX("pause");
         pausepanel.SetActive(false);
     }
     void ApplyAspect(float targetAspect, Vector2 refRes)
     {
+        SoundManager.Instance.PlaySFX("stamp_button"); //Nigger, Smaller에도 넣으면 됨
+
         cam.orthographicSize = fixedOrthoSize;
         float windowAspect = (float)Screen.width / Screen.height;
 

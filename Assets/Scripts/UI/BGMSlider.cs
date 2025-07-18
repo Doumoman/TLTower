@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 public class BGMSlider : MonoBehaviour
 {
     [SerializeField] private Slider bgmSlider;
     private SoundManager soundManager;
+    private Bus bgmBus;
 
     void Start()
     {
@@ -18,10 +21,15 @@ public class BGMSlider : MonoBehaviour
             bgmSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
             bgmSlider.onValueChanged.AddListener(OnBGMSliderChanged);
         }
+
+        bgmBus = RuntimeManager.GetBus("bus:/BGM");
     }
 
     void OnBGMSliderChanged(float value)
     {
-        //SoundManager.Instance.bgmBus.setVolume(value);
+        if (soundManager != null)
+            bgmBus.setVolume(value);
+        PlayerPrefs.SetFloat("bgmVolume", value);
+        SoundManager.Instance.PlaySFX("volume_control");
     }
 }

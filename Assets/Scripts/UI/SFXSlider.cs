@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 public class SFXSlider : MonoBehaviour
 {
     [SerializeField] private Slider sfxSlider;
     private SoundManager soundManager;
+    private Bus sfxBus;
 
     void Start()
     {
@@ -12,16 +15,21 @@ public class SFXSlider : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
 
         // 저장된 슬라이더 값 불러오기
-        float savedVolume = PlayerPrefs.GetFloat("effectVolume", 1.0f); // 기본값은 1.0f
+        float savedVolume = PlayerPrefs.GetFloat("sfxVolume", 1.0f); // 기본값은 1.0f
         if (soundManager != null && sfxSlider != null)
         {
             sfxSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
             sfxSlider.onValueChanged.AddListener(OnEffectVolumeChange);
         }
+
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
     }
 
     void OnEffectVolumeChange(float value)
     {
-        //SoundManager.Instance.sfxBus.setVolume(value);
+        if (soundManager != null)
+            sfxBus.setVolume(value);
+        PlayerPrefs.SetFloat("sfxVolume", value);
+        SoundManager.Instance.PlaySFX("volume_control");
     }
 }

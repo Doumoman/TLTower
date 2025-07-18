@@ -10,12 +10,12 @@ public class QuitPanel : MonoBehaviour
     public GameObject quitpanel;
     public void Openquitpanel()
     {
-        //SoundManager.Instance.EffectSoundOn("3");
+        SoundManager.Instance.PlaySFX("pause");
         quitpanel.SetActive(true);
     }
     public void Closequitpanel()
     {
-        //SoundManager.Instance.EffectSoundOn("3");
+        SoundManager.Instance.PlaySFX("pause");
         quitpanel.SetActive(false);
     }
     public void QuitGame()
