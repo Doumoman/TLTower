@@ -5,16 +5,8 @@ using UGS;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScriptDataLoader : MonoBehaviour
+public class ScriptDataLoader : Singleton<ScriptDataLoader>
 {
-    public static ScriptDataLoader Instance { get; private set; }
-    void Awake()
-    {
-        Instance = this;
-        LoadScript();
-        InitializeScriptMap();
-    }
-
     void Start()
     {
         Debug.Log("ScriptDataLoader Start");

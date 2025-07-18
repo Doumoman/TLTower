@@ -5,38 +5,25 @@ using TMPro;
 using UnityEngine;
 using System;
 
-public class BosalManager : MonoBehaviour
+public class BosalManager : Singleton<BosalManager>
 {
-    //싱글톤 패턴
-    public static BosalManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     [Header("text")]
     TextMeshProUGUI bosalText;
 
     [Header("properties")]
 
 
-    [SerializeField] private int NoInputTime = 15; // 15초 동안 무입력이면 무입력 대사 출력
-    [SerializeField] private int NoSpeakTime = 30; // 무대사면 30초마다 무입력 대사 출력
+    /*[SerializeField] private int NoInputTime = 15; // 15초 동안 무입력이면 무입력 대사 출력
+    [SerializeField] private int NoSpeakTime = 30; // 무대사면 30초마다 무입력 대사 출력*/
     [SerializeField] private int waitTicks = 3; // 보살 말하는 시간
     [SerializeField] private float fadeSpeed = 0.5f;
     [SerializeField] private float FontSize = 50;
     public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
 
     private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
-    private float lastInputTime;
+    /*private float lastInputTime;
     private float lastSpeaktime;
-    private bool NoScriptOnce = false;
+    private bool NoScriptOnce = false;*/
     public List<System.Action> Actions = new(); // Tick에 등록할 액션들
     void Start()
     {
@@ -143,7 +130,6 @@ public class BosalManager : MonoBehaviour
     무대사면 NoSpeakTime마다 무입력 상황인지 확인
     무입력 상황이면 무입력 대사 출력
     아니면 무대사 대사 출력
-    */
 
     public void OnClick() { lastInputTime = Time.time; }
     public void OnSpeak()
@@ -174,4 +160,5 @@ public class BosalManager : MonoBehaviour
             }
         }
     }
+    */
 }

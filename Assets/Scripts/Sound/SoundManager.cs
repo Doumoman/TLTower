@@ -9,6 +9,28 @@ using System.Linq;
 
 public class SoundManager : Singleton<SoundManager>
 {
+    public void Play(string str)
+    {
+        BGM = RuntimeManager.CreateInstance(str);
+
+        BGM.start();
+    }
+
+    public void TickPlay(string path)
+    {
+        // 이벤트 핸들러 등록
+        void OnTickHandler(object sender, EventArgs e)
+        {
+            // 재생
+            Play(path);
+
+            // 이벤트 핸들러 제거 (한 번만 실행되도록)
+            TickManager.Instance.OnTickEvent -= OnTickHandler;
+        }
+
+        // 다음 tick에 실행
+        TickManager.Instance.OnTickEvent += OnTickHandler;
+    }
     public void PlaySFX(string path)
     {
         RuntimeManager.PlayOneShot(path);
@@ -80,9 +102,8 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         //새 BGM 재생
-        string path = $"event:/BGM/{name}";
-        BGM = RuntimeManager.CreateInstance(path);
-        BGM.start();
+        string path = $"event:/{name}";
+        TickPlay(path);
 
         string paramName2 = name + "State";
         BGM.setParameterByName(paramName2, state);
@@ -98,7 +119,4 @@ public class SoundManager : Singleton<SoundManager>
             current = "";
         }
     }
-    public EventReference bgmBus;
-    public EventReference sfxBus;
-    public EventReference voiceBus;
 }

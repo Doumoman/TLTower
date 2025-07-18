@@ -465,6 +465,9 @@
 		<relationship name="automators">
 			<destination>{d7e1adcd-c07c-4eb4-8fc2-8a34b9d9fb79}</destination>
 		</relationship>
+		<relationship name="modulators">
+			<destination>{57138495-bf99-4ee8-990a-d697f643eb68}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{8ea863a4-a56b-4aaf-895b-bc639aa35e50}</destination>
 		</relationship>
@@ -869,6 +872,23 @@
 			<destination>{5cae755b-57c4-452b-8967-ca7d70683045}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{57138495-bf99-4ee8-990a-d697f643eb68}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="releaseTime">
+			<value>7800</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{8ea863a4-a56b-4aaf-895b-bc639aa35e50}">
 		<relationship name="effects">
 			<destination>{f51c2069-1752-470c-92d9-5f21d3f2921c}</destination>
@@ -905,7 +925,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{2b37b7d3-c511-42f4-81d0-6569b07391a4}</destination>
