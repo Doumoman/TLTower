@@ -2404,7 +2404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.size
-      value: 19
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
@@ -2480,71 +2480,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[1].season
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[2].season
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[3].season
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[4].season
+      propertyPath: seasonalObstacles.Array.data[2].season
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[5].season
+      propertyPath: seasonalObstacles.Array.data[3].season
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[6].season
+      propertyPath: seasonalObstacles.Array.data[4].season
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[7].season
+      propertyPath: seasonalObstacles.Array.data[5].season
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[8].season
+      propertyPath: seasonalObstacles.Array.data[6].season
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[9].season
+      propertyPath: seasonalObstacles.Array.data[7].season
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[10].season
+      propertyPath: seasonalObstacles.Array.data[8].season
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[11].season
+      propertyPath: seasonalObstacles.Array.data[9].season
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[12].season
+      propertyPath: seasonalObstacles.Array.data[10].season
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[13].season
+      propertyPath: seasonalObstacles.Array.data[11].season
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[14].season
+      propertyPath: seasonalObstacles.Array.data[12].season
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[15].season
+      propertyPath: seasonalObstacles.Array.data[13].season
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[16].season
+      propertyPath: seasonalObstacles.Array.data[14].season
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[15].season
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[16].season
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[17].season
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[18].season
@@ -2568,31 +2568,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[3].obstacles.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[4].obstacles.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[6].obstacles.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[7].obstacles.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[8].obstacles.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[9].obstacles.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[10].obstacles.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[11].obstacles.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6544869133181880470, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: m_Name

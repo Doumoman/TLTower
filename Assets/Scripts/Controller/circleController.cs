@@ -23,6 +23,9 @@ public class circleController : MonoBehaviour
         currentRotation = initialRotation;
         rect.eulerAngles = new Vector3(0, 0, currentRotation);
         prevRock = rock;
+
+        ChapterManager.Instance.onSetteled += UP;
+        ChapterManager.Instance.onDestroyed += Down;
     }
 
     void Update()
@@ -90,7 +93,7 @@ public class circleController : MonoBehaviour
         rect.eulerAngles = new Vector3(0, 0, currentRotation);
     }
 
-    // 디버그용 수동 증가/감소
-    public void testUP() => rock++;
-    public void testDown() => rock--;
+    //증가/감소
+    public void UP(object sender, System.EventArgs eventArgs) => rock++;
+    public void Down(object sender, System.EventArgs eventArgs) => rock--;
 }

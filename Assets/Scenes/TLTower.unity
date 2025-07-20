@@ -38293,7 +38293,7 @@ MonoBehaviour:
   - 0
   count: 5
   duration: 30
-  ps: {fileID: 0}
+  ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
 --- !u!224 &1623352068 stripped

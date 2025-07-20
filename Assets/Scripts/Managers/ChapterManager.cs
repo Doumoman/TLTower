@@ -28,7 +28,6 @@ public class ChapterManager : MonoBehaviour
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
-    public circleController yumju;
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
@@ -40,6 +39,7 @@ public class ChapterManager : MonoBehaviour
     List<GameObject> currentObstacles = new List<GameObject>();
     public event EventHandler onChapterChage;
     public event EventHandler onSetteled;
+    public event EventHandler onDestroyed;
 
     public static ChapterManager Instance;
 
@@ -58,12 +58,12 @@ public class ChapterManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if (stonesForChapter == null || stonesForChapter.Length != (int)chapter.space)
+        if (stonesForChapter == null || stonesForChapter.Length != (int)chapter.space)  //chapter개수보다 하나 작으므로 +1 필요 없음
         {
             stonesForChapter = new int[(int)chapter.space];
         }
 
-        if (seasonalObstacles == null || seasonalObstacles.Count != (int)chapter.space+1)
+        if (seasonalObstacles == null || seasonalObstacles.Count != (int)chapter.space+1)  //chapter는 0부터 시작하므로 +1
         {
             List<SeasonObstacle> newItems = new List<SeasonObstacle>();
             //for (int i = 0; i < Mathf.Min(seasonalObstacles?.Count ?? 0, (int)chapter.space)+1; i++)
@@ -107,7 +107,7 @@ public class ChapterManager : MonoBehaviour
         Debug.Log("chaptermanager 챕터변환 실행");
     }
 
-    //돌 개수 늘어날 때 마다 챕터전환 확인
+    //돌 개수 확인 후 챕터전환 확인
     public void ChangeChapter()
     {
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
@@ -138,8 +138,8 @@ public class ChapterManager : MonoBehaviour
         foreach (var cp in GameObject.FindGameObjectsWithTag("Checkpoint"))
             Destroy(cp);
     }
-    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); yumju.testUP(); }
-    public void RemoveCount() { stoneCount -= 1; yumju.testDown(); }
+    public void AddCount() { stoneCount += 1; onSetteled?.Invoke(this, EventArgs.Empty); }
+    public void RemoveCount() { stoneCount -= 1; onDestroyed?.Invoke(this, EventArgs.Empty); }
 
     public List<GameObject> GetObstaclesByChapter(chapter c)
     {
@@ -258,7 +258,7 @@ public class ChapterManager : MonoBehaviour
         //현재 챕터 요소들 각각 활성화
         foreach (GameObject go in obstacles)
         {
-            go.SetActive(true);
+            if (go) go.SetActive(true);
         }
     }
 }
