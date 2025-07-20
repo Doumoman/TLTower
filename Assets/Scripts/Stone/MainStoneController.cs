@@ -81,6 +81,7 @@ public class MainStoneController : MonoBehaviour,
                 holdTimer += Time.deltaTime;
                 if (holdTimer >= holdToRotate)
                 {
+                    SoundManager.Instance.PlayLoop("stone_rotate");
                     isRotating = true;
                     holdTimer = 0f;
                     holdStartPos = cur;
@@ -129,6 +130,7 @@ public class MainStoneController : MonoBehaviour,
         if (activePointer != -1 || State != MainStoneState.Settled) return;
         activePointer = e.pointerId;
 
+        SoundManager.Instance.PlaySFX("stone_select");
         BeginDrag(e.position);
     }
 
@@ -146,6 +148,7 @@ public class MainStoneController : MonoBehaviour,
                 isRotating = false;
                 RB.angularVelocity = 0f;
                 dragOffset = (Vector2)transform.position - curWorld;
+                SoundManager.Instance.StopLoop("stone_rotate");
             }
             return;
         }

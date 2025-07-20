@@ -13,6 +13,7 @@ public class circleController : MonoBehaviour
 
     private int sameDirectionCount = 0;
     private int lastDirection = 0;
+    private float lastDownTime = -1f;
 
     void Start()
     {
@@ -44,21 +45,23 @@ public class circleController : MonoBehaviour
 
         // 연속 방향 카운터 관리
         int direction = delta > 0 ? 1 : -1;
-        if (direction == lastDirection)
-        {
-            sameDirectionCount++;
-        }
-        else
-        {
-            sameDirectionCount = 1;
-            lastDirection = direction;
-        }
 
-        // 대사 출력
-        if (sameDirectionCount >= 3 && direction < 0)
+        if (direction < 0)
         {
-            BosalManager.Instance.Speak("UCanDoIt");
-            sameDirectionCount = 0;
+            float now = Time.unscaledTime;
+
+            // 마지막 입력 이후 5초가 넘었다면 카운터 리셋
+            if (now - lastDownTime > 5f)
+                sameDirectionCount = 0;
+
+            sameDirectionCount++;
+            lastDownTime = now;
+
+            if (sameDirectionCount >= 3)
+            {
+                BosalManager.Instance.Speak("UCanDoIt");
+                sameDirectionCount = 0; // 다시 카운트 초기화
+            }
         }
 
         // 회전 각도 계산

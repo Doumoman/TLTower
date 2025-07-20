@@ -138,7 +138,10 @@ public class Bird : MonoBehaviour
         if (sc != null) StoneFixer.Instance.NotifyStoneLost(sc);
 
         //사운드와 대사 효과
-        BosalManager.Instance.Speak("BirdStone");
+        SoundManager.Instance.PlaySFX("bird_disturb");
+        if (!BosalManager.Instance.birdBool) BosalManager.Instance.Speak("BirdStone");
+        else BosalManager.Instance.Speak("BirdPeace");
+        BosalManager.Instance.birdBool = false;
     }
 
     //돌의 표면까지 날아가기
@@ -146,7 +149,8 @@ public class Bird : MonoBehaviour
     {
         Vector2 velocity = Vector2.zero;
         if (state != BirdState.come) yield break;
-        while(true)
+        SoundManager.Instance.PlaySFX("bird_fly");
+        while (true)
         {
             yield return null;
             Vector2 currentPoint = transform.position;
@@ -163,6 +167,7 @@ public class Bird : MonoBehaviour
     {
         Vector2 velocity = Vector2.zero;
         if (state != BirdState.go) yield break;
+        SoundManager.Instance.PlaySFX("bird_fly_pass");
         while (true)
         {
             yield return null;

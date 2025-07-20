@@ -20,6 +20,7 @@ public class BosalManager : Singleton<BosalManager>
     [SerializeField] private float padding = 30f;
     //public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
     [SerializeField] private bool isTextBig = true;
+    public bool birdBool = false;
 
     private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
     /*private float lastInputTime;

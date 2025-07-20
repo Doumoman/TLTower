@@ -20,6 +20,8 @@ public class BirdSpawner : MonoBehaviour
     public GameObject birdPoop;
     public GameObject bird;
     public GameObject feather;
+    private bool firstBird = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,16 +43,27 @@ public class BirdSpawner : MonoBehaviour
         {
             if (Random.value < birdChance)
             {
-                //Play("BirdSpawn", SoundType.SFX, 0); // 사운드 플레이
-                BosalManager.Instance.Speak("Bird");
-                CreateBird(); //사운드 딜레이 이후 새 생성
-                span = Random.Range(cycleSpanMin, cycleSpanMax);
-                spanCount = span;
-                Debug.Log("BirdSpawner: Created a bird.");
-            }
+                if (firstBird)
+                {
+                    BosalManager.Instance.Speak("BirdFirst");
+                    firstBird = false;
+                    BosalManager.Instance.birdBool = true;
+                }
+                else
+                {
+                    if (Random.value > 0.5f)
+                    {
+                        BosalManager.Instance.Speak("Bird");
+                        BosalManager.Instance.birdBool = true;
+                    }
+                }
+                    CreateBird(); //사운드 딜레이 이후 새 생성
+                    span = Random.Range(cycleSpanMin, cycleSpanMax);
+                    spanCount = span;
+                    Debug.Log("BirdSpawner: Created a bird.");
+                }
             else
             {
-                //Play("BirdPoopSpawn", SoundType.SFX, 0); // 사운드 플레이
                 CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
                 spanCount = span;
@@ -62,6 +75,7 @@ public class BirdSpawner : MonoBehaviour
     {
         GameObject go = Instantiate(feather);
         go.transform.position = this.transform.position;
+        SoundManager.Instance.PlaySFX("bird_alert");
         return go;
     }
     //제일 높은 돌을 기준으로 일정 y좌표 위에서, 무작위로 위치 선정
@@ -115,6 +129,7 @@ public class BirdSpawner : MonoBehaviour
         else
         {
             Debug.Log("can't find 'PlacedStone' by raycast");
+            BosalManager.Instance.Speak("BirdPeace");
         }
     }
 

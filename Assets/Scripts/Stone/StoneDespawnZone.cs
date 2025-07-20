@@ -14,6 +14,7 @@ public class StoneDespawnZone : MonoBehaviour
         // 파괴 전에 Fixer에 보고해서 카운터 조정, PenaltyManager에서 번뇌돌 발생
         if (counted)
         {
+            SoundManager.Instance.PlaySFX("stone_fall");
             StoneFixer.Instance?.NotifyStoneLost(stone);
         }
 

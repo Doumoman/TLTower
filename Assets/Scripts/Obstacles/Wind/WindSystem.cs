@@ -75,6 +75,7 @@ public class WindSystem : CountBasedObstacle
     public void MakeWind(bool autoStop = true)
     {
         MakeObstacle(autoStop);
+        SoundManager.Instance.PlaySFX("wind_start");
     }
 
     IEnumerator StopDelay()   //일정 시간 후 끄기

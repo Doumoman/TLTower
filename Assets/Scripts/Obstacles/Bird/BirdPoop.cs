@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD;
 using UnityEngine;
 
 public class BirdPoop : MonoBehaviour
@@ -7,6 +8,13 @@ public class BirdPoop : MonoBehaviour
     readonly List<StoneController> caught = new(); 
     StoneController anchor;
     bool fused;   // Fuse 한 번만 수행
+    float VoiceRate = 2 / 3;
+
+    void PlaySound(float rate = 1)
+    {
+        SoundManager.Instance.PlaySFX("bird_poop");
+        if (Random.value > rate) BosalManager.Instance.Speak("BirdPoop");
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -15,9 +23,13 @@ public class BirdPoop : MonoBehaviour
         // 돌인지 확인
         if (!col.TryGetComponent(out StoneController sc)) return;
 
+
         // Settled 인 돌만 인정
         if (sc.state != StoneState.Settled && sc.state != StoneState.Dropping)
             return;
+
+        PlaySound(VoiceRate);
+
         // Fixed 돌이랑 부딪히면 제거
         if (sc.state is (StoneState.Fixed)) Destroy(gameObject); ;
 
@@ -31,7 +43,8 @@ public class BirdPoop : MonoBehaviour
         if (sc == anchor || caught.Contains(sc)) return;
 
         caught.Add(sc);                                   // 두 번째 돌 등록
-        Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
+        UnityEngine.Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
+        SoundManager.Instance.PlaySFX("stone_connect");
 
         if (caught.Count >= 2)
             FuseNow();
@@ -59,7 +72,7 @@ public class BirdPoop : MonoBehaviour
     {
         if (anchor == null) return;
         fused = true;
-        Debug.Log("[Glue] FuseNow");
+        UnityEngine.Debug.Log("[Glue] FuseNow");
 
         // 리더 선정--첫 번째 감지된 돌
         var leader = anchor;
