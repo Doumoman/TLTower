@@ -7,36 +7,42 @@ using System;
 
 public class BosalManager : Singleton<BosalManager>
 {
-    [Header("text")]
-    TextMeshProUGUI bosalText;
-
+    private TextMeshProUGUI bosalText;
+    
     [Header("properties")]
-
 
     /*[SerializeField] private int NoInputTime = 15; // 15초 동안 무입력이면 무입력 대사 출력
     [SerializeField] private int NoSpeakTime = 30; // 무대사면 30초마다 무입력 대사 출력*/
     [SerializeField] private int waitTicks = 3; // 보살 말하는 시간
-    [SerializeField] private float fadeSpeed = 0.5f;
-    [SerializeField] private float FontSize = 50;
-    public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
+    [SerializeField] private float fadeSpeed = 2f;
+    [SerializeField] private float FontSize = 20;
+    [SerializeField] private float changeSize = 1.5f;
+    [SerializeField] private float padding = 30f;
+    //public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
+    [SerializeField] private bool isTextBig = true;
 
     private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
     /*private float lastInputTime;
     private float lastSpeaktime;
     private bool NoScriptOnce = false;*/
     public List<System.Action> Actions = new(); // Tick에 등록할 액션들
-    void Start()
+
+    protected override void Awake()
     {
+        base.Awake();
         bosalText = GetComponentInChildren<TextMeshProUGUI>();
         bosalText.fontSize = FontSize;
         bosalText.text = "";
         bosalText.color = Color.white;
-        bosalText.alignment = TextAlignmentOptions.MidlineLeft;
+        bosalText.alignment = TextAlignmentOptions.TopRight;
 
         Color c = bosalText.color;
         c.a = 0f;
         bosalText.color = c;
-
+        if (isTextBig) BiggerText();
+    }
+    void Start()
+    {
         TickManager.Instance.OnTickEvent += (sender, eventArgs) =>
         {
             foreach (var action in Actions)
@@ -47,8 +53,8 @@ public class BosalManager : Singleton<BosalManager>
     }
     IEnumerator FadeIn()
     {
-        Debug.Log("FadeIn Start");
-        if (bosalText!=null)
+        Debug.Log("FadeIn starting alpha: " + bosalText.color.a);
+        if (bosalText != null)
         {
             while (bosalText.color.a < 1f)
             {
@@ -101,6 +107,17 @@ public class BosalManager : Singleton<BosalManager>
 
         if (del) DontSpeakTwice = true;
 
+        int no;
+        string str;
+        if (ScriptDataLoader.Instance.currentIndex.TryGetValue(script, out int val))
+        {
+            no = val;
+        }
+        else no = 0;
+        str = script + no;
+        SoundManager.Instance.PlayVoice(str);
+        Debug.Log(str + " queued!");
+
         string selectScript; //출력할 대사
 
         //idx가 있다면 scriptMap을 직접 탐색
@@ -114,29 +131,40 @@ public class BosalManager : Singleton<BosalManager>
 
         StartCoroutine(FadeIn());
 
-        if(bosalText) bosalText.text = selectScript;
+        if (bosalText) bosalText.text = selectScript;
 
         StartCoroutine(WaitUntilFadeOut(waitTicks)); // 대사 유지
-
-        //SoundManager.Instance.Play("test", Sound.Bgm);
         Debug.Log("보살 대사: " + selectScript);
-
-        int no;
-        string str;
-        if (ScriptDataLoader.Instance.currentIndex.TryGetValue(script, out int val))
-        {
-            no = val;
-        }
-        else no = 0;
-        str = script + no;
-        SoundManager.Instance.PlayVoice(str);
-        Debug.Log(str + " queued!");
     }
 
     public void ManualSpeakStop()
     {
         bosalText.text = "";
         StartCoroutine(FadeOut());
+    }
+    public void TextAlign(Camera cam)
+    {
+        
+    }
+    public void BiggerText(float size = -1f)
+    {
+        if (!isTextBig)
+        {
+            if (size == -1f)
+                size = changeSize;
+            bosalText.fontSize = FontSize * size;
+            SoundManager.Instance.PlaySFX("stamp_button");
+            isTextBig = true;
+        }
+    }
+    public void SmallerText()
+    {
+        if (isTextBig)
+        {
+            bosalText.fontSize = FontSize;
+            SoundManager.Instance.PlaySFX("stamp_button");
+            isTextBig = false;
+        }
     }
 
     /*

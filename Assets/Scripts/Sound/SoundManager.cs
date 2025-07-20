@@ -9,6 +9,10 @@ using System.Linq;
 
 public class SoundManager : Singleton<SoundManager>
 {
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     public void Play(string str, int state)
     {
         string path = $"event:/BGM/{str}";
@@ -38,7 +42,10 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void PlaySFX(string path)
     {
-        RuntimeManager.PlayOneShot("event:/SFX/" + path);
+        var instance = RuntimeManager.CreateInstance("event:/SFX/" + path);
+        instance.setVolume(PlayerPrefs.GetFloat("sfxVolume"));
+        instance.start();
+        instance.release();
         Debug.Log(path + " Playing!");
     }
     public void PlayVoice(string path)

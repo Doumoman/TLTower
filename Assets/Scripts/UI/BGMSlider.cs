@@ -30,6 +30,5 @@ public class BGMSlider : MonoBehaviour
         if (soundManager != null)
             bgmBus.setVolume(value);
         PlayerPrefs.SetFloat("bgmVolume", value);
-        SoundManager.Instance.PlaySFX("volume_control");
     }
 }

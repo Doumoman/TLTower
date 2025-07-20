@@ -9,7 +9,6 @@ public class PenaltyManager : MonoBehaviour
     public bool BnStone; // 정화되지 않은 번뇌돌 카운트
     public StoneSpawner StoneSpawner;
     public RainSystemTest Rain;
-    public BosalManager Bosal;
     public static PenaltyManager Instance { get; private set; }
     void Awake()
     {
@@ -33,7 +32,6 @@ public class PenaltyManager : MonoBehaviour
     IEnumerator WaitTicksUntilRain(int ticks)
     {
         yield return TickManager.Instance.TickWait(ticks);
-        Bosal.Speak("번뇌는 받아들이지 않으면 비처럼 스며드나니.", -1, true);
         Rain.MakeRain(true); // 비 활성화
 
     }
@@ -42,20 +40,17 @@ public class PenaltyManager : MonoBehaviour
         counter++;
         if (counter == BosalWarning)
         {
-            Bosal.Speak("그 돌도 나쁜 돌은 아니었겠지.");
-            Debug.Log($"보살등장! 현재 카운트: {counter}");
+            BosalManager.Instance.Speak("FirstWarning");
         }
         if (counter == TreeCount)
         {
-            Bosal.Speak("무언가가 마음에 쌓이고 있구나.");
+            BosalManager.Instance.Speak("SecondWarning");
             //TreeColorChange();
-            Debug.Log($"수행목 색 변화! 현재 카운트: {counter}");
         }
 
         if (counter >= PenaltyStone)
         {
-            Bosal.Speak("버린 마음은 다시 돌아오는 법이라.");
-            Debug.Log($"번뇌돌 발생! 현재 카운트: {counter}");
+            BosalManager.Instance.Speak("버린 마음은 다시 돌아오는 법이라.");
             Penalty();
             counter = 0; // 리셋
         }
@@ -65,13 +60,13 @@ public class PenaltyManager : MonoBehaviour
     {
         StoneSpawner.Penalty = true; // 다음 돌은 번뇌돌
         BnStone = true;
+        BosalManager.Instance.Speak("KarmaStone");
         StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때
     {
         Penalty();
-        Debug.Log($"번뇌돌 버림! 현재 카운트: {counter}");
-        Bosal.Speak("번뇌는 버리려 할수록 늘어나는 법.");
+        BosalManager.Instance.Speak("SecondWarning");
     }
 
     public void PenaltyStoneSettled()
@@ -80,8 +75,8 @@ public class PenaltyManager : MonoBehaviour
         StoneSpawner.Penalty = false; // 번뇌돌이 정착되면 다음 돌은 일반 돌
         counter = 0;
         Rain.StopRain(); // 비 비활성화
-        Debug.Log($"번뇌돌 정화! 현재 카운트: {counter}");
-        Bosal.Speak("받아들였으니, 이제 그 무게는 너를 짓누르지 않을 것이다.");
+        BosalManager.Instance.Speak("Purify");
+        SoundManager.Instance.PlaySFX("affliction_purified");
         //TreeColorReset();
     }
 }

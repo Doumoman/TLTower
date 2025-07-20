@@ -30,6 +30,5 @@ public class SFXSlider : MonoBehaviour
         if (soundManager != null)
             sfxBus.setVolume(value);
         PlayerPrefs.SetFloat("sfxVolume", value);
-        SoundManager.Instance.PlaySFX("volume_control");
     }
 }

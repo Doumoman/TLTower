@@ -339,7 +339,7 @@ RectTransform:
   m_Father: {fileID: 7008656555467384441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -575,7 +575,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4039922305153799274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2528656876158765806, guid: 4241cbf948e51844693dfba170bd1ec1, type: 3}
+        m_TargetAssemblyTypeName: BosalManager, Assembly-CSharp
+        m_MethodName: SmallerText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3835982261312656450
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.00006, y: 52.999973}
+  m_AnchoredPosition: {x: -260.00006, y: -54}
   m_SizeDelta: {x: 150, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1414833594846901786
@@ -799,7 +811,7 @@ RectTransform:
   m_Father: {fileID: 198165238839964089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1110,7 +1122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 181116614703443473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2528656876158765806, guid: 4241cbf948e51844693dfba170bd1ec1, type: 3}
+        m_TargetAssemblyTypeName: BosalManager, Assembly-CSharp
+        m_MethodName: BiggerText
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5187166139086443024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6963863059198656164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1687,6 +1711,7 @@ GameObject:
   - component: {fileID: 4630170729837712820}
   - component: {fileID: 6664691844463096897}
   - component: {fileID: 3169170163168577862}
+  - component: {fileID: 5224417820997333465}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -1779,6 +1804,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxSlider: {fileID: 6664691844463096897}
+--- !u!114 &5224417820997333465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358709787171880842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6771422413310716981, guid: ebb500b98cfbd4e4488471353756aa6b, type: 3}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: volume_control
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7689407346654588777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1866,7 @@ RectTransform:
   m_Father: {fileID: 2657951709097381583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1997,6 +2051,7 @@ GameObject:
   - component: {fileID: 5350815230943472550}
   - component: {fileID: 5472534496764864127}
   - component: {fileID: 646993254472167980}
+  - component: {fileID: 5098138311362013248}
   m_Layer: 5
   m_Name: VoiceSlider
   m_TagString: Untagged
@@ -2072,7 +2127,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2089,6 +2144,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voiceSlider: {fileID: 0}
+--- !u!114 &5098138311362013248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326711271638191774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6771422413310716981, guid: ebb500b98cfbd4e4488471353756aa6b, type: 3}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: volume_control
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8828038968989189309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2224,7 @@ GameObject:
   - component: {fileID: 3739987703762828625}
   - component: {fileID: 7879404677523084263}
   - component: {fileID: 2802543360808871406}
+  - component: {fileID: 3907236110547635781}
   m_Layer: 5
   m_Name: BGMSlider
   m_TagString: Untagged
@@ -2232,6 +2317,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 7879404677523084263}
+--- !u!114 &3907236110547635781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167121522007317393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6771422413310716981, guid: ebb500b98cfbd4e4488471353756aa6b, type: 3}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: volume_control
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &9189382853594487130
 GameObject:
   m_ObjectHideFlags: 0

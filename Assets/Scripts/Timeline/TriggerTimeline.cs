@@ -19,7 +19,7 @@ public class StoneTimelineTrigger : MonoBehaviour
     int lastCount = -1;           // 로그 스팸 방지용
     bool alreadyPlayed;
 
-    void Awake()
+    void Start()
     {
         triggerCol = GetComponent<Collider2D>();
         triggerCol.isTrigger = true;

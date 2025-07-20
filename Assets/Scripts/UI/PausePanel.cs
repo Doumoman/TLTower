@@ -18,7 +18,7 @@ public class PausePanel : MonoBehaviour
     // Start is called before the first frame update
     public void Openpausepanel()
     {
-        SoundManager.Instance.PlaySFX("pause");
+        if (pausepanel.activeSelf) return;
         pausepanel.SetActive(true);
     }
     void Update()
@@ -27,14 +27,18 @@ public class PausePanel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pausepanel.activeSelf)
+            {
                 Closepausepanel();   // 이미 열려 있으면 닫기
+            }
             else
+            {
                 Openpausepanel();    // 닫혀 있으면 열기
+            }
         }
     }
     public void Closepausepanel()
     {
-        SoundManager.Instance.PlaySFX("pause");
+        if (!pausepanel.activeSelf) return;
         pausepanel.SetActive(false);
     }
     void ApplyAspect(float targetAspect, Vector2 refRes)
@@ -62,6 +66,8 @@ public class PausePanel : MonoBehaviour
             cam.rect = new Rect(0, offset, 1, scale);
         }
 
+        BosalManager.Instance.TextAlign(cam);
+
         // UI Canvas 비율도 세로 고정
         if (scaler != null)
         {
@@ -70,5 +76,4 @@ public class PausePanel : MonoBehaviour
             scaler.matchWidthOrHeight = 1f;   // Height 기준
         }
     }
-
 }

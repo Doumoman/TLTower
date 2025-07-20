@@ -7,8 +7,12 @@ using UnityEngine;
 
 public class ScriptDataLoader : Singleton<ScriptDataLoader>
 {
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+        LoadScript();
+        InitializeScriptMap();
+
         Debug.Log("ScriptDataLoader Start");
         try
         {
@@ -16,7 +20,7 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
         }
         catch (System.Exception ex)
         {
-            Debug.LogError("Error finding script data: " + ex.Message);
+            Debug.LogError("Exception in ScriptDataLoader Start: " + ex.Message);
         }
     }
     void LoadScript()
@@ -63,7 +67,7 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
             return scriptMap[(situation, 0)];
         }
     }
-    public void ResetScriptMap()
+    public void ResetScriptMap() //게임 시작할 때 사용!
     {
         foreach (var value in scriptMap)
         {

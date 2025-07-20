@@ -3,24 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TickManager : MonoBehaviour
+public class TickManager : Singleton<TickManager>
 {
     public float Tick = 4f; // 이벤트 발생시킬 시간 설정
     public event EventHandler OnTickEvent;
     public int tickCount = 0;
 
-    public static TickManager Instance { get; private set; }
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        base.Awake();
+        StartTick();
     }
 
     public void StartTick()

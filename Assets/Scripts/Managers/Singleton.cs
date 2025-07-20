@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton pattern.
+/// </summary>
 public class Singleton<T> : MonoBehaviour where T : Component
 {
     protected static T _instance;
@@ -40,6 +43,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
             if(dontDestroy) DontDestroyOnLoad(obj);
         }
     }
+
     protected virtual void Awake()
     {
         InitializeSingleton();

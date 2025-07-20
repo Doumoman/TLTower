@@ -40,5 +40,6 @@ public class PauseManager : MonoBehaviour
         bool open = pausePanelRoot.activeSelf;
         pausePanelRoot.SetActive(!open);
         Time.timeScale = open ? 1f : 0f;
+        SoundManager.Instance.PlaySFX("pause");
     }
 }
