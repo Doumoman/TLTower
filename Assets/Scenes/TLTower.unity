@@ -233,7 +233,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   count: 5
   followSpeed: 1
   duration: 30
@@ -22582,7 +22581,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   count: 5
   duration: 30
   ps: {fileID: 1280793119}
@@ -38290,7 +38288,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
   count: 5
   duration: 30
   ps: {fileID: 1280793119}
@@ -38378,7 +38375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
-  - 0
   - 0
   - 0
   - 0
@@ -44036,7 +44032,7 @@ PrefabInstance:
       objectReference: {fileID: 712750831}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]

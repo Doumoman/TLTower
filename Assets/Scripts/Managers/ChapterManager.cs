@@ -15,7 +15,7 @@ public class SeasonObstacle
 
 public enum chapter
 {
-    land,
+    //land,
     spring, spring2, spring3,
     summer, summer2, summer3, summer4,
     autumn, autumn2, autumn3,
@@ -24,7 +24,7 @@ public enum chapter
 }; //사운드 편의상 분류 수를 늘림
 public class ChapterManager : MonoBehaviour
 {
-    public chapter chapter = chapter.land;
+    public chapter chapter = chapter.spring;
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
@@ -48,7 +48,6 @@ public class ChapterManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -168,7 +167,8 @@ public class ChapterManager : MonoBehaviour
         //현재 챕터의 요소 설정
         List<GameObject> obstacles = new List<GameObject>();
         obstacles = GetObstaclesByChapter(ChapterManager.Instance.chapter);
-       /* 
+
+        /*
         // LAND
         if (chapter == chapter.land)
         {
@@ -177,11 +177,13 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.NoIdle = false;
             return;
         }
+        
+
         // SPRING
         if (chapter == chapter.spring)
         {
             BosalManager.Instance.Speak("Spring");
-            BosalManager.Instance.NoIdle = false;
+            //BosalManager.Instance.NoIdle = false;
         }
         else if (chapter == chapter.spring2)
         {
@@ -247,7 +249,9 @@ public class ChapterManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);
-        }*/
+        }
+        */
+
         //현재 챕터에 없는 이전 챕터 요소 비활성화
         foreach (GameObject go in currentObstacles)
         {
