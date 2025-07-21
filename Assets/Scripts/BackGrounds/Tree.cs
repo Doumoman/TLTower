@@ -110,7 +110,7 @@ public class Tree : MonoBehaviour
         if (_globalFadeStarted) return;
 
         float lastY = lastStem.transform.position.y;
-        if (StoneFixer.Instance.HighestSettledY > lastY)
+        if ((StoneFixer.Instance && StoneFixer.Instance.HighestSettledY > lastY) || (CloudSystem.Instance && CloudSystem.Instance.HighestJointY > lastY))
         {
             int idx = UnityEngine.Random.Range(0, spring.Length-1);
             lastStem = Instantiate(stem[idx], gameObject.transform);

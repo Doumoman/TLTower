@@ -233,11 +233,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   count: 5
   followSpeed: 1
   duration: 30
@@ -16164,17 +16159,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &487581247 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2528656876158765806, guid: 4241cbf948e51844693dfba170bd1ec1, type: 3}
-  m_PrefabInstance: {fileID: 3527114276989659043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c55fbcfc1ca35c4f986a39b0ef2c695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &487581250 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1595272945276744018, guid: 4241cbf948e51844693dfba170bd1ec1, type: 3}
@@ -16733,7 +16717,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 835170029
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b86dd0d4f09feed4499e2da3fa682861, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -27935,11 +27919,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   count: 5
   duration: 30
   ps: {fileID: 1280793119}
@@ -37854,7 +37833,6 @@ MonoBehaviour:
   BnStone: 0
   StoneSpawner: {fileID: 1047487982}
   Rain: {fileID: 1224223811}
-  Bosal: {fileID: 487581247}
   BosalWarning: 3
   TreeCount: 5
   PenaltyStone: 7
@@ -42797,17 +42775,7 @@ MonoBehaviour:
     obstacles: []
   - season: 13
     obstacles: []
-  - season: 14
-    obstacles: []
-  - season: 15
-    obstacles: []
-  - season: 16
-    obstacles: []
-  - season: 17
-    obstacles: []
-  - season: 18
-    obstacles: []
-  stonesForChapter: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+  stonesForChapter: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1322940009
 GameObject:
   m_ObjectHideFlags: 0
@@ -53817,11 +53785,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   count: 5
   duration: 30
   ps: {fileID: 0}
@@ -54071,11 +54034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   - 0
   - 0
   - 0
@@ -59848,7 +59806,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
@@ -59959,6 +59917,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224223809}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[7].obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1422286442}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[8].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 1322940009}
@@ -59977,6 +59939,10 @@ PrefabInstance:
     - target: {fileID: 6544869133181880470, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: m_Name
       value: '@ChapterManager'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544869133181880470, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6982188311331291029, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60438,6 +60404,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1281971017}
   - {fileID: 1343846268}
   - {fileID: 1273010025}
   - {fileID: 1229282266}
@@ -60454,5 +60421,4 @@ SceneRoots:
   - {fileID: 550000669733837620}
   - {fileID: 1025869543}
   - {fileID: 55845245}
-  - {fileID: 1281971017}
   - {fileID: 1422286443}

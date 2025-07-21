@@ -94,21 +94,20 @@ public class JointMaker : MonoBehaviour
         {
             joint.enabled = false;
             Destroy(joint);
-            StartCoroutine(disconnect(disconnectionInterval));
+            //StartCoroutine(disconnect(disconnectionInterval));
         }
         this.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    [SerializeField] private float disconnectionInterval = 0.1f;
-    IEnumerator disconnect(float ReallyLongTime)
-    {
-        SoundManager.Instance.PlaySFX("cloud_disconnected");
-        yield return new WaitForSeconds(ReallyLongTime);
-    }
+    //[SerializeField] private float disconnectionInterval = 0.1f;
+    //IEnumerator disconnect(float ReallyLongTime)
+    //{
+    //    SoundManager.Instance.PlaySFX("cloud_disconnected");
+    //    yield return new WaitForSeconds(ReallyLongTime);
+    //}
 
     public void DFS(ref List<JointMaker> jms)
     {
-        Debug.Log(this);
         jms.Add(this);
 
         //initial을 포함하여 연결된 JointMaker리스트 얻기
@@ -116,8 +115,6 @@ public class JointMaker : MonoBehaviour
         List<JointMaker> jmList = new List<JointMaker>();
         jmList.AddRange(initial);
         foreach (FixedJoint2D joint2D in joint2Ds) jmList.Add(joint2D.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker());
-        Debug.Log("DFS joint2Ds: " + joint2Ds.Count);
-        Debug.Log("DFS jmList: " + jmList.Count);
         //연결된 것들 중 탐색 안된 것 모두 검사
         foreach (JointMaker jm in jmList) if (!jms.Contains(jm)) jm.DFS(ref jms);
     }

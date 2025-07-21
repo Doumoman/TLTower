@@ -34,7 +34,6 @@ public class ChapterManager : MonoBehaviour
     public int[] stonesForChapter = new int[(int)chapter.space];
     
     int stoneCount = 0;
-    int idx = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
     List<GameObject> currentObstacles = new List<GameObject>();
     public event EventHandler onChapterChage;
@@ -95,13 +94,16 @@ public class ChapterManager : MonoBehaviour
     {
         //시작 챕터 감지
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
-        idx = Array.IndexOf(arr, chapter);
+        int idx = Array.IndexOf(arr, chapter);
 
         //List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
         //if (idx > 0 && idx < 5) currentObstacles = obList[idx];
         SetObstacle();
-        StoneFixer.Instance.threshold = stonesForChapter[idx];
-        StoneFixer.Instance.NotifyStoneLost(null);
+        if (StoneFixer.Instance)
+        {
+            StoneFixer.Instance.threshold = stonesForChapter[idx];
+            StoneFixer.Instance.NotifyStoneLost(null);
+        }
         onChapterChage?.Invoke(this, EventArgs.Empty);
         Debug.Log("chaptermanager 챕터변환 실행");
     }
@@ -110,14 +112,19 @@ public class ChapterManager : MonoBehaviour
     public void ChangeChapter()
     {
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
+        int idx = System.Array.IndexOf(arr, chapter);
+
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
             chapter = arr[++idx];
             SetObstacle();
-            /* space 챕터에는 threshold 가 없으므로 안전 체크 */
-            if (idx < stonesForChapter.Length)
-                StoneFixer.Instance.threshold = stonesForChapter[idx];
-            StoneFixer.Instance.NotifyStoneLost(null);
+            if (!StoneFixer.Instance)
+            {
+                /* space 챕터에는 threshold 가 없으므로 안전 체크 */
+                if (idx < stonesForChapter.Length)
+                    StoneFixer.Instance.threshold = stonesForChapter[idx];
+                StoneFixer.Instance.NotifyStoneLost(null);
+            }
             onChapterChage?.Invoke(this, EventArgs.Empty);
             stoneCount = 0;
             Debug.Log(chapter);
@@ -152,7 +159,7 @@ public class ChapterManager : MonoBehaviour
 
         // idx 재계산
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
-        idx = System.Array.IndexOf(arr, ch);
+        int idx = System.Array.IndexOf(arr, ch);
 
         SetObstacle();  // 장애물·사운드 등 새 챕터 세팅
         if (idx < stonesForChapter.Length)
