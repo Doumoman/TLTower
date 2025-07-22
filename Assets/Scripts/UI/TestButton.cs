@@ -10,6 +10,6 @@ public class TestButton : MonoBehaviour
     }
     public void Lower()
     {
-        CameraController.Instance.LowerBackgrounds();
+        CameraController.Instance.RaiseCameraY();
     }
 }

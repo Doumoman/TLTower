@@ -272,10 +272,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform bgSpriteA;
     public void LowerBackgrounds(float amount = -6f, float duration = 2f)
     {
-        RaiseCameraY();
+        RaiseCameraY(3f, 8f);
         // 이미 실행 중이면 중복 방지
-        //StopCoroutine(nameof(CoLowerBackgrounds));
-        //StartCoroutine(CoLowerBackgrounds(amount, duration));
+        StopCoroutine(nameof(CoLowerBackgrounds));
+        StartCoroutine(CoLowerBackgrounds(amount, duration));
     }
 
     IEnumerator CoLowerBackgrounds(float amount, float dur)
