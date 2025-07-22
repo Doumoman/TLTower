@@ -103,6 +103,7 @@ public class AnimationManager : MonoBehaviour
     {
         Block.SetActive(true);
         Yumju.SetActive(false);
+        TickManager.Instance.StopTick();
         // 부모가 없으면 자동 생성 (이전 로직 유지)
         if (!stonesParent)
             stonesParent = new GameObject("Stones").transform;

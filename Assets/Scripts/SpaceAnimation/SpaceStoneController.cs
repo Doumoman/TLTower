@@ -48,7 +48,7 @@ public class SpaceStoneController : MonoBehaviour,
 
         SetFloatingVisual();
     }
-
+   
     public void Init(Sprite spr, int index, float mass = 1f, float angDrag = 0.05f)
     {
         // ① 스프라이트‧콜라이더 갱신
@@ -121,7 +121,9 @@ public class SpaceStoneController : MonoBehaviour,
         _rb.angularVelocity = 0f;
         _rb.velocity = Vector2.zero;
         _sr.color = new Color(1, 1, 1, dragAlpha);
-        _sr.sortingOrder += 10;
+        _sr.sortingOrder += 10; 
+        
+        _phys.enabled = false;
 
         lastPointerWorld = ScreenToWorld(pointerScreenPos);
         dragOffset = (Vector2)transform.position - lastPointerWorld;
@@ -138,7 +140,7 @@ public class SpaceStoneController : MonoBehaviour,
         tag = "FloatingStone";
 
         _rb.isKinematic = false;
-
+        _phys.enabled = true;
         isRotating = false;
         holdTimer = 0f;
 

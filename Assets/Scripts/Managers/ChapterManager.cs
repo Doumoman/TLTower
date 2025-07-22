@@ -133,7 +133,7 @@ public class ChapterManager : MonoBehaviour
         {
             AnimationManager.Instance.Play();
         }
-        if (chapter == chapter.space)
+        if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
         {
             Debug.Log("PlayBck");
             CameraController.Instance.LowerBackgrounds();

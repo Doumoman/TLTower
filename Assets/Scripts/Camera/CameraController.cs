@@ -274,8 +274,8 @@ public class CameraController : MonoBehaviour
     {
         RaiseCameraY();
         // 이미 실행 중이면 중복 방지
-        StopCoroutine(nameof(CoLowerBackgrounds));
-        StartCoroutine(CoLowerBackgrounds(amount, duration));
+        //StopCoroutine(nameof(CoLowerBackgrounds));
+        //StartCoroutine(CoLowerBackgrounds(amount, duration));
     }
 
     IEnumerator CoLowerBackgrounds(float amount, float dur)
@@ -303,7 +303,7 @@ public class CameraController : MonoBehaviour
     }
 
     Coroutine _raiseRoutine;
-    public void RaiseCameraY(float amount = 6f, float duration = 3f)
+    public void RaiseCameraY(float amount = 5.5f, float duration = 3f)
     {
         // 이미 실행 중인 이동 코루틴이 있으면 중지
         if (_raiseRoutine != null)
