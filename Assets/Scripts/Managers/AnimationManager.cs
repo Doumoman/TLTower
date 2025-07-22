@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -98,19 +99,43 @@ public class AnimationManager : MonoBehaviour
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
 
+    [Header("★ 우주 배경 애니메이션")]
+    [SerializeField] GameObject spaceAnimRoot;   // Animator 가 달린 오브젝트
+    [SerializeField] string animStateName = "Play"; // 첫 스테이트 이름
+    [SerializeField] float startSpeed = 0.2f;   // 초반 재생 속도
+    [SerializeField] float slowDuration = 3f;      // 느린 가속 구간(초)
+    [SerializeField] float midSpeed = 0.5f;
+    [SerializeField] float endSpeed = 2.0f;
+
+    readonly int[] spawnSequence = { 4, 3, 1, 2, 0 };   // 원하는 순서
+    int spawnStep = 0;
+    int snappedCount = 0;
+    bool cleared = false;
+
+    public event EventHandler changeSpaceBackGround;
 
     public void SpawnSpaceStones()
     {
         Block.SetActive(true);
         Yumju.SetActive(false);
         TickManager.Instance.StopTick();
-        // 부모가 없으면 자동 생성 (이전 로직 유지)
+
+        snappedCount = 0;
+        cleared = false;
+        spawnStep = 0;          // ★ 리셋
+
         if (!stonesParent)
             stonesParent = new GameObject("Stones").transform;
 
-        // 준비된 프리셋 순서대로 스폰
-        for (int i = 0; i < presets.Count; i++)
-            SpawnSingleStone(presets[i], i);
+        SpawnNextStone();          // 첫 돌(인덱스 4)만 생성
+    }
+    void SpawnNextStone()
+    {
+        if (spawnStep >= spawnSequence.Length) return;     // 다 만들었으면 패스
+
+        int presetIdx = spawnSequence[spawnStep];
+        SpawnSingleStone(presets[presetIdx], presetIdx);   // 인덱스 그대로 넘김
+        spawnStep++;                                       // 다음 단계로
     }
     void SpawnSingleStone(StonePreset p, int index)
     {
@@ -140,7 +165,92 @@ public class AnimationManager : MonoBehaviour
 
         mc.Init(spr, index, rb.mass, rb.angularDrag);
 
-        if (go.TryGetComponent<StoneFreezer>(out var freezer))
-            Destroy(freezer);
+    }
+    public void NotifyStoneSnapped()
+    {
+        if (cleared) return;
+
+        snappedCount++;
+
+        if (snappedCount < presets.Count)  // 아직 남은 돌이 있으면
+            SpawnNextStone();              // 다음 돌 생성
+
+        if (snappedCount >= presets.Count) // 5개 전부 스냅 완료
+        {
+            cleared = true;
+            OnAllStonesSnapped();
+        }
+    }
+    IEnumerator CoAccelerateAnimation(Animator anim)
+    {
+        float elapsed = 0f;
+        float clipLen = anim.GetCurrentAnimatorStateInfo(0).length;
+        bool pausedOnce = false;     // 1 회만 멈추도록 플래그
+
+        /* 클립이 너무 짧을 때 대비 */
+        if (clipLen < slowDuration)
+            slowDuration = Mathf.Clamp(clipLen * 0.3f, 0.1f, clipLen);
+
+        while (true)
+        {
+            elapsed += Time.deltaTime;
+            AnimatorStateInfo s = anim.GetCurrentAnimatorStateInfo(0);
+
+            /* ① 슬로우 구간: startSpeed → midSpeed */
+            if (elapsed <= slowDuration)
+            {
+                float k = elapsed / slowDuration;                    // 0→1
+                anim.speed = Mathf.Lerp(startSpeed, midSpeed, k);
+            }
+            /* ② midSpeed 도달 직후 1 초 멈춤 (한 번만) */
+            else if (!pausedOnce)
+            {
+                anim.speed = 0f;                                   // 완전 정지
+                yield return new WaitForSecondsRealtime(1f);         // 실제 시간 1초
+                anim.speed = midSpeed;                             // 다시 midSpeed
+                pausedOnce = true;
+            }
+            /* ③ 정상 가속 구간: midSpeed → endSpeed */
+            else
+            {
+                /* elapsed 기준을 slowDuration 이후부터 리매핑 */
+                float k2 = Mathf.InverseLerp(slowDuration, clipLen, elapsed);
+                anim.speed = Mathf.Lerp(midSpeed, endSpeed, k2);
+            }
+
+            /* 애니메이션이 끝났는지 체크 */
+            if (s.normalizedTime >= 1f && !anim.IsInTransition(0))
+                break;
+
+            yield return null;
+        }
+
+        anim.speed = endSpeed;                   // 종료 속도 보정
+        changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
+    }
+    IEnumerator AfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
+        spaceAnimRoot.SetActive(false);
+    }
+    void OnAllStonesSnapped()
+    {
+        Debug.Log("우주애니메이션 실행");
+        foreach (var sc in stonesParent.GetComponentsInChildren<SpaceStoneController>())
+            if (sc.State == SpaceStoneState.Snapped)
+                Destroy(sc.gameObject);
+
+        spaceAnimRoot.SetActive(true);
+        Animator anim = spaceAnimRoot.GetComponent<Animator>();
+
+
+        anim.speed = startSpeed;            // 느리게 시작
+        anim.Play(animStateName, 0, 0f);    // 처음부터 재생
+        StartCoroutine(CoAccelerateAnimation(anim));
+
+
+        StartCoroutine(AfterSeconds(5f));
+        Debug.Log("우주애니메이션 실행");
     }
 }

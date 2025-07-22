@@ -79,6 +79,11 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
+        if (cm.chapter == chapter.space)
+        {
+            Debug.Log("생성금지");
+            return;
+        }
         StoneData data = Penalty ? GetPenaltyStoneData()
                              : GetRandomStoneData();
 

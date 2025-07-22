@@ -183,6 +183,7 @@ public class SpaceStoneController : MonoBehaviour,
 
         State = SpaceStoneState.Snapped;
         tag = "PlacedStone";
+        AnimationManager.Instance?.NotifyStoneSnapped();
     }
     #endregion
     /* ================================================================= */
