@@ -44032,7 +44032,7 @@ PrefabInstance:
       objectReference: {fileID: 712750831}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
@@ -44112,7 +44112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[2].obstacles.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[3].obstacles.Array.size
@@ -44120,11 +44120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[4].obstacles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[5].obstacles.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[6].obstacles.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[7].obstacles.Array.size
@@ -44132,15 +44136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[10].obstacles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[11].obstacles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[12].obstacles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[1].obstacles.Array.data[0]
@@ -44155,6 +44159,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 195804320}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[2].obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[3].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 1591900208}
@@ -44165,7 +44173,11 @@ PrefabInstance:
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[3].obstacles.Array.data[2]
       value: 
-      objectReference: {fileID: 195804320}
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[3].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[4].obstacles.Array.data[0]
       value: 
@@ -44179,6 +44191,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 195804320}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[4].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[5].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 195804320}
@@ -44191,6 +44207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 31691765}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[5].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[6].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 195804320}
@@ -44202,6 +44222,10 @@ PrefabInstance:
       propertyPath: seasonalObstacles.Array.data[6].obstacles.Array.data[2]
       value: 
       objectReference: {fileID: 1591900208}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[6].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[8].obstacles.Array.data[0]
       value: 
@@ -44231,6 +44255,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1757047012}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[10].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[11].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 1322940009}
@@ -44243,6 +44271,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1757047012}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[11].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[12].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 1322940009}
@@ -44254,6 +44286,10 @@ PrefabInstance:
       propertyPath: seasonalObstacles.Array.data[12].obstacles.Array.data[2]
       value: 
       objectReference: {fileID: 1757047012}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[12].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
     - target: {fileID: 6544869133181880470, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: m_Name
       value: '@ChapterManager'
