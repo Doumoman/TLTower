@@ -303,7 +303,7 @@ public class CameraController : MonoBehaviour
     }
 
     Coroutine _raiseRoutine;
-    public void RaiseCameraY(float amount = 5.5f, float duration = 3f)
+    public void RaiseCameraY(float amount = 5f, float duration = 3f)
     {
         // 이미 실행 중인 이동 코루틴이 있으면 중지
         if (_raiseRoutine != null)
