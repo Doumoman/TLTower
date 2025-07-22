@@ -27,6 +27,7 @@ public class SpaceStoneController : MonoBehaviour,
     Rigidbody2D _rb;
     SpriteRenderer _sr;
     PolygonCollider2D _phys, _click;
+    PolygonCollider2D poly;
 
     int activePointer = -1;
     Vector2 dragOffset, lastPointerWorld, holdStartPos;
@@ -39,6 +40,7 @@ public class SpaceStoneController : MonoBehaviour,
         _rb = GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
         BuildColliders();
 
+        poly = GetComponent<PolygonCollider2D>();
         _rb.gravityScale = 0f;     // ★ 무중력
         _rb.angularDrag = 0.05f;
         _rb.mass = 1f;
@@ -111,14 +113,13 @@ public class SpaceStoneController : MonoBehaviour,
 
     void BeginDrag(Vector2 pointerScreenPos)
     {
+        if (poly) { Destroy(poly); poly = null; }
         State = SpaceStoneState.Dragging;
         tag = "DraggingStone";
 
         _rb.isKinematic = true;
         _rb.angularVelocity = 0f;
         _rb.velocity = Vector2.zero;
-        _phys.enabled = false;
-
         _sr.color = new Color(1, 1, 1, dragAlpha);
         _sr.sortingOrder += 10;
 
@@ -131,11 +132,12 @@ public class SpaceStoneController : MonoBehaviour,
 
     void EndDrag()
     {
+        if (poly == null)
+            poly = gameObject.AddComponent<PolygonCollider2D>();
         State = SpaceStoneState.Floating;
         tag = "FloatingStone";
 
         _rb.isKinematic = false;
-        _phys.enabled = true;
 
         isRotating = false;
         holdTimer = 0f;
