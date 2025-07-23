@@ -29,7 +29,7 @@ TagManager:
   - Dragging
   - StickyLayer
   - FixedStone
-  - CloudMoving
+  - CloudSeparate
   - SkyFlower
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
   m_SortingLayers:
   - name: backGround
     uniqueID: 835170029
+    locked: 0
+  - name: FlowCloud
+    uniqueID: 2443773029
     locked: 0
   - name: suhangmok
     uniqueID: 2222939861

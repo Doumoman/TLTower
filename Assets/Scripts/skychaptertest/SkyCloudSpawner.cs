@@ -14,6 +14,14 @@ public class SkyCloudSpawner : MonoBehaviour
     private float xPos;
     private int directionalForce = 1;
 
+    public static SkyCloudSpawner Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+
     IEnumerator MakeCloud()
     {
         while (true)
@@ -26,11 +34,10 @@ public class SkyCloudSpawner : MonoBehaviour
             xPos = transform.position.x;
             int idx = UnityEngine.Random.Range(0, skyCloud.Length);
             Transform t = Instantiate(skyCloud[idx]);
-            t.position = new Vector2(xPos, transform.position.y + UnityEngine.Random.Range(-5, 5));
+            t.position = new Vector2(xPos * directionalForce, transform.position.y + UnityEngine.Random.Range(-5, 5));
             CloudController cc = t.GetComponent<CloudController>();
             cc.flowSpeed *= directionalForce;
         }
-        co = null;
     }
 
     public void Changedirection()
@@ -40,9 +47,6 @@ public class SkyCloudSpawner : MonoBehaviour
             StopCoroutine(co);
             co = null;
         }
-        Debug.Log(xPos);
-        xPos *= -1;
-        Debug.Log(xPos);
         directionalForce *= -1;
         co = StartCoroutine(MakeCloud());
     }
