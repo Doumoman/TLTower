@@ -32,6 +32,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minY = 0f;          // 바닥
     [SerializeField] private float topPadding = 1.5f;  // 돌 위에 보이는 여유 공간
 
+    bool IsSpaceChapter =>
+    ChapterManager.Instance &&
+    ChapterManager.Instance.chapter == chapter.space;
+
 
     private void Awake()
     {
@@ -75,6 +79,13 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (IsSpaceChapter)
+        {
+            _directionForce = Vector3.zero; // 관성 제거
+            _userMoveInput = false;        // 드래그 입력 무시
+            UpdateFollowers();              // (필요하면) 스폰 포인트 Y 동기화
+            return;                         // 이하 로직 스킵
+        }
         if (StoneController.AnyStoneBeingDragged || CloudController.AnyCloudBeingDragged)
         {
             _directionForce = Vector3.zero;
@@ -84,7 +95,6 @@ public class CameraController : MonoBehaviour
         ReduceDirectionForce();
         MoveCamera();
         HandlePointerInput();
-
         UpdateFollowers(); // followWithCamera 동기화
     }
     private void HandlePointerInput() // 입력 처리 (Y축 전용)
@@ -260,9 +270,9 @@ public class CameraController : MonoBehaviour
     [Header("Background Sprites (Y -10f)")]
     [Tooltip("내려줄 첫 번째 배경 스프라이트(Transform)")]
     [SerializeField] private Transform bgSpriteA;
-    public void LowerBackgrounds(float amount = -4.5f, float duration = 2f)
+    public void LowerBackgrounds(float amount = -6f, float duration = 2f)
     {
-        RaiseCameraY();
+        RaiseCameraY(3f, 8f);
         // 이미 실행 중이면 중복 방지
         StopCoroutine(nameof(CoLowerBackgrounds));
         StartCoroutine(CoLowerBackgrounds(amount, duration));

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5144386575181189139}
   m_Layer: 0
   m_Name: point (5)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4640432993460497496}
   m_Layer: 0
   m_Name: point (6)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 1041826050759164352}
   m_Layer: 0
   m_Name: point (7)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6166626521350559907}
   m_Layer: 0
   m_Name: point (2)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 5858649433110469404}
   m_Layer: 0
   m_Name: point (3)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2072027435
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95b63173552c1c44388b907dad2cd99a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 2931719568684027052}
   m_Layer: 0
   m_Name: point (4)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 9196115226053989839}
   m_Layer: 0
   m_Name: point (9)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 7524919021363955114}
   m_Layer: 0
   m_Name: point (1)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 4469942409447679257}
   m_Layer: 0
   m_Name: point (8)
-  m_TagString: Untagged
+  m_TagString: FlowerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

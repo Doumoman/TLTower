@@ -18,6 +18,7 @@ TagManager:
   - DraggingCloud
   - FlowerPoint
   - Checkpoint
+  - FloatingStone
   layers:
   - Default
   - TransparentFX

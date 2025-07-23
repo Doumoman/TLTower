@@ -12,6 +12,7 @@ public class BackGround : MonoBehaviour
     public Sprite autumn;
     public Sprite winter;
     public Sprite space;
+    public Sprite space2;
 
     SpriteRenderer sr;
     Dictionary<chapter, Sprite> spriteForChaper;
@@ -20,7 +21,7 @@ public class BackGround : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         ChapterManager.Instance.onChapterChage += ChangeBackGround;
-
+        AnimationManager.Instance.changeSpaceBackGround += ChangeSpaceBackGround;
         spriteForChaper = new Dictionary<chapter, Sprite>();
         chapter[] c = (chapter[])System.Enum.GetValues(typeof(chapter));
 
@@ -59,5 +60,9 @@ public class BackGround : MonoBehaviour
     {
         sr.sprite = spriteForChaper[ChapterManager.Instance.chapter];
 
+    }
+    void ChangeSpaceBackGround(object sender, EventArgs eventArgs)
+    {
+        sr.sprite = space2;
     }
 }
