@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.InputManagerEntry;
 
 public class RainSystem : CountBasedObstacle
@@ -16,6 +17,11 @@ public class RainSystem : CountBasedObstacle
     public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
+
+    [Header("Darken")]
+    public GameObject darkenBackGround;
+    public float speed = 0.1f;
+    [Range(0, 1f)] public float opacity = 0.2f;
 
     protected override void AddStone(object sender, EventArgs eventArgs)
     {
@@ -33,6 +39,8 @@ public class RainSystem : CountBasedObstacle
             if (item.material2D != normal) continue;
             item.material2D = rainy;
         }
+
+        StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
 
@@ -50,7 +58,7 @@ public class RainSystem : CountBasedObstacle
     IEnumerator StopDelay()   //일정 시간 후 끄기
     {
         yield return new WaitForSeconds(duration);
-        ps.Stop();
+        StopRain();
         co = null;
     }
 
@@ -72,11 +80,43 @@ public class RainSystem : CountBasedObstacle
                 if (col.sharedMaterial == rainy) col.sharedMaterial = normal;
             }
         }
+
+        StartCoroutine(BackGroundFadeOut());
         ps.Stop();
         stoneCount = 0;
         nonStop = false;
         windOrRain = false;
     }
+
+    //배경 점점어둡게
+    IEnumerator BackGroundFadeIn()
+    {
+        Image image = darkenBackGround.GetComponent<Image>();
+        float a = 0f;
+
+        while (a < opacity)
+        {
+            a += Time.deltaTime * speed;
+            a = Mathf.Min(a, opacity);
+            image.color = new Color(0, 0, 0, a);
+            yield return null;
+        }
+    }
+    //배경 점점밝게
+    IEnumerator BackGroundFadeOut()
+    {
+        Image image = darkenBackGround.GetComponent<Image>();
+        float a = image.color.a;
+
+        while (a > 0)
+        {
+            a -= Time.deltaTime * speed;
+            a = Mathf.Max(a, 0);
+            image.color = new Color(0, 0, 0, a);
+            yield return null;
+        }
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
