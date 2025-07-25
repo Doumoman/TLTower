@@ -163,14 +163,14 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     LiveUpdatePort:
-      Value: 9264
+      Value: 8080
       HasValue: 1
     Overlay:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     OverlayPosition:
       Value: 0
       HasValue: 0
@@ -216,16 +216,16 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - 46fbfdf3fc43db0458918377fd40293e
-  - de700ef3f37a49b58a57ae3addf01ad9
-  - fd7c55dab0fce234b8c25f6ffca523c1
   - 2fea114e74ecf3c4f920e1d5cc1c4c40
   - c88d16e5272a4e241b0ef0ac2e53b73d
-  - e7a046c753c3c3d4aacc91f6597f310d
-  - b7716510a1f36934c87976f3a81dbf3d
   - 0f8eb3f400726694eb47beb1a9f94ce8
-  - 2c5177b11d81d824dbb064f9ac8527da
+  - e7a046c753c3c3d4aacc91f6597f310d
+  - fd7c55dab0fce234b8c25f6ffca523c1
   - 52eb9df5db46521439908db3a29a1bbb
+  - de700ef3f37a49b58a57ae3addf01ad9
+  - 2c5177b11d81d824dbb064f9ac8527da
+  - b7716510a1f36934c87976f3a81dbf3d
+  - 46fbfdf3fc43db0458918377fd40293e
   codecChannels:
     Value: []
     HasValue: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
       Value: 1
       HasValue: 1
     LiveUpdatePort:
-      Value: 0
-      HasValue: 0
+      Value: 8080
+      HasValue: 1
     Overlay:
       Value: 1
       HasValue: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
-  AutomaticSampleLoading: 0
+  AutomaticSampleLoading: 1
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
@@ -493,7 +493,7 @@ MonoBehaviour:
   - Voice
   BanksToLoad: []
   LiveUpdatePort: 9264
-  EnableMemoryTracking: 0
+  EnableMemoryTracking: 1
   AndroidUseOBB: 0
   AndroidPatchBuild: 0
   MeterChannelOrdering: 0
@@ -506,18 +506,18 @@ MonoBehaviour:
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131848
   Platforms:
-  - {fileID: -6287750226128196138}
-  - {fileID: -7649266939690607061}
-  - {fileID: 9156672749258615409}
-  - {fileID: 4529131364592857151}
-  - {fileID: 3259042904243925130}
   - {fileID: -9144138207094722492}
   - {fileID: -7918418376317464826}
-  - {fileID: -3957023339052439443}
-  - {fileID: 8415734900534607356}
+  - {fileID: -7649266939690607061}
+  - {fileID: -6287750226128196138}
   - {fileID: -5613933625340709064}
-  - {fileID: 5855805555373972363}
+  - {fileID: -3957023339052439443}
+  - {fileID: 3259042904243925130}
   - {fileID: 4292559863661985310}
+  - {fileID: 4529131364592857151}
+  - {fileID: 5855805555373972363}
+  - {fileID: 8415734900534607356}
+  - {fileID: 9156672749258615409}
   MigratedPlatforms: 09000000080000000b0000000a00000012000000060000000c0000000500000000000000150000000200000001000000
 --- !u!114 &3259042904243925130
 MonoBehaviour:

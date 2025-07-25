@@ -27,7 +27,12 @@ public class GuidePanel : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private GameObject exitButton;
     [SerializeField] private GameObject prevButton, nextButton;
-    [SerializeField] private Image defaultImage; //list에 아무 것도 없을 때 사용할 기본 이미지
+    [SerializeField] private Sprite defaultImage; //list에 아무 것도 없을 때 사용할 기본 이미지
+
+    [Header("misc")]
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject blackPanel;
+    [SerializeField] private GameObject root;
     private Image displayImage;
     private const string KeyName = "GuideKeys";
     private List<Sprite> guideBuffer = new();
@@ -49,12 +54,17 @@ public class GuidePanel : MonoBehaviour
         canExit = false;
         Invoke(nameof(EnableExit), lockTime);
     }
+    void Update()
+    {
+        if (pausePanel.activeInHierarchy) blackPanel.SetActive(false);
+        else blackPanel.SetActive(true);
+    }
 
     public void ButtonGuide() //일시정지 패널에서 가이드 버튼을 누를 때 : 지금까지 봤던 모든 가이드 호출
     {
         //가이드가 여러 개라면 Prev, Next 버튼 활성화
         //없다면 default 이미지 활성화
-        if (imageList.Count == 0) SetImage(defaultImage.sprite);
+        if (imageList.Count == 0) SetImage(defaultImage);
         else if (imageList.Count == 1)
         {
             prevButton.SetActive(false);
@@ -70,7 +80,8 @@ public class GuidePanel : MonoBehaviour
         SetImage(Current());
 
         //FadeIn
-        StartCoroutine(panelFader.FadeIn(fadeTime));
+        //StartCoroutine(panelFader.FadeIn(fadeTime));
+        UpdateButtons(currentIdx, imageList.Count);
     }
     public void PlayGuide(string key) // 가이드가 자동으로 나와야 할 때 : 해당하는 가이드 호출 후 저장
     {
@@ -93,12 +104,14 @@ public class GuidePanel : MonoBehaviour
 
         //첫 이미지 표시
         SetImage(guideBuffer[guideBufferIdx]);
-        StartCoroutine(panelFader.FadeIn(fadeTime));
+        //StartCoroutine(panelFader.FadeIn(fadeTime));
 
         //해당 key가 없다면 imageList와 PlayerPrefs에 저장
         foreach (var s in sprite.sprite)
             if (!imageList.Contains(s))
                 imageList.Add(s);
+
+        UpdateButtons(guideBufferIdx, guideBuffer.Count);
         Save();
     }
     private void SetImage(Sprite newImage)
@@ -110,27 +123,60 @@ public class GuidePanel : MonoBehaviour
     {
         if (guideBuffer.Count > 0)
         {
-            guideBufferIdx = (guideBufferIdx + 1) % guideBuffer.Count;
+            guideBufferIdx--;
             SetImage(guideBuffer[guideBufferIdx]);
+            UpdateButtons(guideBufferIdx, guideBuffer.Count);
         }
-        else if (imageList.Count > 0) SetImage(Prev());
+        else if (imageList.Count > 0)
+        {
+            currentIdx--;
+            SetImage(imageList[currentIdx]);
+            UpdateButtons(currentIdx, imageList.Count);
+        }
     }
 
     public void NextButton()
     {
         if (guideBuffer.Count > 0)
         {
-            guideBufferIdx = (guideBufferIdx + 1) % guideBuffer.Count;
+            guideBufferIdx++;
             SetImage(guideBuffer[guideBufferIdx]);
+            UpdateButtons(guideBufferIdx, guideBuffer.Count);
         }
-        else if (imageList.Count > 0) SetImage(Next());
+        else if (imageList.Count > 0)
+        {
+            currentIdx++;
+            SetImage(imageList[currentIdx]);
+            UpdateButtons(currentIdx, imageList.Count);
+        }
     }
     private bool canExit = false;
-    private void EnableExit(){ canExit = true; }
+    private void EnableExit()
+    {
+        canExit = true;
+
+        // 현재 상황에 맞춰 exit 버튼을 업데이트
+        if (guideBuffer.Count > 0)
+            UpdateButtons(guideBufferIdx, guideBuffer.Count);
+        else
+            UpdateButtons(currentIdx, imageList.Count);
+    }
     public void ExitButton()
     {
         if (!canExit) return;
-        gameObject.SetActive(false);
+        root.SetActive(false);
+    }
+
+    private void UpdateButtons(int idx, int count)
+    {
+        bool canGoPrev = idx > 0;
+        bool canGoNext = idx < count - 1;
+
+        prevButton.SetActive(canGoPrev);
+        nextButton.SetActive(canGoNext);
+
+        // Exit은 마지막 요소에서만 활성화 + lockTime 체크
+        exitButton.SetActive(!canGoNext && canExit);
     }
     /*===================세이브/로드 기능======================*/
     public void Save()
@@ -177,6 +223,7 @@ public class GuidePanel : MonoBehaviour
         return imageList[currentIdx];
     }
 
+    /*
     private Sprite Next()
     {
         if (imageList.Count == 0) return null;
@@ -189,4 +236,5 @@ public class GuidePanel : MonoBehaviour
         currentIdx = (currentIdx - 1 + imageList.Count) % imageList.Count;
         return imageList[currentIdx];
     }
+    */
 }

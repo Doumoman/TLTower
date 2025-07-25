@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330315642020226280}
   - component: {fileID: 1301303790503218869}
-  - component: {fileID: 3131419081125680255}
+  - component: {fileID: 830558876469520561}
   - component: {fileID: 206575744868857500}
   - component: {fileID: 5746024577905700940}
   m_Layer: 5
@@ -57,7 +57,8 @@ MonoBehaviour:
   changeSize: 2
   padding: 30
   isTextBig: 1
---- !u!114 &3131419081125680255
+  birdBool: 0
+--- !u!114 &830558876469520561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

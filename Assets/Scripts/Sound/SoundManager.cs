@@ -20,9 +20,8 @@ public class SoundManager : Singleton<SoundManager>
         BGM.start();
 
         string paramName2 = "parameter:/" + str + "State";
-        BGM.setParameterByName(paramName2, state);
-        Debug.Log($"Parameter {paramName2} set to {state}, {path} playing!!");
-
+        var result = BGM.setParameterByName(paramName2, state);
+        Debug.Log($"Parameter {paramName2} set to {state}, {path} {result}!!");
     }
 
     public void TickPlay(string path, int state)
@@ -70,7 +69,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (!loopedSFX.ContainsKey(path)) return;
         EventInstance instance = loopedSFX[path];
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         instance.release();
         loopedSFX.Remove(path);
     }
@@ -104,15 +103,15 @@ public class SoundManager : Singleton<SoundManager>
         {
             string paramName = "parameter:/" + name + "State";
             // parameter:/SpringState
-            BGM.setParameterByName(name, state);
-            Debug.Log($"Parameter {paramName} set to {state}!");
+            var result = BGM.setParameterByName(paramName, state);
+            Debug.Log($"Parameter {paramName} set to {state}, {result}!!");
             return;
         }
 
         //기존 BGM 정지
         if (BGM.isValid())
         {
-            BGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            BGM.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             BGM.release();
         }
 
@@ -125,7 +124,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (BGM.isValid())
         {
-            BGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            BGM.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             BGM.release();
             BGM.clearHandle();
             current = "";

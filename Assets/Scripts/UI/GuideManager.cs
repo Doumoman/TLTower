@@ -1,23 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GuideManager : Singleton<GuideManager>
 {
 
-    [SerializeField] GuidePanel guidePanelRoot;
+    [SerializeField] GuidePanelRoot guidePanelRoot;
     protected override void Awake()
     {
-        guidePanelRoot.gameObject.SetActive(false);
+        base.Awake();
+        if (guidePanelRoot != null)
+            guidePanelRoot.gameObject.SetActive(false);
     }
-    void SetGuide(string str) //chapterManager 등에서 개별 실행
+    public void Play(string str)
     {
-        bool open = guidePanelRoot.gameObject.activeSelf;
-        guidePanelRoot.gameObject.SetActive(true);
+        Debug.Log($"GuideManager.PlayGuide({str}) called!");
+
         guidePanelRoot.PlayGuide(str);
+        bool open = guidePanelRoot.gameObject.activeSelf;
         Time.timeScale = open ? 1f : 0f;
         SoundManager.Instance.PlaySFX("pause");
+    }
+
+    IEnumerator WaitPlay(string str, float waitTimes)
+    {
+        yield return new WaitForSeconds(waitTimes);
+
+        Play(str);
+    }
+    public void PlayGuide(string str, float waitTimes = 2f)
+    {
+        StartCoroutine(WaitPlay(str, waitTimes));
     }
 }

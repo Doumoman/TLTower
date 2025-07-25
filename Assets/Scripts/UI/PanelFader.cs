@@ -15,7 +15,7 @@ public class PanelFader : MonoBehaviour
     }
     void OnEnable()
     {
-        canvasGroup.alpha = 0f;
+        canvasGroup.alpha = 1f;
     }
     public IEnumerator FadeIn(float fadeTime)
     {
@@ -23,7 +23,7 @@ public class PanelFader : MonoBehaviour
 
         while (t < fadeTime)
         {
-            t += Time.deltaTime;
+            t += Time.realtimeSinceStartup;
             canvasGroup.alpha = Mathf.Clamp01(t / fadeTime);
             yield return null;
         }
