@@ -670,7 +670,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1426874230581029643}
         m_TargetAssemblyTypeName: GuidePanel, Assembly-CSharp
-        m_MethodName: ExitButton
+        m_MethodName: ReturnButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

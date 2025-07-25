@@ -20,6 +20,7 @@ public class PausePanel : MonoBehaviour
     {
         if (pausepanel.activeSelf) return;
         pausepanel.SetActive(true);
+        SoundManager.Instance.PauseBGM();
     }
     void Update()
     {
@@ -40,6 +41,7 @@ public class PausePanel : MonoBehaviour
     {
         if (!pausepanel.activeSelf) return;
         pausepanel.SetActive(false);
+        SoundManager.Instance.Resume();
     }
     void ApplyAspect(float targetAspect, Vector2 refRes)
     {

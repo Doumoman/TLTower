@@ -69,7 +69,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (!loopedSFX.ContainsKey(path)) return;
         EventInstance instance = loopedSFX[path];
-        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         instance.release();
         loopedSFX.Remove(path);
     }
@@ -94,6 +94,7 @@ public class SoundManager : Singleton<SoundManager>
     }
 
     private EventInstance BGM;
+    private EventInstance Pause;
     private string current = "";
 
     public void PlayBGM(string name, int state)
@@ -111,7 +112,7 @@ public class SoundManager : Singleton<SoundManager>
         //기존 BGM 정지
         if (BGM.isValid())
         {
-            BGM.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            BGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             BGM.release();
         }
 
@@ -124,13 +125,26 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (BGM.isValid())
         {
-            BGM.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            BGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             BGM.release();
             BGM.clearHandle();
             current = "";
         }
     }
 
+    public void PauseBGM()
+    {
+        BGM.setPaused(true);
+        string path = "event:/pause";
+        Pause = RuntimeManager.CreateInstance(path);
+        Pause.start();
+    }
+
+    public void Resume()
+    {
+        Pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        BGM.setPaused(false);
+    }
     [SerializeField] private float speakTerm = 1f;
     IEnumerator WaitAndSpeak(string path)
     {

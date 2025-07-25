@@ -54,6 +54,7 @@ public class GuidePanel : MonoBehaviour
 
     void OnEnable()
     {
+        SoundManager.Instance.PauseBGM();
         canExit = false;
         Invoke(nameof(EnableExit), lockTime);
     }
@@ -171,6 +172,14 @@ public class GuidePanel : MonoBehaviour
             UpdateButtons(currentIdx, imageList.Count);
     }
     public void ExitButton()
+    {
+        if (!canExit) return;
+        returnButton.SetActive(false);
+        root.SetActive(false);
+        SoundManager.Instance.PlaySFX("stamp_button");
+        SoundManager.Instance.Resume();
+    }
+    public void ReturnButton()
     {
         if (!canExit) return;
         returnButton.SetActive(false);
