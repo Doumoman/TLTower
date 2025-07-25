@@ -118,7 +118,7 @@ public class ChapterManager : MonoBehaviour
         {
             chapter = arr[++idx];
             SetObstacle();
-            if (!StoneFixer.Instance)
+            if (StoneFixer.Instance)
             {
                 /* space 챕터에는 threshold 가 없으므로 안전 체크 */
                 if (idx < stonesForChapter.Length)

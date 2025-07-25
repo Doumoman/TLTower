@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2688906177848514636}
   - component: {fileID: 361952089043150040}
   - component: {fileID: 9159522408768278350}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_3
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -174,6 +174,129 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f186c7acce30ca41ad81f279b22f789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3058029386619079335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9009176716806794202}
+  - component: {fileID: 9041657128507238340}
+  m_Layer: 10
+  m_Name: separate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9009176716806794202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058029386619079335}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7532421635959847389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &9041657128507238340
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058029386619079335}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 3071
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.18, y: 1.41}
+    newSize: {x: 2.18, y: 1.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.8252223, y: -0.6845376}
+      - {x: 0.9224577, y: -0.56418127}
+      - {x: 1.0824327, y: -0.52064764}
+      - {x: 1.1402903, y: -0.26820675}
+      - {x: 1.2404258, y: -0.014218353}
+      - {x: 1.0743152, y: 0.29377443}
+      - {x: 0.9003191, y: 0.36944035}
+      - {x: 0.6309941, y: 0.31111008}
+      - {x: 0.6445464, y: 0.3689963}
+      - {x: 0.6398754, y: 0.49077246}
+      - {x: 0.40587842, y: 0.6461011}
+      - {x: 0.15577175, y: 0.6974331}
+      - {x: -0.1635514, y: 0.79276145}
+      - {x: -0.19310868, y: 0.71787703}
+      - {x: -0.24788539, y: 0.6708789}
+      - {x: -0.27986228, y: 0.6358686}
+      - {x: -0.330801, y: 0.6174025}
+      - {x: -0.36356354, y: 0.61988086}
+      - {x: -0.3872769, y: 0.6308624}
+      - {x: -0.40143472, y: 0.5910954}
+      - {x: -0.41487372, y: 0.58378553}
+      - {x: -0.5162632, y: 0.59261554}
+      - {x: -0.5313711, y: 0.64100176}
+      - {x: -0.6573963, y: 0.5948325}
+      - {x: -0.69022465, y: 0.51178443}
+      - {x: -0.74994755, y: 0.48111472}
+      - {x: -0.82877755, y: 0.45300218}
+      - {x: -0.96282816, y: 0.3213652}
+      - {x: -0.97129965, y: 0.24875686}
+      - {x: -1.0358794, y: 0.077876925}
+      - {x: -1.2008696, y: -0.07567519}
+      - {x: -1.0786501, y: -0.3458881}
+      - {x: -0.9626452, y: -0.5155505}
+      - {x: -0.79308987, y: -0.66610086}
+      - {x: -0.5177618, y: -0.70176697}
+      - {x: -0.3685425, y: -0.5898844}
+      - {x: -0.19976875, y: -0.50155413}
+      - {x: -0.20854248, y: -0.61032844}
+      - {x: -0.16987419, y: -0.6446624}
+      - {x: -0.15421009, y: -0.6968826}
+      - {x: -0.14376576, y: -0.7543249}
+      - {x: -0.028988093, y: -0.7221045}
+      - {x: 0.10579151, y: -0.80565685}
+      - {x: 0.33145654, y: -0.73354316}
+      - {x: 0.46545357, y: -0.7270955}
+      - {x: 0.6907816, y: -0.6927615}
+  m_UseDelaunayMesh: 0
 --- !u!1 &3970418311059501669
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +312,7 @@ GameObject:
   - component: {fileID: 6251038599470339103}
   - component: {fileID: 5165720859200416283}
   - component: {fileID: 4779248359187212022}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_6
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -253,7 +376,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -363,7 +486,7 @@ GameObject:
   - component: {fileID: 8005375871548961404}
   - component: {fileID: 7165284762470200421}
   - component: {fileID: 2037900177446791629}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_1
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -427,7 +550,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -564,6 +687,7 @@ Transform:
   - {fileID: 6610043287616659432}
   - {fileID: 1643951044767129186}
   - {fileID: 1565302003357702903}
+  - {fileID: 9009176716806794202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8446272741257204648
@@ -686,7 +810,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -815,7 +939,7 @@ GameObject:
   - component: {fileID: 4060104410249894652}
   - component: {fileID: 4960253797089404072}
   - component: {fileID: 4067687563437969217}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_4
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -879,7 +1003,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -989,7 +1113,7 @@ GameObject:
   - component: {fileID: 4143750596977351421}
   - component: {fileID: 2839451296287548605}
   - component: {fileID: 5003567028398618066}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_7
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1053,7 +1177,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1163,7 +1287,7 @@ GameObject:
   - component: {fileID: 822292420899778780}
   - component: {fileID: 8706091995081568380}
   - component: {fileID: 3272259741713506116}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_5
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1227,7 +1351,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1337,7 +1461,7 @@ GameObject:
   - component: {fileID: 889199184796794044}
   - component: {fileID: 8412602118710355407}
   - component: {fileID: 3315141843318272593}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone_2
   m_TagString: Cloud
   m_Icon: {fileID: 0}
@@ -1401,7 +1525,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

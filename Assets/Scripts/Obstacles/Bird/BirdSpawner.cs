@@ -14,7 +14,7 @@ public class BirdSpawner : MonoBehaviour
     public int cycleSpanMin = 7; // 이후 주기 (틱 단위)
     public int cycleSpanMax = 10;
     public float sittime = 10f;
-    public float waitAfterFeather = 4f;
+    public float waitAfterFeather = 8f;
 
     [Header("References")]
     public GameObject birdPoop;
@@ -120,7 +120,7 @@ public class BirdSpawner : MonoBehaviour
         GetStonePoint(out Vector2 hitpoint);
         GameObject go = MakeNotice();
         yield return new WaitForSeconds(waitAfterFeather); //예고 발생 후 기다리기
-        Destroy(go);
+        if (go) Destroy(go);
 
         if (hitpoint != Vector2.zero)
         {
@@ -141,7 +141,7 @@ public class BirdSpawner : MonoBehaviour
         GetStonePoint(out Vector2 hitPoint, out GameObject stone);
         GameObject go = MakeNotice();
         yield return new WaitForSeconds(waitAfterFeather);
-        Destroy(go);
+        if (go) Destroy(go);
 
         if (hitPoint != Vector2.zero)
         {

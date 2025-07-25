@@ -16,9 +16,13 @@ public class CloudController : MonoBehaviour,
     Collider2D col;
     Collider2D[] colChildren;
     SpriteRenderer sr;
-    public float backGroudWindForce;
     public float flowSpeed = -1;
     CloudState state = CloudState.flow;
+
+    //구름 반발력 용도
+    Collider2D separator;
+    public float checktime = 0.3f; 
+    Coroutine co = null;
 
     public static bool AnyCloudBeingDragged { get; private set; }
     Vector3 dragOffset;
@@ -44,16 +48,29 @@ public class CloudController : MonoBehaviour,
         rb.gravityScale = 0;
         col.isTrigger = true;
         rb.isKinematic = true;
-        foreach (var rbChild in rbChildren) rbChild.isKinematic = true;
-        foreach (var rbChild in rbChildren) rbChild.gravityScale = 0;
-        foreach (var col in colChildren) col.isTrigger = true;
+        foreach (var rbChild in rbChildren)
+        {
+            rbChild.isKinematic = true;
+            rbChild.gravityScale = 0;
+        }
+        separator = colChildren.FirstOrDefault(c => c.gameObject.layer == 10);
+        separator.gameObject.layer = 0;
+        colChildren = colChildren.Where<Collider2D>(c => c != separator).ToArray();
+        separator.isTrigger = true;
+        foreach (var col in colChildren)
+        {
+            col.isTrigger = true;
+            //Physics2D.IgnoreCollision(col, separator);
+        }
 
         gameObject.tag = "FlowCloud";
         sr.sortingLayerName = "FlowCloud";
+        sr.color = new Color(1, 1, 1, 0.7f);
     }
 
-    // Update is called once per frame
 
+
+    // Update is called once per frame
     void Update()
     {
         if (state == CloudState.Dragging && !isRotating)
@@ -109,6 +126,59 @@ public class CloudController : MonoBehaviour,
         {
             jmp.CheckOverlap();
         }
+        if (!TryGetComponent<JointMaker>(out JointMaker jm))
+        {
+            StartSeparate();
+        }
+    }
+
+    public void StartSeparate()
+    {
+        if (state != CloudState.Dropped) return;
+        if (co != null) return;
+        co = StartCoroutine(Separate());
+    }
+
+
+    //separator랑 겹치는게 있으면 분리 실행(참고로jm파괴는 아직 안됐을 시점)
+    public IEnumerator Separate() 
+    {
+        yield return null;
+        Collider2D[] results = new Collider2D[1];
+        LayerMask mask = LayerMask.GetMask("CloudSeparate");
+        ContactFilter2D filter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
+        filter.SetLayerMask(mask);
+
+        int count = separator.OverlapCollider(filter, results);
+        if (count > 0 && results[0].transform.parent.TryGetComponent<CloudController>(out CloudController c))
+        {
+            foreach (Collider2D col in colChildren) col.isTrigger = true;
+            separator.isTrigger = false;
+            c.StartSeparate();
+
+            //separator랑 겹치는 게 없을 때 까지 콜라이더 활성화(튕기기)실행
+            while (true)
+            {
+                yield return new WaitForSeconds(checktime);
+
+                count = separator.OverlapCollider(filter, results);
+                if (count > 0 && results[0].TryGetComponent<CloudController>(out c))
+                {
+                    if (results[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
+                    {
+                        CheckOverlap();
+                        break;
+                    }
+                    else c.StartSeparate();
+                }
+                else break;
+            }
+
+            //복구
+            foreach (Collider2D col in colChildren) col.isTrigger = false;
+            separator.isTrigger = true;
+        }
+        co = null;
     }
 
     int activePointer = -1;
@@ -128,8 +198,6 @@ public class CloudController : MonoBehaviour,
     {
         if (eventData.pointerId != activePointer) return;
         if (state != CloudState.Dragging) return;
-        if (col) col.isTrigger = true;
-
 
         Vector2 mouseWorld = ScreenToWorld(eventData.position);
 
@@ -184,14 +252,13 @@ public class CloudController : MonoBehaviour,
         }
         rb.Sleep();
 
-        //if (col) col.isTrigger = false;
         foreach (Collider2D col in colChildren) col.isTrigger = false;
         sr.color = Color.white;
         sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
+        separator.gameObject.layer = 10;
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
-
     }
 
 
@@ -205,8 +272,14 @@ public class CloudController : MonoBehaviour,
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
-        if (col) col.isTrigger = true;
+        separator.isTrigger = true;
         foreach (Collider2D col in colChildren) col.isTrigger = true;
+
+        if (co != null) //드래그중에 콜라이더 활성화 방지
+        {
+            StopCoroutine(co);  
+            co = null;
+        }
 
         rb.isKinematic = true;
         foreach (Rigidbody2D rb in rbChildren) rb.isKinematic = true;

@@ -68,9 +68,10 @@ public class CloudSystem : MonoBehaviour
         jm.DFS(ref jmList);
 
 
-        //검사 초기화 및 고립대상들 삭제
+        //고립대상들 삭제
         foreach (JointMaker node in nodes)
         {
+            if (node.TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
             if (jmList.Contains(node)) continue;
             Destroy(node);
         }
