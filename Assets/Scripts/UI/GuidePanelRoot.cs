@@ -5,7 +5,6 @@ public class GuidePanelRoot : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GuidePanel guidePanel;
     string key;
-    bool isButtonGuide = false;
     void Awake()
     {
     }
@@ -18,7 +17,6 @@ public class GuidePanelRoot : MonoBehaviour
         Time.timeScale = 0f;
         guidePanel.PlayGuide(str);
     }
-
     void OnDisable()
     {
         key = "";
@@ -26,13 +24,10 @@ public class GuidePanelRoot : MonoBehaviour
     }
     public void ButtonGuide()
     {
-        isButtonGuide = true;
         Debug.Log("ButtonGuide");
         gameObject.SetActive(true);
         guidePanel.ButtonGuide();
-        bool open = gameObject.activeSelf;
-        Time.timeScale = open ? 1f : 0f;
-        SoundManager.Instance.PlaySFX("pause");
-        isButtonGuide = false;
+        Time.timeScale = 0f;
+        SoundManager.Instance.PlaySFX("stamp_button");
     }
 }

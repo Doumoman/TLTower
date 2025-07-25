@@ -61,6 +61,7 @@ public class PenaltyManager : MonoBehaviour
         StoneSpawner.Penalty = true; // 다음 돌은 번뇌돌
         BnStone = true;
         BosalManager.Instance.Speak("KarmaStone");
+        GuideManager.Instance.PlayGuide("penalty");
         StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때

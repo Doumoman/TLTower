@@ -40,6 +40,9 @@ public class RainSystem : CountBasedObstacle
             item.material2D = rainy;
         }
 
+        SoundManager.Instance.PlayVoice("Rain");
+        GuideManager.Instance.PlayGuide("rain");
+
         StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
