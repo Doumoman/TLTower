@@ -5145,7 +5145,15 @@ MonoBehaviour:
     spriteIndex: 4
     position: {x: 0, y: 0}
     rotationZ: 0
+  Block: {fileID: 0}
+  Yumju: {fileID: 0}
   stonesParent: {fileID: 0}
+  spaceAnimRoot: {fileID: 0}
+  animStateName: Play
+  startSpeed: 0.2
+  slowDuration: 3
+  midSpeed: 0.5
+  endSpeed: 2
 --- !u!320 &55845247
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -17029,6 +17037,7 @@ MonoBehaviour:
   autumn: {fileID: 21300000, guid: 0a32528bed0e1fc4aa45384f29154d07, type: 3}
   winter: {fileID: 21300000, guid: 5fed99c69f6c9df4693a89a490212a3f, type: 3}
   space: {fileID: 21300000, guid: a2c3e0b15453fb74eac6e4287c0d7dea, type: 3}
+  space2: {fileID: 0}
 --- !u!1 &760938852
 GameObject:
   m_ObjectHideFlags: 0
@@ -36663,7 +36672,7 @@ ParticleSystem:
     quality: 0
     voxelSize: 0.5
     collisionMessages: 0
-    collidesWithDynamic: 0
+    collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
@@ -38058,6 +38067,9 @@ MonoBehaviour:
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
+  darkenBackGround: {fileID: 0}
+  speed: 0.1
+  opacity: 0.2
 --- !u!1 &1229282264
 GameObject:
   m_ObjectHideFlags: 0
@@ -53766,6 +53778,9 @@ MonoBehaviour:
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
+  darkenBackGround: {fileID: 0}
+  speed: 0.1
+  opacity: 0.2
 --- !u!224 &1623352068 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2024457144926564553, guid: ac8fbeab8888c234cb598c057737ae30, type: 3}

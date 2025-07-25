@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
@@ -8,23 +9,25 @@ using UnityEngine;
 public class JointMaker : MonoBehaviour
 {
     public float breakForce;
-    [SerializeField] private List<JointMaker> initial = new List<JointMaker>();  //이 오브젝트에 joint2D를 형성한 오브젝트. 중복 연결 방지용
+    [SerializeField] private List<JointMaker> initial = new List<JointMaker>();  //날 잡고있는 오브젝트. 중복 연결 방지용
     private bool isNotyfied = false;
-
+    Collider2D separator;
 
     //스크립트 형성시(연결능력 부여시) or 조인트 당했으면 뭐가 Joint했는지 알기
     public void Init(JointMaker jm)
     {
         initial.Add(jm);
-        this.GetComponent<SpriteRenderer>().color = Color.blue;
 
         // 처음 한 번만 보고하기
         if (isNotyfied) return;
         CloudSystem.Instance.NotifyJoint(this);
         isNotyfied = true;
+        //분리에서 제외하기
+        separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == 10);
+        separator.gameObject.layer = 12;
     }
 
-    //이전 구름의 조인트 해제시 initial 리스트에서 제거하기. 그리고 검사 실행
+    //날 잡고있던 조인트 파괴시, 날 잡던 구름을 initial 리스트에서 제거하기. 그리고 검사 실행
     public void RemoveInit(JointMaker jm)
     {
         initial.Remove(jm);
@@ -40,7 +43,7 @@ public class JointMaker : MonoBehaviour
 
         //닿은 대상이 아직 joint2d를 형성하지 않은 구름이라면
         List<FixedJoint2D> joint2Ds = GetJointList(); 
-        if (!joint2Ds.Find(x => x.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker() == jm))  //이미 연결한 구름의 jm중에 닿은 대상과 연결된 jm이 없다면
+        if (!joint2Ds.Find(x => x.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker() == jm))  //이미 잡고있는 구름중에 지금 찾은 jm이 없다면
         {
             // 닿은 대상과 joint2d 형성
             Joint2D joint = jmp.AddComponent<FixedJoint2D>();
@@ -67,7 +70,7 @@ public class JointMaker : MonoBehaviour
     {
         foreach (JointMaker jm in initial)
         {
-            List<FixedJoint2D> joint2Ds = jm.GetJointList().FindAll(x => x.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker() == this);  //연결 대상과 연결된 jointmaker가 this인 것들
+            List<FixedJoint2D> joint2Ds = jm.GetJointList().FindAll(x => x.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker() == this);  //이 오브젝트를 잡고있는 조인트들.
             foreach (FixedJoint2D joint in joint2Ds)
             {
                 joint.breakForce = 0;
@@ -94,8 +97,8 @@ public class JointMaker : MonoBehaviour
             Destroy(joint);
             //StartCoroutine(disconnect(disconnectionInterval));
         }
-        this.GetComponent<SpriteRenderer>().color = Color.white;
-        if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
+
+        separator.gameObject.layer = 10;
     }
 
     //[SerializeField] private float disconnectionInterval = 0.1f;

@@ -14,13 +14,15 @@ public class CloudController : MonoBehaviour,
     Rigidbody2D rb;
     Rigidbody2D[] rbChildren;
     Collider2D col;
-    Collider2D separator;
-    Collider2D otherSeparator;
     Collider2D[] colChildren;
     SpriteRenderer sr;
-    public float backGroudWindForce;
     public float flowSpeed = -1;
     CloudState state = CloudState.flow;
+
+    //구름 반발력 용도
+    Collider2D separator;
+    public float checktime = 0.3f; 
+    Coroutine co = null;
 
     public static bool AnyCloudBeingDragged { get; private set; }
     Vector3 dragOffset;
@@ -126,64 +128,57 @@ public class CloudController : MonoBehaviour,
         }
         if (!TryGetComponent<JointMaker>(out JointMaker jm))
         {
-            //복구
-            StopAllCoroutines();
-            if (otherSeparator)
-            {
-                foreach (Collider2D col in colChildren) col.isTrigger = false;
-                separator.isTrigger = true;
-                otherSeparator.isTrigger = true;
-                otherSeparator = null;
-            }
-
-            StartCoroutine(Separate());
+            StartSeparate();
         }
     }
 
-    public void StartSeparate() => StartCoroutine(Separate());
+    public void StartSeparate()
+    {
+        if (state != CloudState.Dropped) return;
+        if (co != null) return;
+        co = StartCoroutine(Separate());
+    }
 
-    //separator랑 겹치는게 있으면 분리 실행
+
+    //separator랑 겹치는게 있으면 분리 실행(참고로jm파괴는 아직 안됐을 시점)
     public IEnumerator Separate() 
     {
+        yield return null;
         Collider2D[] results = new Collider2D[1];
         LayerMask mask = LayerMask.GetMask("CloudSeparate");
         ContactFilter2D filter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
         filter.SetLayerMask(mask);
 
         int count = separator.OverlapCollider(filter, results);
-        if (count > 0)
+        if (count > 0 && results[0].transform.parent.TryGetComponent<CloudController>(out CloudController c))
         {
-            otherSeparator = results[0];
-            otherSeparator.isTrigger = false;
             foreach (Collider2D col in colChildren) col.isTrigger = true;
             separator.isTrigger = false;
+            c.StartSeparate();
 
             //separator랑 겹치는 게 없을 때 까지 콜라이더 활성화(튕기기)실행
             while (true)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(checktime);
 
                 count = separator.OverlapCollider(filter, results);
-                if (count == 0) break;
-                else
+                if (count > 0 && results[0].TryGetComponent<CloudController>(out c))
                 {
-                    otherSeparator.isTrigger = true;
-                    otherSeparator = results[0];
-                    if (!otherSeparator.transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) otherSeparator.isTrigger = false;
-                    else   //JointMaker가 있는 대상이면 겹침검사 실행
+                    if (results[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
                     {
                         CheckOverlap();
-                        break; 
+                        break;
                     }
+                    else c.StartSeparate();
                 }
+                else break;
             }
 
             //복구
             foreach (Collider2D col in colChildren) col.isTrigger = false;
             separator.isTrigger = true;
-            otherSeparator.isTrigger = true;
         }
-        otherSeparator = null;
+        co = null;
     }
 
     int activePointer = -1;
@@ -203,14 +198,6 @@ public class CloudController : MonoBehaviour,
     {
         if (eventData.pointerId != activePointer) return;
         if (state != CloudState.Dragging) return;
-        StopAllCoroutines();
-        if (otherSeparator)
-        {
-            separator.isTrigger = true;
-            otherSeparator.isTrigger = true;
-            otherSeparator = null;
-        }
-
 
         Vector2 mouseWorld = ScreenToWorld(eventData.position);
 
@@ -277,7 +264,6 @@ public class CloudController : MonoBehaviour,
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
-        StopAllCoroutines();
         AnyCloudBeingDragged = true;
         CameraController.Instance.BeginDrag(this);
 
@@ -288,6 +274,12 @@ public class CloudController : MonoBehaviour,
         foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
         separator.isTrigger = true;
         foreach (Collider2D col in colChildren) col.isTrigger = true;
+
+        if (co != null) //드래그중에 콜라이더 활성화 방지
+        {
+            StopCoroutine(co);  
+            co = null;
+        }
 
         rb.isKinematic = true;
         foreach (Rigidbody2D rb in rbChildren) rb.isKinematic = true;
