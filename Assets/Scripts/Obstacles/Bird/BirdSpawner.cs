@@ -33,11 +33,6 @@ public class BirdSpawner : MonoBehaviour
 
     private void TickEvent(object sender, System.EventArgs eventArgs)
     {
-        /*
-        if (spanCount == 사운드 길이){
-        Play("BirdAlert", Soundtype.MELODY, 0);
-        }
-        */
 
         if (spanCount-- <= 0)
         {
@@ -76,6 +71,7 @@ public class BirdSpawner : MonoBehaviour
         GameObject go = Instantiate(feather);
         go.transform.position = this.transform.position;
         SoundManager.Instance.PlaySFX("bird_alert");
+        GuideManager.Instance.PlayGuide("bird", 2f);
         return go;
     }
     //제일 높은 돌을 기준으로 일정 y좌표 위에서, 무작위로 위치 선정

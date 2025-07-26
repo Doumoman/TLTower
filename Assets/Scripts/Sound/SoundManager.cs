@@ -20,9 +20,8 @@ public class SoundManager : Singleton<SoundManager>
         BGM.start();
 
         string paramName2 = "parameter:/" + str + "State";
-        BGM.setParameterByName(paramName2, state);
-        Debug.Log($"Parameter {paramName2} set to {state}, {path} playing!!");
-
+        var result = BGM.setParameterByName(paramName2, state);
+        Debug.Log($"Parameter {paramName2} set to {state}, {path} {result}!!");
     }
 
     public void TickPlay(string path, int state)
@@ -95,6 +94,7 @@ public class SoundManager : Singleton<SoundManager>
     }
 
     private EventInstance BGM;
+    private EventInstance Pause;
     private string current = "";
 
     public void PlayBGM(string name, int state)
@@ -104,8 +104,8 @@ public class SoundManager : Singleton<SoundManager>
         {
             string paramName = "parameter:/" + name + "State";
             // parameter:/SpringState
-            BGM.setParameterByName(name, state);
-            Debug.Log($"Parameter {paramName} set to {state}!");
+            var result = BGM.setParameterByName(paramName, state);
+            Debug.Log($"Parameter {paramName} set to {state}, {result}!!");
             return;
         }
 
@@ -132,6 +132,19 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
+    public void PauseBGM()
+    {
+        BGM.setPaused(true);
+        string path = "event:/pause";
+        Pause = RuntimeManager.CreateInstance(path);
+        Pause.start();
+    }
+
+    public void Resume()
+    {
+        Pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        BGM.setPaused(false);
+    }
     [SerializeField] private float speakTerm = 1f;
     IEnumerator WaitAndSpeak(string path)
     {
