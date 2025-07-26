@@ -13,7 +13,8 @@ public class Feather : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.transform.CompareTag("PlacedStone")) return;
-        transform.parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        //transform.parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<Collider2D>().isTrigger = false;
 
         if (TryGetComponent<Animator>(out Animator animator)) Destroy(animator);
         if (co != null) StopCoroutine(co);

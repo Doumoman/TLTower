@@ -143,6 +143,16 @@ public class BirdSpawner : MonoBehaviour
         yield return new WaitForSeconds(waitAfterFeather);
         if (go) Destroy(go);
 
+        hitPoint = Vector2.zero;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 10);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.gameObject.tag == "PlacedStone")
+            {
+                hitPoint = hit.point;
+                stone = hit.collider.gameObject;
+            }
+        }
         if (hitPoint != Vector2.zero)
         {
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
