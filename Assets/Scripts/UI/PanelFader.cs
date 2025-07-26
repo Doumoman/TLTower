@@ -23,7 +23,7 @@ public class PanelFader : MonoBehaviour
 
         while (t < fadeTime)
         {
-            t += Time.realtimeSinceStartup;
+            t += Time.deltaTime;
             canvasGroup.alpha = Mathf.Clamp01(t / fadeTime);
             yield return null;
         }

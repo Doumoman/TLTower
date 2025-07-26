@@ -99,6 +99,7 @@ public class JointMaker : MonoBehaviour
         }
 
         separator.gameObject.layer = 10;
+        if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
     }
 
     //[SerializeField] private float disconnectionInterval = 0.1f;

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9162314700824352313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/reset_button
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/reset_button
+  Guid:
+    Data1: 1908759100
+    Data2: 1157343703
+    Data3: 99810450
+    Data4: 468831913
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-9115909118000289636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +54,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-9078367271964038683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spring/spring
+  m_EditorClassIdentifier: 
+  Path: event:/Spring/spring
+  Guid:
+    Data1: -2030941753
+    Data2: 1218134746
+    Data3: 1910569366
+    Data4: -509541475
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-9076944437879188590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn_melody_001
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn_melody_001
+  Guid:
+    Data1: 1672988191
+    Data2: 1256167937
+    Data3: 474688911
+    Data4: -1723269610
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-9046572649889169120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +128,33 @@ MonoBehaviour:
     Data4: 2103006567
   Banks:
   - {fileID: -3897477470145983205}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-9030412408447006928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_pad_003
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_pad_003
+  Guid:
+    Data1: 2037851402
+    Data2: 1322758221
+    Data3: 890851467
+    Data4: 791685408
+  Banks:
+  - {fileID: 2670347828736727735}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -129,6 +237,60 @@ MonoBehaviour:
   Banks:
   - {fileID: -6293906536586783629}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8915095348539988419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BeforeEnterWinter1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BeforeEnterWinter1
+  Guid:
+    Data1: -2008100800
+    Data2: 1217909922
+    Data3: 2005088128
+    Data4: 858746799
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8794947458225165837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_melody_001
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_melody_001
+  Guid:
+    Data1: -719812993
+    Data2: 1178076051
+    Data3: -1392700008
+    Data4: -962506811
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -449,6 +611,88 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8415272707793462300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Winter
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Winter
+  Guid:
+    Data1: 1699547015
+    Data2: 1324723931
+    Data3: 1963486105
+    Data4: -1520298617
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8190454976589431829}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 124032
+--- !u!114 &-8389266785715285829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/RainFirst1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/RainFirst1
+  Guid:
+    Data1: 1973279073
+    Data2: 1152884057
+    Data3: 1573351321
+    Data4: -752333956
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8377529349784258982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Autumn1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Autumn1
+  Guid:
+    Data1: -650804370
+    Data2: 1221474084
+    Data3: -1591252345
+    Data4: -844070798
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8334298054249267501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +767,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8255990324178783925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_fall
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_fall
+  Guid:
+    Data1: 88082892
+    Data2: 1292354278
+    Data3: 1599802813
+    Data4: -2095589124
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8214436685298864602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdStone1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdStone1
+  Guid:
+    Data1: 392528164
+    Data2: 1200847605
+    Data3: -2050733894
+    Data4: -17252018
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8193481541175307741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +848,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8190454976589431829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Winter/WinterState
+  m_EditorClassIdentifier: 
+  Name: WinterState
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 4235302872
+    data2: 1280402863
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-8184456772464171933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +981,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 277652
+--- !u!114 &-7946434742788637956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/cloud_select
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/cloud_select
+  Guid:
+    Data1: -1243613538
+    Data2: 1144711692
+    Data3: 981335940
+    Data4: 1076939740
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7919127899229323618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_beat_001
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_beat_001
+  Guid:
+    Data1: -265773324
+    Data2: 1205213871
+    Data3: -1747580027
+    Data4: 35025264
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7906827442886818075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +1089,114 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7860298377962631003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bird_alert
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bird_alert
+  Guid:
+    Data1: 1986595748
+    Data2: 1267808025
+    Data3: 1069632166
+    Data4: -278994603
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7835194170896620722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/game_start
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/game_start
+  Guid:
+    Data1: 1040806326
+    Data2: 1292993252
+    Data3: 1438168969
+    Data4: -596467964
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7833249819792856318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bird_poop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bird_poop
+  Guid:
+    Data1: 453054684
+    Data2: 1242564226
+    Data3: 440380348
+    Data4: -986284079
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7825247476084455428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/UCanDoIt2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/UCanDoIt2
+  Guid:
+    Data1: 172193918
+    Data2: 1212442341
+    Data3: 1120647575
+    Data4: 361759068
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7818260285089881861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +1218,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 133997216764905506}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7811225330863838363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spring/spring_ambient_002
+  m_EditorClassIdentifier: 
+  Path: event:/Spring/spring_ambient_002
+  Guid:
+    Data1: 286711344
+    Data2: 1163853513
+    Data3: -1428619640
+    Data4: -748810183
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -870,6 +1381,33 @@ MonoBehaviour:
     Data4: 42416198
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7629621971050077140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Spring4
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Spring4
+  Guid:
+    Data1: 270767426
+    Data2: 1222452287
+    Data3: 1186998913
+    Data4: 1865773271
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1037,6 +1575,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7347573285512563691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Spring1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Spring1
+  Guid:
+    Data1: -45100753
+    Data2: 1116223808
+    Data3: -1705756773
+    Data4: -1719185191
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7346715527780415783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1649,33 @@ MonoBehaviour:
     Data4: 98186439
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7244717972114728707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/cloud_deselect
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/cloud_deselect
+  Guid:
+    Data1: 517598299
+    Data2: 1319086876
+    Data3: -1995081841
+    Data4: 1375089377
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1165,6 +1757,33 @@ MonoBehaviour:
     Data4: -509541475
   Banks:
   - {fileID: 2453403578161133751}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6872386212071438417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/FindTree1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/FindTree1
+  Guid:
+    Data1: -349722255
+    Data2: 1141655722
+    Data3: 990031769
+    Data4: -1304438601
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1706,6 +2325,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6103337714120354076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Space
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Space
+  Guid:
+    Data1: -2017531451
+    Data2: 1198857161
+    Data3: 957323447
+    Data4: 1139364952
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2705880304211142743}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 116088
 --- !u!114 &-6030978716179054313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,6 +2373,33 @@ MonoBehaviour:
     Data4: -17252018
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6005722222254853528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindStart0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindStart0
+  Guid:
+    Data1: 496684399
+    Data2: 1173842608
+    Data3: 662192808
+    Data4: -1591666580
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1760,6 +2434,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5983141636200290007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Summer
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Summer
+  Guid:
+    Data1: -1807297306
+    Data2: 1073847875
+    Data3: -668094827
+    Data4: -860685397
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5679381084025907003}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 164839
+--- !u!114 &-5966837996011924946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spring/spring_beat_001
+  m_EditorClassIdentifier: 
+  Path: event:/Spring/spring_beat_001
+  Guid:
+    Data1: 664202584
+    Data2: 1295938642
+    Data3: 15072434
+    Data4: 202916009
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5953313402675140349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +2509,60 @@ MonoBehaviour:
     Data4: -885216885
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5854900748602496476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdStone0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdStone0
+  Guid:
+    Data1: -1337867196
+    Data2: 1194644797
+    Data3: -712620654
+    Data4: -1218809310
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5842781047098410599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/TempleStart0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/TempleStart0
+  Guid:
+    Data1: 731749337
+    Data2: 1170259932
+    Data3: -403195243
+    Data4: 1220892290
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1841,6 +2624,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5679381084025907003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Summer/SummerState
+  m_EditorClassIdentifier: 
+  Name: SummerState
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 1
+  ID:
+    data1: 1604998680
+    data2: 225057441
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5649400236093418397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/yumju_revert
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/yumju_revert
+  Guid:
+    Data1: 1242971875
+    Data2: 1113566622
+    Data3: 1969335720
+    Data4: 646577504
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5584250524693325486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1889,6 +2723,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 5411279136027037235}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5467096500139023193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/winter/winter_pad_001
+  m_EditorClassIdentifier: 
+  Path: event:/winter/winter_pad_001
+  Guid:
+    Data1: -1111029445
+    Data2: 1306809937
+    Data3: 1282098846
+    Data4: -1190822850
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -1949,6 +2810,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5450464547504090387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638891203909588642
+  FileSizes:
+  - Name: Desktop
+    Value: 5908
+  Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +3013,33 @@ MonoBehaviour:
     Data4: -737214371
   Banks:
   - {fileID: 133997216764905506}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5137009271875656860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spring/spring_melody_001
+  m_EditorClassIdentifier: 
+  Path: event:/Spring/spring_melody_001
+  Guid:
+    Data1: -551756186
+    Data2: 1258348113
+    Data3: -1595725666
+    Data4: -737214371
+  Banks:
+  - {fileID: 2670347828736727735}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2424,6 +3332,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-4848983805006661572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Ground
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Ground
+  Guid:
+    Data1: 2133288184
+    Data2: 1195642480
+    Data3: -767642710
+    Data4: 1609352637
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 38000
 --- !u!114 &-4706672652998823310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,6 +3406,33 @@ MonoBehaviour:
     Data4: 281829329
   Banks:
   - {fileID: 5411279136027037235}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4657962908531973755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/PushReset1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/PushReset1
+  Guid:
+    Data1: 831631050
+    Data2: 1174807353
+    Data3: -1294151544
+    Data4: -1656192093
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2559,6 +3521,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4490884765904513766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdPeace1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdPeace1
+  Guid:
+    Data1: -1932594768
+    Data2: 1330152461
+    Data3: 1975687308
+    Data4: 1570035700
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4489197524122797511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2634,6 +3623,33 @@ MonoBehaviour:
     Data4: -923011064
   Banks:
   - {fileID: -3897477470145983205}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4404284713368021834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_highlight
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_highlight
+  Guid:
+    Data1: -1312222535
+    Data2: 1324180420
+    Data3: 1622099608
+    Data4: 1514832698
+  Banks:
+  - {fileID: 2670347828736727735}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2803,6 +3819,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4019081537855538672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/winter/winter_beat_001
+  m_EditorClassIdentifier: 
+  Path: event:/winter/winter_beat_001
+  Guid:
+    Data1: 1636017649
+    Data2: 1298479610
+    Data3: -429084277
+    Data4: -2146591801
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3995109609533717390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/RainFirst0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/RainFirst0
+  Guid:
+    Data1: -1160721895
+    Data2: 1308298306
+    Data3: 1264191636
+    Data4: -1008865199
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3967643452199361700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,6 +4001,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3629851947337768356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn_melody_002
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn_melody_002
+  Guid:
+    Data1: -1683932897
+    Data2: 1204043399
+    Data3: 2094656408
+    Data4: 1116720278
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3599234799719615966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,6 +4136,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3390476265267907034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spring/spring_ambient_001
+  m_EditorClassIdentifier: 
+  Path: event:/Spring/spring_ambient_001
+  Guid:
+    Data1: 421954198
+    Data2: 1090504105
+    Data3: -1895630449
+    Data4: 1011075331
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3388245392416923615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,6 +4211,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 5568822398599213308}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3300424317130594945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Summer/summer_melody_001
+  m_EditorClassIdentifier: 
+  Path: event:/Summer/summer_melody_001
+  Guid:
+    Data1: 1299416002
+    Data2: 1170599183
+    Data3: -1324112994
+    Data4: -1324936960
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -3167,6 +4318,33 @@ MonoBehaviour:
     Data4: -201533105
   Banks:
   - {fileID: -6293906536586783629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3126858212531199586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindFirst0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindFirst0
+  Guid:
+    Data1: 855291593
+    Data2: 1185453040
+    Data3: 1111136696
+    Data4: 1898403028
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3469,6 +4647,84 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2790869100877885837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_pad_001
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_pad_001
+  Guid:
+    Data1: -1136945016
+    Data2: 1092492463
+    Data3: 1038665623
+    Data4: -1698307186
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2705880304211142743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Space/SpaceState
+  m_EditorClassIdentifier: 
+  Name: SpaceState
+  StudioPath: 
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 3425413987
+    data2: 977727848
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-2674105107175817200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Summer/summer_ambient_001
+  m_EditorClassIdentifier: 
+  Path: event:/Summer/summer_ambient_001
+  Guid:
+    Data1: 919307720
+    Data2: 1173984229
+    Data3: 1037029509
+    Data4: 1609263343
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2650982448815848321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3516,6 +4772,33 @@ MonoBehaviour:
     Data4: 1320653002
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2584816217160908338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/wind_start
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/wind_start
+  Guid:
+    Data1: -812923454
+    Data2: 1340871838
+    Data3: -275369330
+    Data4: 1145718867
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3604,6 +4887,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2357638615415255676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Autumn
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Autumn
+  Guid:
+    Data1: 1729021521
+    Data2: 1159239426
+    Data3: -1328641403
+    Data4: 1914341742
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5812254471287621951}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 277652
+--- !u!114 &-2354626658930660878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/cloud_rotate
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/cloud_rotate
+  Guid:
+    Data1: 2050549764
+    Data2: 1237901886
+    Data3: 1927284911
+    Data4: 2121306970
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2286489286199808288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3685,6 +5023,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2075321819344940069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdPoop2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdPoop2
+  Guid:
+    Data1: -2069052914
+    Data2: 1211299716
+    Data3: 1143551385
+    Data4: 98186439
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2068305205521673952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3732,6 +5097,33 @@ MonoBehaviour:
     Data4: 1570035700
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2037413877937355672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindStart2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindStart2
+  Guid:
+    Data1: 462330748
+    Data2: 1255526666
+    Data3: -732032851
+    Data4: -2093654649
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3820,6 +5212,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1846769463802682693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Spring0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Spring0
+  Guid:
+    Data1: -848026582
+    Data2: 1241944624
+    Data3: 1932267692
+    Data4: -1888771371
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1802729975828976713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3867,6 +5286,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1524
   Exists: 1
+--- !u!114 &-1738523805892427903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/cloud_disconnected
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/cloud_disconnected
+  Guid:
+    Data1: 681455452
+    Data2: 1318253741
+    Data3: -428343167
+    Data4: 1076200560
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1730412681711147218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3941,6 +5387,33 @@ MonoBehaviour:
     Data4: 1865773271
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1591577386185190009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Autumn2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Autumn2
+  Guid:
+    Data1: 964613096
+    Data2: 1295184326
+    Data3: 196945283
+    Data4: 563175231
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4026,6 +5499,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-1050513103876974774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_pad_002
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_pad_002
+  Guid:
+    Data1: -1769335470
+    Data2: 1074471602
+    Data3: -513358664
+    Data4: 356986441
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1031258314331371621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4080,6 +5580,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-931682792793333624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/UCanDoIt0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/UCanDoIt0
+  Guid:
+    Data1: 929000225
+    Data2: 1337465703
+    Data3: 419162245
+    Data4: 42416198
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-865392610119062923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4101,6 +5628,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 5411279136027037235}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-828707090939325770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Summer/summer_ambient_002
+  m_EditorClassIdentifier: 
+  Path: event:/Summer/summer_ambient_002
+  Guid:
+    Data1: -491615739
+    Data2: 1202269381
+    Data3: -406913879
+    Data4: -923011064
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -4188,6 +5742,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-709519574737958783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/yumju
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/yumju
+  Guid:
+    Data1: 50234007
+    Data2: 1125283131
+    Data3: -1865473883
+    Data4: 2040100654
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-701118118398093730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4235,6 +5816,60 @@ MonoBehaviour:
     Data4: -2048632392
   Banks:
   - {fileID: 133997216764905506}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-692412457066791626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_pick
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_pick
+  Guid:
+    Data1: -475958360
+    Data2: 1097292527
+    Data3: -115956824
+    Data4: 281829329
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-642334959836007740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bird_fly
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bird_fly
+  Guid:
+    Data1: 1768088314
+    Data2: 1152531541
+    Data3: 707457177
+    Data4: -2061728262
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4377,6 +6012,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-497350052349598906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_freeze
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_freeze
+  Guid:
+    Data1: 290970897
+    Data2: 1161955901
+    Data3: 1390645636
+    Data4: -1496294325
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-469519544641007222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4478,6 +6140,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-269565951216539619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdPeace0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdPeace0
+  Guid:
+    Data1: -779515306
+    Data2: 1255056243
+    Data3: -2125026121
+    Data4: -1177421426
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-228314310690190669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Bird0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Bird0
+  Guid:
+    Data1: -1448880729
+    Data2: 1200479541
+    Data3: 2128260528
+    Data4: 482215098
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-221539089528222737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4499,6 +6215,60 @@ MonoBehaviour:
   Banks:
   - {fileID: 2453403578161133751}
   IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-126042271048523267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Summer/summer_beat_001
+  m_EditorClassIdentifier: 
+  Path: event:/Summer/summer_beat_001
+  Guid:
+    Data1: -1596500747
+    Data2: 1153203530
+    Data3: -1725111670
+    Data4: 1522094592
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-93887632057949545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/next_chapter
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/next_chapter
+  Guid:
+    Data1: -870545962
+    Data2: 1215394776
+    Data3: 248380578
+    Data4: 1554151283
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -4566,127 +6336,127 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 3799255645696038466}
-  - {fileID: 2453403578161133751}
-  - {fileID: -324380911238894989}
-  - {fileID: 460011452900630933}
-  - {fileID: -8265552971189138091}
+  - {fileID: -5450464547504090387}
+  - {fileID: 2670347828736727735}
+  - {fileID: 4553732071330575388}
+  - {fileID: 7603463501607760657}
+  - {fileID: 3165535140363962942}
   EditorEvents:
-  - {fileID: -5584250524693325486}
-  - {fileID: 1756870011671715342}
-  - {fileID: 9025669368856282822}
-  - {fileID: -8193481541175307741}
-  - {fileID: -2993891621930483207}
-  - {fileID: -469519544641007222}
-  - {fileID: 4987323215207977030}
-  - {fileID: 6229655847784536446}
-  - {fileID: 8428545268247049808}
-  - {fileID: 5986889137911809139}
-  - {fileID: 6857361227360988714}
-  - {fileID: -3429333438735026681}
-  - {fileID: -6160734166546936911}
-  - {fileID: -6348304344997201881}
-  - {fileID: -7442292051219097362}
-  - {fileID: -3107641237920729794}
-  - {fileID: -6384703055732997287}
-  - {fileID: 1506826982335065581}
-  - {fileID: 3327765386420894828}
-  - {fileID: -221539089528222737}
-  - {fileID: 6318681758613288451}
-  - {fileID: 5286921419209334032}
-  - {fileID: -6308619589316251975}
-  - {fileID: 6915217083983885009}
-  - {fileID: -4447787284974117605}
-  - {fileID: -6927277623622279200}
-  - {fileID: -8334298054249267501}
-  - {fileID: -7759766658299881772}
-  - {fileID: 8088479038195083953}
-  - {fileID: 3396769068025693625}
-  - {fileID: 4055629896982843027}
-  - {fileID: -2068305205521673952}
-  - {fileID: 8914860031754907768}
-  - {fileID: 3093843862034791503}
-  - {fileID: -2895406912258296687}
-  - {fileID: 2585915260036369942}
-  - {fileID: 2998228962242158013}
-  - {fileID: 4469719369839301339}
-  - {fileID: 619002371317495515}
-  - {fileID: -8648226596877871640}
-  - {fileID: -5423013183562607701}
-  - {fileID: 5496645900947242046}
-  - {fileID: 4516744018240734193}
-  - {fileID: -1226426471591733206}
-  - {fileID: -4977844028646641889}
-  - {fileID: -2286489286199808288}
-  - {fileID: -8158299519521108697}
-  - {fileID: 939970270724053788}
-  - {fileID: -1802729975828976713}
-  - {fileID: -5397657062682115931}
-  - {fileID: 745697498436302855}
-  - {fileID: 3896842242779944184}
-  - {fileID: 1615995740556709958}
-  - {fileID: -733131077688045096}
-  - {fileID: -2455229074379245507}
-  - {fileID: 6986774716012425616}
-  - {fileID: 3294796992286497163}
-  - {fileID: -6441703819129478610}
-  - {fileID: -4225289288863392451}
-  - {fileID: 4593489308202011413}
-  - {fileID: -2881473931132908392}
-  - {fileID: 831924518792669862}
-  - {fileID: 2303848611218810970}
-  - {fileID: 1457637287955016493}
-  - {fileID: -402577240917126619}
-  - {fileID: 2350790648150736320}
-  - {fileID: 5376321591369056855}
-  - {fileID: -4374383170426057806}
-  - {fileID: 7924677774057324179}
-  - {fileID: -6145989660613784635}
-  - {fileID: 3032752880276634080}
-  - {fileID: 7302726363562321974}
-  - {fileID: -5728750542042373398}
-  - {fileID: 6293081904236708969}
-  - {fileID: -8977141129353117518}
-  - {fileID: 8107091743637681177}
-  - {fileID: -5448194966732891332}
-  - {fileID: 8056910188491237609}
-  - {fileID: 2279135609163082471}
-  - {fileID: -8612280576059222253}
-  - {fileID: -8256290851834814914}
-  - {fileID: -4356132985297071512}
-  - {fileID: 3369191690753328661}
-  - {fileID: -7346715527780415783}
-  - {fileID: -3529314022249877886}
-  - {fileID: 592668348110790561}
-  - {fileID: -8789198672121688749}
-  - {fileID: -505101630695515107}
-  - {fileID: 1288053321435734586}
-  - {fileID: -4219918057771631977}
-  - {fileID: -3599234799719615966}
-  - {fileID: -6854185286585349191}
-  - {fileID: 7572092208032886875}
-  - {fileID: -4281925042843383502}
-  - {fileID: 2919236093135831040}
-  - {fileID: 6110749149334791940}
-  - {fileID: 8572346769780335400}
-  - {fileID: -2525790256138220671}
-  - {fileID: -3388245392416923615}
-  - {fileID: -8437789560848004934}
-  - {fileID: -7736094822280853090}
-  - {fileID: 6689586894771488713}
-  - {fileID: -8786531009187953984}
-  - {fileID: -4545161485378737741}
-  - {fileID: -1031258314331371621}
-  - {fileID: 4562151794099893698}
-  - {fileID: 8247971081413156626}
-  - {fileID: -4981508806909331287}
+  - {fileID: -828707090939325770}
+  - {fileID: -9030412408447006928}
+  - {fileID: -3629851947337768356}
+  - {fileID: -9076944437879188590}
+  - {fileID: -7811225330863838363}
+  - {fileID: 39619653358434118}
+  - {fileID: -5467096500139023193}
+  - {fileID: -2357638615415255676}
+  - {fileID: -1050513103876974774}
+  - {fileID: 1632212478453608900}
+  - {fileID: -5966837996011924946}
+  - {fileID: 3535084402113443522}
+  - {fileID: -5137009271875656860}
+  - {fileID: 4442278484137706338}
+  - {fileID: 6743180820675717190}
+  - {fileID: -8794947458225165837}
+  - {fileID: -8415272707793462300}
+  - {fileID: -2790869100877885837}
+  - {fileID: -3390476265267907034}
+  - {fileID: 7184393963494403726}
+  - {fileID: -4404284713368021834}
+  - {fileID: -3300424317130594945}
+  - {fileID: 2036411298172401995}
+  - {fileID: 2856965954324088399}
+  - {fileID: -6103337714120354076}
+  - {fileID: -9078367271964038683}
+  - {fileID: -2674105107175817200}
+  - {fileID: -5983141636200290007}
+  - {fileID: 3385885302227918353}
+  - {fileID: -4019081537855538672}
+  - {fileID: -7919127899229323618}
+  - {fileID: -126042271048523267}
+  - {fileID: -4848983805006661572}
+  - {fileID: -2354626658930660878}
+  - {fileID: 1518289900284235254}
+  - {fileID: -497350052349598906}
+  - {fileID: 1372352722339448297}
+  - {fileID: -9162314700824352313}
+  - {fileID: 3692202339043948867}
+  - {fileID: 3627516841110789300}
+  - {fileID: -7244717972114728707}
+  - {fileID: -1738523805892427903}
+  - {fileID: 4223687554334052210}
+  - {fileID: 2893697670104674446}
+  - {fileID: 6388687321657457452}
+  - {fileID: 8739221480692227307}
+  - {fileID: -709519574737958783}
+  - {fileID: 1864939214767417003}
+  - {fileID: 4600026288520175194}
+  - {fileID: -7946434742788637956}
+  - {fileID: -7860298377962631003}
+  - {fileID: -692412457066791626}
+  - {fileID: 1327607055317525701}
+  - {fileID: 4079782336462258771}
+  - {fileID: -7835194170896620722}
+  - {fileID: 5450746699833145836}
+  - {fileID: 9114021826680343768}
+  - {fileID: -2584816217160908338}
+  - {fileID: -8255990324178783925}
+  - {fileID: -93887632057949545}
+  - {fileID: -7833249819792856318}
+  - {fileID: -5649400236093418397}
+  - {fileID: 475405187545595420}
+  - {fileID: -642334959836007740}
+  - {fileID: 3987410674211969983}
+  - {fileID: 5880948680829128381}
+  - {fileID: -2075321819344940069}
+  - {fileID: 7605214536590483158}
+  - {fileID: 2802627735720863432}
+  - {fileID: -3995109609533717390}
+  - {fileID: -931682792793333624}
+  - {fileID: -8214436685298864602}
+  - {fileID: -1846769463802682693}
+  - {fileID: -7347573285512563691}
+  - {fileID: 1810441541349197511}
+  - {fileID: -8915095348539988419}
+  - {fileID: -7629621971050077140}
+  - {fileID: -5854900748602496476}
+  - {fileID: 4588131393390380229}
+  - {fileID: 3331668855998558430}
+  - {fileID: 6194235919292444779}
+  - {fileID: -269565951216539619}
+  - {fileID: -8389266785715285829}
+  - {fileID: 2087259389246450644}
+  - {fileID: 3307583256548322631}
+  - {fileID: 818198496774639050}
+  - {fileID: -8377529349784258982}
+  - {fileID: 3907991537956554239}
+  - {fileID: -6005722222254853528}
+  - {fileID: -6872386212071438417}
+  - {fileID: -2037413877937355672}
+  - {fileID: -7825247476084455428}
+  - {fileID: 3207720548688089928}
+  - {fileID: 1569198298373055089}
+  - {fileID: 6063121019865312824}
+  - {fileID: 9030319949170631626}
+  - {fileID: -228314310690190669}
+  - {fileID: -4490884765904513766}
+  - {fileID: 6150607966292502956}
+  - {fileID: 3571631113226980138}
+  - {fileID: -3126858212531199586}
+  - {fileID: 1397967555553517420}
+  - {fileID: -4657962908531973755}
+  - {fileID: 7649586371476102478}
+  - {fileID: 5537103816981582299}
+  - {fileID: -5842781047098410599}
+  - {fileID: -1591577386185190009}
+  - {fileID: 1907224605621385015}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -324380911238894989}
+  - {fileID: 4553732071330575388}
   StringsBanks:
-  - {fileID: 3799255645696038466}
+  - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638891020500743430
+  cacheTime: 638891203909784676
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -4904,6 +6674,33 @@ MonoBehaviour:
     index: 106
   - key: event:/Voice/RainStart1
     index: 107
+--- !u!114 &39619653358434118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn_pad_002
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn_pad_002
+  Guid:
+    Data1: 607988787
+    Data2: 1204527131
+    Data3: 915704236
+    Data4: 1865281020
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &95573618915826315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5127,6 +6924,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1021632
   Exists: 1
+--- !u!114 &475405187545595420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_connect
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_connect
+  Guid:
+    Data1: 1039747059
+    Data2: 1307083832
+    Data3: 1586025117
+    Data4: 2078732131
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &576092835261918743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5505,6 +7329,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &818198496774639050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/FindTree0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/FindTree0
+  Guid:
+    Data1: 770491500
+    Data2: 1167941173
+    Data3: 1313859478
+    Data4: 1237340050
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &831924518792669862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5802,6 +7653,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1327607055317525701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bird_fly_pass
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bird_fly_pass
+  Guid:
+    Data1: 1151371695
+    Data2: 1209337070
+    Data3: 946662547
+    Data4: 295408621
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1362497331266178164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5849,6 +7727,60 @@ MonoBehaviour:
     Data4: 1273465738
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1372352722339448297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/affliction_purified
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/affliction_purified
+  Guid:
+    Data1: 922852376
+    Data2: 1288604467
+    Data3: -1057365842
+    Data4: 241780790
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1397967555553517420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/UCanDoIt1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/UCanDoIt1
+  Guid:
+    Data1: 830192585
+    Data2: 1218059338
+    Data3: 555038102
+    Data4: -1331157975
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5937,6 +7869,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1518289900284235254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stamp_button
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stamp_button
+  Guid:
+    Data1: 187258638
+    Data2: 1137553915
+    Data3: -309511497
+    Data4: 2132582697
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1569198298373055089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdFirst0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdFirst0
+  Guid:
+    Data1: -719737709
+    Data2: 1116063092
+    Data3: 1608508832
+    Data4: -250920589
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1615995740556709958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5964,6 +7950,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1632212478453608900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Spring
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Spring
+  Guid:
+    Data1: 1644917592
+    Data2: 1213725097
+    Data3: -113476981
+    Data4: 1658577768
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3487105402585786619}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 72000
 --- !u!114 &1756870011671715342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6018,6 +8032,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1810441541349197511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Summer2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Summer2
+  Guid:
+    Data1: -2045210572
+    Data2: 1132523359
+    Data3: -1534901571
+    Data4: -1684145481
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1864939214767417003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/volume_control
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/volume_control
+  Guid:
+    Data1: 2123963032
+    Data2: 1124303580
+    Data3: -2068986467
+    Data4: 1438717864
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1907224605621385015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/RainStart1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/RainStart1
+  Guid:
+    Data1: 1529734383
+    Data2: 1206730551
+    Data3: 126034600
+    Data4: 413599072
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1991989178622840156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6045,6 +8140,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2036411298172401995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/winter/winter_melody_002
+  m_EditorClassIdentifier: 
+  Path: event:/winter/winter_melody_002
+  Guid:
+    Data1: -75876157
+    Data2: 1240813472
+    Data3: 389212032
+    Data4: 135737928
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2067791752330292091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6065,6 +8187,33 @@ MonoBehaviour:
     Data4: 361759068
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2087259389246450644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Autumn3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Autumn3
+  Guid:
+    Data1: 1538358628
+    Data2: 1222452454
+    Data3: 1425083306
+    Data4: -885216885
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6488,6 +8637,80 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2670347828736727735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/BGM.bank
+  Name: BGM
+  StudioPath: bank:/BGM
+  lastModified: 638891203909441200
+  FileSizes:
+  - Name: Desktop
+    Value: 16717696
+  Exists: 1
+--- !u!114 &2802627735720863432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/HeavyRain0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/HeavyRain0
+  Guid:
+    Data1: 1720265491
+    Data2: 1317742430
+    Data3: -1999176060
+    Data4: -847760937
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2856965954324088399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn_pad_001
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn_pad_001
+  Guid:
+    Data1: 70282947
+    Data2: 1280047966
+    Data3: 188958620
+    Data4: 529996540
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2863675526663973183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6538,6 +8761,33 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2893697670104674446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/rain_start
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/rain_start
+  Guid:
+    Data1: -1095629459
+    Data2: 1139444974
+    Data3: -1869683571
+    Data4: -534436814
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -6704,6 +8954,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3165535140363962942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Voice.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/Voice.bank
+  Name: Voice
+  StudioPath: bank:/Voice
+  lastModified: 638886071717517723
+  FileSizes:
+  - Name: Desktop
+    Value: 1881024
+  Exists: 1
 --- !u!114 &3174163160490294221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6724,6 +8994,33 @@ MonoBehaviour:
     Data4: 2132582697
   Banks:
   - {fileID: 5411279136027037235}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3207720548688089928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BeforeEnterWinter0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BeforeEnterWinter0
+  Guid:
+    Data1: -375388794
+    Data2: 1283194745
+    Data3: -893349760
+    Data4: 1190410746
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6812,6 +9109,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3307583256548322631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdPoop0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdPoop0
+  Guid:
+    Data1: -2056019865
+    Data2: 1248884785
+    Data3: -510115686
+    Data4: -273314027
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3327765386420894828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6833,6 +9157,33 @@ MonoBehaviour:
   Banks:
   - {fileID: 2453403578161133751}
   IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3331668855998558430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/RainStart0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/RainStart0
+  Guid:
+    Data1: -2071061431
+    Data2: 1333960681
+    Data3: -2124879740
+    Data4: 1325383802
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -6917,6 +9268,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3385885302227918353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Space/space_pad_004
+  m_EditorClassIdentifier: 
+  Path: event:/Space/space_pad_004
+  Guid:
+    Data1: 738771943
+    Data2: 1237524184
+    Data3: 21460406
+    Data4: -796452311
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3396769068025693625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6938,6 +9316,84 @@ MonoBehaviour:
   Banks:
   - {fileID: 2453403578161133751}
   IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3487105402585786619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Spring/SpringState
+  m_EditorClassIdentifier: 
+  Name: SpringState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2981179839
+    data2: 299963522
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3535084402113443522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/winter/winter_melody_001
+  m_EditorClassIdentifier: 
+  Path: event:/winter/winter_melody_001
+  Guid:
+    Data1: 1574209628
+    Data2: 1109144342
+    Data3: 1978987145
+    Data4: 1208364759
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3571631113226980138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Summer1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Summer1
+  Guid:
+    Data1: 141265095
+    Data2: 1222588383
+    Data3: -1076203585
+    Data4: 1320653002
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -6994,6 +9450,60 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3627516841110789300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/blizzard_ambient
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/blizzard_ambient
+  Guid:
+    Data1: 605348926
+    Data2: 1138824735
+    Data3: -54103168
+    Data4: 276246460
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3692202339043948867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_rotate
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_rotate
+  Guid:
+    Data1: 824348222
+    Data2: 1114992191
+    Data3: -78154873
+    Data4: 1835291529
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -7153,6 +9663,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3907991537956554239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindFirst1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindFirst1
+  Guid:
+    Data1: 492345454
+    Data2: 1171767741
+    Data3: -1605108332
+    Data4: -1202143071
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3987410674211969983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Bird1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Bird1
+  Guid:
+    Data1: 307579648
+    Data2: 1311643032
+    Data3: 568148148
+    Data4: -1792449988
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4046747451589164431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7227,6 +9791,33 @@ MonoBehaviour:
     Data4: 98186439
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4079782336462258771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_select
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_select
+  Guid:
+    Data1: 164910517
+    Data2: 1090085182
+    Data3: -2085996646
+    Data4: 381716079
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7369,6 +9960,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4223687554334052210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/cloud_connect
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/cloud_connect
+  Guid:
+    Data1: -254294683
+    Data2: 1158326462
+    Data3: -933780337
+    Data4: -130607755
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4262055533075567132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7504,6 +10122,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4442278484137706338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn
+  Guid:
+    Data1: 252529262
+    Data2: 1224865495
+    Data3: 677065138
+    Data4: -2048632392
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4469719369839301339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7612,6 +10257,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4553732071330575388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638886071717191931
+  FileSizes:
+  - Name: Desktop
+    Value: 1524
+  Exists: 1
 --- !u!114 &4562151794099893698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7666,6 +10331,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4588131393390380229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Autumn4
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Autumn4
+  Guid:
+    Data1: 640388678
+    Data2: 1094767230
+    Data3: -629177921
+    Data4: 1885682738
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4593489308202011413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7686,6 +10378,33 @@ MonoBehaviour:
     Data4: 1554151283
   Banks:
   - {fileID: 460011452900630933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4600026288520175194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone
+  Guid:
+    Data1: -1335821411
+    Data2: 1131139397
+    Data3: 56374958
+    Data4: -352440226
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7956,6 +10675,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1021632
   Exists: 1
+--- !u!114 &5450746699833145836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/pause
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/pause
+  Guid:
+    Data1: -449293640
+    Data2: 1179152008
+    Data3: -264493397
+    Data4: -201533105
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5456942303961870783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8010,6 +10756,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5537103816981582299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdStone2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdStone2
+  Guid:
+    Data1: 1737318613
+    Data2: 1279522091
+    Data3: -1376996219
+    Data4: -1367203715
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5568822398599213308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8054,6 +10827,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &5812254471287621951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Autumn/AutumnState
+  m_EditorClassIdentifier: 
+  Name: AutumnState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 2771441708
+    data2: 6315831
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5879166179500120260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8074,6 +10871,33 @@ MonoBehaviour:
     Data4: -816289228
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5880948680829128381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Spring3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Spring3
+  Guid:
+    Data1: -387368178
+    Data2: 1295927068
+    Data3: 772429201
+    Data4: 1273465738
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8164,6 +10988,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6063121019865312824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/HeavyRainEnd0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/HeavyRainEnd0
+  Guid:
+    Data1: -1543351909
+    Data2: 1259697418
+    Data3: -12076642
+    Data4: -302382610
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6110749149334791940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8184,6 +11035,60 @@ MonoBehaviour:
     Data4: -354214596
   Banks:
   - {fileID: -8265552971189138091}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6150607966292502956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Summer3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Summer3
+  Guid:
+    Data1: -783884613
+    Data2: 1244363612
+    Data3: 1262800312
+    Data4: -311348340
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6194235919292444779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/BirdPoop1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/BirdPoop1
+  Guid:
+    Data1: -862257844
+    Data2: 1109486441
+    Data3: 305898150
+    Data4: -816289228
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8374,6 +11279,33 @@ MonoBehaviour:
     Data4: 1885682738
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6388687321657457452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/snowflake
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/snowflake
+  Guid:
+    Data1: 1960410505
+    Data2: 1181571733
+    Data3: -712183898
+    Data4: -1496655492
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8598,6 +11530,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6743180820675717190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ground/ground_beat
+  m_EditorClassIdentifier: 
+  Path: event:/Ground/ground_beat
+  Guid:
+    Data1: -1430146194
+    Data2: 1206381949
+    Data3: 72353200
+    Data4: 185694670
+  Banks:
+  - {fileID: 2670347828736727735}
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6765850724523306934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8781,6 +11741,33 @@ MonoBehaviour:
   Banks:
   - {fileID: -6293906536586783629}
   IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7184393963494403726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/autumn/autumn_beat_001
+  m_EditorClassIdentifier: 
+  Path: event:/autumn/autumn_beat_001
+  Guid:
+    Data1: -2117743183
+    Data2: 1158619263
+    Data3: -12730220
+    Data4: 2103006567
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -8996,6 +11983,80 @@ MonoBehaviour:
     Data4: -885216885
   Banks:
   - {fileID: 5568822398599213308}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7603463501607760657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638891203909784676
+  FileSizes:
+  - Name: Desktop
+    Value: 1021632
+  Exists: 1
+--- !u!114 &7605214536590483158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindStart1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindStart1
+  Guid:
+    Data1: -1332691953
+    Data2: 1227297920
+    Data3: 1126504324
+    Data4: 296467547
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7649586371476102478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/PushReset0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/PushReset0
+  Guid:
+    Data1: 1803597515
+    Data2: 1150519145
+    Data3: -1166365797
+    Data4: -1022686998
+  Banks:
+  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9514,6 +12575,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8739221480692227307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bird_disturb
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bird_disturb
+  Guid:
+    Data1: 1467245202
+    Data2: 1083949853
+    Data3: -361553493
+    Data4: 130458618
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8803736620201998693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9673,6 +12761,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &9030319949170631626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Spring2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Spring2
+  Guid:
+    Data1: 1076468127
+    Data2: 1079723645
+    Data3: 1648388541
+    Data4: -354214596
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &9060312476740323814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9693,6 +12808,33 @@ MonoBehaviour:
     Data4: -1022686998
   Banks:
   - {fileID: 2168536750678575122}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9114021826680343768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/monsoon_start
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/monsoon_start
+  Guid:
+    Data1: -482883904
+    Data2: 1226917513
+    Data3: 128731582
+    Data4: -450104439
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
