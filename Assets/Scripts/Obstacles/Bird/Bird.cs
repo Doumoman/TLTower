@@ -126,7 +126,8 @@ public class Bird : MonoBehaviour
         //물리법칙 비활성화 후 자식 오브젝트로 옮김
         Rigidbody2D rb = satStone.GetComponent<Rigidbody2D>();
         PolygonCollider2D[] cols = satStone.GetComponents<PolygonCollider2D>();
-        rb.isKinematic = true;
+
+        if (rb != null) rb.isKinematic = true;
         foreach (PolygonCollider2D col in cols)
         {
             col.enabled = false;
