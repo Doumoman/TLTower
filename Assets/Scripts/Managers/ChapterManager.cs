@@ -188,7 +188,7 @@ public class ChapterManager : MonoBehaviour
         // SPRING
         if (chapter == chapter.spring)
         {
-            GuideManager.Instance.PlayGuide("control", 0f);
+            GuideManager.Instance.PlayGuide("control", 2f);
             SoundManager.Instance.PlayBGM("Spring", 1);
             BosalManager.Instance.Speak("Spring");
             //BosalManager.Instance.NoIdle = false;

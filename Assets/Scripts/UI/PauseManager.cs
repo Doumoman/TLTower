@@ -2,11 +2,13 @@
 using UnityEngine.InputSystem;
 #endif
 using UnityEngine;
+using FMOD;
 
 public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set; }
     [SerializeField] GameObject pausePanelRoot;
+    [SerializeField] GameObject guidePanelRoot; // 가이드 패널
 
     void Awake()
     {
@@ -19,6 +21,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
+        CameraController.Instance._userMoveInput = (!pausePanelRoot.activeSelf && !guidePanelRoot.activeSelf); // 드래그 입력 제어
 #if ENABLE_INPUT_SYSTEM
         // Input System이 켜져 있을 때
         if (Keyboard.current != null &&
@@ -40,6 +43,14 @@ public class PauseManager : MonoBehaviour
         bool open = pausePanelRoot.activeSelf;
         pausePanelRoot.SetActive(!open);
         Time.timeScale = open ? 1f : 0f;
+        if(open)
+        {
+            SoundManager.Instance.Resume();
+        }
+        else
+        {
+            SoundManager.Instance.PauseBGM();
+        }
         SoundManager.Instance.PlaySFX("pause");
     }
 }

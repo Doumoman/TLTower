@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float dragSensitivity = 0.2f;   // 손가락 이동 → 카메라 이동 비율(0.0~1.0)
 
     private float _pendingCenterY = float.NaN;
-    private bool _userMoveInput;        // 드래그 중
+    public bool _userMoveInput;        // 드래그 중, pause에서 비활성화
     private Vector3 _lastPointerWorldPos; // 직전 포인터 위치(월드)
     private Vector3 _directionForce;      // 이동값 (관성)
     private float _targetCenterY;

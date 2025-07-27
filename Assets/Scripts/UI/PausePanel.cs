@@ -21,12 +21,19 @@ public class PausePanel : MonoBehaviour
         if (pausepanel.activeSelf) return;
         pausepanel.SetActive(true);
         SoundManager.Instance.PauseBGM();
+        CameraController.Instance._userMoveInput = false; // 드래그 중지
     }
     void Update()
     {
+        if(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject != null)
+        {
+            // UI 요소가 선택되어 있을 때는 아무것도 하지 않음
+            return;
+        }
         // Android Back(PC·에디터에선 Esc) 입력 감지
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("PausePanel Escape Key Pressed");
             if (pausepanel.activeSelf)
             {
                 Closepausepanel();   // 이미 열려 있으면 닫기
@@ -40,12 +47,13 @@ public class PausePanel : MonoBehaviour
     public void Closepausepanel()
     {
         if (!pausepanel.activeSelf) return;
-        pausepanel.SetActive(false);
         SoundManager.Instance.Resume();
+        CameraController.Instance._userMoveInput = true; // 드래그 재개
+        pausepanel.SetActive(false);
     }
     void ApplyAspect(float targetAspect, Vector2 refRes)
     {
-        SoundManager.Instance.PlaySFX("stamp_button"); //Nigger, Smaller에도 넣으면 됨
+        SoundManager.Instance.PlaySFX("stamp_button"); //Bigger, Smaller에도 넣으면 됨
 
         cam.orthographicSize = fixedOrthoSize;
         float windowAspect = (float)Screen.width / Screen.height;

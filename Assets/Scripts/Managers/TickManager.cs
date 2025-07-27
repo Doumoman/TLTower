@@ -22,23 +22,33 @@ public class TickManager : Singleton<TickManager>
 
     private IEnumerator EventEveryTick(float sec)
     {
-        float nextTime = Time.realtimeSinceStartup;
+        float remainingTime = sec;
+        float realTime = Time.realtimeSinceStartup;
+
         while (true)
         {
-            nextTime += sec;
-            OnTickEvent?.Invoke(this, EventArgs.Empty);
-            float waitTime = nextTime - Time.realtimeSinceStartup;
-
-            if (waitTime > 0f)
-            {
-                tickCount++;
-                yield return new WaitForSeconds(waitTime);
-                Debug.Log("틱! 현재 틱 카운트: " + tickCount);
-            }
-            else
+            if (Time.timeScale == 0f)
             {
                 yield return null;
+                continue; // 여기서 아래 로직 안 타게 함
             }
+
+            float currentRealTime = Time.realtimeSinceStartup;
+            float delta = currentRealTime - realTime;
+            remainingTime -= delta;
+            realTime = currentRealTime;
+
+            if (remainingTime <= 0f)
+            {
+                tickCount++;
+                Debug.Log("틱! 현재 틱 카운트: " + tickCount);
+                OnTickEvent?.Invoke(this, EventArgs.Empty);
+
+                remainingTime = sec;
+                realTime = Time.realtimeSinceStartup;
+            }
+
+            yield return null;
         }
     }
 

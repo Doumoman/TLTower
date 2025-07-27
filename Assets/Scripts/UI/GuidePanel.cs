@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 // 여기서는 띄워야 할 이미지의 데이터 를! 관리.
@@ -54,9 +56,8 @@ public class GuidePanel : MonoBehaviour
 
     void OnEnable()
     {
-        SoundManager.Instance.PauseBGM();
         canExit = false;
-        Invoke(nameof(EnableExit), lockTime);
+        StartCoroutine(EnableExit(lockTime));
     }
     void OnDisable()
     {
@@ -66,6 +67,14 @@ public class GuidePanel : MonoBehaviour
     {
         if (pausePanel.activeInHierarchy) blackPanel.SetActive(false);
         else blackPanel.SetActive(true);
+        if(gameObject.activeSelf
+        && Input.GetKeyDown(KeyCode.Escape)
+        && (exitButton.activeSelf|| returnButton.activeSelf))
+        {
+            // 가이드 패널이 열려있고, Exit 또는 Return 버튼이 활성화되어 있다면
+            if (canExit) ExitButton(); // Exit 버튼을 누른다
+            else ReturnButton(); // Return 버튼을 누른다
+        }
     }
 
     public void ButtonGuide() //일시정지 패널에서 가이드 버튼을 누를 때 : 지금까지 봤던 모든 가이드 호출
@@ -78,14 +87,15 @@ public class GuidePanel : MonoBehaviour
         {
             prevButton.SetActive(false);
             nextButton.SetActive(false);
-            SetImage(Current());
+            SetImage(imageList[0]);
         }
         else
         {
             prevButton.SetActive(true);
             nextButton.SetActive(true);
-            SetImage(Current());
+            SetImage(imageList[0]);
         }
+        SoundManager.Instance.PauseBGM();
 
         //FadeIn
         //StartCoroutine(panelFader.FadeIn(fadeTime));
@@ -93,11 +103,15 @@ public class GuidePanel : MonoBehaviour
     }
     public void PlayGuide(string key) // 가이드가 자동으로 나와야 할 때 : 해당하는 가이드 호출 후 저장
     {
+        Time.timeScale = 0f; // 게임 일시정지
+        SoundManager.Instance.PauseBGM();
+        CameraController.Instance._userMoveInput = false; // 드래그 정지
+
         //guideImages에서 key로 오브젝트를 찾기
         var sprite = guideImages.Find(s => s.key == key);
         if (sprite == null || sprite.sprite == null || sprite.sprite.Count == 0)
         {
-            Debug.LogWarning("가이드가 맛탱이가 갔어!");
+            UnityEngine.Debug.LogWarning("가이드가 맛탱이가 갔어!");
             return;
         }
 
@@ -161,30 +175,35 @@ public class GuidePanel : MonoBehaviour
         SoundManager.Instance.PlaySFX("stamp_button");
     }
     private bool canExit = false;
-    private void EnableExit()
+    private IEnumerator EnableExit(float delay)
     {
-        canExit = true;
+        yield return new WaitForSecondsRealtime(delay);
 
+        canExit = true;
         // 현재 상황에 맞춰 exit 버튼을 업데이트
         if (guideBuffer.Count > 0)
             UpdateButtons(guideBufferIdx, guideBuffer.Count);
         else
-            UpdateButtons(currentIdx, imageList.Count);
+            UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
     }
     public void ExitButton()
     {
         if (!canExit) return;
         returnButton.SetActive(false);
-        root.SetActive(false);
+
         SoundManager.Instance.PlaySFX("stamp_button");
         SoundManager.Instance.Resume();
+        CameraController.Instance._userMoveInput = true; // 드래그 재개
+
+        Time.timeScale = 1f; // 게임 재개
+        root.SetActive(false);
     }
     public void ReturnButton()
     {
-        if (!canExit) return;
-        returnButton.SetActive(false);
-        root.SetActive(false);
         SoundManager.Instance.PlaySFX("stamp_button");
+        returnButton.SetActive(false);
+        Time.timeScale = 1f; // 게임 재개
+        root.SetActive(false);
     }
 
     private void UpdateButtons(int idx, int count)
@@ -197,6 +216,7 @@ public class GuidePanel : MonoBehaviour
 
         // Exit은 마지막 요소에서만 활성화 + lockTime 체크
         exitButton.SetActive(!canGoNext && canExit);
+        returnButton.SetActive(false);
     }
     private void UpdateButtonsForButtonGuide(int idx, int count)
     {
@@ -246,7 +266,7 @@ public class GuidePanel : MonoBehaviour
     public void Clear()
     {
         PlayerPrefs.SetString(KeyName, "");
-        Debug.LogWarning("GuidePanel Buffer Cleard. Clear는 테스트용이므로 출시 전에 지우기!");
+        UnityEngine.Debug.LogWarning("GuidePanel Buffer Cleard. Clear는 테스트용이므로 출시 전에 지우기!");
     }
 
     /*===================circular linked list imageList 구현======================*/

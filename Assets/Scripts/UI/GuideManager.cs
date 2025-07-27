@@ -17,9 +17,18 @@ public class GuideManager : Singleton<GuideManager>
         Debug.Log($"GuideManager.PlayGuide({str}) called!");
 
         if (played.Contains(str)) return;
-        guidePanelRoot.PlayGuide(str);
         bool open = guidePanelRoot.gameObject.activeSelf;
+        guidePanelRoot.PlayGuide(str);
         Time.timeScale = open ? 1f : 0f;
+        if(open)
+        {
+            SoundManager.Instance.Resume();
+        }
+        else
+        {
+            SoundManager.Instance.PauseBGM();
+        }
+        CameraController.Instance._userMoveInput = !open; // 드래그 입력 제어
         SoundManager.Instance.PlaySFX("pause");
         played.Add(str);
     }

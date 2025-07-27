@@ -135,15 +135,17 @@ public class SoundManager : Singleton<SoundManager>
     public void PauseBGM()
     {
         BGM.setPaused(true);
-        string path = "event:/pause";
+        /*string path = "event:/pause";
         Pause = RuntimeManager.CreateInstance(path);
-        Pause.start();
+        Pause.start();*/
+        Debug.Log($"BGM {BGM} Paused");
     }
 
     public void Resume()
     {
-        Pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //Pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         BGM.setPaused(false);
+        Debug.Log($"BGM {BGM} Resumed");
     }
     [SerializeField] private float speakTerm = 1f;
     IEnumerator WaitAndSpeak(string path)
