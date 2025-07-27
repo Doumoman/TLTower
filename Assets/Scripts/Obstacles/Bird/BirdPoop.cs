@@ -8,7 +8,7 @@ public class BirdPoop : MonoBehaviour
     readonly List<StoneController> caught = new(); 
     StoneController anchor;
     bool fused;   // Fuse 한 번만 수행
-    float VoiceRate = 2 / 3;
+    public float VoiceRate = 2 / 3;
 
     void PlaySound(float rate = 1)
     {

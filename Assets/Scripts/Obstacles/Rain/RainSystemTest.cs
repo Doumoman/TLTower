@@ -64,6 +64,7 @@ public class RainSystemTest : CountBasedObstacle
             }
         }
 
+        SoundManager.Instance.PlaySFX("rain_start");
         SoundManager.Instance.PlayVoice("Rain");
         GuideManager.Instance.PlayGuide("rain");
 

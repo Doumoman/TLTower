@@ -108,16 +108,6 @@ public class CloudController : MonoBehaviour,
         }
         if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
     }
-    private bool isSoundCalled = false;
-    private void FixedUpdate()
-    {
-        if (isRotating && state == CloudState.Dragging)
-        {
-            rb.angularVelocity = rotateSpeed;
-            //if (!isSoundCalled) SoundManager.Instance.PlayLoop("cloud_rotate_01");
-            isSoundCalled = true;
-        }
-    }
 
     void CheckOverlap()
     {
@@ -186,7 +176,7 @@ public class CloudController : MonoBehaviour,
     {
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
-        //SoundManager.Instance.PlaySFX("cloud_select_01");
+        SoundManager.Instance.PlaySFX("cloud_select");
 
         if (this.TryGetComponent<JointMaker>(out JointMaker jm))
             jm.DraggingBreak();
@@ -207,7 +197,7 @@ public class CloudController : MonoBehaviour,
             if (Vector2.Distance(mouseWorld, holdStartPos) >= moveDeadZone)
             {
                 isRotating = false;
-                //SoundManager.Instance.StopLoop("cloud_rotate_01");
+                SoundManager.Instance.StopLoop("cloud_rotate");
                 rb.angularVelocity = 0;
                 dragOffset = transform.position - (Vector3)mouseWorld;
             }
@@ -224,12 +214,13 @@ public class CloudController : MonoBehaviour,
             holdTimer = 0;
             holdStartPos = mouseWorld;
             rb.angularVelocity = rotateSpeed;
+            SoundManager.Instance.PlayLoop("cloud_rotate");
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        //SoundManager.Instance.StopLoop("cloud_rotate_01");
+        SoundManager.Instance.StopLoop("cloud_rotate");
         isRotating = false;
 
         if (eventData.pointerId != activePointer) return;
@@ -239,7 +230,7 @@ public class CloudController : MonoBehaviour,
 
         state = CloudState.Dropped;
         gameObject.tag = "Cloud";
-        //SoundManager.Instance.PlaySFX("cloud_deselect_01");
+        SoundManager.Instance.PlaySFX("cloud_deselect");
 
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;

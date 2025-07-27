@@ -17,6 +17,7 @@ public class FreezerSystem : TickBasedObstacle
 
     public override void MakeObstacle(bool autoStop = true)
     {
+        SoundManager.Instance.PlaySFX("blizzard_ambient");
         fs.freezeOnStart = true;  //생성시 부터 얼려서 돌 생성하기
         foreach (ParticleSystem p in psList) p.Play();
 

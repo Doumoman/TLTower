@@ -17,6 +17,8 @@ public class SnowFlakeSpawner : CountBasedObstacle
     {
         RandomPoint();
         Instantiate(snowFlake, transform.position, Quaternion.Euler(0, 0, 90));
+
+        SoundManager.Instance.PlaySFX("snowflake");
     }
 
     public override void RandomlyMake()
