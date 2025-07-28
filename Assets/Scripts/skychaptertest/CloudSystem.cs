@@ -35,10 +35,16 @@ public class CloudSystem : MonoBehaviour
         jm.breakForce = force;
         go.AddComponent<JointMakerPhysics>();
         FindHighestJM();
-        CameraController.Instance.CenterOnY(HighestJointY+5);
+        StartCoroutine(MoveCamera());
 
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();
+    }
+
+    public IEnumerator MoveCamera()
+    {
+        yield return new WaitForSeconds(1f);
+        CameraController.Instance.CenterOnY(HighestJointY + 5, 2.5f);
     }
 
     //구름 조인트시 호출됨
