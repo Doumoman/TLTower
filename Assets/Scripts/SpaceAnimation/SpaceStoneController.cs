@@ -66,6 +66,8 @@ public class SpaceStoneController : MonoBehaviour,
     #region EventSystem 콜백
     public void OnPointerDown(PointerEventData e)
     {
+        if (State == SpaceStoneState.Snapped) return;
+
         if (activePointer != -1 || State != SpaceStoneState.Floating) return;
         activePointer = e.pointerId;
         BeginDrag(e.position);
@@ -184,6 +186,8 @@ public class SpaceStoneController : MonoBehaviour,
         State = SpaceStoneState.Snapped;
         tag = "PlacedStone";
         AnimationManager.Instance?.NotifyStoneSnapped();
+
+        if (_click) _click.enabled = false;
     }
     #endregion
     /* ================================================================= */
