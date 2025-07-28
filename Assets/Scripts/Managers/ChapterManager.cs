@@ -94,6 +94,7 @@ public class ChapterManager : MonoBehaviour
 
     private void Start()
     {
+        
         SaveSystem.Instance?.LoadGame();
         //시작 챕터 감지
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
