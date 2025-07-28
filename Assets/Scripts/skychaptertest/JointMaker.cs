@@ -22,9 +22,12 @@ public class JointMaker : MonoBehaviour
         if (isNotyfied) return;
         CloudSystem.Instance.NotifyJoint(this);
         isNotyfied = true;
+
         //분리에서 제외하기
         separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
         separator.gameObject.layer = LayerMask.NameToLayer("JointedCloud");
+
+        if (jm.gameObject == CloudSystem.Instance.savePoint) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
     }
 
     //날 잡고있던 조인트 파괴시, 날 잡던 구름을 initial 리스트에서 제거하기. 그리고 검사 실행
@@ -96,6 +99,8 @@ public class JointMaker : MonoBehaviour
             SoundManager.Instance.PlaySFX("cloud_disconnected");
             //StartCoroutine(disconnect(disconnectionInterval));
         }
+
+        if (TryGetComponent<CloudController>(out CloudController _)) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
         separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
