@@ -94,6 +94,7 @@ public class ChapterManager : MonoBehaviour
 
     private void Start()
     {
+        SaveSystem.Instance?.LoadGame();
         //시작 챕터 감지
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = Array.IndexOf(arr, chapter);
@@ -113,6 +114,7 @@ public class ChapterManager : MonoBehaviour
     //돌 개수 확인 후 챕터전환 확인
     public void ChangeChapter()
     {
+
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = System.Array.IndexOf(arr, chapter);
 
@@ -141,6 +143,7 @@ public class ChapterManager : MonoBehaviour
             CameraController.Instance.RaiseCameraY();
             removeYumju?.Invoke(this, EventArgs.Empty);
         }
+        SaveSystem.Instance?.SaveGame();
     }
     void RemoveAllCheckpoints()
     {
