@@ -39,7 +39,9 @@ public class ChapterManager : MonoBehaviour
     public event EventHandler onChapterChage;
     public event EventHandler onSetteled;
     public event EventHandler onDestroyed;
+    public event EventHandler removeYumju;
 
+    
     public static ChapterManager Instance;
 
     private void Awake()
@@ -137,6 +139,7 @@ public class ChapterManager : MonoBehaviour
         {
             Debug.Log("PlayBck");
             CameraController.Instance.RaiseCameraY();
+            removeYumju?.Invoke(this, EventArgs.Empty);
         }
     }
     void RemoveAllCheckpoints()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AnimationManager : MonoBehaviour
     public static AnimationManager Instance { get; private set; }
     void Awake()
     {
+        ChapterManager.Instance.removeYumju += RemoveYumju;
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -50,8 +52,8 @@ public class AnimationManager : MonoBehaviour
         Vector2 lStart = leftCloud.anchoredPosition;
         Vector2 rStart = rightCloud.anchoredPosition;
 
-        Vector2 lEndX = lStart + Vector2.right * xDistance; 
-        Vector2 rEndX = rStart + Vector2.left * xDistance; 
+        Vector2 lEndX = lStart + Vector2.right * xDistance;
+        Vector2 rEndX = rStart + Vector2.left * xDistance;
         yield return MovePairOverTime(leftCloud, lStart, lEndX,
                                       rightCloud, rStart, rEndX, xTime);
         yield return new WaitForSeconds(1f);
@@ -111,13 +113,11 @@ public class AnimationManager : MonoBehaviour
     int spawnStep = 0;
     int snappedCount = 0;
     bool cleared = false;
-
     public event EventHandler changeSpaceBackGround;
 
     public void SpawnSpaceStones()
     {
         Block.SetActive(true);
-        Yumju.SetActive(false);
         TickManager.Instance.StopTick();
 
         snappedCount = 0;
@@ -231,9 +231,12 @@ public class AnimationManager : MonoBehaviour
     IEnumerator AfterSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
+        //changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
         spaceAnimRoot.SetActive(false);
+        SceneManager.LoadScene("SpaceAnimation");
     }
+
+
     void OnAllStonesSnapped()
     {
         Debug.Log("우주애니메이션 실행");
@@ -253,4 +256,10 @@ public class AnimationManager : MonoBehaviour
         StartCoroutine(AfterSeconds(5f));
         Debug.Log("우주애니메이션 실행");
     }
+
+    void RemoveYumju(object sender, EventArgs eventArgs)
+    {
+        Yumju.SetActive(false);
+    }
+    
 }
