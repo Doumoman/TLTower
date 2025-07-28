@@ -13,6 +13,10 @@ public class CloudSystem : MonoBehaviour
     public float HighestJointY {  get; private set; }
     public static CloudSystem Instance { get; private set; }
 
+    [Header("CameraMove")]
+    public float waitTime = 1f;
+    public float moveTime = 2.5f;
+
     private void Awake()
     {
         if (Instance != null) Destroy(this);
@@ -35,10 +39,16 @@ public class CloudSystem : MonoBehaviour
         jm.breakForce = force;
         go.AddComponent<JointMakerPhysics>();
         FindHighestJM();
-        CameraController.Instance.CenterOnY(HighestJointY+5);
+        StartCoroutine(MoveCamera());
 
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();
+    }
+
+    public IEnumerator MoveCamera()
+    {
+        yield return new WaitForSeconds(waitTime);
+        CameraController.Instance.CenterOnY(HighestJointY + 5, moveTime);
     }
 
     //구름 조인트시 호출됨
