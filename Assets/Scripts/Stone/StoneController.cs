@@ -59,6 +59,11 @@ public class StoneController : MonoBehaviour,
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
 
+    //회전 사운드 설정
+    const string ROTATE_SFX_PATH = "event:/SFX/stone_rotate"; // FMOD에서 Loop로 설정
+    bool rotateSfxPlaying = false;
+    const float stopAngularEps = 3f;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
     PolygonCollider2D physCol;   
@@ -151,6 +156,11 @@ public class StoneController : MonoBehaviour,
                 holdTimer += Time.deltaTime;
                 if (holdTimer >= holdToRotate)
                 {
+                    if (!rotateSfxPlaying)
+                    {
+                        SoundManager.Instance.PlayLoop(ROTATE_SFX_PATH);
+                        rotateSfxPlaying = true;
+                    }
                     // 회전 시작
                     isRotating = true;
                     holdTimer = 0f;
@@ -166,6 +176,18 @@ public class StoneController : MonoBehaviour,
             }
 
             lastPointerWorld = curWorld;
+        }
+        if (rotateSfxPlaying)
+        {
+            // 각속도가 stopAngularEps 보다 작아지거나 Dragging이 끝났으면
+            bool stopped = Mathf.Abs(rb.angularVelocity) < stopAngularEps ||
+                           state != StoneState.Dragging;
+
+            if (stopped)
+            {
+                SoundManager.Instance.StopLoop(ROTATE_SFX_PATH); // 페이드아웃 포함
+                rotateSfxPlaying = false;
+            }
         }
     }
     void FixedUpdate()
@@ -295,6 +317,7 @@ public class StoneController : MonoBehaviour,
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
     {
+        SoundManager.Instance.PlaySFX("stone_select");
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
 
