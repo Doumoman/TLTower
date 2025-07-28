@@ -23,6 +23,8 @@ public class PresetStoneSpawnerMain : MonoBehaviour
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
 
+    const string PP_KEY = "StoneTimelinePlayed";
+
     void Awake()
     {
         if (!stonesParent)
@@ -31,6 +33,8 @@ public class PresetStoneSpawnerMain : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.GetInt(PP_KEY, 0) == 1) return;
+
         foreach (var p in presets)
             SpawnSingleStone(p);
     }

@@ -16,8 +16,8 @@ public class StoneTimelineTrigger : MonoBehaviour
     /* ───────── 내부 ───────── */
     Collider2D triggerCol;
     ContactFilter2D filter;       // 모든 Collider 허용 (NoFilter)
-    int lastCount = -1;           // 로그 스팸 방지용
-    bool alreadyPlayed;
+    bool alreadyPlayed;          // PlayerPrefs 로드 결과
+    const string PP_KEY = "StoneTimelinePlayed";
 
     void Start()
     {
@@ -29,6 +29,18 @@ public class StoneTimelineTrigger : MonoBehaviour
         filter.useTriggers = true;   // 트리거 콜라이더도 포함
         SoundManager.Instance.PlayBGM("Ground", 0);
         BosalManager.Instance.Speak("TempleStart");
+
+        alreadyPlayed = PlayerPrefs.GetInt(PP_KEY, 0) == 1;
+
+        /* ----- 이미 재생한 적이 있으면 5초 지점부터 바로 실행 ----- */
+        if (alreadyPlayed)
+        {
+            director.time = 6.0;  // 6초 시점
+            director.Play();
+            Debug.Log("다음 챕터 진입중...");
+            SoundManager.Instance.PlaySFX("next_chapter");
+            SoundManager.Instance.PlayBGM("Spring", 2);
+        }
     }
 
     void Update()
@@ -41,6 +53,10 @@ public class StoneTimelineTrigger : MonoBehaviour
         {
             director.Play();
             alreadyPlayed = true;
+
+            PlayerPrefs.SetInt(PP_KEY, 1);
+            PlayerPrefs.Save();
+
             Debug.Log("다음 챕터 진입중...");
             SoundManager.Instance.PlaySFX("next_chapter");
             SoundManager.Instance.PlayBGM("Spring", 2);

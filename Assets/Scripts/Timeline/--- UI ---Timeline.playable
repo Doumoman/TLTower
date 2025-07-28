@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 5
+    m_Start: 6
     m_ClipIn: 0
     m_Asset: {fileID: -1027231093636579001}
     m_Duration: 213.63333333333298
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 5
+    m_Start: 6
     m_ClipIn: 0
     m_Asset: {fileID: 6680588128206505737}
     m_Duration: 1
@@ -1352,7 +1352,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 5
+    m_PreExtrapolationTime: 6
     m_DisplayName: logo
   m_Markers:
     m_Objects: []

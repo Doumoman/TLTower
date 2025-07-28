@@ -20,8 +20,8 @@ MonoBehaviour:
   - {fileID: -413093436, guid: 4e4747b47941e8b42bdf6741c2075e3f, type: 3}
   - {fileID: -671704539, guid: 4e4747b47941e8b42bdf6741c2075e3f, type: 3}
   - {fileID: -1700210042, guid: 4e4747b47941e8b42bdf6741c2075e3f, type: 3}
-  backgroundPrefab: {fileID: 6879320011222045551, guid: 2647e828ffee6f84e9f67f34510751c5, type: 3}
-  playablePrefab: {fileID: 6879320011222045551, guid: 2647e828ffee6f84e9f67f34510751c5, type: 3}
+  backgroundPrefab: {fileID: 6879320011222045551, guid: dddd9162eba382e4791716ad8c6ebf64, type: 3}
+  playablePrefab: {fileID: 6879320011222045551, guid: dddd9162eba382e4791716ad8c6ebf64, type: 3}
   mass: 1
   angularDrag: 0.05
   gravityScale: 1
