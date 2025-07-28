@@ -1375,8 +1375,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.78, y: -3.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6127429285537730179}
   - {fileID: 2975195412204774564}
@@ -1621,8 +1621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c9741824e62214f8993eb33a2b8bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroudWindForce: 0
   flowSpeed: -6
+  linearDrag: 2
+  angularDrag: 2
+  checktime: 0.3
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4

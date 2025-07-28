@@ -19,6 +19,10 @@ public class CloudController : MonoBehaviour,
     public float flowSpeed = -1;
     CloudState state = CloudState.flow;
 
+    [Header("Physics Settings")]
+    public float linearDrag = 2f; // 선형 드래그 (반발력 감소)
+    public float angularDrag = 2f; // 각도 드래그 (회전 반발력 감소)
+
     //구름 반발력 용도
     Collider2D separator;
     public float checktime = 0.3f; 
