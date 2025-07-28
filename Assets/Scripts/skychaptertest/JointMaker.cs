@@ -23,8 +23,8 @@ public class JointMaker : MonoBehaviour
         CloudSystem.Instance.NotifyJoint(this);
         isNotyfied = true;
         //분리에서 제외하기
-        separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == 10);
-        separator.gameObject.layer = 12;
+        separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
+        separator.gameObject.layer = LayerMask.NameToLayer("JointedCloud");
     }
 
     //날 잡고있던 조인트 파괴시, 날 잡던 구름을 initial 리스트에서 제거하기. 그리고 검사 실행
@@ -45,11 +45,7 @@ public class JointMaker : MonoBehaviour
         List<FixedJoint2D> joint2Ds = GetJointList(); 
         if (!joint2Ds.Find(x => x.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker() == jm))  //이미 잡고있는 구름중에 지금 찾은 jm이 없다면
         {
-            // 닿은 대상과 joint2d 형성
-            Joint2D joint = jmp.AddComponent<FixedJoint2D>();
-            joint.connectedBody = otherBone.GetComponent<Rigidbody2D>();
-            joint.breakForce = breakForce;
-            joint.breakAction = JointBreakAction2D.CallbackOnly;
+            jmp.StartJoint(otherBone, breakForce);
 
             //닿은 대상에 JointMaker로 오브젝트 전달. 없다면 추가(연결 능력 부여)
             if (jm != null)
@@ -101,7 +97,7 @@ public class JointMaker : MonoBehaviour
             //StartCoroutine(disconnect(disconnectionInterval));
         }
 
-        separator.gameObject.layer = 10;
+        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
     }
 

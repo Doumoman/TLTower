@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 //jointmaker의 물리 담당. jointmaker컴포넌트가 같이 있을 떄, 또는 부모 오브젝트에 있을 때 두 경우.
 public class JointMakerPhysics : MonoBehaviour
@@ -56,5 +57,18 @@ public class JointMakerPhysics : MonoBehaviour
             GameObject go = results[i].gameObject;
             if (go.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) jmp.MakeJoint(gameObject);
         }
+    }
+
+    public void StartJoint(GameObject Go, float breakForce) => StartCoroutine(NewJoint(Go, breakForce));
+    public IEnumerator NewJoint(GameObject otherBone, float breakForce)
+    {
+        // 닿은 대상과 joint2d 형성
+        Joint2D joint = gameObject.AddComponent<FixedJoint2D>();
+        joint.connectedBody = otherBone.GetComponent<Rigidbody2D>();
+        joint.breakForce = 1000;
+        joint.breakAction = JointBreakAction2D.CallbackOnly;
+
+        yield return new WaitForSeconds(0.5f);
+        if (joint) joint.breakForce = breakForce;
     }
 }
