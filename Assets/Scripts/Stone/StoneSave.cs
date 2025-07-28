@@ -4,74 +4,54 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    [SerializeField] StoneSpawner spawner;
-    string path;
+    const string KEY_CHAPTER = "CurrentChapter"; // PlayerPrefs 키
     public static SaveSystem Instance { get; private set; }
     void Awake()
     {
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-        path = Path.Combine(Application.persistentDataPath, "stone_save.json");
-        //Invoke(nameof(LoadGame), 0.05f);
     }
 
     public void SaveGame()
     {
-        StoneSaveData data = new();
-        data.wave = StoneFixer.Instance.GetWave();
-        data.platformY = StoneFixer.Instance.HighestFixedY;
-        data.chapter = (int)ChapterManager.Instance.chapter;
-
-        foreach (var st in FindObjectsOfType<StoneController>())
-        {
-            if (st.state != StoneState.Fixed) continue;
-
-            data.stones.Add(new StoneInfo
-            {
-                typeId = st.typeId,
-                spriteIndex = st.GetSpriteIndexSafe(),
-                x = st.transform.position.x,
-                y = st.transform.position.y,
-                rot = st.transform.eulerAngles.z
-            });
-        }
-
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(path, json);
-        Debug.Log($"<color=cyan>저장 완료 · {data.stones.Count}개</color>\n{path}");
+        int idx = (int)ChapterManager.Instance.chapter;
+        PlayerPrefs.SetInt(KEY_CHAPTER, idx);
+        PlayerPrefs.Save();
+        Debug.Log($"[SaveSystem] 챕터 저장: {ChapterManager.Instance.chapter}({idx})");
     }
 
     public void LoadGame()
     {
-        if (!File.Exists(path)) { Debug.Log("세이브 없음"); return; }
-        StoneSpawner.Instance.ResetAfterClear();
+        chapter savedChapter = chapter.spring;
+        if (PlayerPrefs.HasKey(KEY_CHAPTER))
+        {
+            int idx = PlayerPrefs.GetInt(KEY_CHAPTER);
+            savedChapter = (chapter)idx;
+        }
 
-        // 씬에 남아 있는 모든 StoneController 삭제
-        foreach (var st in FindObjectsOfType<StoneController>())
-            Destroy(st.gameObject);
+        ChapterManager.Instance.LoadChapter(savedChapter);
+        Debug.Log($"[SaveSystem] 챕터 로드: {savedChapter}");
+    }
 
-        // JSON → 객체 
-        string json = File.ReadAllText(path);
-        StoneSaveData data = JsonUtility.FromJson<StoneSaveData>(json);
+    public void ResetGame()
+    {
+        PlayerPrefs.DeleteKey(KEY_CHAPTER);
+        PlayerPrefs.Save();
+        Debug.Log("[SaveSystem] 데이터 리셋 → spring 로드");
+    }
 
-        ChapterManager.Instance.LoadChapter((chapter)data.chapter);
-        Vector2 platPos = new Vector2(0f, data.platformY - 1.5f);
-        ResetStone.Instance.CreatePlatform(platPos);
+    public static void SetChapter(chapter ch)
+    {
+        PlayerPrefs.SetInt(KEY_CHAPTER, (int)ch);
+        PlayerPrefs.Save();
+        Debug.Log($"[SaveSystem] SetChapter → {ch} 저장 완료");
 
-        // Fixed 돌 재생성
-        foreach (var info in data.stones)
-            StoneSpawner.Instance.SpawnFixedStone(
-                info.typeId,
-                info.spriteIndex,
-                new Vector2(info.x, info.y),
-                info.rot);
-
-        StoneFixer.Instance.RefreshHeightsFromScene();
-        float topY = StoneFixer.Instance.HighestFixedY;
-        CameraController.Instance.CenterOnY(topY, 0.1f); 
-
-        StoneSpawner.Instance.RebuildStubSlots();
-
-        Debug.Log($"로드 완료 · {data.stones.Count}개");
+        // 같은 씬에 ChapterManager가 있으면 바로 적용
+        if (ChapterManager.Instance)
+            ChapterManager.Instance.LoadChapter(ch);
+    }
+    public static void SetChapter(QuickChapter quick)
+    {
+        SetChapter((chapter)quick);   // 캐스팅 후 재사용
     }
 }

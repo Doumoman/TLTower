@@ -60,7 +60,7 @@ public class StoneController : MonoBehaviour,
     public float moveDeadZone = 0.4f;
 
     //회전 사운드 설정
-    const string ROTATE_SFX_PATH = "event:/SFX/stone_rotate"; // FMOD에서 Loop로 설정
+    const string ROTATE_SFX_PATH = "event:/SFX/stone_rotate";
     bool rotateSfxPlaying = false;
     const float stopAngularEps = 3f;
 

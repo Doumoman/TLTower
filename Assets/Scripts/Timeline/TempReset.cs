@@ -11,6 +11,11 @@ public class PlayerPrefsButton : MonoBehaviour
     public string key = "StoneTimelinePlayed";  // 수정 가능
     public int setValue = 1;                 // toggle=false 일 때 적용할 값
 
+
+    [Header("선택할 수 있는 6개 챕터만 표시됩니다")]
+    [SerializeField] QuickChapter targetChapter = QuickChapter.spring;
+
+
     [Header("토글 모드")]
     public bool toggle = false;   // true이면 0↔1 자동 전환
 
@@ -38,4 +43,27 @@ public class PlayerPrefsButton : MonoBehaviour
         PlayerPrefs.Save();  // 디스크에 즉시 저장
         Debug.Log($"PlayerPrefs '{key}' = {PlayerPrefs.GetInt(key)}");
     }
+    public void ResetChapter()
+    {
+        SaveSystem.Instance.ResetGame();
+    }
+    public void ChapterChange() => SaveSystem.SetChapter(targetChapter);
+
+}
+
+public enum QuickChapter
+{
+    spring = (int)chapter.spring,    // 0
+    spring2 = (int)chapter.spring2,    // 1
+    spring3 = (int)chapter.spring3,   // 2
+    summer = (int)chapter.summer,    // 3
+    summer2 = (int)chapter.summer2,    // 4
+    summer3 = (int)chapter.summer3,    // 5
+    summer4 = (int)chapter.summer4,    // 6
+    autumn = (int)chapter.autumn,    // 7
+    autumn2 = (int)chapter.autumn2,    // 8
+    autumn3 = (int)chapter.autumn3,    // 9
+    winter = (int)chapter.winter,    //10
+    winter2 = (int)chapter.winter2,    //11
+    winter3 = (int)chapter.winter3    //12
 }
