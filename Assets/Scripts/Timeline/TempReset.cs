@@ -12,7 +12,7 @@ public class PlayerPrefsButton : MonoBehaviour
     public int setValue = 1;                 // toggle=false 일 때 적용할 값
 
 
-    [Header("선택할 수 있는 6개 챕터만 표시됩니다")]
+    [Header("챕터 지정")]
     [SerializeField] QuickChapter targetChapter = QuickChapter.spring;
 
 
