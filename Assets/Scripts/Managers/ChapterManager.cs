@@ -18,7 +18,7 @@ public enum chapter
     //land,
     spring, spring2, spring3,
     summer, summer2, summer3, summer4,
-    autumn, autumn2, autumn3,
+    autumn, autumn2, autumn3, autumn4, autumn5, autumn6, autumn7, autumn8, autumn9,
     winter, winter2, winter3,
     space
 }; //사운드 편의상 분류 수를 늘림

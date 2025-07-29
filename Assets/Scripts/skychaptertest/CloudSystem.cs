@@ -33,11 +33,13 @@ public class CloudSystem : MonoBehaviour
     {
         savePoint = go;
         float force = nodes[0].breakForce;
+        if (nodes[0].TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) Destroy(jmp);
         DestroyAll(true);
 
         JointMaker jm = go.AddComponent<JointMaker>();
         jm.breakForce = force;
         go.AddComponent<JointMakerPhysics>();
+        nodes.Add(jm);
         FindHighestJM();
         StartCoroutine(MoveCamera());
 

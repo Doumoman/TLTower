@@ -79,7 +79,7 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
-        if (cm.chapter == chapter.space)
+        if (cm.chapter == chapter.space || cm.chapter.ToString().Contains("autumn"))
         {
             Debug.Log("생성금지");
             return;
@@ -173,7 +173,7 @@ public class StoneSpawner : MonoBehaviour
 
     void TickCreateStubAtSlot(Transform slot)
     {
-        if (cm.chapter == chapter.space)
+        if (cm.chapter == chapter.space || || cm.chapter.ToString().Contains("autumn"))
         {
             Debug.Log("생성금지");
             return;

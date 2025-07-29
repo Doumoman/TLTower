@@ -102,7 +102,7 @@ public class JointMaker : MonoBehaviour
 
         if (TryGetComponent<CloudController>(out CloudController _)) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
-        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
+        if (separator) separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
     }
 
