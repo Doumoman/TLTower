@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{bb913ce4-d42b-47be-ac5d-34b0aaadb82f}">
-		<property name="assetPath">
-			<value>rock_rotate_01.mp3</value>
-		</property>
+		<property name="assetPath" />
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>

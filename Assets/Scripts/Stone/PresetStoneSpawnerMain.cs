@@ -24,16 +24,18 @@ public class PresetStoneSpawnerMain : MonoBehaviour
     public Transform stonesParent;
 
     const string PP_KEY = "StoneTimelinePlayed";
+    bool groundTest = false;
 
     void Awake()
     {
         if (!stonesParent)
             stonesParent = new GameObject("Stones").transform;
+        groundTest = FindAnyObjectByType<StoneTimelineTrigger>()?.groundTest ?? true;
     }
 
     void Start()
     {
-        if (PlayerPrefs.GetInt(PP_KEY, 0) == 1) return;
+        if (PlayerPrefs.GetInt(PP_KEY, 0) == 1 && !groundTest) return;
 
         foreach (var p in presets)
             SpawnSingleStone(p);

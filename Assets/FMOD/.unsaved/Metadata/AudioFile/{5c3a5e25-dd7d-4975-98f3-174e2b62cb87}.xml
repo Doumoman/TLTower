@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{5c3a5e25-dd7d-4975-98f3-174e2b62cb87}">
-		<property name="assetPath">
-			<value>cloud_roatate.mp3</value>
-		</property>
+		<property name="assetPath" />
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>

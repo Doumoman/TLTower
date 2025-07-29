@@ -19,6 +19,7 @@ TagManager:
   - FlowerPoint
   - Checkpoint
   - FloatingStone
+  - bookmark
   layers:
   - Default
   - TransparentFX
