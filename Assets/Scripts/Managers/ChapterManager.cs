@@ -103,13 +103,15 @@ public class ChapterManager : MonoBehaviour
         //List<GameObject>[] obList = { springObstacles, summerObstacles, autumnObstacles, winterObstacles };
         //if (idx > 0 && idx < 5) currentObstacles = obList[idx];
         SetObstacle();
-        if (StoneFixer.Instance)
-        {
-            StoneFixer.Instance.threshold = stonesForChapter[idx];
-            StoneFixer.Instance.NotifyStoneLost(null);
-        }
         onChapterChage?.Invoke(this, EventArgs.Empty);
         Debug.Log("chaptermanager 챕터변환 실행");
+        if (StoneFixer.Instance)
+        {
+             StoneFixer.Instance.threshold = stonesForChapter[idx];
+             StoneFixer.Instance.NotifyStoneLost(null);
+        }
+        
+        
     }
 
     //돌 개수 확인 후 챕터전환 확인
@@ -144,7 +146,10 @@ public class ChapterManager : MonoBehaviour
             CameraController.Instance.RaiseCameraY();
             removeYumju?.Invoke(this, EventArgs.Empty);
         }
-        SaveSystem.Instance?.SaveGame();
+        if (chapter != chapter.space)
+        {
+            SaveSystem.Instance?.SaveGame();
+        }
     }
     void RemoveAllCheckpoints()
     {
@@ -168,7 +173,6 @@ public class ChapterManager : MonoBehaviour
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = System.Array.IndexOf(arr, ch);
 
-        SetObstacle();  // 장애물·사운드 등 새 챕터 세팅
         if (idx < stonesForChapter.Length)
             StoneFixer.Instance.threshold = stonesForChapter[idx];
 
@@ -263,8 +267,10 @@ public class ChapterManager : MonoBehaviour
         // SPACE
         else if (chapter == chapter.space)
         {
+            Debug.Log("우주브금 실행");
             SoundManager.Instance.PlayBGM("Space", 0);
         }
+    
         else
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);

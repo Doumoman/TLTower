@@ -88,18 +88,30 @@ public class AnimationManager : MonoBehaviour
         public int spriteIndex; // sprites[] 인덱스
         public Vector2 position;    // 월드 좌표
         public float rotationZ;   // Z축 회전
+        [Tooltip("이 돌이 나타나기 전까지 기다릴 시간(초)")]
+        public float spawnDelay;   // ★ 추가
     }
 
     [Header("★ Space Animation")]
 
     [Header("스폰시킬 돌")]
     public List<StonePreset> presets = new(5);
+
+    [Header("Spawn Timing")]
+    [Tooltip("Preset에 값이 없을 때 기본 대기 시간")]
+    public float defaultSpawnDelay = 1.0f;
+
+    [Tooltip("돌이 서서히 보이도록 하는 페이드‑인 시간")]
+    public float fadeInDuration = 0.8f;
+
     [Header("돌 사라지는거 방지")]
     public GameObject Block;
     [Header("염주 제거")]
     public GameObject Yumju;
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
+
+
 
     [Header("★ 우주 배경 애니메이션")]
     [SerializeField] GameObject spaceAnimRoot;   // Animator 가 달린 오브젝트
@@ -108,6 +120,7 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] float slowDuration = 3f;      // 느린 가속 구간(초)
     [SerializeField] float midSpeed = 0.5f;
     [SerializeField] float endSpeed = 2.0f;
+
 
     readonly int[] spawnSequence = { 4, 3, 1, 2, 0 };   // 원하는 순서
     int spawnStep = 0;
@@ -131,13 +144,23 @@ public class AnimationManager : MonoBehaviour
     }
     void SpawnNextStone()
     {
-        if (spawnStep >= spawnSequence.Length) return;     // 다 만들었으면 패스
+        if (spawnStep >= spawnSequence.Length) return;
 
         int presetIdx = spawnSequence[spawnStep];
-        SpawnSingleStone(presets[presetIdx], presetIdx);   // 인덱스 그대로 넘김
-        spawnStep++;                                       // 다음 단계로
+        float wait = presets[presetIdx].spawnDelay > 0f
+                     ? presets[presetIdx].spawnDelay
+                     : defaultSpawnDelay;
+
+        StartCoroutine(CoSpawnAfterDelay(presetIdx, wait));
+        spawnStep++;                     // 다음 인덱스로 미리 이동
     }
-    void SpawnSingleStone(StonePreset p, int index)
+
+    IEnumerator CoSpawnAfterDelay(int presetIdx, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnSingleStone(presets[presetIdx], presetIdx);
+    }
+    void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
         GameObject go = Instantiate(
             p.stoneData.backgroundPrefab,       // 프리팹
@@ -158,6 +181,8 @@ public class AnimationManager : MonoBehaviour
 
         Sprite spr = p.stoneData.GetSprite(p.spriteIndex);
         sr.sprite = spr;
+        sr.color = new Color(1, 1, 1, 0);
+
 
         rb.mass = p.stoneData.mass;
         rb.angularDrag = p.stoneData.angularDrag;
@@ -165,6 +190,21 @@ public class AnimationManager : MonoBehaviour
 
         mc.Init(spr, index, rb.mass, rb.angularDrag);
 
+        StartCoroutine(CoFadeIn(sr, fadeInDuration));
+    }
+    IEnumerator CoFadeIn(SpriteRenderer sr, float dur)
+    {
+        float t = 0f;
+        Color c = sr.color;
+        while (t < dur)
+        {
+            t += Time.deltaTime;
+            c.a = Mathf.Lerp(0f, 1f, t / dur);
+            sr.color = c;
+            yield return null;
+        }
+        c.a = 1f;
+        sr.color = c;
     }
     public void NotifyStoneSnapped()
     {

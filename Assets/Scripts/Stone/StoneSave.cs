@@ -29,7 +29,7 @@ public class SaveSystem : MonoBehaviour
             savedChapter = (chapter)idx;
         }
 
-        //ChapterManager.Instance.LoadChapter(savedChapter);
+        ChapterManager.Instance.LoadChapter(savedChapter);
         Debug.Log($"[SaveSystem] 챕터 로드: {savedChapter}");
     }
 
