@@ -15,6 +15,9 @@ public class SpaceStoneTarget : MonoBehaviour
     [Tooltip("스냅 후 적용할 Z축 회전값(°)")]
     public float snapRotationZ;
 
+    [Tooltip("돌이 이 자리로 ‘끼워지는’ 데 걸릴 시간(초)")]
+    public float snapTime = 2.0f;          // ★ 새로 추가
+
     void Reset()
     {
         snapPoint = transform;
