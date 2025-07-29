@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -169,8 +169,8 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0.58, y: 0.48999998, z: 1.43, w: 0.87}
+    pivot: {x: 0.42771345, y: 0.40189365}
     oldSize: {x: 5.65, y: 4.42}
     newSize: {x: 5.65, y: 4.42}
     adaptiveTilingThreshold: 0.5
@@ -482,13 +482,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   stoneTypeIndex: 99
+  DespawnerCheck: 0
   settleCheckTime: 0.3
   settleVelocityEps: 0.05
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
-  autoConfigureDistance: 1
-  springDistance: 0.1
-  springFrequency: 6
-  springDamping: 0.895
-  springBreakForce: 0

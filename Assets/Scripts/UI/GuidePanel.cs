@@ -4,6 +4,7 @@ using FMOD;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 // 여기서는 띄워야 할 이미지의 데이터 를! 관리.
 
@@ -17,6 +18,7 @@ public class ImageDict
 {
     public string key;
     public List<Sprite> sprite;
+    public Sprite bookmark; 
 }
 public class GuidePanel : MonoBehaviour
 {
@@ -24,7 +26,7 @@ public class GuidePanel : MonoBehaviour
     [SerializeField] private PanelFader panelFader;
     [SerializeField] private List<ImageDict> guideImages;
     [SerializeField] private float fadeTime = 0.5f; //가이드 켰을 때 FadeIn 시간
-    [SerializeField] private float lockTime = 2f; //오작동을 막기 위함
+    [SerializeField] private float lockTime = 12f; //오작동을 막기 위함
 
     [Header("Buttons")]
     [SerializeField] private GameObject exitButton;
@@ -41,7 +43,7 @@ public class GuidePanel : MonoBehaviour
     private int guideBufferIdx = 0;
     void Awake()
     {
-        if (!displayImage) displayImage = GetComponent<Image>();
+        if (!displayImage) displayImage = gameObject.GetComponent<Image>();
 
         Clear();
         SetImage(defaultImage);  //테스트용! 출시하기 전에 PlayerPrefs를 비우고 이 줄은 지울것!!!!!
@@ -54,14 +56,17 @@ public class GuidePanel : MonoBehaviour
         returnButton.SetActive(false);
     }
 
-    void OnEnable()
+    void Start()
     {
-        canExit = false;
-        StartCoroutine(EnableExit(lockTime));
+        ClearBookmarks();
+        SetBookmark();
+        DisableBookmark();
     }
+
     void OnDisable()
     {
         guideBuffer.Clear();
+        DisableBookmark();
     }
     void Update()
     {
@@ -97,12 +102,18 @@ public class GuidePanel : MonoBehaviour
         }
         SoundManager.Instance.PauseBGM();
 
+        ResetBookMark();
+        EnableBookmark(); // 북마크 활성화
+
         //FadeIn
         //StartCoroutine(panelFader.FadeIn(fadeTime));
-        UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
+
     }
     public void PlayGuide(string key) // 가이드가 자동으로 나와야 할 때 : 해당하는 가이드 호출 후 저장
     {
+        DisableBookmark(); // 북마크 비활성화
+        canExit = false;
+        StartCoroutine(EnableExit(lockTime));
         Time.timeScale = 0f; // 게임 일시정지
         SoundManager.Instance.PauseBGM();
         CameraController.Instance._userMoveInput = false; // 드래그 정지
@@ -133,6 +144,7 @@ public class GuidePanel : MonoBehaviour
             if (!imageList.Contains(s))
                 imageList.Add(s);
 
+        ResetBookMark();
         UpdateButtons(guideBufferIdx, guideBuffer.Count);
         Save();
     }
@@ -154,6 +166,7 @@ public class GuidePanel : MonoBehaviour
             currentIdx--;
             SetImage(imageList[currentIdx]);
             UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
+            UpdateBookmarkVisual();
         }
         SoundManager.Instance.PlaySFX("stamp_button");
     }
@@ -171,6 +184,7 @@ public class GuidePanel : MonoBehaviour
             currentIdx++;
             SetImage(imageList[currentIdx]);
             UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
+            UpdateBookmarkVisual();
         }
         SoundManager.Instance.PlaySFX("stamp_button");
     }
@@ -228,14 +242,178 @@ public class GuidePanel : MonoBehaviour
 
         exitButton.SetActive(false);
         returnButton.SetActive(true);
+
+        UnityEngine.Debug.Log($"UpdateButtonsForButtonGuide: idx={idx}, count={count}, canGoPrev={canGoPrev}, canGoNext={canGoNext}");
+    }
+
+    /*===================북마크 기능==================*/
+
+    private List<GameObject> bookmarkObj = new();
+    private List<GameObject> bookmarkListeners = new();
+    public void SetBookmark()
+    {
+        bookmarkObj.Clear();
+        bookmarkListeners.Clear();
+        foreach (Transform child in GetComponentsInChildren<Transform>(true))
+        {
+            if (child == transform) continue; // 자기 자신은 제외
+            if (child.CompareTag("bookmark"))
+            {
+                GameObject go = child.gameObject;
+                bookmarkObj.Add(go);
+            }
+        }
+        bookmarkObj.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x)); // x좌표 기준으로 정렬
+
+        for (int i = 0; i < bookmarkObj.Count; i++)
+        {
+            GameObject go = bookmarkObj[i];
+
+            // Image
+            Image img = go.GetComponent<Image>();
+            if (img == null)
+            {
+                img = go.AddComponent<Image>();
+                img.preserveAspect = true;
+            }
+
+            // Button + 리스너는 한 번만
+            if (!bookmarkListeners.Contains(go))
+            {
+                Button btn = go.GetComponent<Button>();
+                if (btn == null) btn = go.AddComponent<Button>();
+            }
+        }
+    }
+
+    public void ResetBookMark()
+    {
+        Load();
+        HashSet<string> uniqueKeys = new();
+        int bookmarkIdx = 0;
+
+        for (int i = 0; i < imageList.Count; i++)
+        {
+            Sprite sprite = imageList[i];
+            string key = GetKeyForSprite(sprite);
+            UnityEngine.Debug.Log($"Bookmark: {key} for sprite {sprite.name}");
+
+            if (!uniqueKeys.Contains(key) && bookmarkIdx < Mathf.Min(bookmarkObj.Count, bookmarks.Count))
+            {
+                uniqueKeys.Add(key);
+
+                GameObject bm = bookmarkObj[bookmarkIdx];
+                if (bm == null) continue;
+
+                //이미지 설정
+                Image img = bm.GetComponent<Image>();
+                if (img == null) img = bm.AddComponent<Image>();
+                img.sprite = bookmarks[bookmarkIdx];
+                img.preserveAspect = true;
+
+                //버튼 리스너 설정
+                Button btn = bm.GetComponent<Button>();
+                if (btn == null) btn = bm.AddComponent<Button>();
+                btn.onClick.RemoveAllListeners();
+
+                int imageIdx = i;
+                btn.onClick.AddListener(() => ButtonClicked(imageIdx));
+
+                bookmarkIdx++;
+            }
+        }
+        
+        UpdateBookmarkVisual();
+    }
+
+    private void ButtonClicked(int idx)
+    {
+        currentIdx = idx;
+        SetImage(imageList[currentIdx]);
+        UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
+        UpdateBookmarkVisual();
+        SoundManager.Instance.PlaySFX("stamp_button");
+    }
+
+    private string GetKeyForSprite(Sprite sprite)
+    {
+        foreach (var imgDict in guideImages)
+        {
+            if (imgDict.sprite.Contains(sprite))
+            {
+                return imgDict.key;
+            }
+        }
+        return null; // 해당하는 키가 없을 경우
+    }
+
+    public void UpdateBookmarkVisual()
+    {
+        for (int i = 0; i < bookmarkObj.Count; i++)
+        {
+            if (i >= bookmarks.Count) break;
+
+            GameObject go = bookmarkObj[i];
+            Image img = go.GetComponent<Image>();
+            if (img == null) continue;
+
+            string key = GetKeyForBookmark(bookmarks[i]);
+            Sprite current = Current();
+            bool isActive = guideImages.Find(g => g.key == key)?.sprite[0] == current;
+
+            // 시각 효과 적용
+            img.color = isActive ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0.5f);
+            go.transform.localScale = isActive ? Vector3.one * 0.9f : Vector3.one;
+        }
+    }
+
+    private string GetKeyForBookmark(Sprite sprite)
+    {
+        foreach (var imgDict in guideImages)
+        {
+            if (imgDict.bookmark == sprite)
+            {
+                return imgDict.key;
+            }
+        }
+        return null; // 해당하는 키가 없을 경우
+    }
+
+    public void ClearBookmarks()
+    {
+        foreach (GameObject bookmark in bookmarkObj)
+        {
+            Destroy(bookmark);
+        }
+        bookmarkObj.Clear();
+    }
+
+    public void EnableBookmark()
+    {
+        if (bookmarkObj.Count == 0) return;
+
+        foreach (GameObject bookmark in bookmarkObj)
+        {
+            if (bookmark.GetComponent<Image>().sprite != null)
+                bookmark.SetActive(true);
+        }
+        UpdateButtonsForButtonGuide(currentIdx, imageList.Count);
+    }
+    public void DisableBookmark()
+    {
+        UnityEngine.Debug.Log("DisableBookmark called");
+        foreach (GameObject bookmark in bookmarkObj)
+        {
+            bookmark.SetActive(false);
+        }
     }
     /*===================세이브/로드 기능======================*/
     public void Save()
     {
         List<string> keys = new();
-        foreach (var sprite in imageList)
-            foreach (var spr in guideImages)
-                foreach (var sp in spr.sprite)
+        foreach (Sprite sprite in imageList)
+            foreach (ImageDict spr in guideImages)
+                foreach (Sprite sp in spr.sprite)
                     if (sp == sprite)
                     {
                         keys.Add(spr.key);
@@ -255,11 +433,13 @@ public class GuidePanel : MonoBehaviour
 
         foreach (string key in keys)
         {
-            var spr = guideImages.Find(s => s.key == key);
-            if (spr != null)
-                foreach (var sprite in spr.sprite)
+            ImageDict spr = guideImages.Find(s => s.key == key);
+            if (spr.sprite != null)
+                foreach (Sprite sprite in spr.sprite)
                     if (!imageList.Contains(sprite))
                         imageList.Add(sprite);
+            if (!bookmarks.Contains(spr.bookmark))
+                bookmarks.Add(spr.bookmark);
         }
     }
 
@@ -271,6 +451,7 @@ public class GuidePanel : MonoBehaviour
 
     /*===================circular linked list imageList 구현======================*/
     private List<Sprite> imageList = new();
+    private List<Sprite> bookmarks = new();
     private int currentIdx = 0;
 
     private Sprite Current()

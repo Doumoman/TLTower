@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PausePanel : MonoBehaviour
@@ -10,51 +7,30 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private CanvasScaler scaler;
     [SerializeField] private float fixedOrthoSize = 5f;
+
+    [Header("UI Roots")]
+    public GameObject pausepanel; // 실제로 켜고 끌 루트
+
+    // 외부에서 호출: GuideManager 전용
+    public void Openpausepanel()
+    {
+        if (pausepanel != null && !pausepanel.activeSelf)
+            pausepanel.SetActive(true);
+    }
+
+    public void Closepausepanel()
+    {
+        if (pausepanel != null && pausepanel.activeSelf)
+            pausepanel.SetActive(false);
+    }
+
+    // (선택) 종횡비 설정: 기존 코드 유지
     public void Set16by9() => ApplyAspect(16f / 9f, new Vector2(1920, 1080));
     public void Set2by1() => ApplyAspect(2f / 1f, new Vector2(2160, 1080));
 
-
-    public GameObject pausepanel; // 일시정지 팝업
-    // Start is called before the first frame update
-    public void Openpausepanel()
-    {
-        if (pausepanel.activeSelf) return;
-        pausepanel.SetActive(true);
-        SoundManager.Instance.PauseBGM();
-        CameraController.Instance._userMoveInput = false; // 드래그 중지
-    }
-    void Update()
-    {
-        if(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject != null)
-        {
-            // UI 요소가 선택되어 있을 때는 아무것도 하지 않음
-            return;
-        }
-        // Android Back(PC·에디터에선 Esc) 입력 감지
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("PausePanel Escape Key Pressed");
-            if (pausepanel.activeSelf)
-            {
-                Closepausepanel();   // 이미 열려 있으면 닫기
-            }
-            else
-            {
-                Openpausepanel();    // 닫혀 있으면 열기
-            }
-        }
-    }
-    public void Closepausepanel()
-    {
-        if (!pausepanel.activeSelf) return;
-        SoundManager.Instance.Resume();
-        CameraController.Instance._userMoveInput = true; // 드래그 재개
-        pausepanel.SetActive(false);
-    }
     void ApplyAspect(float targetAspect, Vector2 refRes)
     {
-        SoundManager.Instance.PlaySFX("stamp_button"); //Bigger, Smaller에도 넣으면 됨
-
+        // 이 함수는 시각적 레터/필러박스만 담당 (사운드/입력/타임스케일은 건드리지 않음)
         cam.orthographicSize = fixedOrthoSize;
         float windowAspect = (float)Screen.width / Screen.height;
 
@@ -64,12 +40,11 @@ public class PausePanel : MonoBehaviour
         }
         else if (windowAspect > targetAspect)
         {
-            // 기기 가로가 더 넓다 → 좌·우 필러박스
             float scale = targetAspect / windowAspect;
             float offset = (1f - scale) * 0.5f;
             cam.rect = new Rect(offset, 0, scale, 1);
         }
-        else   // 기기 세로가 더 길다 → 상·하 레터박스
+        else
         {
             float scale = windowAspect / targetAspect;
             float offset = (1f - scale) * 0.5f;
@@ -78,12 +53,11 @@ public class PausePanel : MonoBehaviour
 
         BosalManager.Instance.TextAlign(cam);
 
-        // UI Canvas 비율도 세로 고정
         if (scaler != null)
         {
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = refRes;
-            scaler.matchWidthOrHeight = 1f;   // Height 기준
+            scaler.matchWidthOrHeight = 1f; // Height 기준
         }
     }
 }

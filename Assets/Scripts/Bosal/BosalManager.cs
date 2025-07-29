@@ -153,7 +153,7 @@ public class BosalManager : Singleton<BosalManager>
         {
             if (size == -1f)
                 size = changeSize;
-            bosalText.fontSize = FontSize * size;
+            if (bosalText) bosalText.fontSize = FontSize * size;
             SoundManager.Instance.PlaySFX("stamp_button");
             isTextBig = true;
         }
@@ -162,7 +162,7 @@ public class BosalManager : Singleton<BosalManager>
     {
         if (isTextBig)
         {
-            bosalText.fontSize = FontSize;
+            if(bosalText) bosalText.fontSize = FontSize;
             SoundManager.Instance.PlaySFX("stamp_button");
             isTextBig = false;
         }

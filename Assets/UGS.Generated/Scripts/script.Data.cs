@@ -23,7 +23,7 @@ namespace script
         public delegate void OnLoadedFromGoogleSheets(List<Data> loadedList, Dictionary<int, Data> loadedDictionary);
 
         static bool isLoaded = false;
-        static string spreadSheetID = "1aiGD5qG08-CvDsUoei0642nhya6Z1fy23-yd67L6Jnw"; // it is file id
+        static string spreadSheetID = "12tCsmN77nbNFbHQBGU9d2A9sz68EE7cdSByQ_Cvdsxg"; // it is file id
         static string sheetID = "0"; // it is sheet id
         static UnityFileReader reader = new UnityFileReader();
 

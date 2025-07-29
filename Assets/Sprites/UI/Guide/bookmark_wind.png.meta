@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d98417f300c7bd4a9944646e6d5271b
+guid: a87339a3120b49d42a66594818bf7096
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,70 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: rock_bunnae_dark_0
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 1037
-        width: 606
-        height: 725
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40a60a5c02e5f2b4a907ead2a75fee0f
-      internalID: -1217934468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rock_bunnae_dark_3
-      rect:
-        serializedVersion: 2
-        x: 697
-        y: 1059
-        width: 704
-        height: 690
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad7006da72908684091e5339e4018aa6
-      internalID: 756188387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rock_bunnae_dark_21
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 320
-        width: 860
-        height: 633
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 568e02c2f39a93240a771786230406e6
-      internalID: -1213639076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -195,36 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      rock_bunnae_dark_0: -1217934468
-      rock_bunnae_dark_1: 238757512
-      rock_bunnae_dark_10: 2074872785
-      rock_bunnae_dark_11: -1439950914
-      rock_bunnae_dark_12: -1441868394
-      rock_bunnae_dark_13: -1355636093
-      rock_bunnae_dark_14: -1992976277
-      rock_bunnae_dark_15: 1558583319
-      rock_bunnae_dark_16: 737253307
-      rock_bunnae_dark_17: -177198339
-      rock_bunnae_dark_18: -536752133
-      rock_bunnae_dark_19: 1123353422
-      rock_bunnae_dark_2: 337293602
-      rock_bunnae_dark_20: 1009090362
-      rock_bunnae_dark_21: -1213639076
-      rock_bunnae_dark_22: -2133129858
-      rock_bunnae_dark_23: -707337913
-      rock_bunnae_dark_24: 1019209405
-      rock_bunnae_dark_25: 1317253200
-      rock_bunnae_dark_26: 162224541
-      rock_bunnae_dark_27: 548785061
-      rock_bunnae_dark_28: -448744185
-      rock_bunnae_dark_3: 756188387
-      rock_bunnae_dark_4: -1913023173
-      rock_bunnae_dark_5: -1440139877
-      rock_bunnae_dark_6: -744903394
-      rock_bunnae_dark_7: -1722601635
-      rock_bunnae_dark_8: -437972543
-      rock_bunnae_dark_9: -1049646184
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
