@@ -215,7 +215,7 @@ public class ChapterManager : MonoBehaviour
         // SUMMER
         else if (chapter == chapter.summer)
         {
-            BosalManager.Instance.Speak("SummerFirst");
+            BosalManager.Instance.Speak("Summer");
             SoundManager.Instance.PlayBGM("Summer", 1);
         }
         else if (chapter == chapter.summer2)
@@ -234,8 +234,8 @@ public class ChapterManager : MonoBehaviour
         // AUTUMN
         else if (chapter == chapter.autumn)
         {
-            BosalManager.Instance.Speak("AutumnFirst");
-            GuideManager.Instance.PlayGuide("autumn", 4);
+            BosalManager.Instance.Speak("Autumn");
+            GuideManager.Instance.PlayGuide("autumn", 6f);
             SoundManager.Instance.PlayBGM("Autumn", 1);
         }
         else if (chapter == chapter.autumn2)

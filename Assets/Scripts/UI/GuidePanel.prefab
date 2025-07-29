@@ -584,14 +584,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 6be5cceba68da1a4da059646c4f161ed, type: 3}
     - {fileID: 21300000, guid: 02f26d1a8b3b9204298aa41289f3b28c, type: 3}
     bookmark: {fileID: 21300000, guid: b51545458b71d2c44bd3c76c3626b961, type: 3}
-  - key: penalty
-    sprite:
-    - {fileID: 21300000, guid: 99fb7ce735f51e7459a20cee84c772a1, type: 3}
-    bookmark: {fileID: 21300000, guid: f30bdda8e8f77b24a86104af6fd513a1, type: 3}
   - key: autumn
     sprite:
     - {fileID: 21300000, guid: 99fb7ce735f51e7459a20cee84c772a1, type: 3}
     bookmark: {fileID: 21300000, guid: f30bdda8e8f77b24a86104af6fd513a1, type: 3}
+  - key: penalty
+    sprite:
+    - {fileID: 21300000, guid: ee7f5fc7d2faa7b4e8b9caa1b6116b40, type: 3}
+    bookmark: {fileID: 21300000, guid: 11998f703ba7fab49a0960f9581c920e, type: 3}
   fadeTime: 0.5
   lockTime: 2
   exitButton: {fileID: 1443431167269862817}
@@ -600,8 +600,10 @@ MonoBehaviour:
   returnButton: {fileID: 4580515865877157850}
   defaultImage: {fileID: 21300000, guid: c617852ccf4df1a4b8dfcebc732ce15d, type: 3}
   pausePanel: {fileID: 0}
-  blackPanel: {fileID: 1844581885617118026}
   root: {fileID: 3186370513824239940}
+  GuideClosed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &9084406306807636558
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -678,7 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d63b3c78b8b6f7498e3f3798fc2de3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidePanel: {fileID: 1426874230581029643}
 --- !u!1 &4374596975504977542
 GameObject:
   m_ObjectHideFlags: 0
