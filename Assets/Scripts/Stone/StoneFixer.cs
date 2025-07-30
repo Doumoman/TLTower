@@ -226,5 +226,5 @@ public class StoneFixer : MonoBehaviour
     }
     public List<StoneController> GetBatch() { return batch; }
     public int GetWave() { return wave; }
-    public void SetY(float yPos) { HighestSettledY = yPos; }
+    public void SetY(float yPos) { HighestFixedY = yPos; }
 }

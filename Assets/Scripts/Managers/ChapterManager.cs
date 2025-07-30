@@ -136,6 +136,14 @@ public class ChapterManager : MonoBehaviour
         if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
         {
             chapter = arr[++idx];
+
+            //가을->겨울 다시 돌 기반으로 복귀
+            if (chapter == chapter.winter)
+            {
+                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length-1].transform.position.y + 2f);  //젤 높은 구름 체크포인트 위치
+                ResetStone.Instance.CreatePlatform();
+            }
+
             SetObstacle();
             if (StoneFixer.Instance)
             {

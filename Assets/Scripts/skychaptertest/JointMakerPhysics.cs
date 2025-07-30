@@ -27,8 +27,9 @@ public class JointMakerPhysics : MonoBehaviour
     private IEnumerator JointBreak(Joint2D joint)
     {
         JointMaker jm = GetJointMaker();
-        joint.connectedBody.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp);
-        JointMaker otherJm = jmp.GetJointMaker();
+        JointMaker otherJm;
+        if (joint.connectedBody.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp))
+            otherJm = jmp.GetJointMaker();
 
         //Destroy는 프레임 끝에서 뒤늦게 실행되므로 비활성화를 통해 끊긴 걸 바로 표시(근데 또 이번엔 enabled가 나중에됨)
         joint.enabled = false;
