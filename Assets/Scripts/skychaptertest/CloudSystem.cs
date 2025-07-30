@@ -29,7 +29,6 @@ public class CloudSystem : MonoBehaviour
     {
         if (nodes == null) HighestJointY = StoneFixer.Instance.HighestSettledY;
         else FindHighestJM();
-        SetSavePoint(savePoint);
 
         //하늘 스테이지 시작 위치를 젤 높은 돌에 맞춤
         float yPos = MathF.Max(StoneFixer.Instance.HighestSettledY, StoneFixer.Instance.HighestFixedY);

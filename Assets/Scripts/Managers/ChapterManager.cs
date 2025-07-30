@@ -28,6 +28,7 @@ public class ChapterManager : MonoBehaviour
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
+    public GameObject[] CloudCheckPoint;
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
@@ -94,6 +95,11 @@ public class ChapterManager : MonoBehaviour
             }
             seasonalObstacles = newItems.OrderBy(se => se.season).ToList();
         }
+
+        if (CloudCheckPoint == null || CloudCheckPoint.Length != ((int)chapter.winter - (int)chapter.autumn))
+        {
+            CloudCheckPoint = new GameObject[(int)chapter.winter - (int)chapter.autumn];
+        }
     }
 
     private void Start()
@@ -114,8 +120,12 @@ public class ChapterManager : MonoBehaviour
              StoneFixer.Instance.threshold = stonesForChapter[idx];
              StoneFixer.Instance.NotifyStoneLost(null);
         }
-        
-        
+
+        //가을챕터 체크포인트 설정
+        if (chapter.ToString().Contains("autumn"))
+        {
+            CloudSystem.Instance.SetSavePoint(CloudCheckPoint[(int)chapter - (int)chapter.autumn]);
+        }
     }
 
     //돌 개수 확인 후 챕터전환 확인

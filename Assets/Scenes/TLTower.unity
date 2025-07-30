@@ -167151,6 +167151,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1480919435}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 418371992}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 2070533721}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[2]
+      value: 
+      objectReference: {fileID: 1593611528}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[3]
+      value: 
+      objectReference: {fileID: 1970521651}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[4]
+      value: 
+      objectReference: {fileID: 974486681}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[5]
+      value: 
+      objectReference: {fileID: 2043838509}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[6]
+      value: 
+      objectReference: {fileID: 930900503}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[7]
+      value: 
+      objectReference: {fileID: 344401267}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[8]
+      value: 
+      objectReference: {fileID: 125527004}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
       value: 5
       objectReference: {fileID: 0}
