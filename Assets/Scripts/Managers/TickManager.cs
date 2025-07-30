@@ -12,6 +12,7 @@ public class TickManager : Singleton<TickManager>
     protected override void Awake()
     {
         base.Awake();
+        remainingTime = Tick;
         StartTick();
     }
 
@@ -19,35 +20,21 @@ public class TickManager : Singleton<TickManager>
     {
         StartCoroutine(EventEveryTick(Tick));
     }
-
+    float remainingTime;
     private IEnumerator EventEveryTick(float sec)
     {
-        float remainingTime = sec;
-        float realTime = Time.realtimeSinceStartup;
 
         while (true)
         {
-            if (Time.timeScale == 0f)
-            {
-                yield return null;
-                continue; // 여기서 아래 로직 안 타게 함
-            }
-
-            float currentRealTime = Time.realtimeSinceStartup;
-            float delta = currentRealTime - realTime;
-            remainingTime -= delta;
-            realTime = currentRealTime;
-
+            remainingTime -= Time.deltaTime;
             if (remainingTime <= 0f)
             {
                 tickCount++;
                 Debug.Log("틱! 현재 틱 카운트: " + tickCount);
                 OnTickEvent?.Invoke(this, EventArgs.Empty);
 
-                remainingTime = sec;
-                realTime = Time.realtimeSinceStartup;
+                remainingTime += Tick;
             }
-
             yield return null;
         }
     }

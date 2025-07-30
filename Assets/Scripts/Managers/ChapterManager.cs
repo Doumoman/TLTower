@@ -45,8 +45,7 @@ public class ChapterManager : MonoBehaviour
     
     public static ChapterManager Instance { get; private set; }
 
-    //디버깅용
-    public SaveSystem saveSystem;
+
 
     private void Awake()
     {
@@ -58,7 +57,6 @@ public class ChapterManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        UnityEngine.Debug.LogError("테스트 중! 출시 전에 ChapterManager에서 saveSystem 제거할 것");
     }
 
     private void OnValidate()

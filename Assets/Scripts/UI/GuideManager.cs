@@ -16,7 +16,7 @@ public enum GuideUIState
     PauseThenGuide
 }
 
-public class GuideManager : Singleton<GuideManager>
+public class GuideManager : MonoBehaviour
 {
     [Header("Panel Roots")]
     [SerializeField] private PausePanel pausePanel;       // Pause 루트 + UI
@@ -29,9 +29,11 @@ public class GuideManager : Singleton<GuideManager>
     private GuideUIState prev = GuideUIState.None;
     private bool PauseBGMPlaying = false;
 
-    protected override void Awake()
+    public static GuideManager Instance { get; private set; }
+
+    private void Awake()
     {
-        base.Awake();
+        if (Instance == null) Instance = this;
         pausePanel.Closepausepanel();
         guidePanelRoot.SetActive(false);
 
