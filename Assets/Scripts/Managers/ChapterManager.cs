@@ -42,7 +42,7 @@ public class ChapterManager : MonoBehaviour
     public event EventHandler removeYumju;
 
     
-    public static ChapterManager Instance;
+    public static ChapterManager Instance { get; private set; }
 
     //디버깅용
     public SaveSystem saveSystem;
@@ -57,7 +57,6 @@ public class ChapterManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        saveSystem.ResetGame();
         UnityEngine.Debug.LogError("테스트 중! 출시 전에 ChapterManager에서 saveSystem 제거할 것");
     }
 

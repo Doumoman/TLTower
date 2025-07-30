@@ -160,8 +160,10 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         SpawnSingleStone(presets[presetIdx], presetIdx);
     }
+    int seq = 0;
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
+        SoundManager.Instance.PlayBGM("Space", seq++);
         GameObject go = Instantiate(
             p.stoneData.backgroundPrefab,       // 프리팹
             p.position,                         // 위치
@@ -273,12 +275,12 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         //changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
         spaceAnimRoot.SetActive(false);
-        SceneManager.LoadScene("SpaceAnimation");
     }
 
 
     void OnAllStonesSnapped()
     {
+        SoundManager.Instance.PlayBGM("Space", 5);
         Debug.Log("우주애니메이션 실행");
         foreach (var sc in stonesParent.GetComponentsInChildren<SpaceStoneController>())
             if (sc.State == SpaceStoneState.Snapped)
