@@ -16,7 +16,7 @@ public class JointMaker : MonoBehaviour
     //스크립트 형성시(연결능력 부여시) or 조인트 당했으면 뭐가 Joint했는지 알기
     public void Init(JointMaker jm)
     {
-        initial.Add(jm);
+        if (jm) initial.Add(jm);
 
         // 처음 한 번만 보고하기
         if (isNotyfied) return;
@@ -27,7 +27,7 @@ public class JointMaker : MonoBehaviour
         separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
         separator.gameObject.layer = LayerMask.NameToLayer("JointedCloud");
 
-        if (jm.gameObject == CloudSystem.Instance.savePoint) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
+        if (jm && jm.gameObject == CloudSystem.Instance.savePoint) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
     }
 
     //날 잡고있던 조인트 파괴시, 날 잡던 구름을 initial 리스트에서 제거하기. 그리고 검사 실행
@@ -41,7 +41,8 @@ public class JointMaker : MonoBehaviour
     {
         GameObject bone = jmp.gameObject;
 
-        JointMaker jm = otherBone.GetComponent<JointMakerPhysics>().GetJointMaker();  //닿은 대상과 연결된 jm
+        JointMaker jm = null;
+        if (otherBone.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics otherJmp)) jm = otherJmp.GetJointMaker();  //닿은 대상과 연결된 jm
         if (initial.Contains(jm) || jm == this) return;       //initial에 등록된 JointMaker(이미 연결된거)면 실행 안함. 또는 자기 자신인 경우도(간혹 있음)
 
         //닿은 대상이 아직 joint2d를 형성하지 않은 구름이라면

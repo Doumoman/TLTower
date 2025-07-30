@@ -27,6 +27,7 @@ public class CloudSystem : MonoBehaviour
     {
         if (nodes == null) HighestJointY = StoneFixer.Instance.HighestSettledY;
         else FindHighestJM();
+        SetSavePoint(savePoint);
     }
 
     public void SetSavePoint(GameObject go)
@@ -39,7 +40,7 @@ public class CloudSystem : MonoBehaviour
         JointMaker jm = go.AddComponent<JointMaker>();
         jm.breakForce = force;
         go.AddComponent<JointMakerPhysics>();
-        nodes.Add(jm);
+        jm.Init(null);
         FindHighestJM();
         StartCoroutine(MoveCamera());
 
@@ -50,7 +51,7 @@ public class CloudSystem : MonoBehaviour
     public IEnumerator MoveCamera()
     {
         yield return new WaitForSeconds(waitTime);
-        CameraController.Instance.CenterOnY(HighestJointY + 5, moveTime);
+        CameraController.Instance.CenterOnY(HighestJointY + 4, moveTime);
     }
 
     //구름 조인트시 호출됨
