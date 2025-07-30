@@ -45063,7 +45063,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1090870085}
   m_Father: {fileID: 1921544825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -55848,6 +55849,7 @@ MonoBehaviour:
   nodes:
   - {fileID: 418371997}
   cloudSpawner: {fileID: 2023078721}
+  skyStage: {fileID: 0}
   waitTime: 1
   moveTime: 2.5
 --- !u!4 &797172749
@@ -166022,7 +166024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[6]
-      value: 3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[7]
@@ -166114,11 +166116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[18].season
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[19].season
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[1].obstacles.Array.size
@@ -166189,8 +166191,12 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
-      propertyPath: seasonalObstacles.Array.data[19].obstacles.Array.size
+      propertyPath: seasonalObstacles.Array.data[18].obstacles.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[19].obstacles.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[1].obstacles.Array.data[0]
@@ -166449,6 +166455,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1276775303}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[18].obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1322940009}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[18].obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 142037665}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[18].obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1757047012}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: seasonalObstacles.Array.data[18].obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1276775303}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: seasonalObstacles.Array.data[19].obstacles.Array.data[0]
       value: 
       objectReference: {fileID: 1322940009}
@@ -166625,7 +166647,7 @@ PrefabInstance:
     - target: {fileID: 646993254472167980, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: voiceSlider
       value: 
-      objectReference: {fileID: 1595422147}
+      objectReference: {fileID: 0}
     - target: {fileID: 1670347803239728008, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

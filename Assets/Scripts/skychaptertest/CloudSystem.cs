@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class CloudSystem : MonoBehaviour
     public GameObject savePoint;
     [SerializeField]private List<JointMaker> nodes = new List<JointMaker>();
     public GameObject cloudSpawner;
+    public GameObject skyStage;
 
     public float HighestJointY {  get; private set; }
     public static CloudSystem Instance { get; private set; }
@@ -28,14 +30,21 @@ public class CloudSystem : MonoBehaviour
         if (nodes == null) HighestJointY = StoneFixer.Instance.HighestSettledY;
         else FindHighestJM();
         SetSavePoint(savePoint);
+
+        //하늘 스테이지 시작 위치를 젤 높은 돌에 맞춤
+        float yPos = MathF.Max(StoneFixer.Instance.HighestSettledY, StoneFixer.Instance.HighestFixedY);
+        skyStage.transform.position = new Vector2(0, yPos);
     }
 
-    public void SetSavePoint(GameObject go)
+
+    public void SetSavePoint(GameObject go) => StartCoroutine(NewSavePoint(go));
+    public IEnumerator NewSavePoint(GameObject go)
     {
         savePoint = go;
         float force = nodes[0].breakForce;
         if (nodes[0].TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) Destroy(jmp);
         DestroyAll(true);
+        yield return null;  //jm이 사라지길 한 프레임 기다리기
 
         JointMaker jm = go.AddComponent<JointMaker>();
         jm.breakForce = force;
@@ -79,7 +88,6 @@ public class CloudSystem : MonoBehaviour
         JointMaker jm = savePoint.GetComponent<JointMaker>();
         List<JointMaker> jmList = new List<JointMaker>();
         jm.DFS(ref jmList);
-
 
         //고립대상들 삭제
         foreach (JointMaker node in nodes)

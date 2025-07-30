@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.U2D;
 
 public class Tree : MonoBehaviour
@@ -37,6 +38,7 @@ public class Tree : MonoBehaviour
         // ChapterManager 캐싱
         cm = ChapterManager.Instance;
         cm.onChapterChage += ChageSprite;
+        cm.onChapterChage += AutumnDisable;
         Debug.Log("tree 챕터변환 등록");
 
         // 자신을 정적 리스트에 등록
@@ -116,9 +118,44 @@ public class Tree : MonoBehaviour
             lastStem = Instantiate(stem[idx], gameObject.transform);
             lastStem.transform.position = new Vector3(0, lastY + 21.6f, Z);
             lastStem.GetComponent<SpriteRenderer>().sprite = seasons[cm.chapter][idx];
-            SpriteRenderer sr = Array.Find(lastStem.GetComponentsInChildren<SpriteRenderer>(),x => x.sortingLayerName == "flower"); //꽃잎 spriteRenderer
-            if (cm.chapter.ToString().Contains("autumn")) sr.enabled = false;
-            else sr.sprite = seasonFlower[cm.chapter][idx];
+
+            if (cm.chapter.ToString().Contains("autumn"))
+            {
+                for (int j = 0; j < lastStem.transform.childCount; j++)
+                {
+                    Transform child = lastStem.transform.GetChild(j);
+                    child.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    //가을챕터에선 돌 생성되지 않도록
+    void AutumnDisable(object sender, EventArgs eventArgs)
+    {
+        if (cm.chapter.ToString().Contains("autumn"))
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                for (int j = 0; j < child.transform.childCount; j++)
+                {
+                    Transform childChild = child.transform.GetChild(j);
+                    childChild.gameObject.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                for (int j = 0; j < child.transform.childCount; j++)
+                {
+                    Transform childChild = child.transform.GetChild(j);
+                    childChild.gameObject.SetActive(true);
+                }
+            }
         }
     }
 

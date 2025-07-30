@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 0
+  targetChapter: 6
   toggle: 0
 --- !u!95 &1696282818
 Animator:

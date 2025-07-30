@@ -27,14 +27,15 @@ public class JointMakerPhysics : MonoBehaviour
     private IEnumerator JointBreak(Joint2D joint)
     {
         JointMaker jm = GetJointMaker();
-        JointMaker otherJm = joint.connectedBody.GetComponent<JointMakerPhysics>().GetJointMaker();
+        joint.connectedBody.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp);
+        JointMaker otherJm = jmp.GetJointMaker();
 
         //Destroy는 프레임 끝에서 뒤늦게 실행되므로 비활성화를 통해 끊긴 걸 바로 표시(근데 또 이번엔 enabled가 나중에됨)
         joint.enabled = false;
         Destroy(joint);
         yield return null;  //한 프레임 쉬기(조인트 해제가 반영되길 기다림)
 
-        otherJm.RemoveInit(jm);
+        if (otherJm) otherJm.RemoveInit(jm);
 
     }
     //이것과 연결된 jointmaker 반환. 없으면 null
