@@ -6,6 +6,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Linq;
+using UnityEngine.Playables;
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -51,7 +52,8 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void PlayVoice(string path)
     {
-        StartCoroutine(QueueVoice("event:/Voice/" + path));
+        voiceQueue.Enqueue(path);
+        StartCoroutine(QueueVoice());
     }
 
     private Dictionary<string, EventInstance> loopedSFX = new Dictionary<string, EventInstance>();
@@ -75,23 +77,31 @@ public class SoundManager : Singleton<SoundManager>
         instance.release();
         loopedSFX.Remove(path);
     }
+
+    private Queue<string> voiceQueue = new Queue<string>();
     private bool isVoicePlaying = false;
-    private EventInstance Voice;
-    private IEnumerator QueueVoice(string path)
+    private IEnumerator QueueVoice()
     {
-        while (isVoicePlaying) yield return null;
-        StartCoroutine(WaitAndSpeak(path));
-        Debug.Log($"보살 음성 : {path}");
         isVoicePlaying = true;
 
-        PLAYBACK_STATE state;
-        do
+        while (voiceQueue.Count > 0)
         {
-            Voice.getPlaybackState(out state);
-            yield return null;
-        } while (state != PLAYBACK_STATE.STOPPED);
+            string nextPath = "event:/Voice/" + voiceQueue.Dequeue();
+            EventInstance instance = RuntimeManager.CreateInstance(nextPath);
+            instance.start();
+            Debug.Log($"playing Voice {nextPath}");
 
-        Voice.release();
+            PLAYBACK_STATE state;
+            do
+            {
+                instance.getPlaybackState(out state);
+                yield return null;
+            }
+            while (state != PLAYBACK_STATE.STOPPED);
+
+            instance.release();
+        }
+
         isVoicePlaying = false;
     }
 
@@ -165,12 +175,5 @@ public class SoundManager : Singleton<SoundManager>
         Pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Pause.release();
         Debug.Log($"Pause BGM Stopped!");
-    }
-    [SerializeField] private float speakTerm = 1f;
-    IEnumerator WaitAndSpeak(string path)
-    {
-        yield return new WaitForSeconds(speakTerm);
-        Voice = RuntimeManager.CreateInstance(path);
-        Voice.start();
     }
 }

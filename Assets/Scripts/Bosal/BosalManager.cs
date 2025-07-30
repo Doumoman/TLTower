@@ -17,9 +17,15 @@ public class BosalManager : Singleton<BosalManager>
     [SerializeField] private float fadeSpeed = 2f;
     [SerializeField] private float FontSize = 20;
     [SerializeField] private float changeSize = 1.5f;
-    [SerializeField] private float padding = 30f;
     //public bool NoIdle = true; // 무입력, 무대사 대사 끄기 (로비, 우주 연출 등)
     [SerializeField] private bool isTextBig = true;
+
+    private enum Pos { TopCenter, BottomCenter, TopRight }
+
+    [Header("Text Position")]
+    [SerializeField] Pos TextPosition;
+    [SerializeField] Vector4 LeftTopRightBottom = new Vector4(30, 30, 30, 30);
+
     public bool birdBool = false;
 
     private bool DontSpeakTwice = false; // 다음 대사 출력하지 않음
@@ -51,6 +57,38 @@ public class BosalManager : Singleton<BosalManager>
 
             Actions.Clear();
         }; // Tick에 액션 등록 후 실행
+
+        var rt = GetComponent<RectTransform>();
+        var tmp = GetComponent<TMP_Text>();
+
+        switch (TextPosition)
+        {
+            case Pos.TopCenter:
+                rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 1f);
+                rt.pivot = new Vector2(0.5f, 1f);
+                rt.anchoredPosition = Vector2.zero;
+
+                tmp.alignment = TextAlignmentOptions.Top;
+                tmp.margin = LeftTopRightBottom;
+                break;
+
+            case Pos.BottomCenter:
+                rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0f);
+                rt.pivot = new Vector2(0.5f, 0f);
+                rt.anchoredPosition = Vector2.zero;
+
+                tmp.alignment = TextAlignmentOptions.Bottom;
+                tmp.margin = LeftTopRightBottom;
+                break;
+            default:
+                rt.anchorMin = rt.anchorMax = new Vector3(1f, 1f);
+                rt.pivot = new Vector2(1f, 1f);
+                rt.anchoredPosition = Vector2.zero;
+
+                tmp.alignment = TextAlignmentOptions.TopRight;
+                tmp.margin = LeftTopRightBottom;
+                break;
+        }
     }
     IEnumerator FadeIn()
     {
