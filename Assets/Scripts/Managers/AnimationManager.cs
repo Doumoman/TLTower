@@ -104,6 +104,30 @@ public class AnimationManager : MonoBehaviour
     [Tooltip("돌이 서서히 보이도록 하는 페이드‑인 시간")]
     public float fadeInDuration = 0.8f;
 
+    [Header("✨ Glow Objects (순서 = presetIndex)")]
+    public List<SpriteRenderer> glowObjects = new(5);   // 0~4
+    [Tooltip("Glow가 그려질 SortingOrder (높을수록 앞)")]
+    public int glowSortingOrder = 100;
+
+    [Header("Glow Animation")]
+    [Tooltip("처음 등장 시 0 → 1 로 페이드‑인되는 시간")]
+    public float glowFadeIn = 0.35f;
+
+    [Tooltip("깜빡이는 주기(초) ‑ 예: 0.8 → 0.5초마다 α최소/최대 교차")]
+    public float glowBlinkPeriod = 0.8f;
+
+    [Tooltip("깜빡임 최소 α")]
+    [Range(0f, 1f)] public float glowMinAlpha = 0.5f;
+    [Tooltip("깜빡임 최대 α")]
+    [Range(0f, 1f)] public float glowMaxAlpha = 1f;
+
+    [Tooltip("스냅 순간 ‘반짝’ 유지 시간")]
+    public float glowFlashHold = 0.12f;
+    [Tooltip("반짝 후 사라지는 페이드‑아웃 시간")]
+    public float glowFadeOut = 0.3f;
+    // 내부 코루틴 핸들 (스냅되면 강제 종료용)
+    Coroutine[] glowCo = new Coroutine[5];
+
     [Header("돌 사라지는거 방지")]
     public GameObject Block;
     [Header("염주 제거")]
@@ -148,6 +172,9 @@ public class AnimationManager : MonoBehaviour
         if (spawnStep >= spawnSequence.Length) return;
 
         int presetIdx = spawnSequence[spawnStep];
+
+        ShowGlow(presetIdx);
+
         float wait = presets[presetIdx].spawnDelay > 0f
                      ? presets[presetIdx].spawnDelay
                      : defaultSpawnDelay;
@@ -304,5 +331,66 @@ public class AnimationManager : MonoBehaviour
     {
         Yumju.SetActive(false);
     }
-    
+
+    public void ShowGlow(int idx)
+    {
+        if (idx < 0 || idx >= glowObjects.Count) return;
+
+        SpriteRenderer sr = glowObjects[idx];
+        if (glowCo[idx] != null) StopCoroutine(glowCo[idx]);
+        glowCo[idx] = StartCoroutine(CoGlowLoop(sr, idx));
+    }
+    IEnumerator CoGlowLoop(SpriteRenderer sr, int idx)
+    {
+        sr.gameObject.SetActive(true);
+        sr.sortingOrder = glowSortingOrder;
+
+        Color c = sr.color;
+        /* ── ① 처음엔 α 0 ── */
+        c.a = 0f;
+        sr.color = c;
+
+        /* ── ② 페이드‑인 (0 → 1) ── */
+        for (float t = 0; t < glowFadeIn; t += Time.deltaTime)
+        {
+            c.a = Mathf.Lerp(0f, 1f, t / glowFadeIn);
+            sr.color = c;
+            yield return null;
+        }
+        c.a = 1f; sr.color = c;
+
+        /* ── ③ 깜빡임 루프 (0.5 ↔ 1) ── */
+        float timer = 0f;
+        while (true)
+        {
+            timer += Time.deltaTime;
+            float ping = Mathf.PingPong(timer, glowBlinkPeriod) / (glowBlinkPeriod * 0.5f); // 0~1
+            c.a = Mathf.Lerp(glowMinAlpha, glowMaxAlpha, ping);
+            sr.color = c;
+            yield return null;
+        }
+    }
+    public void FlashAndHide(int idx)
+    {
+        if (idx < 0 || idx >= glowObjects.Count) return;
+
+        if (glowCo[idx] != null) StopCoroutine(glowCo[idx]);
+        glowCo[idx] = StartCoroutine(CoFlashAndHide(glowObjects[idx], idx));
+    }
+
+    IEnumerator CoFlashAndHide(SpriteRenderer sr, int idx)
+    {
+        Color c = sr.color;
+        c.a = 1f; sr.color = c;          // 최대 밝기로 고정
+        yield return new WaitForSeconds(glowFlashHold);
+
+        for (float t = 0; t < glowFadeOut; t += Time.deltaTime)
+        {
+            c.a = Mathf.Lerp(1f, 0f, t / glowFadeOut);
+            sr.color = c;
+            yield return null;
+        }
+        sr.gameObject.SetActive(false);
+        glowCo[idx] = null;
+    }
 }

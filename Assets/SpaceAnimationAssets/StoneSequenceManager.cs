@@ -36,7 +36,7 @@ public class StoneSequenceManager : MonoBehaviour
         yield return glowStage.Run();
 
         /* 3) Fade-Out + 보살 등장 ----------------------- */
-        yield return transitionStage.Run();
+        //yield return transitionStage.Run();
 
 
     }
