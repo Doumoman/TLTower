@@ -182,6 +182,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{af428682-671b-401d-8e28-8d90a1a96deb}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>4</value>
 		</property>
@@ -196,6 +199,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{557f73d4-ef07-41c7-93b6-ca55b21bfbeb}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>36.000000000000057</value>
 		</property>
@@ -210,6 +216,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{6eb6c783-c40a-4bfc-89bb-34920bd0ef0f}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>19.999999999999986</value>
 		</property>
@@ -224,6 +233,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{27ac4298-808a-46ca-a4d5-1ccdd2fe6245}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>8.0000000000000036</value>
 		</property>
@@ -238,6 +250,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{13abffd0-ca30-49b3-b890-5f5fa156b6a0}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>11.999999999999986</value>
 		</property>
@@ -252,6 +267,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{983c8d4d-d16e-478b-9967-2bb9f1d321cb}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>31.999999999999989</value>
 		</property>
@@ -266,6 +284,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{ae910468-36ef-425a-b3ff-05925137c773}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>23.999999999999986</value>
 		</property>
@@ -280,6 +301,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{517791e9-7949-4e60-8759-84f0b139b954}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>27.999999999999986</value>
 		</property>
@@ -294,6 +318,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{41759612-4d75-44cb-84a9-0545e544cbcc}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>40.000000000000057</value>
 		</property>
@@ -308,6 +335,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{ffd59071-2b99-40dd-b68b-c04c7f82ade0}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>44.000000000000057</value>
 		</property>
@@ -322,6 +352,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{8cf98962-beda-45d8-8a09-de8ff0902487}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>48.000000000000057</value>
 		</property>
@@ -336,6 +369,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{086f7a76-8480-4f2a-a4b6-5f5597240026}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>15.999999999999986</value>
 		</property>
@@ -350,6 +386,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{6bcf9c21-2377-475d-b0c8-fb08e2a44f2d}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>52.000000000000057</value>
 		</property>
@@ -364,6 +403,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{d1b6f4fb-61a2-49be-8ff2-af897272306e}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>56.000000000000057</value>
 		</property>
@@ -378,6 +420,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{bb58b0bc-47af-4509-99da-bbf3ea6d85e1}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>60.000000000000057</value>
 		</property>
@@ -392,6 +437,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{a9d55d75-a349-4dca-9d80-778578a231c2}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>64.000000000000057</value>
 		</property>
@@ -406,6 +454,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{f03c1a74-845c-41cc-a6f0-830cb48a1090}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>68</value>
 		</property>
@@ -420,6 +471,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{03f60690-0f6d-433b-9cd1-2f3f2c5a8d54}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>3.9500000000000002</value>
 		</property>
@@ -433,6 +487,9 @@
 		</property>
 		<relationship name="automators">
 			<destination>{29002969-6b6b-4a5e-9546-b09a81beb34e}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{8dc1a3ca-b326-491f-97a3-464a6e915e32}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{6e44f9a1-5b76-4047-9ddf-dff6c6dd7c80}</destination>
@@ -468,7 +525,7 @@
 			<destination>{d7e1adcd-c07c-4eb4-8fc2-8a34b9d9fb79}</destination>
 		</relationship>
 		<relationship name="modulators">
-			<destination>{57138495-bf99-4ee8-990a-d697f643eb68}</destination>
+			<destination>{6ad1f735-99e3-4327-8f38-e0f7ee1fee3c}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{8ea863a4-a56b-4aaf-895b-bc639aa35e50}</destination>
@@ -516,6 +573,9 @@
 		</property>
 		<relationship name="automators">
 			<destination>{38777022-8f40-4f11-a932-2b297554edb2}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{a50386e3-a7b4-4942-ba09-b4fa001ce821}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{8d6ec6c9-eead-4d3c-a5eb-7ee45a970d9a}</destination>
@@ -877,6 +937,23 @@
 			<destination>{e35bfaed-3997-40bd-bb49-8266fa6be334}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{8dc1a3ca-b326-491f-97a3-464a6e915e32}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>5000</value>
+		</property>
+		<property name="releaseTime">
+			<value>580</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{6e44f9a1-5b76-4047-9ddf-dff6c6dd7c80}">
 		<relationship name="effects">
 			<destination>{00a3c36b-84ec-4cd2-899a-0eb9ed1bd31b}</destination>
@@ -891,7 +968,7 @@
 			<destination>{5cae755b-57c4-452b-8967-ca7d70683045}</destination>
 		</relationship>
 	</object>
-	<object class="ADSRModulator" id="{57138495-bf99-4ee8-990a-d697f643eb68}">
+	<object class="ADSRModulator" id="{6ad1f735-99e3-4327-8f38-e0f7ee1fee3c}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
@@ -899,10 +976,10 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>0</value>
+			<value>820</value>
 		</property>
 		<property name="releaseTime">
-			<value>7800</value>
+			<value>3200</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>
@@ -944,6 +1021,23 @@
 			<destination>{bfc8ae5d-1d41-4535-808c-57cf4ccd1900}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{a50386e3-a7b4-4942-ba09-b4fa001ce821}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="releaseTime">
+			<value>2200</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{8d6ec6c9-eead-4d3c-a5eb-7ee45a970d9a}">
 		<relationship name="effects">
 			<destination>{3e6c9691-a90b-4a60-991c-2e1d7a300e66}</destination>
@@ -952,7 +1046,7 @@
 	<object class="MixerBusPanner" id="{d4781c8c-a8d4-4dd4-b9aa-4a5644780877}" />
 	<object class="ParameterCondition" id="{77a94483-bad8-445d-8b6c-f83ef1f6d26a}">
 		<property name="minimum">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<property name="maximum">
 			<value>1</value>
@@ -1476,7 +1570,7 @@
 			<value>2</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-3.81469727e-06</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{f58d1668-5ba0-4ca5-87d2-c7bcac2d569d}">
@@ -1484,7 +1578,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>0.299999237</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{7b3c3a4c-768b-4569-8a9c-9578af8bf9cf}">
@@ -1492,7 +1586,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-80</value>
+			<value>-78.0000076</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{8eda045b-b60d-4054-bb21-4129cc5fcf98}">
@@ -1500,7 +1594,7 @@
 			<value>2</value>
 		</property>
 		<property name="value">
-			<value>3.81469727e-06</value>
+			<value>0.300003052</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{2ec2c1c0-a41b-4a52-82db-812363ae9efe}">

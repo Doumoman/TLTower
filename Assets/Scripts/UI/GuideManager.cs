@@ -27,6 +27,7 @@ public class GuideManager : Singleton<GuideManager>
     private readonly List<string> played = new();
     private GuideUIState current = GuideUIState.None;
     private GuideUIState prev = GuideUIState.None;
+    private bool PauseBGMPlaying = false;
 
     protected override void Awake()
     {
@@ -34,7 +35,7 @@ public class GuideManager : Singleton<GuideManager>
         pausePanel.Closepausepanel();
         guidePanelRoot.SetActive(false);
 
-        guidePanel.GuideClosed.AddListener(OnGuideClosed); 
+        guidePanel.GuideClosed.AddListener(OnGuideClosed);
     }
 
     private void ShowGuide() => guidePanelRoot.SetActive(true);
@@ -72,6 +73,17 @@ public class GuideManager : Singleton<GuideManager>
             Time.timeScale = (current == GuideUIState.None) ? 1f : 0f;
             if (current == GuideUIState.None) SoundManager.Instance.Resume();
             else SoundManager.Instance.PauseBGM();
+            if(prev == GuideUIState.None)
+            {
+                if (PauseBGMPlaying) return;
+                PauseBGMPlaying = true;
+                SoundManager.Instance.PlayPauseBGM();
+            }
+            else if (prev != GuideUIState.None && current == GuideUIState.None)
+            {
+                PauseBGMPlaying = false;
+                SoundManager.Instance.StopPauseBGM();
+            }
             prev = current;
         }
     }

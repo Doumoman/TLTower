@@ -5137,22 +5137,29 @@ MonoBehaviour:
     spriteIndex: 0
     position: {x: 7, y: 8}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 1
     position: {x: 8, y: 3}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 2
     position: {x: -8, y: 7}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 3
     position: {x: -7, y: 4}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 4
     position: {x: -9, y: 2}
     rotationZ: 0
+    spawnDelay: 0
+  defaultSpawnDelay: 1
+  fadeInDuration: 0.8
   Block: {fileID: 1961988237}
   Yumju: {fileID: 1408709549}
   stonesParent: {fileID: 0}
@@ -10176,6 +10183,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 171687183}
   snapRotationZ: 270
+  snapTime: 2
 --- !u!58 &171687185
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32810,6 +32818,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1287000890}
   snapRotationZ: 0
+  snapTime: 2
 --- !u!58 &1287000892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32927,6 +32936,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1336854761}
   snapRotationZ: -41.1
+  snapTime: 2
 --- !u!58 &1336854763
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33328,6 +33338,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1381699796}
   snapRotationZ: -20.36
+  snapTime: 2
 --- !u!58 &1381699798
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38753,6 +38764,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1544632875}
   snapRotationZ: 0
+  snapTime: 2
 --- !u!58 &1544632877
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39117,6 +39129,17 @@ MonoBehaviour:
   darkenBackGround: {fileID: 17011392}
   speed: 0.1
   opacity: 0.2
+--- !u!114 &1595422147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5472534496764864127, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+  m_PrefabInstance: {fileID: 8114452975391710880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1623352068 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2024457144926564553, guid: ac8fbeab8888c234cb598c057737ae30, type: 3}
@@ -50341,8 +50364,12 @@ PrefabInstance:
       objectReference: {fileID: 712750831}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: saveSystem
+      value: 
+      objectReference: {fileID: 1480919435}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
       value: 5
@@ -50369,7 +50396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[6]
-      value: 1
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[7]
@@ -50761,6 +50788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1921544825}
     m_Modifications:
+    - target: {fileID: 646993254472167980, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+      propertyPath: voiceSlider
+      value: 
+      objectReference: {fileID: 1595422147}
     - target: {fileID: 1670347803239728008, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

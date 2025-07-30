@@ -44,6 +44,9 @@ public class ChapterManager : MonoBehaviour
     
     public static ChapterManager Instance;
 
+    //디버깅용
+    public SaveSystem saveSystem;
+
     private void Awake()
     {
         if (Instance == null)
@@ -54,6 +57,8 @@ public class ChapterManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        saveSystem.ResetGame();
+        UnityEngine.Debug.LogError("테스트 중! 출시 전에 ChapterManager에서 saveSystem 제거할 것");
     }
 
     private void OnValidate()
@@ -196,7 +201,13 @@ public class ChapterManager : MonoBehaviour
         }
         */
 
-        // SPRING
+        /* SPRING 
+        1 : 시작 (비트만 루프)
+        2 : 멜로디 전체 재생, 1로 돌아가면 마디가 끝나는 대로 멜로디를 중지시키고 루프
+        0 : Ambience만 재생
+        메인화면 2 -> 게임 시작 후 1 -> 2 -> 1
+        마지막 체크포인트 등장시 0으로 전환
+        */
         if (chapter == chapter.spring)
         {
             GuideManager.Instance.PlayGuide("control", 2f);
@@ -216,7 +227,15 @@ public class ChapterManager : MonoBehaviour
 
         }
 
-        // SUMMER
+        /* SUMMER
+        1 : 시작 (비트만 루프)
+        2 : 멜로디 전체 재생, 1로 돌아가면 멜로디 중지
+        3 : 1번과 동일, 비가 올 때만 재생
+        4 : 2번과 동일, 비가 올 때만 재생
+        0 : Ambience만 재생
+        1 -> 2로 재생, 비 이벤트 시 1이라면 3, 2라면 4로 전환
+        마지막 체크포인트 등장시 0으로 전환
+        */
         else if (chapter == chapter.summer)
         {
             BosalManager.Instance.Speak("Summer");
@@ -235,22 +254,36 @@ public class ChapterManager : MonoBehaviour
             SoundManager.Instance.PlayBGM("Summer", 4);
         }
 
-        // AUTUMN
+        /* AUTUMN
+        0 : 시작 (멜로디만)
+        1 : Pad 재생
+        2 : Pad 조 바꿔서 재생
+        1이나 2에서 0으로 전환 : Ambience만 재생
+        0 -> 1 <-> 2 재생
+        마지막 체크포인트 등장시 0으로 전환
+        */
         else if (chapter == chapter.autumn)
         {
             BosalManager.Instance.Speak("Autumn");
             GuideManager.Instance.PlayGuide("autumn", 6f);
-            SoundManager.Instance.PlayBGM("Autumn", 1);
+            SoundManager.Instance.PlayBGM("Autumn", 0);
         }
         else if (chapter == chapter.autumn2)
         {
-            SoundManager.Instance.PlayBGM("Autumn", 2);
+            SoundManager.Instance.PlayBGM("Autumn", 1);
         }
         else if (chapter == chapter.autumn3)
         {
             SoundManager.Instance.PlayBGM("Autumn", 0);
         }
-        // WINTER
+        /* WINTER 
+        1 : 시작 (비트 1회 재생 후 멜로디 A 루프)
+        2 : 멜로디 A, B 루프
+        3 : 비트만 루프
+        0 : 노래 종료 후 Ambience만 재생
+        1 -> 2 -> 3 재생
+        마지막 체크포인트 등장시 0으로 전환
+        */
         else if (chapter == chapter.winter)
         {
             SoundManager.Instance.PlayBGM("Winter", 3);
@@ -264,7 +297,11 @@ public class ChapterManager : MonoBehaviour
             SoundManager.Instance.PlayBGM("Winter", 2);
         }
 
-        // SPACE
+        /* SPACE
+        0 : 시작 (재생)
+        1 ~ 4 : 돌 1 ~ 4개 완성 시 재생, 악기 쌓기
+        5 : 돌 모두 완성 시 재생, 하이라이트로 전환
+         */
         else if (chapter == chapter.space)
         {
             Debug.Log("우주브금 실행");

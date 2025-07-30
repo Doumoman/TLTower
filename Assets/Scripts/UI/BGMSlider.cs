@@ -28,7 +28,10 @@ public class BGMSlider : MonoBehaviour
     void OnBGMSliderChanged(float value)
     {
         if (soundManager != null)
+        {
             bgmBus.setVolume(value);
+        }
+
         PlayerPrefs.SetFloat("bgmVolume", value);
     }
 }
