@@ -36,7 +36,7 @@ public class JointMakerPhysics : MonoBehaviour
         Destroy(joint);
         yield return null;  //한 프레임 쉬기(조인트 해제가 반영되길 기다림)
 
-        if (otherJm) otherJm.RemoveInit(jm);
+       // if (otherJm) otherJm.RemoveInit(jm);
 
     }
     //이것과 연결된 jointmaker 반환. 없으면 null

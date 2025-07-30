@@ -4,7 +4,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
+// using static UnityEditor.Progress; // 오류가 나서 주석처리 0731 06:07 이동건
+
+#if UNITY_EDITOR              // ← 에디터에서만 컴파일 0731 06:07 이동건
 using static UnityEditor.Progress;
+#endif
+
+
+
 
 [System.Serializable]
 public class SeasonObstacle
