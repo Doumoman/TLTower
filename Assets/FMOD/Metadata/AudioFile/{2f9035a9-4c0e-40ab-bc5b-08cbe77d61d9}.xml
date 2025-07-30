@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{bb913ce4-d42b-47be-ac5d-34b0aaadb82f}">
-		<property name="assetPath" />
+	<object class="AudioFile" id="{2f9035a9-4c0e-40ab-bc5b-08cbe77d61d9}">
+		<property name="assetPath">
+			<value>pause_beat.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>
@@ -9,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>5.799183673469388</value>
+			<value>19.748571428571427</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{7a0c825c-d741-4ff0-8aed-ef9c54341485}</destination>

@@ -10034,22 +10034,29 @@ MonoBehaviour:
     spriteIndex: 0
     position: {x: 7, y: 8}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 1
     position: {x: 8, y: 3}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 2
     position: {x: -8, y: 7}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 3
     position: {x: -7, y: 4}
     rotationZ: 0
+    spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 4
     position: {x: -9, y: 2}
     rotationZ: 0
+    spawnDelay: 0
+  defaultSpawnDelay: 1
+  fadeInDuration: 0.8
   Block: {fileID: 1961988237}
   Yumju: {fileID: 1408709549}
   stonesParent: {fileID: 0}
@@ -21225,6 +21232,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 171687183}
   snapRotationZ: 270
+  snapTime: 2
 --- !u!58 &171687185
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -45055,15 +45063,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 1090870085}
+  m_Children: []
   m_Father: {fileID: 1921544825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1965, y: -540}
-  m_SizeDelta: {x: 160, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30, y: -30}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &672429101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45108,9 +45115,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 238664838}
-        m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
-        m_MethodName: Openpausepanel
+      - m_Target: {fileID: 678606370}
+        m_TargetAssemblyTypeName: GuideManager, Assembly-CSharp
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45140,8 +45147,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9734dfa6a13efca4fb111957f340161e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -55405,6 +55412,10 @@ PrefabInstance:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 238664838}
+    - target: {fileID: 8185811389684175649, guid: e0e3eadb796f95b4cb380d11c71abc70, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 672429099}
     - target: {fileID: 8185811389684175649, guid: e0e3eadb796f95b4cb380d11c71abc70, type: 3}
       propertyPath: guidePanelRoot
       value: 
@@ -89466,6 +89477,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1287000890}
   snapRotationZ: 0
+  snapTime: 2
 --- !u!58 &1287000892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -94480,6 +94492,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1336854761}
   snapRotationZ: -41.1
+  snapTime: 2
 --- !u!58 &1336854763
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -94882,6 +94895,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1381699796}
   snapRotationZ: -20.36
+  snapTime: 2
 --- !u!58 &1381699798
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115446,6 +115460,7 @@ MonoBehaviour:
   snapRange: 1
   snapPoint: {fileID: 1544632875}
   snapRotationZ: 0
+  snapTime: 2
 --- !u!58 &1544632877
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147014,11 +147029,11 @@ RectTransform:
   - {fileID: 1169692344}
   - {fileID: 2037386058}
   - {fileID: 1427571943}
-  - {fileID: 672429100}
   - {fileID: 1623352068}
   - {fileID: 238664835}
   - {fileID: 1245770434}
   - {fileID: 393371274}
+  - {fileID: 672429100}
   - {fileID: 809127701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165578,7 +165593,7 @@ PrefabInstance:
     - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: guideImages.Array.data[5].bookmark
       value: 
-      objectReference: {fileID: 21300000, guid: f30bdda8e8f77b24a86104af6fd513a1, type: 3}
+      objectReference: {fileID: 21300000, guid: 11998f703ba7fab49a0960f9581c920e, type: 3}
     - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: guideImages.Array.data[5].sprite.Array.size
       value: 1
@@ -165594,7 +165609,7 @@ PrefabInstance:
     - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: guideImages.Array.data[5].sprite.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 99fb7ce735f51e7459a20cee84c772a1, type: 3}
+      objectReference: {fileID: 21300000, guid: ee7f5fc7d2faa7b4e8b9caa1b6116b40, type: 3}
     - target: {fileID: 1844581885617118026, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -165975,8 +165990,12 @@ PrefabInstance:
       objectReference: {fileID: 712750831}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: chapter
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: saveSystem
+      value: 
+      objectReference: {fileID: 1480919435}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
       value: 5
@@ -166603,6 +166622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1921544825}
     m_Modifications:
+    - target: {fileID: 646993254472167980, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+      propertyPath: voiceSlider
+      value: 
+      objectReference: {fileID: 1595422147}
     - target: {fileID: 1670347803239728008, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -166619,6 +166642,10 @@ PrefabInstance:
       propertyPath: scaler
       value: 
       objectReference: {fileID: 1921544823}
+    - target: {fileID: 3968910420037224243, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 672429099}
     - target: {fileID: 6404112263945726606, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_Name
       value: PausePanel

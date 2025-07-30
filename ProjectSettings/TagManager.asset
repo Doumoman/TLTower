@@ -20,6 +20,7 @@ TagManager:
   - Checkpoint
   - FloatingStone
   - bookmark
+  - SnappingStone
   layers:
   - Default
   - TransparentFX

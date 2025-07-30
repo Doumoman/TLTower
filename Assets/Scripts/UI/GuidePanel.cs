@@ -35,8 +35,8 @@ public class GuidePanel : MonoBehaviour
 
     [Header("misc")]
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject blackPanel;
     [SerializeField] private GameObject root;
+    [HideInInspector] public UnityEvent GuideClosed = new();
     private Image displayImage;
     private const string KeyName = "GuideKeys";
     private List<Sprite> guideBuffer = new();
@@ -70,8 +70,6 @@ public class GuidePanel : MonoBehaviour
     }
     void Update()
     {
-        if (pausePanel.activeInHierarchy) blackPanel.SetActive(false);
-        else blackPanel.SetActive(true);
         if(gameObject.activeSelf
         && Input.GetKeyDown(KeyCode.Escape)
         && (exitButton.activeSelf|| returnButton.activeSelf))
@@ -100,23 +98,18 @@ public class GuidePanel : MonoBehaviour
             nextButton.SetActive(true);
             SetImage(imageList[0]);
         }
-        SoundManager.Instance.PauseBGM();
 
         ResetBookMark();
         EnableBookmark(); // 북마크 활성화
 
         //FadeIn
         //StartCoroutine(panelFader.FadeIn(fadeTime));
-
     }
     public void PlayGuide(string key) // 가이드가 자동으로 나와야 할 때 : 해당하는 가이드 호출 후 저장
     {
         DisableBookmark(); // 북마크 비활성화
         canExit = false;
         StartCoroutine(EnableExit(lockTime));
-        Time.timeScale = 0f; // 게임 일시정지
-        SoundManager.Instance.PauseBGM();
-        CameraController.Instance._userMoveInput = false; // 드래그 정지
 
         //guideImages에서 key로 오브젝트를 찾기
         var sprite = guideImages.Find(s => s.key == key);
@@ -203,21 +196,19 @@ public class GuidePanel : MonoBehaviour
     public void ExitButton()
     {
         if (!canExit) return;
-        returnButton.SetActive(false);
-
         SoundManager.Instance.PlaySFX("stamp_button");
-        SoundManager.Instance.Resume();
-        CameraController.Instance._userMoveInput = true; // 드래그 재개
-
-        Time.timeScale = 1f; // 게임 재개
+        returnButton.SetActive(false);
         root.SetActive(false);
+
+        GuideClosed.Invoke();
     }
     public void ReturnButton()
     {
         SoundManager.Instance.PlaySFX("stamp_button");
         returnButton.SetActive(false);
-        Time.timeScale = 1f; // 게임 재개
         root.SetActive(false);
+
+        GuideClosed.Invoke();
     }
 
     private void UpdateButtons(int idx, int count)
@@ -364,6 +355,10 @@ public class GuidePanel : MonoBehaviour
             // 시각 효과 적용
             img.color = isActive ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0.5f);
             go.transform.localScale = isActive ? Vector3.one * 0.9f : Vector3.one;
+            if (go.activeInHierarchy == true)
+                go.transform.SetAsFirstSibling();
+            else
+                go.transform.SetAsLastSibling();
         }
     }
 

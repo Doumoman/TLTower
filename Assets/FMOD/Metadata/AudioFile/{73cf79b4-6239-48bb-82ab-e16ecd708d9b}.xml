@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{5c3a5e25-dd7d-4975-98f3-174e2b62cb87}">
-		<property name="assetPath" />
+	<object class="AudioFile" id="{73cf79b4-6239-48bb-82ab-e16ecd708d9b}">
+		<property name="assetPath">
+			<value>pause_ambient.mp3</value>
+		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>2.1942857142857144</value>
+			<value>8.0399999999999991</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{7a0c825c-d741-4ff0-8aed-ef9c54341485}</destination>

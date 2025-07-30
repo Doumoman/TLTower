@@ -342,6 +342,9 @@
 		<relationship name="automators">
 			<destination>{9feb9d28-bc20-4442-ad0e-070854a631b5}</destination>
 		</relationship>
+		<relationship name="modulators">
+			<destination>{d20a53b4-39b0-445f-ad7e-0b7aae62585c}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{e0b46f33-41ef-4622-acd5-ac9cdc0a12a0}</destination>
 		</relationship>
@@ -367,6 +370,9 @@
 		<property name="timelockedOffset">
 			<value>0.20000000000000001</value>
 		</property>
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{b8db4ed5-0b8a-4462-a085-ab50e3f4c003}</destination>
 		</relationship>
@@ -377,6 +383,9 @@
 		</property>
 		<relationship name="automators">
 			<destination>{464b2dd9-388c-4347-8373-7ed36df8e7f2}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{2707704a-0a96-4744-8ed3-a0d2fc5b0f0f}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{1db33392-1749-449a-8434-079234ca556a}</destination>
@@ -510,6 +519,9 @@
 		<relationship name="automators">
 			<destination>{7bda8202-4794-41d8-b5ca-8691802611e0}</destination>
 		</relationship>
+		<relationship name="modulators">
+			<destination>{d3becb5d-af3d-4353-8f3d-61ecc4e1f86f}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{0d01d6b7-8553-47f8-9a80-e80bbfbdd42b}</destination>
 		</relationship>
@@ -602,6 +614,9 @@
 		<relationship name="automators">
 			<destination>{1fd60104-b3b2-4cb9-b4b0-1d8b5b5e8356}</destination>
 		</relationship>
+		<relationship name="modulators">
+			<destination>{fdc48f8f-b562-47b8-ab18-56fd166ec286}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{20b1ce2f-8e21-4d0b-b4ec-d6e3f89bf7f6}</destination>
 		</relationship>
@@ -630,6 +645,7 @@
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{306f2120-1649-4644-8862-93b2893abfa0}</destination>
+			<destination>{0269af54-32ba-4965-8a6b-382b6f1a0bce}</destination>
 		</relationship>
 	</object>
 	<object class="NamedMarker" id="{9d4157cc-1428-46b3-a6f7-607a2d1e1fc8}">
@@ -689,6 +705,7 @@
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{6da519cc-98a2-4a96-8545-a15e4054b5f0}</destination>
+			<destination>{5ab52721-31e8-40ea-b370-4f32cb6292ca}</destination>
 		</relationship>
 	</object>
 	<object class="TransitionMarker" id="{05460afe-4cd4-418c-a3ab-d01de8481eac}">
@@ -706,6 +723,7 @@
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{898ef486-8100-42ab-9b0e-57db494da666}</destination>
+			<destination>{b50deb27-5cb6-4d3e-9bd1-2f7f180be663}</destination>
 		</relationship>
 	</object>
 	<object class="TransitionMarker" id="{be4d1652-ba90-4ee8-898c-830529145642}">
@@ -723,6 +741,7 @@
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{c28315dc-9f84-4f18-b073-aa61b4bbb60e}</destination>
+			<destination>{b60be3b9-ad97-429c-a3d3-ac0332c52e46}</destination>
 		</relationship>
 	</object>
 	<object class="TransitionMarker" id="{2c930d2d-ffca-4595-9287-1c3281d5e279}">
@@ -740,6 +759,7 @@
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{18ef58dd-e627-4e75-b5b5-7f1f6173d155}</destination>
+			<destination>{a6f8141d-535a-40c2-bcd4-74e6c7f0225a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{accbb734-1aeb-46e6-9174-ac9981cf6aca}">
@@ -922,6 +942,23 @@
 			<destination>{0ba3e2fd-3130-4b70-9fbc-fbe52fd96a06}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{d20a53b4-39b0-445f-ad7e-0b7aae62585c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>20</value>
+		</property>
+		<property name="releaseTime">
+			<value>2000</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{e0b46f33-41ef-4622-acd5-ac9cdc0a12a0}">
 		<relationship name="effects">
 			<destination>{5d4016b0-b91a-46c1-860e-156df169fe2a}</destination>
@@ -935,6 +972,23 @@
 		<relationship name="automationCurves">
 			<destination>{5876e41f-b446-4d1e-837d-142f5121b48d}</destination>
 		</relationship>
+	</object>
+	<object class="ADSRModulator" id="{2707704a-0a96-4744-8ed3-a0d2fc5b0f0f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="releaseTime">
+			<value>4800</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{1db33392-1749-449a-8434-079234ca556a}">
 		<relationship name="effects">
@@ -1055,6 +1109,23 @@
 			<destination>{9d09c215-e2fc-4a5f-adce-0a43f1a04263}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{d3becb5d-af3d-4353-8f3d-61ecc4e1f86f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>2000</value>
+		</property>
+		<property name="releaseTime">
+			<value>2400</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{0d01d6b7-8553-47f8-9a80-e80bbfbdd42b}">
 		<relationship name="effects">
 			<destination>{ef8048b7-4a76-4eba-9251-97698119bb1b}</destination>
@@ -1115,6 +1186,23 @@
 			<destination>{c0eef179-25e2-400f-8ce4-0e60b31b8a7e}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{fdc48f8f-b562-47b8-ab18-56fd166ec286}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>2000</value>
+		</property>
+		<property name="releaseTime">
+			<value>3000</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{20b1ce2f-8e21-4d0b-b4ec-d6e3f89bf7f6}">
 		<relationship name="effects">
 			<destination>{8d9ef5a2-0b48-4a2f-b722-cabae61f4e1e}</destination>
@@ -1132,12 +1220,34 @@
 			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
 		</relationship>
 	</object>
+	<object class="ParameterCondition" id="{0269af54-32ba-4965-8a6b-382b6f1a0bce}">
+		<property name="minimum">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
 	<object class="ParameterCondition" id="{6da519cc-98a2-4a96-8545-a15e4054b5f0}">
 		<property name="minimum">
 			<value>0</value>
 		</property>
 		<property name="maximum">
 			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterCondition" id="{5ab52721-31e8-40ea-b370-4f32cb6292ca}">
+		<property name="minimum">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
@@ -1154,6 +1264,17 @@
 			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
 		</relationship>
 	</object>
+	<object class="ParameterCondition" id="{b50deb27-5cb6-4d3e-9bd1-2f7f180be663}">
+		<property name="minimum">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
 	<object class="ParameterCondition" id="{c28315dc-9f84-4f18-b073-aa61b4bbb60e}">
 		<property name="minimum">
 			<value>0</value>
@@ -1165,12 +1286,34 @@
 			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
 		</relationship>
 	</object>
+	<object class="ParameterCondition" id="{b60be3b9-ad97-429c-a3d3-ac0332c52e46}">
+		<property name="minimum">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
 	<object class="ParameterCondition" id="{18ef58dd-e627-4e75-b5b5-7f1f6173d155}">
 		<property name="minimum">
 			<value>0</value>
 		</property>
 		<property name="maximum">
 			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterCondition" id="{a6f8141d-535a-40c2-bcd4-74e6c7f0225a}">
+		<property name="minimum">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{a8d38802-bb89-459c-a3a4-0c0bf6e4903f}</destination>
@@ -1986,7 +2129,7 @@
 			<value>3</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>5</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{6254f75e-dd80-4a24-9210-6fe35dbcec3a}">
@@ -1994,7 +2137,7 @@
 			<value>4</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>5</value>
 		</property>
 	</object>
 </objects>

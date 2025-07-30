@@ -26,25 +26,42 @@ public class GuideManager : Singleton<GuideManager>
     /* 내부 상태 */
     private readonly List<string> played = new();
     private GuideUIState current = GuideUIState.None;
-    private GuideUIState prev    = GuideUIState.None;
+    private GuideUIState prev = GuideUIState.None;
+    private bool PauseBGMPlaying = false;
 
-    /* ───────── 초기화 ───────── */
     protected override void Awake()
     {
         base.Awake();
         pausePanel.Closepausepanel();
         guidePanelRoot.SetActive(false);
+
+        guidePanel.GuideClosed.AddListener(OnGuideClosed);
     }
 
-    /* ───────── 매 프레임 ───────── */
+    private void ShowGuide() => guidePanelRoot.SetActive(true);
+    private void HideGuide() => guidePanelRoot.SetActive(false);
+
+    private void ShowPause() => pausePanel.Openpausepanel();
+    private void HidePause() => pausePanel.Closepausepanel();
+
+    private void OnGuideClosed()
+    {
+        if (current == GuideUIState.PauseThenGuide)
+        {
+            HideGuide();
+            ShowPause();
+            current = GuideUIState.PauseOnly;
+        }
+        else
+        {
+            HideGuide();
+            current = GuideUIState.None;
+        }
+        ClearSelection();
+    }
     void Update()
     {
-#if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current?.escapeKey.wasPressedThisFrame == true)
-#else
-        if (Input.GetKeyDown(KeyCode.Escape))
-#endif
-            HandleEsc();
+        if (Input.GetKeyDown(KeyCode.Escape)) HandleEsc();
 
         // 카메라 드래그 제어
         if (CameraController.Instance != null)
@@ -56,6 +73,17 @@ public class GuideManager : Singleton<GuideManager>
             Time.timeScale = (current == GuideUIState.None) ? 1f : 0f;
             if (current == GuideUIState.None) SoundManager.Instance.Resume();
             else SoundManager.Instance.PauseBGM();
+            if(prev == GuideUIState.None)
+            {
+                if (PauseBGMPlaying) return;
+                PauseBGMPlaying = true;
+                SoundManager.Instance.PlayPauseBGM();
+            }
+            else if (prev != GuideUIState.None && current == GuideUIState.None)
+            {
+                PauseBGMPlaying = false;
+                SoundManager.Instance.StopPauseBGM();
+            }
             prev = current;
         }
     }
@@ -66,20 +94,24 @@ public class GuideManager : Singleton<GuideManager>
         Debug.Log($"ESC, state={current}");
         switch (current)
         {
+            case GuideUIState.None:
+                ShowPause();
+                current = GuideUIState.PauseOnly;
+                break;
             case GuideUIState.GuidePrimary:
-                HideGuideRoot();
+                HideGuide();
                 ShowPause();
                 current = GuideUIState.GuideThenPause;
                 break;
 
             case GuideUIState.GuideThenPause:
                 HidePause();
-                ShowGuideRoot();
+                ShowGuide();
                 current = GuideUIState.GuideReturn;
                 break;
 
             case GuideUIState.GuideReturn:
-                HideGuideRoot();
+                HideGuide();
                 current = GuideUIState.None;
                 break;
 
@@ -89,7 +121,7 @@ public class GuideManager : Singleton<GuideManager>
                 break;
 
             case GuideUIState.PauseThenGuide:
-                HideGuideRoot();
+                HideGuide();
                 ShowPause();
                 current = GuideUIState.PauseOnly;
                 break;
@@ -99,19 +131,52 @@ public class GuideManager : Singleton<GuideManager>
     }
 
     /* ───────── Pause 토글 버튼 ───────── */
+
+    [SerializeField] private GameObject pauseButton;
     public void TogglePause()
     {
-        if (current == GuideUIState.None)
+        UnityEngine.Debug.Log($"TogglePause, state={current}");
+        if (current == GuideUIState.None) // 게임 화면에서 Pause 버튼 눌렀을 때
         {
             ShowPause();
+            pauseButton.SetActive(false); // Pause 버튼 숨김
             current = GuideUIState.PauseOnly;
             SoundManager.Instance.PlaySFX("pause");
         }
-        else if (current == GuideUIState.PauseOnly)
+        else if (current == GuideUIState.PauseOnly) // Pause 상태에서 주변 화면 눌렀을 때
         {
             HidePause();
+            pauseButton.SetActive(true); // Pause 버튼 다시 보임
             current = GuideUIState.None;
             SoundManager.Instance.PlaySFX("pause");
+        }
+        else if (current == GuideUIState.GuidePrimary) // PlayGuide 호출 후 Pause 버튼 눌렀을 때
+        {
+            pauseButton.SetActive(false); // Pause 버튼 숨김
+            HideGuide();
+            ShowPause();
+            current = GuideUIState.GuideThenPause;
+        }
+        else if (current == GuideUIState.GuideThenPause) // PlayGuide 호출 후 Pause 상태에서 주변 화면 눌렀을 때
+        {
+            pauseButton.SetActive(true); // Pause 버튼 보임
+            HidePause();
+            ShowGuide();
+            current = GuideUIState.GuideReturn;
+        }
+        else if (current == GuideUIState.GuideReturn) // Guide 상태에서 Pause 버튼 눌렀을 때
+        {
+            pauseButton.SetActive(false); // Pause 버튼 숨김
+            HideGuide();
+            ShowPause();
+            current = GuideUIState.GuideThenPause; // esc는 그냥 끄지만 Pause 버튼은 다시 Pause로 돌아감
+        }
+        else if (current == GuideUIState.PauseThenGuide) // Pause 상태에서 가이드 호출 시 주변 화면 눌렀을 때
+        {
+            pauseButton.SetActive(false); // Pause 버튼 숨김 (PauseThenGuide 상태에서도 숨어 있음)
+            HideGuide();
+            ShowPause();
+            current = GuideUIState.PauseOnly;
         }
     }
 
@@ -129,7 +194,7 @@ public class GuideManager : Singleton<GuideManager>
     }
     private void StartPlay(string key)
     {
-        ShowGuideRoot();               // 루트 먼저 활성화
+        ShowGuide();               // 루트 먼저 활성화
         guidePanel.PlayGuide(key);     // 코루틴/로직 실행
         HidePause();                   // Pause 끔
 
@@ -142,28 +207,17 @@ public class GuideManager : Singleton<GuideManager>
     /* ───────── Pause → ButtonGuide ───────── */
     public void ButtonGuide()          // Pause 버튼에서 호출
     {
-        if (current != GuideUIState.PauseOnly) return;
         HidePause();                   // Pause 닫고
-        ShowGuideRoot();
+        ShowGuide();
         guidePanel.ButtonGuide();
 
         current = GuideUIState.PauseThenGuide;
+        pauseButton.SetActive(false); // Pause 버튼 숨김
         SoundManager.Instance.PlaySFX("pause");
         ClearSelection();
     }
 
-    /* ───────── Helper : Root 표시/숨김 ───────── */
-    private void ShowGuideRoot()
-    {
-        if (!guidePanelRoot.activeSelf) guidePanelRoot.SetActive(true);
-    }
-    private void HideGuideRoot()
-    {
-        if (guidePanelRoot.activeSelf) guidePanelRoot.SetActive(false);
-    }
-    private void ShowPause()  => pausePanel.Openpausepanel();
-    private void HidePause()  => pausePanel.Closepausepanel();
-
+    /* ───────── Root 표시/숨김 ───────── */
     private static void ClearSelection()
     {
         var es = EventSystem.current;

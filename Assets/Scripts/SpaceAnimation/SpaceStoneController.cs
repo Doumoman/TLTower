@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 /// Floating ↔ Dragging ↔ Snapped 세 상태
-public enum SpaceStoneState { Floating, Dragging, Snapped }
+public enum SpaceStoneState { Floating, Dragging, Snapping, Snapped }
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpaceStoneController : MonoBehaviour,
@@ -163,17 +165,55 @@ public class SpaceStoneController : MonoBehaviour,
         var target = col.GetComponent<SpaceStoneTarget>();
         if (!target) return;
 
-        /* 인덱스가 다르면 무시 */
         if (target.expectedIndex != presetIndex) return;
 
-        /* 아직 뜬 상태이고 스냅 범위 안이면 고정 */
         if (State == SpaceStoneState.Floating &&
             Vector2.Distance(transform.position, target.snapPoint.position) < target.snapRange)
         {
-            SnapToTarget(target);
+            StartCoroutine(CoSnapToTarget(target));
         }
     }
+    IEnumerator CoSnapToTarget(SpaceStoneTarget t)
+    {
+        State = SpaceStoneState.Snapping;   // 드래그·스냅 중복 방지
+        tag = "SnappingStone";
 
+        /* 물리·충돌 끄기 */
+        _rb.velocity = Vector2.zero;
+        _rb.angularVelocity = 0f;
+        _rb.isKinematic = true;
+        _phys.enabled = false;
+        if (_click) _click.enabled = false;
+
+        Vector3 startPos = transform.position;
+        Quaternion startRot = transform.rotation;
+
+        Vector3 endPos = t.snapPoint.position;
+        Quaternion endRot = Quaternion.Euler(0, 0, t.snapRotationZ);
+
+        float dur = Mathf.Max(0.01f, t.snapTime);
+        float elapsed = 0f;
+
+        while (elapsed < dur)
+        {
+            elapsed += Time.deltaTime;
+            float k = elapsed / dur;
+
+            transform.position = Vector3.Lerp(startPos, endPos, k);
+            transform.rotation = Quaternion.Lerp(startRot, endRot, k);
+
+            yield return null;
+        }
+
+        /* 최종 값 보정 후 완전히 고정 */
+        transform.position = endPos;
+        transform.rotation = endRot;
+
+        State = SpaceStoneState.Snapped;
+        tag = "PlacedStone";
+
+        AnimationManager.Instance?.NotifyStoneSnapped();
+    }
     void SnapToTarget(SpaceStoneTarget t)
     {
         transform.position = t.snapPoint.position;

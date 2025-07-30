@@ -12,6 +12,8 @@ public class SoundManager : Singleton<SoundManager>
     protected override void Awake()
     {
         base.Awake();
+        StopBGM();
+        StopPauseBGM();
     }
     public void Play(string str, int state)
     {
@@ -146,6 +148,23 @@ public class SoundManager : Singleton<SoundManager>
         //Pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         BGM.setPaused(false);
         Debug.Log($"BGM {BGM} Resumed");
+    }
+
+    public void PlayPauseBGM()
+    {
+        if (Pause.isValid()) return;
+        string path = "event:/pause";
+        Pause = RuntimeManager.CreateInstance(path);
+        Pause.start();
+        Debug.Log($"Pause BGM Playing!");
+    }
+
+    public void StopPauseBGM()
+    {
+        if (!Pause.isValid()) return;
+        Pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Pause.release();
+        Debug.Log($"Pause BGM Stopped!");
     }
     [SerializeField] private float speakTerm = 1f;
     IEnumerator WaitAndSpeak(string path)
