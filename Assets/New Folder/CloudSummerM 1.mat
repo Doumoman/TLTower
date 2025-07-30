@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cloud_2
+  m_Name: CloudSummerM 1
   m_Shader: {fileID: -6465566751694194690, guid: 580725d33ae77ce4d8167fdb4d4e230c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -75,8 +75,8 @@ Material:
     - _EnableExternalAlpha: 0
     - _Float: 0
     m_Colors:
-    - _CloudColor: {r: 0.3160377, g: 0.31454694, b: 0.31454694, a: 0.5882353}
-    - _CloudSpeed: {r: 0.6, g: 0.3, b: 0, a: 0}
+    - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CloudSpeed: {r: 0.5, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseScale: {r: 0, g: 0, b: 0, a: 0}
