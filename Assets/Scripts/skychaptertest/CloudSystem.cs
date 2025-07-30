@@ -106,6 +106,7 @@ public class CloudSystem : MonoBehaviour
         foreach (JointMaker node in nodes)
         {
             Destroy(node);
+            if (node.TryGetComponent<CloudController>(out CloudController c)) c.Disappear();
         }
         nodes.Clear();
     }

@@ -161,15 +161,17 @@ public class CameraController : MonoBehaviour
         get
         {
             float limit;
+            ChapterManager cm = ChapterManager.Instance;
 
             /* ① 가을 챕터일 때는 CloudSystem 기준 */
-            if (ChapterManager.Instance.chapter.ToString().Contains("autumn"))
+            if (cm.chapter.ToString().Contains("autumn"))
             {
                 // CloudSystem 싱글톤이 아직 없다면 제한 없음
                 if (CloudSystem.Instance == null)
                     return Mathf.Infinity;
 
-                limit = CloudSystem.Instance.HighestJointY + topPadding;
+                //가을 챕터에서는 다음 체크포인트가 기준
+                limit = cm.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn + 1].transform.position.y;
             }
             /* ② 그 외 챕터는 StoneFixer 기준 */
             else
@@ -195,13 +197,15 @@ public class CameraController : MonoBehaviour
 
         Vector3 targetPos = transform.position + _directionForce;
 
-        if (TopLimit-5f < 0f)
+        if (TopLimit - 5f < 0f)
         {
             minY = 0f;
         }
         else
         {
-            minY = TopLimit - 5f;
+            ChapterManager cm = ChapterManager.Instance;
+            if (cm.chapter.ToString().Contains("autumn")) minY = cm.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y; //가을에선 현재 체크포인트가 최소
+            else minY = TopLimit - 5f;
         }
         targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);
 

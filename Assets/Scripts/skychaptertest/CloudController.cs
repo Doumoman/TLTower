@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -144,11 +145,11 @@ public class CloudController : MonoBehaviour,
         filter.SetLayerMask(mask);
 
         int count = separator.OverlapCollider(filter, results);
-        if (count > 0 && results[0].transform.parent.TryGetComponent<CloudController>(out CloudController c))
+        if (count > 0)
         {
             foreach (Collider2D col in colChildren) col.isTrigger = true;
             separator.isTrigger = false;
-            c.StartSeparate();
+            if (results[0].transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
 
             //separator랑 겹치는 게 없을 때 까지 콜라이더 활성화(튕기기)실행
             while (true)
@@ -156,14 +157,14 @@ public class CloudController : MonoBehaviour,
                 yield return new WaitForSeconds(checktime);
 
                 count = separator.OverlapCollider(filter, results);
-                if (count > 0 && results[0].TryGetComponent<CloudController>(out c))
+                if (count > 0)
                 {
                     if (results[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
                     {
                         CheckOverlap();
                         break;
                     }
-                    else c.StartSeparate();
+                    else if (results[0].TryGetComponent<CloudController>(out c)) c.StartSeparate();
                 }
                 else break;
             }
@@ -173,6 +174,27 @@ public class CloudController : MonoBehaviour,
             separator.isTrigger = true;
         }
         co = null;
+    }
+
+    public void Disappear() => StartCoroutine(FadeOutAndDestory());
+
+    private IEnumerator FadeOutAndDestory()
+    {
+        Color c = sr.color;
+        float current = c.a;
+        float timer = 0;
+
+        while (true)
+        {
+            timer += Time.deltaTime;
+            c.a = Mathf.Lerp(current, 0, timer);
+            sr.color = c;
+
+            if (c.a < 0.05f) break;
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 
     int activePointer = -1;
@@ -259,6 +281,7 @@ public class CloudController : MonoBehaviour,
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
+        StopAllCoroutines();
         AnyCloudBeingDragged = true;
         CameraController.Instance.BeginDrag(this);
 

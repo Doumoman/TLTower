@@ -5065,7 +5065,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -32360,7 +32360,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -45391,7 +45391,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -56064,7 +56064,7 @@ MonoBehaviour:
   land: {fileID: 21300000, guid: c6b7d8d222fef4a459f6bfca1ee6a576, type: 3}
   spring: {fileID: 21300000, guid: 94423406d297bba428d11616586d765b, type: 3}
   summer: {fileID: 21300000, guid: 7eb5ec4a59db8a246bb1e75cb8a24e81, type: 3}
-  autumn: {fileID: 21300000, guid: 0a32528bed0e1fc4aa45384f29154d07, type: 3}
+  autumn: {fileID: 21300000, guid: 1cba9946517c1c64a8a918697b3a25cf, type: 3}
   winter: {fileID: 21300000, guid: 5fed99c69f6c9df4693a89a490212a3f, type: 3}
   space: {fileID: 21300000, guid: 35d03617858ccb843ab10ef1fb16921e, type: 3}
   space2: {fileID: 21300000, guid: a2c3e0b15453fb74eac6e4287c0d7dea, type: 3}
@@ -56297,7 +56297,7 @@ MonoBehaviour:
   nodes:
   - {fileID: 418371997}
   cloudSpawner: {fileID: 2023078721}
-  skyStage: {fileID: 0}
+  skyStage: {fileID: 346484770}
   waitTime: 1
   moveTime: 2.5
 --- !u!4 &797172749
@@ -56555,7 +56555,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -62181,7 +62181,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -73222,7 +73222,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -90276,7 +90276,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -95693,7 +95693,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -159209,7 +159209,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -159642,7 +159642,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.20300554, y: -0.081910156}
@@ -167186,6 +167186,10 @@ PrefabInstance:
       propertyPath: CloudCheckPoint.Array.data[8]
       value: 
       objectReference: {fileID: 125527004}
+    - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
+      propertyPath: CloudCheckPoint.Array.data[9]
+      value: 
+      objectReference: {fileID: 461293738}
     - target: {fileID: 6465421165641860306, guid: dc14fa8ac1e57a14d9e77e00bafdc708, type: 3}
       propertyPath: stonesForChapter.Array.data[0]
       value: 5

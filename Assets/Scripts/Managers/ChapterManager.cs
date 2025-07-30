@@ -96,9 +96,9 @@ public class ChapterManager : MonoBehaviour
             seasonalObstacles = newItems.OrderBy(se => se.season).ToList();
         }
 
-        if (CloudCheckPoint == null || CloudCheckPoint.Length != ((int)chapter.winter - (int)chapter.autumn))
+        if (CloudCheckPoint == null || CloudCheckPoint.Length != ((int)chapter.winter - (int)chapter.autumn + 1))
         {
-            CloudCheckPoint = new GameObject[(int)chapter.winter - (int)chapter.autumn];
+            CloudCheckPoint = new GameObject[(int)chapter.winter - (int)chapter.autumn + 1];
         }
     }
 
