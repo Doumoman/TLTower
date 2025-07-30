@@ -14,13 +14,13 @@ public class StoneSequenceManager : MonoBehaviour
     void Start()
     {
         // 필요하면 자동 Play
-        StartCoroutine(Play());
+        //StartCoroutine(Play());
     }
-     public void PlaySequence()
+    public void PlaySequence()
     {
         // 이미 만들어 둔 코루틴 Play()를 돌린다고 가정
-    StopAllCoroutines();     // 혹시 이전 실행 중이면 정지
-    StartCoroutine(Play());  // ① 상승 → ② 글로우 → ③ 전환 순으로 진행
+        StopAllCoroutines();     // 혹시 이전 실행 중이면 정지
+        StartCoroutine(Play());  // ① 상승 → ② 글로우 → ③ 전환 순으로 진행
     }
 
     public IEnumerator Play()

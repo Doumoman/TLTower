@@ -111,7 +111,8 @@ public class AnimationManager : MonoBehaviour
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
 
-
+    [Header("시퀀스매니저 할당")]
+    public StoneSequenceManager seqManager;
 
     [Header("★ 우주 배경 애니메이션")]
     [SerializeField] GameObject spaceAnimRoot;   // Animator 가 달린 오브젝트
@@ -274,7 +275,7 @@ public class AnimationManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         //changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
-        spaceAnimRoot.SetActive(false);
+        seqManager.PlaySequence();
     }
 
 
@@ -287,12 +288,12 @@ public class AnimationManager : MonoBehaviour
                 Destroy(sc.gameObject);
 
         spaceAnimRoot.SetActive(true);
-        Animator anim = spaceAnimRoot.GetComponent<Animator>();
+        //Animator anim = spaceAnimRoot.GetComponent<Animator>();
 
 
-        anim.speed = startSpeed;            // 느리게 시작
-        anim.Play(animStateName, 0, 0f);    // 처음부터 재생
-        StartCoroutine(CoAccelerateAnimation(anim));
+        //anim.speed = startSpeed;            // 느리게 시작
+        //anim.Play(animStateName, 0, 0f);    // 처음부터 재생
+        //StartCoroutine(CoAccelerateAnimation(anim));
 
 
         StartCoroutine(AfterSeconds(5f));
