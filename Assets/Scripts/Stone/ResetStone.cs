@@ -68,7 +68,7 @@ public class ResetStone : MonoBehaviour
 
     public void CreatePlatform()
     {
-        
+
         float y = StoneFixer.Instance.HighestFixedY;
         Vector3 pos = new Vector3(0f, y, 0f);
 

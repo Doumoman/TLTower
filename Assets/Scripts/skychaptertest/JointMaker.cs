@@ -84,13 +84,13 @@ public class JointMaker : MonoBehaviour
     public List<FixedJoint2D> GetJointList()
     {
         List<FixedJoint2D> joint2Ds = new List<FixedJoint2D>();
-        joint2Ds = new List<FixedJoint2D>(GetComponentsInChildren<FixedJoint2D>()).FindAll(x => x.enabled = true);
+        joint2Ds = new List<FixedJoint2D>(GetComponentsInChildren<FixedJoint2D>()).FindAll(x => x.enabled == true);
         foreach (Joint2D joint in joint2Ds)
         {
             if (joint.connectedBody == null) joint.breakForce = 0;
         }
         joint2Ds = joint2Ds.FindAll(x => x.connectedBody != null);
-        if (joint2Ds == null) joint2Ds = new List<FixedJoint2D>(GetComponents<FixedJoint2D>()).FindAll(x => x.enabled = true);
+        if (joint2Ds == null) joint2Ds = new List<FixedJoint2D>(GetComponents<FixedJoint2D>()).FindAll(x => x.enabled == true);
         return joint2Ds;
     }
 
