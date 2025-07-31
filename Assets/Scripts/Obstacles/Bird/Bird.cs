@@ -111,7 +111,9 @@ public class Bird : MonoBehaviour
                 else BosalManager.Instance.Speak("BirdPeace");
             }
         }
+        else BosalManager.Instance.Speak("BirdPeace");
 
+        BosalManager.Instance.birdBool = false;
         state = BirdState.go;
         if (coroutine != null)
         {
@@ -141,8 +143,6 @@ public class Bird : MonoBehaviour
         //사운드와 대사 효과
         SoundManager.Instance.PlaySFX("bird_disturb");
         if (!BosalManager.Instance.birdBool) BosalManager.Instance.Speak("BirdStone");
-        else BosalManager.Instance.Speak("BirdPeace");
-        BosalManager.Instance.birdBool = false;
     }
 
     //돌의 표면까지 날아가기

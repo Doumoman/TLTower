@@ -38,31 +38,17 @@ public class BirdSpawner : MonoBehaviour
         {
             if (Random.value < birdChance)
             {
-                if (firstBird)
-                {
-                    BosalManager.Instance.Speak("BirdFirst");
-                    firstBird = false;
-                    BosalManager.Instance.birdBool = true;
-                }
-                else
-                {
-                    if (Random.value > 0.5f)
-                    {
-                        BosalManager.Instance.Speak("Bird");
-                        BosalManager.Instance.birdBool = true;
-                    }
-                }
                     CreateBird(); //사운드 딜레이 이후 새 생성
                     span = Random.Range(cycleSpanMin, cycleSpanMax);
                     spanCount = span;
-                    Debug.Log("BirdSpawner: Created a bird.");
+                    Debug.Log("BirdSpawner: Creating a bird.");
                 }
             else
             {
                 CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
                 spanCount = span;
-                Debug.Log("BirdSpawner: Created a bird poop.");
+                Debug.Log("BirdSpawner: Creating a bird poop.");
             }
         }
     }
@@ -102,7 +88,6 @@ public class BirdSpawner : MonoBehaviour
             }
             if (stone != null)
             {
-                BosalManager.Instance.Speak("BirdPeace");
                 break;
             }
         }
@@ -125,7 +110,6 @@ public class BirdSpawner : MonoBehaviour
         else
         {
             Debug.Log("can't find 'PlacedStone' by raycast");
-            BosalManager.Instance.Speak("BirdPeace");
         }
     }
 
@@ -151,6 +135,20 @@ public class BirdSpawner : MonoBehaviour
         }
         if (hitPoint != Vector2.zero)
         {
+            if (firstBird)
+            {
+                BosalManager.Instance.Speak("BirdFirst");
+                firstBird = false;
+                BosalManager.Instance.birdBool = true;
+            }
+            else
+            {
+                if (Random.value > 0.5f)
+                {
+                    BosalManager.Instance.Speak("Bird");
+                    BosalManager.Instance.birdBool = true;
+                }
+            }
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
             GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
             aliveBird.GetComponent<Bird>().Init(stone, hitPoint, sittime);
