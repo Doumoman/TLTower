@@ -47,8 +47,6 @@ public class CloudSystem : MonoBehaviour
         //하늘 스테이지 시작 위치를 젤 높은 돌에 맞춤
         float yPos = MathF.Max(StoneFixer.Instance.HighestSettledY, StoneFixer.Instance.HighestFixedY);
         skyStage.transform.position = new Vector2(0, yPos);
-
-        UpdateUI();
     }
 
 
@@ -71,6 +69,7 @@ public class CloudSystem : MonoBehaviour
         ChapterManager.Instance.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
         cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
 
+        UpdateUI();
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();
     }
