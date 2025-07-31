@@ -144,7 +144,7 @@ public class CloudController : MonoBehaviour,
     {
         yield return null;
         Collider2D[] results = new Collider2D[1];
-        LayerMask mask = LayerMask.GetMask("CloudSeparate");
+        LayerMask mask = LayerMask.GetMask("CloudSeparate", "JointedCloud");
         ContactFilter2D filter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
         filter.SetLayerMask(mask);
 
@@ -209,7 +209,7 @@ public class CloudController : MonoBehaviour,
         SoundManager.Instance.PlaySFX("cloud_select");
 
         if (this.TryGetComponent<JointMaker>(out JointMaker jm))
-            jm.DraggingBreak();
+            jm.Detach();
         StartDragging();
         dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
     }
@@ -218,6 +218,7 @@ public class CloudController : MonoBehaviour,
     {
         if (eventData.pointerId != activePointer) return;
         if (state != CloudState.Dragging) return;
+        if (rb.bodyType != RigidbodyType2D.Kinematic) rb.bodyType = RigidbodyType2D.Kinematic;
 
         Vector2 mouseWorld = ScreenToWorld(eventData.position);
 
@@ -297,12 +298,6 @@ public class CloudController : MonoBehaviour,
         separator.isTrigger = true;
         foreach (Collider2D col in colChildren) col.isTrigger = true;
 
-        if (co != null) //드래그중에 콜라이더 활성화 방지
-        {
-            StopCoroutine(co);  
-            co = null;
-        }
-
         rb.isKinematic = true;
         foreach (Rigidbody2D rb in rbChildren) rb.isKinematic = true;
 
@@ -337,5 +332,10 @@ public class CloudController : MonoBehaviour,
     // 해당 fingerId가 없을 때는 마지막 좌표 그대로 반환
     return lastPointerWorld;
 #endif
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

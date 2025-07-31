@@ -19,6 +19,7 @@ public class JointMakerPhysics : MonoBehaviour
     public void MakeJoint(GameObject go)
     {
         if (!go.CompareTag("Cloud")) return;  //Cloud인 것만 인식
+        if (CloudSystem.Instance.GetNodeLength() > CloudSystem.Instance.cloudLimit) return; //구름 개수 제한
 
         JointMaker jm = GetJointMaker();
         if (jm) jm.MakeBoneJoint(this, go);
@@ -36,8 +37,7 @@ public class JointMakerPhysics : MonoBehaviour
         Destroy(joint);
         yield return null;  //한 프레임 쉬기(조인트 해제가 반영되길 기다림)
 
-       // if (otherJm) otherJm.RemoveInit(jm);
-
+       if (otherJm) otherJm.RemoveInit(jm);
     }
     //이것과 연결된 jointmaker 반환. 없으면 null
     public JointMaker GetJointMaker()

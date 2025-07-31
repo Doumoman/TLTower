@@ -68,7 +68,7 @@ public class JointMaker : MonoBehaviour
     }
 
     //구름 드래그시 initial의 구름과의 연결 끊기
-    public void DraggingBreak()
+    public void Detach()
     {
         foreach (JointMaker jm in initial)
         {

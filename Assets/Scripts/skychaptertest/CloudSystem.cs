@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CloudSystem : MonoBehaviour
@@ -11,6 +12,11 @@ public class CloudSystem : MonoBehaviour
     [SerializeField]private List<JointMaker> nodes = new List<JointMaker>();
     public GameObject cloudSpawner;
     public GameObject skyStage;
+    [HideInInspector]public int cloudLimit;
+    public int[] cloudLimitList;
+
+    [Header("UI")]
+    public TextMeshProUGUI remainingTMP;
 
     public float HighestJointY {  get; private set; }
     public static CloudSystem Instance { get; private set; }
@@ -23,6 +29,14 @@ public class CloudSystem : MonoBehaviour
     {
         if (Instance != null) Destroy(this);
         Instance = this;
+    }
+
+    private void OnValidate()
+    {
+        if (cloudLimitList == null || cloudLimitList.Length != (int)chapter.winter -  (int)chapter.autumn)
+        {
+            cloudLimitList = new int[(int)chapter.winter - (int)chapter.autumn];
+        }
     }
 
     private void Start()
@@ -53,6 +67,7 @@ public class CloudSystem : MonoBehaviour
         StartCoroutine(MoveCamera());
 
         ChapterManager.Instance.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
+        cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
 
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();
@@ -100,6 +115,7 @@ public class CloudSystem : MonoBehaviour
         nodes = jmList;
 
         FindHighestJM();  //가장 높은 구름 초기화
+        UpdateUI();
     }
 
     //jointMaker모두 없애기
@@ -111,5 +127,24 @@ public class CloudSystem : MonoBehaviour
             if (node.TryGetComponent<CloudController>(out CloudController c)) c.Disappear();
         }
         nodes.Clear();
+    }
+
+    public int GetNodeLength()
+    {
+        List<JointMaker> newNodes = nodes;
+        foreach(JointMaker node in nodes)
+        {
+            if (node == null) newNodes.Remove(node);
+        }
+        nodes = newNodes;
+        return nodes.Count; 
+    }
+
+    void UpdateUI()
+    {
+        if (!remainingTMP) return;
+
+        int remain = cloudLimit + 1 - GetNodeLength();
+        remainingTMP.text = $"<b>{remain}</b>";
     }
 }
