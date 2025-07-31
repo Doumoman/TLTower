@@ -76,27 +76,27 @@ public class BackGround : MonoBehaviour
     }
 
     void Start()
-    {
-        // 이벤트 등록 (Start에서 실행하여 초기화 순서 보장)
-        if (ChapterManager.Instance != null)
+    {   if (ChapterManager.Instance != null)
         {
             ChapterManager.Instance.onChapterChage += ChangeBackGround;
-            Debug.Log("background 챕터변환 등록 완료");
+            ChangeBackGround(this, EventArgs.Empty);          // ← 추가
         }
         else
         {
             Debug.LogError("background 챕터변환 등록 실패 - ChapterManager가 null입니다.");
         }
+        StartCoroutine(RegisterWhenReady());
+    }
+
+    IEnumerator RegisterWhenReady()
+    {
+        yield return new WaitUntil(() => ChapterManager.Instance != null);
+        ChapterManager.Instance.onChapterChage += ChangeBackGround;
+        Debug.Log("background 챕터변환 등록 완료");
         
-        if (AnimationManager.Instance != null)
-        {
-            AnimationManager.Instance.changeSpaceBackGround += ChangeSpaceBackGround;
-            Debug.Log("background 스페이스 배경 변경 등록 완료");
-        }
-        else
-        {
-            Debug.LogError("background 스페이스 배경 변경 등록 실패 - AnimationManager가 null입니다.");
-        }
+        yield return new WaitUntil(() => AnimationManager.Instance != null);
+        AnimationManager.Instance.changeSpaceBackGround += ChangeSpaceBackGround;
+        Debug.Log("background 스페이스 배경 변경 등록 완료");
     }
 
     void ChangeBackGround(object sender, EventArgs eventArgs)
