@@ -6,7 +6,7 @@ public class StoneSequenceManager : MonoBehaviour
     [Header("Stage References")]
     public RiseStage       riseStage;
     public GlowStage       glowStage;
-    public TransitionStage transitionStage;
+    public RiseStoneAndSceneChange riseStoneAndSceneChange;
 
     [Header("Optional Extras")]
     public ParticleSystem spaceParticles;
@@ -36,7 +36,7 @@ public class StoneSequenceManager : MonoBehaviour
         yield return glowStage.Run();
 
         /* 3) Fade-Out + 보살 등장 ----------------------- */
-        //yield return transitionStage.Run();
+        riseStoneAndSceneChange.Run();
 
 
     }

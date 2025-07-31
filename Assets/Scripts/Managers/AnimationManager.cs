@@ -298,7 +298,7 @@ public class AnimationManager : MonoBehaviour
         anim.speed = endSpeed;                   // 종료 속도 보정
         changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
     }
-    IEnumerator AfterSeconds(float seconds)
+    IEnumerator AfterSeconds(float seconds) // 마지막 돌이 끼워지면 해당 로직 실행
     {
         yield return new WaitForSeconds(seconds);
         //changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
@@ -317,13 +317,7 @@ public class AnimationManager : MonoBehaviour
         spaceAnimRoot.SetActive(true);
         //Animator anim = spaceAnimRoot.GetComponent<Animator>();
 
-
-        //anim.speed = startSpeed;            // 느리게 시작
-        //anim.Play(animStateName, 0, 0f);    // 처음부터 재생
-        //StartCoroutine(CoAccelerateAnimation(anim));
-
-
-        StartCoroutine(AfterSeconds(5f));
+        StartCoroutine(AfterSeconds(12f)); // 마지막 돌이 끼워지면 해당 로직 실행
         Debug.Log("우주애니메이션 실행");
     }
 

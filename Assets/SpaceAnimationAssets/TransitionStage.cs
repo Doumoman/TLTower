@@ -3,111 +3,70 @@ using UnityEngine;
 
 public class TransitionStage : MonoBehaviour
 {
-    [Header("외부 참조")]
-    public GlowStage glowStage;              // GlowStage를 참조해야 flashHalos에 접근
-    public SpriteRenderer stone;             // 돌 이미지 (페이드아웃할 대상)
-    
-    [Header("페이드인할 이미지들")]
-    public SpriteRenderer bodhisattva;       // 보살 이미지
+    /* ────────── 페이드-아웃 대상 ────────── */
+    [Header("▼ 페이드아웃할 오브젝트(최대 5개)")]
+    public SpriteRenderer[] fadeOutTargets = new SpriteRenderer[5];   // Inspector에서 할당
+
+    /* ────────── 페이드-인 대상 ────────── */
+    [Header("▼ 페이드인할 이미지들")]
+    public SpriteRenderer bodhisattva;        // 보살 이미지
     [Tooltip("보살과 함께 페이드인될 추가 이미지들")]
     public SpriteRenderer[] additionalImages; // 추가 이미지들
-    
-    [Header("페이드 설정")]
+
+    /* ────────── 공통 설정 ────────── */
+    [Header("▼ 페이드 설정")]
     public float fadeTime = 1f;
 
     void Awake()
     {
-        // 보살 이미지가 처음에는 안 보이도록 설정
-        if (bodhisattva)
-        {
-            Color color = bodhisattva.color;
-            color.a = 0f;
-            bodhisattva.color = color;
-        }
-        
-        // 추가 이미지들도 처음에는 안 보이도록 설정
+        // 보살 & 추가 이미지들을 처음엔 보이지 않도록 세팅
+        SetAlpha(bodhisattva, 0f);
         if (additionalImages != null)
-        {
             foreach (var img in additionalImages)
-            {
-                if (img)
-                {
-                    Color color = img.color;
-                    color.a = 0f;
-                    img.color = color;
-                }
-            }
-        }
+                SetAlpha(img, 0f);
     }
 
+    /* ────────── 메인 시퀀스 ────────── */
     public IEnumerator Run()
     {
-        // 돌과 halo 페이드아웃과 보살+추가이미지들 페이드인이 동시에 진행
-        var fadeOutTasks = new System.Collections.Generic.List<IEnumerator>();
-        var fadeInTasks = new System.Collections.Generic.List<IEnumerator>();
-        
-        // persistHalo들 페이드아웃
-        foreach (var persist in glowStage.persistList)
-        {
-            if (persist) fadeOutTasks.Add(FadeOutSprite(persist, fadeTime));
-        }
-        
-        // 돌 페이드아웃
-        if (stone) fadeOutTasks.Add(FadeOutSprite(stone.gameObject, fadeTime));
-        
-        // 보살 페이드인
-        if (bodhisattva) fadeInTasks.Add(FadeInSprite(bodhisattva.gameObject, fadeTime));
-        
-        // 추가 이미지들 페이드인
+        // 동시에 실행할 코루틴 목록
+        var fades = new System.Collections.Generic.List<IEnumerator>();
+
+        /* ── (1) 페이드-아웃 ── */
+        foreach (var target in fadeOutTargets)
+            if (target) fades.Add(FadeSprite(target, 1f, 0f, fadeTime));
+
+        /* ── (2) 페이드-인 ── */
+        if (bodhisattva) fades.Add(FadeSprite(bodhisattva, 0f, 1f, fadeTime));
         if (additionalImages != null)
-        {
             foreach (var img in additionalImages)
-            {
-                if (img) fadeInTasks.Add(FadeInSprite(img.gameObject, fadeTime));
-            }
-        }
-        
-        // 모든 페이드 효과를 동시에 시작
-        foreach (var task in fadeOutTasks)
-        {
-            StartCoroutine(task);
-        }
-        foreach (var task in fadeInTasks)
-        {
-            StartCoroutine(task);
-        }
-        
-        // 모든 페이드 효과가 완료될 때까지 대기
+                if (img) fades.Add(FadeSprite(img, 0f, 1f, fadeTime));
+
+        // 모든 페이드 코루틴을 시작
+        foreach (var f in fades) StartCoroutine(f);
+
+        // 지정된 시간만큼 기다리면 모든 페이드가 완료됨
         yield return new WaitForSeconds(fadeTime);
     }
 
-    IEnumerator FadeOutSprite(GameObject obj, float t)
+    /* ────────── 유틸 ────────── */
+    void SetAlpha(SpriteRenderer sr, float a)
     {
-        var sr = obj.GetComponent<SpriteRenderer>();
+        if (!sr) return;
+        var c = sr.color; c.a = a; sr.color = c;
+    }
+
+    IEnumerator FadeSprite(SpriteRenderer sr, float from, float to, float t)
+    {
         if (!sr) yield break;
 
         Color c = sr.color;
         for (float e = 0; e < t; e += Time.deltaTime)
         {
-            c.a = Mathf.Lerp(1f, 0f, e / t);
+            c.a = Mathf.Lerp(from, to, e / t);
             sr.color = c;
             yield return null;
         }
-        c.a = 0f; sr.color = c;
-    }
-
-    IEnumerator FadeInSprite(GameObject obj, float t)
-    {
-        var sr = obj.GetComponent<SpriteRenderer>();
-        if (!sr) yield break;
-
-        Color c = sr.color; c.a = 0f; sr.color = c;
-        for (float e = 0; e < t; e += Time.deltaTime)
-        {
-            c.a = Mathf.Lerp(0f, 1f, e / t);
-            sr.color = c;
-            yield return null;
-        }
-        c.a = 1f; sr.color = c;
+        c.a = to; sr.color = c;
     }
 }
