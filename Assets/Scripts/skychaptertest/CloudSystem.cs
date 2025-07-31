@@ -47,6 +47,8 @@ public class CloudSystem : MonoBehaviour
         //하늘 스테이지 시작 위치를 젤 높은 돌에 맞춤
         float yPos = MathF.Max(StoneFixer.Instance.HighestSettledY, StoneFixer.Instance.HighestFixedY);
         skyStage.transform.position = new Vector2(0, yPos);
+
+        UpdateUI();
     }
 
 
