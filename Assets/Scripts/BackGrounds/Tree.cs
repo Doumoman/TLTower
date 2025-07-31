@@ -114,18 +114,30 @@ public class Tree : MonoBehaviour
     }
 
     void Start()
-    {
-        // ChapterManager 이벤트 등록 (Start에서 실행하여 초기화 순서 보장)
+    {   
         if (cm != null)
         {
             cm.onChapterChage += ChageSprite;
             cm.onChapterChage += AutumnDisable;
-            Debug.Log("tree 챕터변환 등록 완료");
         }
         else
         {
             Debug.LogError("tree 챕터변환 등록 실패 - ChapterManager가 null입니다.");
         }
+
+        ChageSprite(this, EventArgs.Empty);               // ← 추가
+        AutumnDisable(this, EventArgs.Empty); 
+
+        StartCoroutine(RegisterWhenReady());
+    }
+
+    IEnumerator RegisterWhenReady()
+    {
+        yield return new WaitUntil(() => ChapterManager.Instance != null);
+        cm = ChapterManager.Instance;
+        cm.onChapterChage += ChageSprite;
+        cm.onChapterChage += AutumnDisable;
+        Debug.Log("tree 챕터변환 등록 완료");
     }
     void OnDestroy()
     {

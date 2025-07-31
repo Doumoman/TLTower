@@ -14,8 +14,17 @@ public class PausePanel : MonoBehaviour
     // 외부에서 호출: GuideManager 전용
     public void Openpausepanel()
     {
+        Debug.Log($"Openpausepanel 호출됨 - pausepanel: {(pausepanel != null ? pausepanel.name : "null")}, activeSelf: {(pausepanel != null ? pausepanel.activeSelf.ToString() : "N/A")}");
+        
         if (pausepanel != null && !pausepanel.activeSelf)
+        {
             pausepanel.SetActive(true);
+            Debug.Log("PausePanel 활성화 완료");
+        }
+        else
+        {
+            Debug.LogWarning($"PausePanel 활성화 실패 - pausepanel이 null이거나 이미 활성화됨");
+        }
     }
 
     public void Closepausepanel()

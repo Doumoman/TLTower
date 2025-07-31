@@ -43,7 +43,11 @@ public class GuideManager : MonoBehaviour
     private void ShowGuide() => guidePanelRoot.SetActive(true);
     private void HideGuide() => guidePanelRoot.SetActive(false);
 
-    private void ShowPause() => pausePanel.Openpausepanel();
+    private void ShowPause()
+    {
+        Debug.Log($"ShowPause 호출됨 - pausePanel: {(pausePanel != null ? pausePanel.name : "null")}");
+        pausePanel.Openpausepanel();
+    }
     private void HidePause() => pausePanel.Closepausepanel();
 
     private void OnGuideClosed()
@@ -119,6 +123,7 @@ public class GuideManager : MonoBehaviour
 
             case GuideUIState.PauseOnly:
                 HidePause();
+                pauseButton.SetActive(true); // Pause 버튼 보임 이동건 수정 0731 20:31
                 current = GuideUIState.None;
                 break;
 
