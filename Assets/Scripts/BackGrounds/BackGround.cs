@@ -2,9 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;  // for : someChild = transform.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.name.Contains("Child"));
 
 public class BackGround : MonoBehaviour
 {
+    BackGround cm;             // 만약 BackGround 라는 컴포넌트를 찾고 싶다면
+
+    Transform someChild;       // 자식 오브젝트 Transform
+
 
     public Sprite land;
     public Sprite spring;
@@ -18,10 +23,24 @@ public class BackGround : MonoBehaviour
     Dictionary<chapter, Sprite> spriteForChaper;
 
     private void Awake()
-    {
+    {   Debug.Log($"[Background] spriteRenderer = {sr}");
+        Debug.Log($"[Background] someChild    = {spriteForChaper}");
+
+        // 1) ChapterManager는 싱글톤으로 접근 (BackGround 자체에 ChapterManager가 없음)
+        // cm = GetComponent<BackGround>(); // 이 줄은 제거 - BackGround는 자기 자신을 참조하는 의미가 없음
+
+        // 2) 자식 트랜스폼 자동 할당 (선택적)
+        someChild = transform.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.name.Contains("Child"));
+        if (someChild == null)
+            Debug.LogWarning("[Background] 'Child' 이름의 자식이 없습니다. (선택적)");
+
+        // 3) 필수 컴포넌트 자동 할당
         sr = GetComponent<SpriteRenderer>();
-        ChapterManager.Instance.onChapterChage += ChangeBackGround;
-        AnimationManager.Instance.changeSpaceBackGround += ChangeSpaceBackGround;
+        if (sr == null)
+            Debug.LogError("[Background] SpriteRenderer 컴포넌트를 찾을 수 없습니다.");
+
+        sr = GetComponent<SpriteRenderer>();
+        
         spriteForChaper = new Dictionary<chapter, Sprite>();
         chapter[] c = (chapter[])System.Enum.GetValues(typeof(chapter));
 
@@ -56,13 +75,53 @@ public class BackGround : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        // 이벤트 등록 (Start에서 실행하여 초기화 순서 보장)
+        if (ChapterManager.Instance != null)
+        {
+            ChapterManager.Instance.onChapterChage += ChangeBackGround;
+            Debug.Log("background 챕터변환 등록 완료");
+        }
+        else
+        {
+            Debug.LogError("background 챕터변환 등록 실패 - ChapterManager가 null입니다.");
+        }
+        
+        if (AnimationManager.Instance != null)
+        {
+            AnimationManager.Instance.changeSpaceBackGround += ChangeSpaceBackGround;
+            Debug.Log("background 스페이스 배경 변경 등록 완료");
+        }
+        else
+        {
+            Debug.LogError("background 스페이스 배경 변경 등록 실패 - AnimationManager가 null입니다.");
+        }
+    }
+
     void ChangeBackGround(object sender, EventArgs eventArgs)
     {
+        // ChapterManager가 null이면 처리하지 않음
+        if (ChapterManager.Instance == null) return;
+        
         sr.sprite = spriteForChaper[ChapterManager.Instance.chapter];
-
     }
     void ChangeSpaceBackGround(object sender, EventArgs eventArgs)
     {
         sr.sprite = space2;
+    }
+
+    void OnDestroy()
+    {
+        // 이벤트 해제
+        if (ChapterManager.Instance != null)
+        {
+            ChapterManager.Instance.onChapterChage -= ChangeBackGround;
+        }
+        
+        if (AnimationManager.Instance != null)
+        {
+            AnimationManager.Instance.changeSpaceBackGround -= ChangeSpaceBackGround;
+        }
     }
 }

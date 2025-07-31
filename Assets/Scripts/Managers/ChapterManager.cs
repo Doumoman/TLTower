@@ -153,7 +153,7 @@ public class ChapterManager : MonoBehaviour
 
             SetObstacle();
             if (StoneFixer.Instance)
-            {
+            {   Debug.Log("StoneFixer.Instance");
                 /* space 챕터에는 threshold 가 없으므로 안전 체크 */
                 if (idx < stonesForChapter.Length)
                     StoneFixer.Instance.threshold = stonesForChapter[idx];

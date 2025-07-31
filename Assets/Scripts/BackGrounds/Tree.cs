@@ -10,6 +10,10 @@ using UnityEngine.U2D;
 
 public class Tree : MonoBehaviour
 {
+    
+    SpriteRenderer sr;         // Tree 오브젝트의 SpriteRenderer
+    Transform childTransform;  // 'Child'라는 이름의 자식 Transform
+
     [Header("References")]
     public GameObject[] stem;
     public Sprite[] spring;
@@ -34,12 +38,25 @@ public class Tree : MonoBehaviour
     GameObject lastStem;
     ChapterManager cm;
     void Awake()
-    {
-        // ChapterManager 캐싱
+    {   
+        // 빌드 테스트용용
+        Debug.Log($"[Tree] spriteRenderer = {cm}");
+        Debug.Log($"[Tree] someChild    = {seasons}");
+        // ChapterManager는 싱글톤으로 접근
         cm = ChapterManager.Instance;
-        cm.onChapterChage += ChageSprite;
-        cm.onChapterChage += AutumnDisable;
-        Debug.Log("tree 챕터변환 등록");
+        if (cm == null)
+            Debug.LogError("[Tree] ChapterManager 인스턴스를 찾을 수 없습니다.");
+
+        // 2) 자식 트랜스폼 자동 할당 (선택적)
+        childTransform = transform.GetComponentsInChildren<Transform>()
+                    .FirstOrDefault(t => t.name.Contains("Child"));
+        if (childTransform == null)
+            Debug.LogWarning("[Tree] 'Child' 이름의 자식이 없습니다. (선택적)");
+
+        // 3) SpriteRenderer는 자식에서 찾기 (Tree 자체에 없을 수 있음)
+        sr = GetComponentInChildren<SpriteRenderer>();
+        if (sr == null)
+            Debug.LogWarning("[Tree] SpriteRenderer 컴포넌트를 찾을 수 없습니다. (자식에서 찾음)");
 
         // 자신을 정적 리스트에 등록
         _allTrees.Add(this);
@@ -95,14 +112,44 @@ public class Tree : MonoBehaviour
             lastStem.transform.position = new Vector3(0, -7, Z);
         }
     }
+
+    void Start()
+    {
+        // ChapterManager 이벤트 등록 (Start에서 실행하여 초기화 순서 보장)
+        if (cm != null)
+        {
+            cm.onChapterChage += ChageSprite;
+            cm.onChapterChage += AutumnDisable;
+            Debug.Log("tree 챕터변환 등록 완료");
+        }
+        else
+        {
+            Debug.LogError("tree 챕터변환 등록 실패 - ChapterManager가 null입니다.");
+        }
+    }
     void OnDestroy()
     {
         if (_registered) _allTrees.Remove(this);
+        
+        // 이벤트 해제
+        if (cm != null)
+        {
+            cm.onChapterChage -= ChageSprite;
+            cm.onChapterChage -= AutumnDisable;
+        }
     }
 
     //나무를 계속 생성(space에선 생성x)
     void Update()
     {
+        // ChapterManager가 null이면 업데이트를 건너뜀
+        if (cm == null)
+        {
+            // ChapterManager를 다시 찾아보기
+            cm = ChapterManager.Instance;
+            if (cm == null) return;
+        }
+
         if (cm.chapter == chapter.space && !_globalFadeStarted)
         {
             _globalFadeStarted = true;
@@ -133,6 +180,9 @@ public class Tree : MonoBehaviour
     //가을챕터에선 돌 생성되지 않도록
     void AutumnDisable(object sender, EventArgs eventArgs)
     {
+        // ChapterManager가 null이면 처리하지 않음
+        if (cm == null) return;
+
         if (cm.chapter.ToString().Contains("autumn"))
         {
             for (int i = 0; i < transform.childCount; i++)
@@ -162,6 +212,9 @@ public class Tree : MonoBehaviour
     //챕터가 바뀌면 챕터에 맞춰 스프라이트 전부 변경
     void ChageSprite(object sender, EventArgs eventArgs)
     {
+        // ChapterManager가 null이면 처리하지 않음
+        if (cm == null) return;
+
         List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         Sprite[] sp1;
         List<SpriteRenderer> suhangmokSp = spriteRenderers.FindAll(x => x.sortingLayerName == "suhangmok");

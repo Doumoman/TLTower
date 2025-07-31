@@ -44,23 +44,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapter: 1
+  chapter: 0
   seasonalObstacles:
+  - season: 0
+    obstacles: []
   - season: 1
     obstacles: []
   - season: 2
-    obstacles: []
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
   - season: 3
     obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
   - season: 4
     obstacles:
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - season: 5
     obstacles:
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - season: 6
     obstacles:
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -69,8 +82,13 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 0}
   - season: 8
-    obstacles: []
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - season: 9
     obstacles:
     - {fileID: 0}
@@ -78,5 +96,70 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
   - season: 10
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 11
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 12
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 13
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 14
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 15
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 16
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 17
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 18
+    obstacles:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - season: 19
     obstacles: []
-  stonesForChapter: 05000000150000006400000064000000640000006400000064000000640000006400000064000000
+  CloudCheckPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stonesForChapter: 05000000080000000d00000012000000080000000d00000012000000000000000000000000000000000000000000000000000000000000000000000000000000080000000d00000001000000

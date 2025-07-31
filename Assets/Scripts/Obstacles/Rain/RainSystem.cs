@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 // using static UnityEngine.InputManagerEntry; // 오류가 나서 주석처리 0731 06:07 이동건
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem; // 오류가 나서 추가 0731 06:07 이동건
 public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();

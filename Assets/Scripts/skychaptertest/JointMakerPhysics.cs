@@ -27,7 +27,7 @@ public class JointMakerPhysics : MonoBehaviour
     private IEnumerator JointBreak(Joint2D joint)
     {
         JointMaker jm = GetJointMaker();
-        JointMaker otherJm;
+        JointMaker otherJm = null;
         if (joint.connectedBody.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp))
             otherJm = jmp.GetJointMaker();
 
