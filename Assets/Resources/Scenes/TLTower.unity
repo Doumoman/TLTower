@@ -184036,9 +184036,7 @@ MonoBehaviour:
   spanMin: 0.5
   spanMax: 1.5
   skyCloud:
-  - {fileID: 619677952725524264, guid: 39a4778325bcd8040a1329829897f530, type: 3}
-  - {fileID: 1273140546792305614, guid: 7dac93f3ba583df42adb982741658e6c, type: 3}
-  - {fileID: 2144978920086071233, guid: 8c08d061d6007c44cbe30e3c96008715, type: 3}
+  - {fileID: 5529128479074572266, guid: 88d19ce9f5069294088baa20b6e74563, type: 3}
 --- !u!4 &2023078723
 Transform:
   m_ObjectHideFlags: 0
