@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 //jointmaker의 물리 담당. jointmaker컴포넌트가 같이 있을 떄, 또는 부모 오브젝트에 있을 때 두 경우.
 public class JointMakerPhysics : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision) 
     {
+        if (transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.crush = true;
         MakeJoint(collision.gameObject);
     }
 
@@ -18,7 +17,7 @@ public class JointMakerPhysics : MonoBehaviour
     }
     public void MakeJoint(GameObject go)
     {
-        if (!go.CompareTag("Cloud")) return;  //Cloud인 것만 인식
+        if (!go.CompareTag("CloudChild")) return;  //CloudChild인 것만 인식
         if (CloudSystem.Instance.GetNodeLength() > CloudSystem.Instance.cloudLimit) return; //구름 개수 제한
 
         JointMaker jm = GetJointMaker();

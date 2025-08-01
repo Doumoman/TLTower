@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using UnityEngine;
 // using static UnityEditor.Progress; // 오류가 나서 주석처리 0731 06:07 이동건
@@ -326,7 +324,7 @@ public class ChapterManager : MonoBehaviour
          */
         else if (chapter == chapter.space)
         {
-            Debug.Log("우주브금 실행");
+            //Debug.Log("우주브금 실행");
             SoundManager.Instance.PlayBGM("Space", 0);
         }
 

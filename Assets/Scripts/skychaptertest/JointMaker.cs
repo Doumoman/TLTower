@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
-using UnityEngine.Profiling; //오류가 나서 UnityEditor.Profiling.Memory.Experimental; -> UnityEngine.Profiling.Memory.Experimental; 0731 06:07 이동건
 using UnityEngine;
 
 public class JointMaker : MonoBehaviour
@@ -43,6 +40,8 @@ public class JointMaker : MonoBehaviour
 
         JointMaker jm = null;
         if (otherBone.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics otherJmp)) jm = otherJmp.GetJointMaker();  //닿은 대상과 연결된 jm
+        else return;  //jmp없으면 bone이 아니므로 멈추기
+
         if (initial.Contains(jm) || jm == this) return;       //initial에 등록된 JointMaker(이미 연결된거)면 실행 안함. 또는 자기 자신인 경우도(간혹 있음)
 
         //닿은 대상이 아직 joint2d를 형성하지 않은 구름이라면
