@@ -14842,7 +14842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &55845245
 Transform:
   m_ObjectHideFlags: 0
@@ -14922,6 +14922,7 @@ MonoBehaviour:
   Yumju: {fileID: 1408709549}
   stonesParent: {fileID: 0}
   seqManager: {fileID: 579511420}
+  postSnapDelay: 4
   spaceAnimRoot: {fileID: 549027357}
   animStateName: Play
   startSpeed: 0.5
@@ -77938,7 +77939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1049340860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77984,7 +77985,7 @@ MonoBehaviour:
     position: {x: -9, y: 2}
     rotationZ: 0
     spawnDelay: 0
-  defaultSpawnDelay: 7
+  defaultSpawnDelay: 0
   fadeInDuration: 4
   glowObjects:
   - {fileID: 987101705}
@@ -137801,7 +137802,7 @@ MonoBehaviour:
   stones:
   - {fileID: 549027358}
   riseHeight: 1.6
-  duration: 8
+  duration: 4
   curve:
     serializedVersion: 2
     m_Curve:
@@ -137851,7 +137852,7 @@ MonoBehaviour:
   - {fileID: 549027358}
   - {fileID: 1645572691}
   slowMoveDistance: 1
-  slowMoveTime: 4
+  slowMoveTime: 3
   fastMoveDistance: 8
   fastMoveTime: 1.5
   blackout: {fileID: 1702864041}

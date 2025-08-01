@@ -220,25 +220,7 @@ public class SpaceStoneController : MonoBehaviour,
         SoundManager.Instance.PlaySFX("stone_snap");
         BosalManager.Instance.Speak("SpaceChapterBuilding");
     }
-    void SnapToTarget(SpaceStoneTarget t)
-    {
-        transform.position = t.snapPoint.position;
-        transform.rotation = Quaternion.Euler(0, 0, t.snapRotationZ);
-
-        _rb.velocity = Vector2.zero;
-        _rb.angularVelocity = 0f;
-        _rb.isKinematic = true;   // 더 이상 움직이지 않음
-
-        State = SpaceStoneState.Snapped;
-        tag = "PlacedStone";
-        Debug.Log($"Snap! stoneIdx={presetIndex}, targetIdx={t.expectedIndex}");
-        AnimationManager.Instance?.FlashAndHide(presetIndex);
-        NewAnimationManager.Instance?.FlashAndHide(presetIndex);
-        AnimationManager.Instance?.NotifyStoneSnapped();
-        NewAnimationManager.Instance?.NotifyStoneSnapped();
-
-        if (_click) _click.enabled = false;
-    }
+    
     #endregion
     /* ================================================================= */
 

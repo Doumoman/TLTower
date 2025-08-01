@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class AnimationManager : MonoBehaviour
 {
@@ -138,6 +139,23 @@ public class AnimationManager : MonoBehaviour
     [Header("시퀀스매니저 할당")]
     public StoneSequenceManager seqManager;
 
+    [Header("Tick-호흡 조절")]
+    [Tooltip("돌이 스냅되고 나서 ‘다음 틱’을 계산하기 전 최소 대기 시간")]
+    public float postSnapDelay = 4f;   // 스냅 끝난 뒤 최소 4초
+    bool waitingSnap = false;       // 돌이 아직 자리잡는 중?
+    bool finalAnimQueued = false;     // 마지막 애니메이션 예약
+    float lastSnapEnd;
+
+    const int ticksPerSpawn = 2;   // 2틱 = 8초
+    const int tickSeconds = 4;   // 1틱 = 4초
+    const int minTickGap = 1;   // 최소 2틱(8초) 간격
+    const int maxTickGap = 3;   // 최대 4틱(16초) 간격
+    const float TickSec = 4f;   // 1틱 = 4초
+    const float MinGapSec = 4f;   // 최소 4초
+    const float MaxGapSec = 12f;  // 최대 12초
+    int nextSpawnTick = -1;  // 다음 돌·연출이 실행될 정확한 틱
+    bool allStonesDone = false;
+
     [Header("★ 우주 배경 애니메이션")]
     [SerializeField] GameObject spaceAnimRoot;   // Animator 가 달린 오브젝트
     [SerializeField] string animStateName = "Play"; // 첫 스테이트 이름
@@ -156,49 +174,32 @@ public class AnimationManager : MonoBehaviour
     public void SpawnSpaceStones()
     {
         Block.SetActive(true);
-        
+
 
         snappedCount = 0;
         cleared = false;
-        spawnStep = 0;          // ★ 리셋
+        spawnStep = 0;
+        seq = 0;
+        finalAnimQueued = false;
+        waitingSnap = false;
+        allStonesDone = false;
+
+        lastSnapEnd = Time.time - postSnapDelay; // 바로 스폰 가능
 
         if (!stonesParent)
             stonesParent = new GameObject("Stones").transform;
 
-        SpawnNextStone();          // 첫 돌(인덱스 4)만 생성
+        int idx0 = spawnSequence[spawnStep++];
+        SpawnSingleStone(presets[idx0], idx0);
+        ShowGlow(idx0);
+        waitingSnap = true;                      // 이때부터 ‘스냅 대기’
+
+        int curTick = TickManager.Instance.tickCount;
+        nextSpawnTick = ((curTick + minTickGap) % 2 == 0) ? curTick + minTickGap
+                                                             : curTick + minTickGap + 1;
+        TickManager.Instance.OnTickEvent += HandleTick;
     }
-    void SpawnNextStone()
-    {
-        if (spawnStep >= spawnSequence.Length) return;
-
-        int presetIdx = spawnSequence[spawnStep];
-
-        
-
-        float wait = presets[presetIdx].spawnDelay > 0f
-                     ? presets[presetIdx].spawnDelay
-                     : defaultSpawnDelay;
-        
-        StartCoroutine(CoSpawnAfterDelay(presetIdx, wait));
-        spawnStep++;                     // 다음 인덱스로 미리 이동
-    }
-
-    IEnumerator CoSpawnAfterDelay(int presetIdx, float delay)
-    {
-        if (presetIdx == 4)
-        {
-            yield return new WaitForSeconds(2f);
-            TickManager.Instance.StopTick();
-            SpawnSingleStone(presets[presetIdx], presetIdx);
-            ShowGlow(presetIdx);
-        }
-        else
-        {
-            yield return new WaitForSeconds(delay);
-            SpawnSingleStone(presets[presetIdx], presetIdx);
-            ShowGlow(presetIdx);
-        }
-    }
+    
     int seq = 0;
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
@@ -252,15 +253,36 @@ public class AnimationManager : MonoBehaviour
         if (cleared) return;
 
         snappedCount++;
+        waitingSnap = false;          // 다음 돌 준비 가능
+        lastSnapEnd = Time.time;      // 버퍼 타이머 리셋
 
-        if (snappedCount < presets.Count)  // 아직 남은 돌이 있으면
-            SpawnNextStone();              // 다음 돌 생성
-
-        if (snappedCount >= presets.Count) // 5개 전부 스냅 완료
+        /* 모든 돌 완료 → 마지막 애니메이션을 ‘우리 차례 틱’에 맞춰 실행 */
+        if (snappedCount >= presets.Count)
         {
             cleared = true;
-            OnAllStonesSnapped();
+            allStonesDone = true;
         }
+        ScheduleNextSpawn();
+    }
+    void ScheduleNextSpawn()
+    {
+        float snapTime = Time.time;              // ① 스냅 끝난 실제 시각
+        float earliestTime = snapTime + MinGapSec;   // ② ≥ 8초
+        float latestTime = snapTime + MaxGapSec;   // ③ ≤16초
+
+        /* ④ earliestTime 이후 첫 ‘짝수 틱’(0,8,16…) 탐색 */
+        int earliestTickIdx = Mathf.CeilToInt(earliestTime / TickSec);
+        if (earliestTickIdx % 2 != 0) earliestTickIdx++;   // 홀수면 +1
+
+        /* ⑤ latestTime 을 넘기면, latestTime 이전 마지막 짝수 틱 선택 */
+        float tickTime = earliestTickIdx * TickSec;
+        if (tickTime > latestTime)
+        {
+            earliestTickIdx -= 2;              // 범위 초과 ⇒ 직전 짝수 틱
+            tickTime = earliestTickIdx * TickSec;
+        }
+
+        nextSpawnTick = earliestTickIdx;       // ⑥ 확정
     }
     IEnumerator CoAccelerateAnimation(Animator anim)
     {
@@ -327,8 +349,7 @@ public class AnimationManager : MonoBehaviour
 
         spaceAnimRoot.SetActive(true);
         //Animator anim = spaceAnimRoot.GetComponent<Animator>();
-
-        StartCoroutine(AfterSeconds(12f)); // 마지막 돌이 끼워지면 해당 로직 실행
+        StartCoroutine(AfterSeconds(4f));
         Debug.Log("우주애니메이션 실행");
     }
 
@@ -397,5 +418,39 @@ public class AnimationManager : MonoBehaviour
         }
         sr.gameObject.SetActive(false);
         glowCo[idx] = null;
+    }
+    /* ───────── 틱 이벤트 핸들러 ───────── */
+    void HandleTick(object _, EventArgs __)
+    {
+        int curTickIdx = TickManager.Instance.tickCount;
+        float now = Time.time;
+
+        if (curTickIdx != nextSpawnTick) return;
+
+        /* 2) 혹시라도 8초 미만이면 스폰 지연 */
+        if (now - lastSnapEnd < MinGapSec)
+        {
+            nextSpawnTick += 2;                  // 다음 짝수 틱으로 밀기
+            return;
+        }
+
+        /* 3) 모든 돌 완료 ⇒ 우주 애니메이션 */
+        if (allStonesDone)
+        {
+            TickManager.Instance.OnTickEvent -= HandleTick;
+            OnAllStonesSnapped();
+            return;
+        }
+
+        /* 4) 더 스폰할 돌 없으면 안전 종료 */
+        if (spawnStep >= spawnSequence.Length) return;
+
+        /* 5) 새 돌 스폰 */
+        int idx = spawnSequence[spawnStep++];
+        SpawnSingleStone(presets[idx], idx);
+        ShowGlow(idx);
+
+        waitingSnap = true;   // 다시 스냅 대기
+        /* 다음 스폰은 Snap → ScheduleNextSpawn() 에서 결정 */
     }
 }
