@@ -10948,6 +10948,7 @@ MonoBehaviour:
   riseStage: {fileID: 1477225708}
   transitionStage: {fileID: 1477225706}
   spaceParticles: {fileID: 0}
+  delay: 1
   blackScreen: {fileID: 584790244}
   fadeInTime: 1
 --- !u!1 &1242118036
@@ -26275,7 +26276,7 @@ MonoBehaviour:
   - {fileID: 1242118038}
   - {fileID: 468185856}
   riseHeight: 5
-  duration: 2
+  duration: 4
   curve:
     serializedVersion: 2
     m_Curve:

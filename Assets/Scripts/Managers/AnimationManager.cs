@@ -156,7 +156,7 @@ public class AnimationManager : MonoBehaviour
     public void SpawnSpaceStones()
     {
         Block.SetActive(true);
-        TickManager.Instance.StopTick();
+        
 
         snappedCount = 0;
         cleared = false;
@@ -173,20 +173,31 @@ public class AnimationManager : MonoBehaviour
 
         int presetIdx = spawnSequence[spawnStep];
 
-        ShowGlow(presetIdx);
+        
 
         float wait = presets[presetIdx].spawnDelay > 0f
                      ? presets[presetIdx].spawnDelay
                      : defaultSpawnDelay;
-
+        
         StartCoroutine(CoSpawnAfterDelay(presetIdx, wait));
         spawnStep++;                     // 다음 인덱스로 미리 이동
     }
 
     IEnumerator CoSpawnAfterDelay(int presetIdx, float delay)
     {
-        yield return new WaitForSeconds(delay);
-        SpawnSingleStone(presets[presetIdx], presetIdx);
+        if (presetIdx == 4)
+        {
+            yield return new WaitForSeconds(2f);
+            TickManager.Instance.StopTick();
+            SpawnSingleStone(presets[presetIdx], presetIdx);
+            ShowGlow(presetIdx);
+        }
+        else
+        {
+            yield return new WaitForSeconds(delay);
+            SpawnSingleStone(presets[presetIdx], presetIdx);
+            ShowGlow(presetIdx);
+        }
     }
     int seq = 0;
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯

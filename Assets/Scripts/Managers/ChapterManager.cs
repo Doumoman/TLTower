@@ -324,7 +324,7 @@ public class ChapterManager : MonoBehaviour
          */
         else if (chapter == chapter.space)
         {
-            Debug.Log("우주브금 실행");
+            //Debug.Log("우주브금 실행");
             SoundManager.Instance.PlayBGM("Space", 0);
         }
     
