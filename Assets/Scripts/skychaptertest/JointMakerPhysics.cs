@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 //jointmaker의 물리 담당. jointmaker컴포넌트가 같이 있을 떄, 또는 부모 오브젝트에 있을 때 두 경우.
 public class JointMakerPhysics : MonoBehaviour

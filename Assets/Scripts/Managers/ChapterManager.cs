@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using UnityEngine;
 // using static UnityEditor.Progress; // 오류가 나서 주석처리 0731 06:07 이동건

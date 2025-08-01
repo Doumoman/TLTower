@@ -1,13 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-// using UnityEditorInternal; // 오류가 나서 주석처리 0731 06:07 이동건
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-#if UNITY_EDITOR              // ← 에디터에서만 컴파일 0731 06:07 이동건
-using UnityEditorInternal;
-#endif  
 
 public enum CloudState { flow, Dragging, Dropped };
 [RequireComponent(typeof(Rigidbody2D))]
@@ -168,7 +162,7 @@ public class CloudController : MonoBehaviour,
                         CheckOverlap();
                         break;
                     }
-                    else if (results[0].TryGetComponent<CloudController>(out c)) c.StartSeparate();
+                    else if (results[0].transform.parent.TryGetComponent<CloudController>(out c)) c.StartSeparate();
                 }
                 else break;
             }
@@ -286,7 +280,7 @@ public class CloudController : MonoBehaviour,
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
-        StopAllCoroutines();
+        StopAllCoroutines(); co = null;
         AnyCloudBeingDragged = true;
         CameraController.Instance.BeginDrag(this);
 

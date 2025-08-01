@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using FMOD;
 using UnityEngine;
 
 public class BirdPoop : MonoBehaviour

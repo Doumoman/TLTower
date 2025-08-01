@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement; // 오류가 나서 using UnityEditor.SceneManagement; -> using UnityEngine.SceneManagement; 0731 06:07 이동건
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public enum BirdState {come, sat, go}
 public class Bird : MonoBehaviour

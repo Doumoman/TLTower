@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
-using UnityEngine.Profiling; //오류가 나서 UnityEditor.Profiling.Memory.Experimental; -> UnityEngine.Profiling.Memory.Experimental; 0731 06:07 이동건
 using UnityEngine;
 
 public class JointMaker : MonoBehaviour
