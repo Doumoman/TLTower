@@ -131,39 +131,20 @@ public class BosalManager : Singleton<BosalManager>
     {
         bosalText.fontSize = times * FontSize;
     }
+
     public void Speak(string script, int idx = -1, bool del = false)
     {
+        VoiceManager.Instance.Speak(script, idx, del);
+        //대사 관련 기능은 VoiceManager로 이관
+    }
+    public void SpitText(string script, int idx = -1)
+    {
         // 외부 요인으로 장애물이 소환되는 경우 외부 요인 대사가 먼저이므로
-        // bl = true로 뒤 대사를 취소
+        // del = true로 뒤 대사를 취소
         // ex) 장마 + 비 내리기 = 장마 대사만 출력
-
-        if (DontSpeakTwice)
-        {
-            if (!del) DontSpeakTwice = false;
-            Debug.Log($"보살 대사 \"{script}\" 취소됨");
-            return;
-        }
-
-        if (del) DontSpeakTwice = true;
-
-        int no;
-        string str;
-        if (ScriptDataLoader.Instance.currentIndex.TryGetValue(script, out int val))
-        {
-            no = val;
-        }
-        else no = 0;
-        str = script + no;
-        SoundManager.Instance.PlayVoice(str);
-        Debug.Log(str + " queued!");
-
         string selectScript; //출력할 대사
 
-        //idx가 있다면 scriptMap을 직접 탐색
-        if (idx > 0) selectScript = ScriptDataLoader.Instance.FindData(script, idx);
-
-        //아니면 대사를 scriptIdx 순서대로 출력 (google sheet 참고)
-        else selectScript = ScriptDataLoader.Instance.GetNext(script);
+        selectScript = ScriptDataLoader.Instance.FindData(script, idx);
 
         //커스텀 대사
         if (script == "") selectScript = script;

@@ -7,7 +7,6 @@ using FMODUnity;
 using FMOD.Studio;
 using System.Linq;
 using UnityEngine.Playables;
-
 public class SoundManager : Singleton<SoundManager>
 {
     protected override void Awake()
@@ -43,6 +42,13 @@ public class SoundManager : Singleton<SoundManager>
         // 다음 tick에 실행
         TickManager.Instance.OnTickEvent += OnTickHandler;
     }
+
+    public void PlayVoice(string path, int idx)
+    {
+        VoiceManager.Instance.PlayVoice(path, idx);
+        UnityEngine.Debug.Log("VoiceManager를 이용해줘요!");
+        //보살 없이 보이스만 출력하는 기능 VoiceManager로 이관
+    }
     public void PlaySFX(string path)
     {
         var instance = RuntimeManager.CreateInstance("event:/SFX/" + path);
@@ -50,11 +56,6 @@ public class SoundManager : Singleton<SoundManager>
         instance.start();
         instance.release();
         Debug.Log(path + " Playing!");
-    }
-    public void PlayVoice(string path)
-    {
-        voiceQueue.Enqueue(path);
-        StartCoroutine(QueueVoice());
     }
 
     private Dictionary<string, EventInstance> loopedSFX = new Dictionary<string, EventInstance>();
@@ -77,31 +78,6 @@ public class SoundManager : Singleton<SoundManager>
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         instance.release();
         loopedSFX.Remove(path);
-    }
-
-    private Queue<string> voiceQueue = new Queue<string>();
-    private bool isVoicePlaying = false;
-    private IEnumerator QueueVoice()
-    {
-        isVoicePlaying = true;
-
-        while (voiceQueue.Count > 0)
-        {
-            string nextPath = "event:/Voice/" + voiceQueue.Dequeue();
-            EventInstance instance = RuntimeManager.CreateInstance(nextPath);
-            instance.start();
-            Debug.Log($"playing Voice {nextPath}");
-
-            PLAYBACK_STATE state;
-            do
-            {
-                instance.getPlaybackState(out state);
-                yield return null;
-            }
-            while (state != PLAYBACK_STATE.STOPPED);
-
-            instance.release();
-        }
     }
 
     private EventInstance BGM;
@@ -128,7 +104,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         //새 BGM 재생
-        TickPlay(name,state);
+        TickPlay(name, state);
         current = name;
     }
 

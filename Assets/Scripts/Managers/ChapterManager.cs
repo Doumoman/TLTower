@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 // using static UnityEditor.Progress; // 오류가 나서 주석처리 0731 06:07 이동건
 
@@ -204,7 +206,6 @@ public class ChapterManager : MonoBehaviour
         StoneFixer.Instance.NotifyStoneLost(null);
         onChapterChage?.Invoke(this, System.EventArgs.Empty);
     }
-
     void SetObstacle()
     {
         //현재 챕터의 요소 설정
@@ -230,9 +231,10 @@ public class ChapterManager : MonoBehaviour
         */
         if (chapter == chapter.spring)
         {
-            GuideManager.Instance.PlayGuide("control", 2f);
+            GuideManager.Instance.PlayGuide("control", 0f);
             SoundManager.Instance.PlayBGM("Spring", 1);
-            BosalManager.Instance.Speak("Spring");
+            BosalManager.Instance.Speak("FindTree");
+            BosalManager.Instance.Speak("FindTree");
             //BosalManager.Instance.NoIdle = false;
         }
         else if (chapter == chapter.spring2)
@@ -244,7 +246,6 @@ public class ChapterManager : MonoBehaviour
         {
             SoundManager.Instance.PlayBGM("Spring", 0);
             BosalManager.Instance.Speak("Spring");
-
         }
 
         /* SUMMER

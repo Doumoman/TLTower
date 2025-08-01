@@ -41,7 +41,7 @@ public class RainSystem : CountBasedObstacle
         }
 
         SoundManager.Instance.PlaySFX("rain_start");
-        SoundManager.Instance.PlayVoice("Rain");
+        BosalManager.Instance.Speak("Rain");
         GuideManager.Instance.PlayGuide("rain");
 
         StartCoroutine(BackGroundFadeIn());

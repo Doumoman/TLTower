@@ -5,7 +5,7 @@
 			<value>stone_rotate</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{f51bb3ab-8c45-479f-b08a-884ed0c37547}</destination>
@@ -82,7 +82,11 @@
 			<destination>{3006c9dc-91e7-488e-8085-a563b259a8e9}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{c4047384-d1ea-480e-9acd-4409113f95d5}" />
+	<object class="MultiSound" id="{c4047384-d1ea-480e-9acd-4409113f95d5}">
+		<relationship name="sounds">
+			<destination>{c5943212-cb63-49bf-ba4a-3219644cad9a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{e6f1b833-37c3-42da-bebc-e277b36a8343}">
 		<relationship name="effects">
 			<destination>{5b6882b4-dd04-4420-8f79-5d357030241b}</destination>
@@ -95,6 +99,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e1c02c74-72d3-4263-ac4b-9cae22bb37c5}" />
+	<object class="SingleSound" id="{c5943212-cb63-49bf-ba4a-3219644cad9a}">
+		<relationship name="audioFile">
+			<destination>{0f38e3c2-8f4f-4b04-a57d-8e37332a883e}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{5b6882b4-dd04-4420-8f79-5d357030241b}" />
 	<object class="MixerBusFader" id="{fa98bf83-61d1-4ef9-9cb8-35d9e1fd29d6}" />
 </objects>

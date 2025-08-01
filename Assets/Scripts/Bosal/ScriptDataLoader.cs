@@ -45,27 +45,21 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
     }
 
     public Dictionary<string, int> currentIndex = new Dictionary<string, int>(); // situation별 마지막 호출한 대사
-    public string GetNext(string situation)
+    public int GetNext(string situation)
     {
-        if (!currentIndex.ContainsKey(situation)) currentIndex[situation] = 0;
-
-        int idx = currentIndex[situation];
-
-        if (scriptMap.TryGetValue((situation, idx), out string script))
+        if (!currentIndex.TryGetValue(situation, out int idx))
         {
-            currentIndex[situation] = idx + 1;
-            return script;
+            idx = 0;
+            currentIndex[situation] = idx;
         }
-        else
+        if (!scriptMap.ContainsKey((situation, idx)))
         {
-            if (!scriptMap.ContainsKey((situation, 0)))
-            {
-                Debug.Log($"{situation} 대사 없음!");
-                return "";
-            }
-            currentIndex[situation] = 1;
-            return scriptMap[(situation, 0)];
+            Debug.Log($"{situation} 대사 없음!!");
+            return -1;
         }
+
+        currentIndex[situation] = currentIndex[situation] + 1;
+        return idx;
     }
     public void ResetScriptMap() //게임 시작할 때 사용!
     {
@@ -74,5 +68,55 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
             var keys = currentIndex.Keys.ToList();
             foreach (var key in keys) currentIndex[key] = 0;
         }
+    }
+
+    private const string PrefsKeyPrefix = "currentIndex_";
+    private const string PrefsKeyList = "currentIndex_keys";
+
+    public void SavePrefs()
+    {
+        // 1) 각 상황별 인덱스 저장
+        foreach (var kvp in currentIndex)
+        {
+            PlayerPrefs.SetInt(PrefsKeyPrefix + kvp.Key, kvp.Value);
+        }
+
+        // 2) 딕셔너리에 들어있는 모든 키 리스트 저장 (구분자는 '|' 사용)
+        var keyList = string.Join("|", currentIndex.Keys);
+        PlayerPrefs.SetString(PrefsKeyList, keyList);
+
+        // 3) 디스크에 즉시 기록
+        PlayerPrefs.Save();
+    }
+
+    public void LoadPrefs()
+    {
+        currentIndex.Clear();
+
+        // 저장된 키 목록 문자열을 꺼낸다
+        string keyList = PlayerPrefs.GetString(PrefsKeyList, "");
+        if (string.IsNullOrEmpty(keyList))
+            return; // 복원할 게 없으면 종료
+
+        // '|' 로 분리해서 각 키별로 값을 읽어와 딕셔너리에 세팅
+        foreach (var key in keyList.Split('|'))
+        {
+            int value = PlayerPrefs.GetInt(PrefsKeyPrefix + key, 0);
+            currentIndex[key] = value;
+        }
+    }
+
+    public void ClearPrefs()
+    {
+        string keyList = PlayerPrefs.GetString(PrefsKeyList, "");
+        if (!string.IsNullOrEmpty(keyList))
+        {
+            foreach (var key in keyList.Split('|'))
+            {
+                PlayerPrefs.DeleteKey(PrefsKeyPrefix + key);
+            }
+            PlayerPrefs.DeleteKey(PrefsKeyList);
+        }
+        PlayerPrefs.Save();
     }
 }

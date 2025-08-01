@@ -218,7 +218,7 @@ public class SpaceStoneController : MonoBehaviour,
         NewAnimationManager.Instance?.NotifyStoneSnapped();
 
         SoundManager.Instance.PlaySFX("stone_snap");
-        SoundManager.Instance.PlayVoice("SpaceChapterBuilding");
+        BosalManager.Instance.Speak("SpaceChapterBuilding");
     }
     void SnapToTarget(SpaceStoneTarget t)
     {
