@@ -16,7 +16,7 @@ public class JointMakerPhysics : MonoBehaviour
     }
     public void MakeJoint(GameObject go)
     {
-        if (!go.CompareTag("Cloud")) return;  //Cloud인 것만 인식
+        if (!go.CompareTag("CloudChild")) return;  //CloudChild인 것만 인식
         if (CloudSystem.Instance.GetNodeLength() > CloudSystem.Instance.cloudLimit) return; //구름 개수 제한
 
         JointMaker jm = GetJointMaker();
