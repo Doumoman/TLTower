@@ -33,6 +33,7 @@ public class SoundManager : Singleton<SoundManager>
         void OnTickHandler(object sender, EventArgs e)
         {
             // 재생
+            TickManager.Instance.tickCount = 0;
             Play(path, state);
 
             // 이벤트 핸들러 제거 (한 번만 실행되도록)
@@ -101,8 +102,6 @@ public class SoundManager : Singleton<SoundManager>
 
             instance.release();
         }
-
-        isVoicePlaying = false;
     }
 
     private EventInstance BGM;
