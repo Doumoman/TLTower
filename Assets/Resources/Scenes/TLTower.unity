@@ -14842,7 +14842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &55845245
 Transform:
   m_ObjectHideFlags: 0
@@ -77922,6 +77922,108 @@ MonoBehaviour:
   unfreezeTime: 2.5
   timerResetTime: 1
   color: {r: 0.2784314, g: 0.5019608, b: 0.5176471, a: 1}
+--- !u!1 &1049340859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049340861}
+  - component: {fileID: 1049340860}
+  m_Layer: 0
+  m_Name: NewAnimationMananger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1049340860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049340859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246558a6f879c244a804b9d2335c77bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 393371273}
+  leftCloud: {fileID: 1557866739}
+  rightCloud: {fileID: 788028636}
+  xDistance: 1300
+  yDistance: 1000
+  xTime: 2.5
+  yTime: 2
+  presets:
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 0
+    position: {x: 7, y: 8}
+    rotationZ: 0
+    spawnDelay: 0
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 1
+    position: {x: 8, y: 3}
+    rotationZ: 0
+    spawnDelay: 0
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 2
+    position: {x: -8, y: 7}
+    rotationZ: 0
+    spawnDelay: 0
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 3
+    position: {x: -7, y: 4}
+    rotationZ: 0
+    spawnDelay: 0
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 4
+    position: {x: -9, y: 2}
+    rotationZ: 0
+    spawnDelay: 0
+  defaultSpawnDelay: 7
+  fadeInDuration: 4
+  glowObjects:
+  - {fileID: 987101705}
+  - {fileID: 240604452}
+  - {fileID: 1561074820}
+  - {fileID: 1186295569}
+  - {fileID: 967942393}
+  glowSortingOrder: 100
+  glowFadeIn: 0.35
+  glowBlinkPeriod: 0.8
+  glowMinAlpha: 0.5
+  glowMaxAlpha: 1
+  glowFlashHold: 0.12
+  glowFadeOut: 0.3
+  Block: {fileID: 1961988237}
+  Yumju: {fileID: 1408709549}
+  stonesParent: {fileID: 0}
+  seqManager: {fileID: 579511420}
+  spaceAnimRoot: {fileID: 549027357}
+  animStateName: Play
+  startSpeed: 0.5
+  slowDuration: 3
+  midSpeed: 0
+  endSpeed: 10
+--- !u!4 &1049340861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049340859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 523.3774, y: 220.87405, z: -4.753491}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050403802
 GameObject:
   m_ObjectHideFlags: 0
@@ -197442,6 +197544,7 @@ SceneRoots:
   - {fileID: 7441153810912732321}
   - {fileID: 1025869543}
   - {fileID: 55845245}
+  - {fileID: 1049340861}
   - {fileID: 579511421}
   - {fileID: 3492224317696798429}
   - {fileID: 1480919436}

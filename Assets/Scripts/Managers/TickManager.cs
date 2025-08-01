@@ -6,8 +6,9 @@ using UnityEngine;
 public class TickManager : Singleton<TickManager>
 {
     public float Tick = 4f; // 이벤트 발생시킬 시간 설정
-    public event EventHandler OnTickEvent;
+    public event EventHandler OnTickEvent, OnSpaceTickEvent;
     public int tickCount = 0;
+    public int spaceTickCount = 0;
 
     protected override void Awake()
     {
@@ -54,3 +55,4 @@ public class TickManager : Singleton<TickManager>
         );
     }
 }
+

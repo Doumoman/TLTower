@@ -514,7 +514,7 @@
 			<destination>{34e6f57d-98dc-4b40-ba69-d5d0a32427e7}</destination>
 		</relationship>
 		<relationship name="modulators">
-			<destination>{242d064e-cd78-4b9f-8f0a-ad22adfddee3}</destination>
+			<destination>{bb1c9ae3-37f3-4859-b904-0778370bb564}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{f49797a5-12c9-4571-a40c-4a660f203e8b}</destination>
@@ -542,7 +542,7 @@
 			<value>Audio 4</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{b1c3178e-dc25-4685-8745-90961fd3a680}</destination>
+			<destination>{ed9450e1-96ec-4e0e-8a7f-c9cff28b67c7}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{2363556a-644d-40e0-8415-e1b187faddd4}</destination>
@@ -940,7 +940,7 @@
 			<destination>{a7275247-aad7-4089-a4e4-b9f4a98826a7}</destination>
 		</relationship>
 	</object>
-	<object class="ADSRModulator" id="{242d064e-cd78-4b9f-8f0a-ad22adfddee3}">
+	<object class="ADSRModulator" id="{bb1c9ae3-37f3-4859-b904-0778370bb564}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
@@ -948,10 +948,7 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>4800</value>
-		</property>
-		<property name="releaseTime">
-			<value>380</value>
+			<value>98.7179871</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>
@@ -963,7 +960,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e0b2e250-df39-4a26-9e8a-d21350a36870}" />
-	<object class="ADSRModulator" id="{b1c3178e-dc25-4685-8745-90961fd3a680}">
+	<object class="ADSRModulator" id="{ed9450e1-96ec-4e0e-8a7f-c9cff28b67c7}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
@@ -971,10 +968,7 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>8400</value>
-		</property>
-		<property name="releaseTime">
-			<value>440</value>
+			<value>720</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>

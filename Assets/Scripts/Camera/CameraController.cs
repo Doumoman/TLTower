@@ -332,7 +332,8 @@ public class CameraController : MonoBehaviour
         // (CenterOnY 가 _centerRoutine 에 저장하므로 그걸 추적)
         while (_centerRoutine != null)
             yield return null;
-        AnimationManager.Instance.SpawnSpaceStones();
+        if(AnimationManager.Instance != null) AnimationManager.Instance.SpawnSpaceStones();
+        if(NewAnimationManager.Instance !=null) NewAnimationManager.Instance.SpawnSpaceStones();
         _raiseRoutine = null;
     }
     #endregion

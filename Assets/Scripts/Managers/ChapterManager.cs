@@ -327,7 +327,7 @@ public class ChapterManager : MonoBehaviour
             //Debug.Log("우주브금 실행");
             SoundManager.Instance.PlayBGM("Space", 0);
         }
-    
+
         else
         {
             Debug.LogWarning("Unhandled chapter: " + chapter);

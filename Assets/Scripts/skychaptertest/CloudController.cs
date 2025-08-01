@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.WSA;
 
 public enum CloudState { flow, Dragging, Dropped };
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,24 +17,30 @@ public class CloudController : MonoBehaviour,
     Collider2D col;
     Collider2D[] colChildren;
     SpriteRenderer sr;
-    public float flowSpeed = -1;
+    
     CloudState state = CloudState.flow;
-
-    [Header("Physics Settings")]
-    public float linearDrag = 2f; // 선형 드래그 (반발력 감소)
-    public float angularDrag = 2f; // 각도 드래그 (회전 반발력 감소)
+    
+    //상호작용 체킹용
+    JointMaker jm;
+    [HideInInspector] public bool crush = false;
 
     //구름 반발력 용도
     Collider2D separator;
-    public float checktime = 0.3f; 
     Coroutine co = null;
 
+    float timer = 0f; //상호작용 없으면 돌아가는 용도
+
     public static bool AnyCloudBeingDragged { get; private set; }
-    Vector3 dragOffset;
+    //Vector3 dragOffset;
     Vector2 holdStartPos;
     Vector2 lastPointerWorld;
     float holdTimer;
     bool isRotating;
+
+    [Header("Settings")]
+    public float waitTime = 1f;
+    public float flowSpeed = -1;
+    [Tooltip("구름 분리시 검사 실행 쿨타임")]public float checktime = 0.3f; 
 
     [Header("Drag & Rotate")]
     public float holdToRotate = 0.75f;
@@ -46,32 +54,37 @@ public class CloudController : MonoBehaviour,
         col = GetComponent<Collider2D>();
         rbChildren = GetComponentsInChildren<Rigidbody2D>().Where<Rigidbody2D>(c => c.gameObject != gameObject).ToArray();
         colChildren = GetComponentsInChildren<Collider2D>().Where<Collider2D>(c => c.gameObject != gameObject).ToArray();
+        separator = colChildren.FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
+        colChildren = colChildren.Where<Collider2D>(c => c != separator).ToArray();
         sr = GetComponent<SpriteRenderer>();
+        Flow();
+    }
 
+    void Flow()
+    {
+        rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
-        col.isTrigger = true;
-        rb.isKinematic = true;
+        rb.bodyType = RigidbodyType2D.Static;
         foreach (var rbChild in rbChildren)
         {
-            rbChild.isKinematic = true;
+            rbChild.velocity = Vector2.zero;
+            rbChild.bodyType = RigidbodyType2D.Static;
             rbChild.gravityScale = 0;
         }
-        separator = colChildren.FirstOrDefault(c => c.gameObject.layer == 10);
-        separator.gameObject.layer = 0;
-        colChildren = colChildren.Where<Collider2D>(c => c != separator).ToArray();
+        
         separator.isTrigger = true;
+        col.isTrigger = true;
         foreach (var col in colChildren)
         {
-            col.isTrigger = true;
-            //Physics2D.IgnoreCollision(col, separator);
+            col.enabled = false;
         }
 
         gameObject.tag = "FlowCloud";
         sr.sortingLayerName = "FlowCloud";
         sr.color = new Color(1, 1, 1, 0.7f);
+
+        state = CloudState.flow;
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -104,10 +117,25 @@ public class CloudController : MonoBehaviour,
 
             lastPointerWorld = curWorld;
         }
+        if (isRotating) transform.Rotate(new Vector3(0, 0, rotateSpeed) * Time.deltaTime);
         if (state == CloudState.flow)
         {
-            Vector2 moveVetor = new Vector2(flowSpeed, 0);
-            transform.Translate(moveVetor * Time.deltaTime);
+            Vector3 moveVetor = new Vector2(flowSpeed, 0);
+            transform.position += moveVetor * Time.deltaTime;
+        }
+        if (state == CloudState.Dropped)
+        {
+            //충돌, 분리, 접착(상호작용) 조건 확인
+            if (co == null && jm == null && !crush) timer += Time.deltaTime;
+            else
+            {
+                timer = 0f;
+                crush = false;
+            }
+            if (timer > waitTime)
+            {
+                Flow();
+            }
         }
         if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
     }
@@ -119,7 +147,7 @@ public class CloudController : MonoBehaviour,
         {
             jmp.CheckOverlap();
         }
-        if (!TryGetComponent<JointMaker>(out JointMaker jm))
+        if (!TryGetComponent<JointMaker>(out jm))
         {
             StartSeparate();
         }
@@ -202,17 +230,17 @@ public class CloudController : MonoBehaviour,
         activePointer = eventData.pointerId;
         SoundManager.Instance.PlaySFX("cloud_select");
 
-        if (this.TryGetComponent<JointMaker>(out JointMaker jm))
+        if (this.TryGetComponent<JointMaker>(out jm))
             jm.Detach();
         StartDragging();
-        dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
+        //dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (eventData.pointerId != activePointer) return;
         if (state != CloudState.Dragging) return;
-        if (rb.bodyType != RigidbodyType2D.Kinematic) rb.bodyType = RigidbodyType2D.Kinematic;
+        //if (rb.bodyType != RigidbodyType2D.Kinematic) rb.bodyType = RigidbodyType2D.Kinematic;
 
         Vector2 mouseWorld = ScreenToWorld(eventData.position);
 
@@ -224,13 +252,14 @@ public class CloudController : MonoBehaviour,
                 isRotating = false;
                 SoundManager.Instance.StopLoop("cloud_rotate");
                 rb.angularVelocity = 0;
-                dragOffset = transform.position - (Vector3)mouseWorld;
+                //dragOffset = transform.position - (Vector3)mouseWorld;
             }
             return;
         }
 
         // 일반 드래그 
-        rb.MovePosition((Vector3)mouseWorld + dragOffset);
+        //rb.MovePosition((Vector3)mouseWorld + dragOffset);
+        transform.position = mouseWorld;
 
         holdTimer += Time.deltaTime;
         if (holdTimer >= holdToRotate)
@@ -238,7 +267,7 @@ public class CloudController : MonoBehaviour,
             isRotating = true;
             holdTimer = 0;
             holdStartPos = mouseWorld;
-            rb.angularVelocity = rotateSpeed;
+            //rb.angularVelocity = rotateSpeed;
             SoundManager.Instance.PlayLoop("cloud_rotate");
         }
     }
@@ -257,18 +286,22 @@ public class CloudController : MonoBehaviour,
         gameObject.tag = "Cloud";
         SoundManager.Instance.PlaySFX("cloud_deselect");
 
-        rb.isKinematic = false;
+        rb.bodyType = RigidbodyType2D.Dynamic;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         foreach (Rigidbody2D rb in rbChildren)
         {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
-            rb.isKinematic = false;
+            rb.bodyType = RigidbodyType2D.Dynamic;
         }
         rb.Sleep();
 
-        foreach (Collider2D col in colChildren) col.isTrigger = false;
+        foreach (Collider2D col in colChildren)
+        {
+            col.enabled = true;
+            col.isTrigger = false;
+        }
         sr.color = Color.white;
         sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
@@ -290,12 +323,12 @@ public class CloudController : MonoBehaviour,
         rb.angularVelocity = 0f;
         foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
         separator.isTrigger = true;
-        foreach (Collider2D col in colChildren) col.isTrigger = true;
+        foreach (Collider2D col in colChildren) col.enabled = false;
 
-        rb.isKinematic = true;
-        foreach (Rigidbody2D rb in rbChildren) rb.isKinematic = true;
+        rb.bodyType = RigidbodyType2D.Static;
+        foreach (Rigidbody2D rb in rbChildren) rb.bodyType = RigidbodyType2D.Static;
 
-        dragOffset = transform.position - (Vector3)ScreenToWorld();
+        //dragOffset = transform.position - (Vector3)ScreenToWorld();
         holdTimer = 0;
         holdStartPos = ScreenToWorld();
         isRotating = false;

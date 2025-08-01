@@ -213,7 +213,12 @@ public class SpaceStoneController : MonoBehaviour,
         tag = "PlacedStone";
         Debug.Log($"Snap! stoneIdx={presetIndex}, targetIdx={t.expectedIndex}");
         AnimationManager.Instance?.FlashAndHide(presetIndex);
+        NewAnimationManager.Instance?.FlashAndHide(presetIndex);
         AnimationManager.Instance?.NotifyStoneSnapped();
+        NewAnimationManager.Instance?.NotifyStoneSnapped();
+
+        SoundManager.Instance.PlaySFX("stone_snap");
+        SoundManager.Instance.PlayVoice("SpaceChapterBuilding");
     }
     void SnapToTarget(SpaceStoneTarget t)
     {
@@ -228,7 +233,9 @@ public class SpaceStoneController : MonoBehaviour,
         tag = "PlacedStone";
         Debug.Log($"Snap! stoneIdx={presetIndex}, targetIdx={t.expectedIndex}");
         AnimationManager.Instance?.FlashAndHide(presetIndex);
+        NewAnimationManager.Instance?.FlashAndHide(presetIndex);
         AnimationManager.Instance?.NotifyStoneSnapped();
+        NewAnimationManager.Instance?.NotifyStoneSnapped();
 
         if (_click) _click.enabled = false;
     }

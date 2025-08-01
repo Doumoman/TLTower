@@ -6,6 +6,7 @@ public class JointMakerPhysics : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision) 
     {
+        if (transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.crush = true;
         MakeJoint(collision.gameObject);
     }
 
