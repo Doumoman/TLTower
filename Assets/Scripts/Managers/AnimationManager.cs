@@ -17,6 +17,8 @@ public class AnimationManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         if (!stonesParent)
             stonesParent = new GameObject("SpaceStones").transform;
+        for (int i = 0; i < prewarmFx; ++i)
+            fxPool.Enqueue(CreateFxInstance());
     }
 
     [Header("☁ Cloud Move Animation")]
@@ -146,10 +148,13 @@ public class AnimationManager : MonoBehaviour
     bool finalAnimQueued = false;     // 마지막 애니메이션 예약
     float lastSnapEnd;
 
-    const int ticksPerSpawn = 2;   // 2틱 = 8초
-    const int tickSeconds = 4;   // 1틱 = 4초
+    [Header("Snap FX 설정")]
+    [Tooltip("돌이 스냅될 때 뿌릴 파티클 프리팹")]
+    [SerializeField] ParticleSystem snapFxPrefab;
+    readonly Queue<ParticleSystem> fxPool = new();   // 재사용 풀
+    const int prewarmFx = 5;
+
     const int minTickGap = 1;   // 최소 2틱(8초) 간격
-    const int maxTickGap = 3;   // 최대 4틱(16초) 간격
     const float TickSec = 4f;   // 1틱 = 4초
     const float MinGapSec = 4f;   // 최소 4초
     const float MaxGapSec = 12f;  // 최대 12초
@@ -167,6 +172,7 @@ public class AnimationManager : MonoBehaviour
 
     readonly int[] spawnSequence = { 4, 3, 1, 2, 0 };   // 원하는 순서
     int spawnStep = 0;
+    int seq = 0;
     int snappedCount = 0;
     bool cleared = false;
     public event EventHandler changeSpaceBackGround;
@@ -200,7 +206,7 @@ public class AnimationManager : MonoBehaviour
         TickManager.Instance.OnTickEvent += HandleTick;
     }
     
-    int seq = 0;
+    
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
         SoundManager.Instance.PlayBGM("Space", seq++);
@@ -419,13 +425,64 @@ public class AnimationManager : MonoBehaviour
         sr.gameObject.SetActive(false);
         glowCo[idx] = null;
     }
+    ParticleSystem CreateFxInstance()
+    {
+        var fx = Instantiate(snapFxPrefab, transform);  // DontDestroyOnLoad 유지
+        fx.gameObject.SetActive(false);
+        return fx;
+    }
+    public void PlaySnapFx(Vector3 worldPos)
+    {
+        if (!snapFxPrefab) return;
+
+        // 풀에서 꺼내 오거나 새로 만든다
+        var fx = fxPool.Count > 0 ? fxPool.Dequeue() : CreateFxInstance();
+
+        fx.transform.position = worldPos;
+        fx.gameObject.SetActive(true);
+        fx.Clear();
+        fx.Play();
+
+        StartCoroutine(CoRecycleFx(fx));
+    }
+
+    IEnumerator CoRecycleFx(ParticleSystem fx)
+    {
+        // 수명 = duration + startLifetimeMax
+        var main = fx.main;
+        float delay = main.duration + main.startLifetime.constantMax;
+        yield return new WaitForSeconds(delay);
+
+        fx.gameObject.SetActive(false);
+        fxPool.Enqueue(fx);         // 다시 풀에 반납
+    }
     /* ───────── 틱 이벤트 핸들러 ───────── */
     void HandleTick(object _, EventArgs __)
     {
         int curTickIdx = TickManager.Instance.tickCount;
         float now = Time.time;
 
+        if (allStonesDone)
+        {
+            // ── 최소 대기 8초 보장 ──
+            if (Time.time - lastSnapEnd < 8f)   // MinGapSec == 4f
+                return;
+
+            // ── 2·6·10·14… 틱(짝수이면서 4의 배수는 아닌) 에 맞추기 ──
+            if (curTickIdx % 4 != 2)
+                return;
+
+            // 둘 다 만족하면 실행
+            TickManager.Instance.OnTickEvent -= HandleTick;
+            OnAllStonesSnapped();
+            return;
+        }
+
         if (curTickIdx != nextSpawnTick) return;
+
+        if (waitingSnap) return;
+
+        if (spawnStep >= spawnSequence.Length) return;
 
         /* 2) 혹시라도 8초 미만이면 스폰 지연 */
         if (now - lastSnapEnd < MinGapSec)
@@ -434,16 +491,6 @@ public class AnimationManager : MonoBehaviour
             return;
         }
 
-        /* 3) 모든 돌 완료 ⇒ 우주 애니메이션 */
-        if (allStonesDone)
-        {
-            TickManager.Instance.OnTickEvent -= HandleTick;
-            OnAllStonesSnapped();
-            return;
-        }
-
-        /* 4) 더 스폰할 돌 없으면 안전 종료 */
-        if (spawnStep >= spawnSequence.Length) return;
 
         /* 5) 새 돌 스폰 */
         int idx = spawnSequence[spawnStep++];
