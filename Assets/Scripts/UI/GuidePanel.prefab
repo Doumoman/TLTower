@@ -639,6 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3324956947649092917}
   - component: {fileID: 9044215017873662735}
+  - component: {fileID: 3181208086868475809}
   m_Layer: 0
   m_Name: GuidePanel
   m_TagString: Untagged
@@ -680,6 +681,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d63b3c78b8b6f7498e3f3798fc2de3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &3181208086868475809
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186370513824239940}
+  m_CullTransparentMesh: 1
 --- !u!1 &4374596975504977542
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
@@ -8,11 +9,19 @@ public class VoiceManager : Singleton<VoiceManager>
     {
         base.Awake();
     }
+
+    private void Start()
+    {
+        StartCoroutine(CheckIdleAndSpeak());
+    }
     /*------------------------ 보살매니저에서 긴빠이쳐온 말하기 기능 ---------------------------
     텍스트 -> 대사 대신 대사 -> 텍스트로 종속관계 변경
     */
     private bool dontSpeakTwice = false;
     private bool isSpeaking = false;
+    bool isStopped = false;
+    public bool forceStop = false; //Guide에서 대사 강제 일시정지
+    public bool pauseVoice = false; //Pause시 큐잉된 대사 재생 중단
     public void Speak(string script, int idx, bool del)
     {
         if (dontSpeakTwice)
@@ -23,8 +32,8 @@ public class VoiceManager : Singleton<VoiceManager>
         }
         if (del) dontSpeakTwice = true;
 
-        int useIdx = (idx < 0) 
-        ? ScriptDataLoader.Instance.GetNext(script) 
+        int useIdx = (idx < 0)
+        ? ScriptDataLoader.Instance.GetNext(script)
         : idx;
 
         PlayVoice(script, useIdx);
@@ -40,7 +49,8 @@ public class VoiceManager : Singleton<VoiceManager>
         Debug.Log($"{voiceData.Key}{voiceData.Value} Queued!");
         voiceQueue.Enqueue(voiceData);
     }
-    void Update() {
+    void Update()
+    {
         if (instance.handle != null)
         {
             instance.getPlaybackState(out state);
@@ -51,7 +61,16 @@ public class VoiceManager : Singleton<VoiceManager>
                 isSpeaking = false;
             }
         }
-        if (!isSpeaking && voiceQueue.Count>0)
+        if (forceStop)
+        {
+            if (!isStopped)
+            {
+                instance.setPaused(true);
+                isStopped = true;
+            }
+            return;
+        }
+        if (!isSpeaking && voiceQueue.Count > 0 && !pauseVoice)
         {
             isSpeaking = true;
             var pair = voiceQueue.Dequeue();
@@ -60,6 +79,29 @@ public class VoiceManager : Singleton<VoiceManager>
             instance.start();
             BosalManager.Instance.SpitText(pair.Key, pair.Value); //코루틴을 이용한 텍스트 출력
             Debug.Log($"Playing Voice {path}");
+        }
+    }
+    /*------------------------ 무대사 감지 ---------------------------*/
+    [SerializeField] private float IdleChecker = 30f;
+    private IEnumerator CheckIdleAndSpeak()
+    {
+        float t = 0f;
+
+        while (true)
+        {
+            if (!isSpeaking)
+            {
+                t += Time.deltaTime;
+                if (t >= IdleChecker)
+                {
+                    string script = ChapterManager.Instance.idleScript;
+                    if (script != null || script != "")
+                        BosalManager.Instance.Speak(script);
+                    t = 0f;
+                }
+            }
+            else t = 0f;
+            yield return null;
         }
     }
 }

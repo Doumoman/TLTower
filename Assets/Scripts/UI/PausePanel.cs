@@ -39,7 +39,6 @@ public class PausePanel : MonoBehaviour
 
     void ApplyAspect(float targetAspect, Vector2 refRes)
     {
-        // 이 함수는 시각적 레터/필러박스만 담당 (사운드/입력/타임스케일은 건드리지 않음)
         cam.orthographicSize = fixedOrthoSize;
         float windowAspect = (float)Screen.width / Screen.height;
 

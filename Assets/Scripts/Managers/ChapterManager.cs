@@ -206,6 +206,8 @@ public class ChapterManager : MonoBehaviour
         StoneFixer.Instance.NotifyStoneLost(null);
         onChapterChage?.Invoke(this, System.EventArgs.Empty);
     }
+
+    public string idleScript = "";
     void SetObstacle()
     {
         //현재 챕터의 요소 설정
@@ -231,20 +233,20 @@ public class ChapterManager : MonoBehaviour
         */
         if (chapter == chapter.spring)
         {
-            GuideManager.Instance.PlayGuide("control", 0f);
+            GuideManager.Instance.PlayGuide("control", 1f);
             SoundManager.Instance.PlayBGM("Spring", 1);
             BosalManager.Instance.Speak("FindTree");
             BosalManager.Instance.Speak("FindTree");
-            //BosalManager.Instance.NoIdle = false;
+            idleScript = "Spring";
         }
         else if (chapter == chapter.spring2)
         {
-            SoundManager.Instance.PlayBGM("Spring", 2);
+            SoundManager.Instance.PlayBGM("Spring", 1);
             BosalManager.Instance.Speak("Spring");
         }
         else if (chapter == chapter.spring3)
         {
-            SoundManager.Instance.PlayBGM("Spring", 0);
+            SoundManager.Instance.PlayBGM("Spring", 2);
             BosalManager.Instance.Speak("Spring");
         }
 
@@ -261,6 +263,7 @@ public class ChapterManager : MonoBehaviour
         {
             BosalManager.Instance.Speak("Summer");
             SoundManager.Instance.PlayBGM("Summer", 1);
+            idleScript = "Summer";
         }
         else if (chapter == chapter.summer2)
         {
@@ -268,11 +271,11 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.summer3)
         {
-            SoundManager.Instance.PlayBGM("Summer", 3);
+            BosalManager.Instance.Speak("Summer");
         }
         else if (chapter == chapter.summer4)
         {
-            SoundManager.Instance.PlayBGM("Summer", 4);
+            BosalManager.Instance.Speak("Summer");
         }
 
         /* AUTUMN
@@ -288,6 +291,7 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("Autumn");
             GuideManager.Instance.PlayGuide("autumn", 6f);
             SoundManager.Instance.PlayBGM("Autumn", 0);
+            idleScript = "Autumn";
         }
         else if (chapter == chapter.autumn2)
         {
@@ -295,7 +299,35 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.autumn3)
         {
+            SoundManager.Instance.PlayBGM("Autumn", 2);
+            BosalManager.Instance.Speak("Autumn");
+        }
+        else if (chapter == chapter.autumn4)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 1);
+        }
+        else if (chapter == chapter.autumn5)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 2);
+            BosalManager.Instance.Speak("Autumn");
+        }
+        else if (chapter == chapter.autumn6)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 1);
+        }
+        else if (chapter == chapter.autumn7)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 2);
+            BosalManager.Instance.Speak("Autumn");
+        }
+        else if (chapter == chapter.autumn8)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 1);
+        }
+        else if (chapter == chapter.autumn9)
+        {
             SoundManager.Instance.PlayBGM("Autumn", 0);
+            BosalManager.Instance.Speak("Autumn");
         }
         /* WINTER 
         1 : 시작 (비트 1회 재생 후 멜로디 A 루프)
@@ -307,15 +339,16 @@ public class ChapterManager : MonoBehaviour
         */
         else if (chapter == chapter.winter)
         {
-            SoundManager.Instance.PlayBGM("Winter", 3);
+            SoundManager.Instance.PlayBGM("Winter", 1);
+            idleScript = "Winter";
         }
         else if (chapter == chapter.winter2)
         {
-            SoundManager.Instance.PlayBGM("Winter", 1);
+            SoundManager.Instance.PlayBGM("Winter", 2);
         }
         else if (chapter == chapter.winter3)
         {
-            SoundManager.Instance.PlayBGM("Winter", 2);
+            SoundManager.Instance.PlayBGM("Winter", 3);
         }
 
         /* SPACE
@@ -326,6 +359,7 @@ public class ChapterManager : MonoBehaviour
         else if (chapter == chapter.space)
         {
             //Debug.Log("우주브금 실행");
+            idleScript = null;
             SoundManager.Instance.PlayBGM("Space", 0);
         }
 

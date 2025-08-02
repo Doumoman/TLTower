@@ -791,7 +791,7 @@
 			<value>820</value>
 		</property>
 		<property name="releaseTime">
-			<value>3200</value>
+			<value>5000</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>
@@ -1086,7 +1086,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0.299999237</value>
+			<value>-80</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{7b3c3a4c-768b-4569-8a9c-9578af8bf9cf}">

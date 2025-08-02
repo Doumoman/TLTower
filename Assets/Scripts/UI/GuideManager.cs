@@ -64,6 +64,7 @@ public class GuideManager : MonoBehaviour
             current = GuideUIState.None;
         }
         ClearSelection();
+        CheckVoiceStop();
     }
     void Update()
     {
@@ -79,7 +80,7 @@ public class GuideManager : MonoBehaviour
             Time.timeScale = (current == GuideUIState.None) ? 1f : 0f;
             if (current == GuideUIState.None) SoundManager.Instance.Resume();
             else SoundManager.Instance.PauseBGM();
-            if(prev == GuideUIState.None)
+            if (prev == GuideUIState.None)
             {
                 if (PauseBGMPlaying) return;
                 PauseBGMPlaying = true;
@@ -103,8 +104,9 @@ public class GuideManager : MonoBehaviour
             case GuideUIState.None:
                 ShowPause();
                 current = GuideUIState.PauseOnly;
+                VoiceManager.Instance.pauseVoice = true; //일시정지 시 대사 정지
                 break;
-            case GuideUIState.GuidePrimary:
+            case GuideUIState.GuidePrimary: //가이드 출력 시에는 이미 forceStop돼 있음
                 HideGuide();
                 ShowPause();
                 current = GuideUIState.GuideThenPause;
@@ -133,6 +135,9 @@ public class GuideManager : MonoBehaviour
                 current = GuideUIState.PauseOnly;
                 break;
         }
+        if (!guidePanelRoot.activeSelf && !pausePanel.pausepanel.activeSelf)
+            VoiceManager.Instance.forceStop = false;
+        else VoiceManager.Instance.forceStop = true;
         SoundManager.Instance.PlaySFX("pause");
         ClearSelection();
     }
@@ -149,6 +154,7 @@ public class GuideManager : MonoBehaviour
             pauseButton.SetActive(false); // Pause 버튼 숨김
             current = GuideUIState.PauseOnly;
             SoundManager.Instance.PlaySFX("pause");
+            VoiceManager.Instance.pauseVoice = true;
         }
         else if (current == GuideUIState.PauseOnly) // Pause 상태에서 주변 화면 눌렀을 때
         {
@@ -156,6 +162,7 @@ public class GuideManager : MonoBehaviour
             pauseButton.SetActive(true); // Pause 버튼 다시 보임
             current = GuideUIState.None;
             SoundManager.Instance.PlaySFX("pause");
+            //CheckVoiceStop에서 Voice 검사
         }
         else if (current == GuideUIState.GuidePrimary) // PlayGuide 호출 후 Pause 버튼 눌렀을 때
         {
@@ -163,6 +170,7 @@ public class GuideManager : MonoBehaviour
             HideGuide();
             ShowPause();
             current = GuideUIState.GuideThenPause;
+            //이미 ForceStop 상태임
         }
         else if (current == GuideUIState.GuideThenPause) // PlayGuide 호출 후 Pause 상태에서 주변 화면 눌렀을 때
         {
@@ -185,11 +193,13 @@ public class GuideManager : MonoBehaviour
             ShowPause();
             current = GuideUIState.PauseOnly;
         }
+        CheckVoiceStop();
     }
 
     /* ───────── 자동 가이드 ───────── */
     public void PlayGuide(string key, float delay = 0f)
     {
+        VoiceManager.Instance.forceStop = true; //큐잉되자마자 대사 멈춤
         if (played.Contains(key)) return;
         if (delay <= 0f) StartPlay(key);
         else StartCoroutine(DelayPlay(key, delay));
@@ -229,5 +239,16 @@ public class GuideManager : MonoBehaviour
     {
         var es = EventSystem.current;
         if (es != null) es.SetSelectedGameObject(null);
+    }
+
+    /* ───────── 대사 일시정지 / 멈춤 ───────── */
+
+    private void CheckVoiceStop()
+    {
+        if (current == GuideUIState.None)
+        {
+            VoiceManager.Instance.forceStop = false;
+            VoiceManager.Instance.pauseVoice = false;
+        }
     }
 }

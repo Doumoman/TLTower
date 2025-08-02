@@ -8,6 +8,7 @@ public class SceneLoader: MonoBehaviour
     public void LoadMain()
     {
         SceneManager.LoadScene("main");
+        SoundManager.Instance.PlaySFX("reset_button");
         Time.timeScale = 1.0f;
     }
     public void LoadGame()
