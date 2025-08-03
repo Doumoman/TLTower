@@ -213,12 +213,11 @@ public class SpaceStoneController : MonoBehaviour,
         tag = "PlacedStone";
         Debug.Log($"Snap! stoneIdx={presetIndex}, targetIdx={t.expectedIndex}");
         AnimationManager.Instance?.FlashAndHide(presetIndex);
-        NewAnimationManager.Instance?.FlashAndHide(presetIndex);
+        AnimationManager.Instance?.PlaySnapFx(transform.position);
         AnimationManager.Instance?.NotifyStoneSnapped();
-        NewAnimationManager.Instance?.NotifyStoneSnapped();
 
-        SoundManager.Instance.PlaySFX("stone_snap");
-        BosalManager.Instance.Speak("SpaceChapterBuilding");
+        //SoundManager.Instance.PlaySFX("stone_snap");
+        //BosalManager.Instance.Speak("SpaceChapterBuilding");
     }
     
     #endregion
