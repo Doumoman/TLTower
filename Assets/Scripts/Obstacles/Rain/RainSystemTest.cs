@@ -68,6 +68,13 @@ public class RainSystemTest : CountBasedObstacle
         SoundManager.Instance.PlaySFX("rain_start");
         BosalManager.Instance.Speak("Rain");
 
+        if (ChapterManager.Instance.chapter == chapter.summer)
+            SoundManager.Instance.PlayBGM("Summer", 3);
+        else if (ChapterManager.Instance.chapter == chapter.summer2 ||
+                 ChapterManager.Instance.chapter == chapter.summer3 ||
+                 ChapterManager.Instance.chapter == chapter.summer4)
+            SoundManager.Instance.PlayBGM("Summer", 4);
+
         StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
@@ -102,6 +109,12 @@ public class RainSystemTest : CountBasedObstacle
                 col.sharedMaterial = normal;
             }
         }
+        if (ChapterManager.Instance.chapter == chapter.summer)
+            SoundManager.Instance.PlayBGM("Summer", 1);
+        else if (ChapterManager.Instance.chapter == chapter.summer2 ||
+                 ChapterManager.Instance.chapter == chapter.summer3 ||
+                 ChapterManager.Instance.chapter == chapter.summer4)
+            SoundManager.Instance.PlayBGM("Summer", 2);
 
         StartCoroutine(BackGroundFadeOut());
         ps.Stop();

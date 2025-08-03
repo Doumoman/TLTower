@@ -21,7 +21,7 @@ public class StoneDespawnZone : MonoBehaviour
         if (stone.state == StoneState.Dropping && stone.stoneTypeIndex != 99) // 번뇌돌이 아닌 경우
         {
             stone.DespawnerCheck = true;
-            penaltyManager.PenaltyCount();
+            if(penaltyManager.gameObject.activeSelf) penaltyManager.PenaltyCount();
         }
 
         //stone이 penaltystone이라면 PenaltyManager에서 PenaltyTrash 호출

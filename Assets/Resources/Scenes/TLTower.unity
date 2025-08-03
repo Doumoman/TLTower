@@ -100176,10 +100176,12 @@ MonoBehaviour:
   BnStone: 0
   StoneSpawner: {fileID: 1047487982}
   Rain: {fileID: 1224223811}
+  Wind: {fileID: 786292891}
+  rainAble: 0
   BosalWarning: 3
   TreeCount: 5
   PenaltyStone: 7
-  RainTicks: 7
+  RainTicks: 1
 --- !u!4 &1276775305
 Transform:
   m_ObjectHideFlags: 0

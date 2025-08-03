@@ -9,6 +9,8 @@ public class PenaltyManager : MonoBehaviour
     public bool BnStone; // 정화되지 않은 번뇌돌 카운트
     public StoneSpawner StoneSpawner;
     public RainSystemTest Rain;
+    public WindSystem Wind;
+    public bool rainAble = false; //여름에만 활성화
     public static PenaltyManager Instance { get; private set; }
     void Awake()
     {
@@ -32,8 +34,19 @@ public class PenaltyManager : MonoBehaviour
     IEnumerator WaitTicksUntilRain(int ticks)
     {
         yield return TickManager.Instance.TickWait(ticks);
-        Rain.MakeRain(true); // 비 활성화
-
+        if (rainAble)
+        {
+            if (Rain.gameObject.activeSelf)
+            {
+                Wind.MakeObstacle(false);
+                BosalManager.Instance.Speak("AfflictionWind", 0, true);
+            }
+            else
+            {
+                Rain.MakeRain(false);
+                BosalManager.Instance.Speak("AfflictionRain", 0, true);
+            }
+        } // 비 활성화
     }
     public void PenaltyCount()
     {
@@ -50,7 +63,6 @@ public class PenaltyManager : MonoBehaviour
 
         if (counter >= PenaltyStone)
         {
-            BosalManager.Instance.Speak("버린 마음은 다시 돌아오는 법이라.");
             Penalty();
             counter = 0; // 리셋
         }
@@ -62,7 +74,7 @@ public class PenaltyManager : MonoBehaviour
         BnStone = true;
         BosalManager.Instance.Speak("KarmaStone");
         GuideManager.Instance.PlayGuide("penalty");
-        StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
+        if (rainAble) StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때
     {
@@ -74,8 +86,10 @@ public class PenaltyManager : MonoBehaviour
     {
         Debug.Log($"PenaltyStoneSettled called.");
         StoneSpawner.Penalty = false; // 번뇌돌이 정착되면 다음 돌은 일반 돌
+        rainAble = false; //이미 큐잉된 비가 있다면 정지
         counter = 0;
         Rain.StopRain(); // 비 비활성화
+        Wind.StopWind();
         BosalManager.Instance.Speak("Purify");
         SoundManager.Instance.PlaySFX("affliction_purified");
         //TreeColorReset();
