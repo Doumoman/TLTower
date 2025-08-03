@@ -13,7 +13,7 @@ public class PresetStoneSpawnerMain : MonoBehaviour
     {
         public StoneData stoneData;   // 사용할 SO
         public int spriteIndex; // sprites[] 인덱스
-        public Vector2 position;    // 월드 좌표
+        public Vector3 position;    // 월드 좌표 // z좌표 추가해서 돌 잘보이게 수정함
         public float rotationZ;   // Z축 회전
     }
 
