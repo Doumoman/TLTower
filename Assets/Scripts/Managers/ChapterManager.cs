@@ -276,11 +276,13 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.summer3)
         {
+            SoundManager.Instance.PlayBGM("Summer", 2);
             BosalManager.Instance.Speak("Summer");
             PenaltyManager.Instance.rainAble = true;
         }
         else if (chapter == chapter.summer4)
         {
+            SoundManager.Instance.PlayBGM("Summer", 2);
             BosalManager.Instance.Speak("Summer");
             PenaltyManager.Instance.rainAble = true;
         }
@@ -380,7 +382,6 @@ public class ChapterManager : MonoBehaviour
             //Debug.Log("우주브금 실행");
             idleScript = null;
             SoundManager.Instance.PlayBGM("Space", 0);
-            PenaltyManager.Instance.rainAble = false;
         }
 
         else

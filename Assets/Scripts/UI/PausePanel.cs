@@ -15,7 +15,7 @@ public class PausePanel : MonoBehaviour
     public void Openpausepanel()
     {
         Debug.Log($"Openpausepanel 호출됨 - pausepanel: {(pausepanel != null ? pausepanel.name : "null")}, activeSelf: {(pausepanel != null ? pausepanel.activeSelf.ToString() : "N/A")}");
-        
+
         if (pausepanel != null && !pausepanel.activeSelf)
         {
             pausepanel.SetActive(true);
