@@ -1,8 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class StoneFreezer : MonoBehaviour

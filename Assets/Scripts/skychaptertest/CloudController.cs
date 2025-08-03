@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Linq;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.WSA;
 
 public enum CloudState { flow, Dragging, Dropped };
 [RequireComponent(typeof(Rigidbody2D))]
