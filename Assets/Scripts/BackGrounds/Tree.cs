@@ -113,16 +113,16 @@ public class Tree : MonoBehaviour
     {   
         if (cm != null)
         {
-            cm.onChapterChage += ChageSprite;
             cm.onChapterChage += AutumnDisable;
+            cm.onChapterChage += ChageSprite;
         }
         else
         {
             Debug.LogError("tree 챕터변환 등록 실패 - ChapterManager가 null입니다.");
         }
 
+        AutumnDisable(this, EventArgs.Empty);
         ChageSprite(this, EventArgs.Empty);               // ← 추가
-        AutumnDisable(this, EventArgs.Empty); 
 
         StartCoroutine(RegisterWhenReady());
     }
@@ -131,8 +131,8 @@ public class Tree : MonoBehaviour
     {
         yield return new WaitUntil(() => ChapterManager.Instance != null);
         cm = ChapterManager.Instance;
-        cm.onChapterChage += ChageSprite;
         cm.onChapterChage += AutumnDisable;
+        cm.onChapterChage += ChageSprite;
         Debug.Log("tree 챕터변환 등록 완료");
     }
     void OnDestroy()
@@ -142,8 +142,8 @@ public class Tree : MonoBehaviour
         // 이벤트 해제
         if (cm != null)
         {
-            cm.onChapterChage -= ChageSprite;
             cm.onChapterChage -= AutumnDisable;
+            cm.onChapterChage -= ChageSprite;
         }
     }
 
@@ -227,6 +227,7 @@ public class Tree : MonoBehaviour
         Sprite[] sp1;
         List<SpriteRenderer> suhangmokSp = spriteRenderers.FindAll(x => x.sortingLayerName == "suhangmok");
         List<SpriteRenderer> flowerSp = spriteRenderers.FindAll(x => x.sortingLayerName == "flower");
+        if (flowerSp == null || flowerSp.Count == 0) Debug.Log("꽃잎을 찾을수 없네요");
 
         //챕터에 따라 스프라이트 선택
         sp1 = seasons[cm.chapter];
