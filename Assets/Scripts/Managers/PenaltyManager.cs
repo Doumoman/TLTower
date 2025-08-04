@@ -3,46 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+번뇌돌 : FirstWarning 없애고 6개면 Penalty
+번뇌돌 버리면 바로 Penalty
+
+Penalty : 일정 tick 이후에 RainManager.MakeObstacle()
+비 내림. 이미 비 내리고 있으면 바람이 붊. 다음 대사 무시.
+*/
 public class PenaltyManager : MonoBehaviour
 {
     private int counter; // 페널티 카운트
     public bool BnStone; // 정화되지 않은 번뇌돌 카운트
     public StoneSpawner StoneSpawner;
-    public RainSystemTest Rain;
+    public RainSystem Rain;
     public WindSystem Wind;
     public bool rainAble = false; //여름에만 활성화
+    public bool isRaining = false;
     public static PenaltyManager Instance { get; private set; }
     void Awake()
     {
         counter = 0;
 
-        //싱글톤 구현
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
 
     [Header("페널티 설정")]
     [SerializeField] private int BosalWarning = 3; // 보살이 알려줌
-    [SerializeField] private int TreeCount = 5; // 수행목 색 변화
-    [SerializeField] private int PenaltyStone = 7; // 번뇌돌 발생
+    [SerializeField] private int PenaltyStone = 6; // 번뇌돌 발생
 
-    [SerializeField] private int RainTicks = 1; // 해당 시간을 넘어가면 비 페널티 발생
+    [SerializeField] private float obstacleWaitTime = 0.5f; // 해당 시간을 넘어가면 비 페널티 발생
 
 
-    IEnumerator WaitTicksUntilRain(int ticks)
+    IEnumerator WaitTicksUntilRain(float obstacleWaitTime)
     {
-        yield return TickManager.Instance.TickWait(ticks);
+        yield return new WaitForSeconds(obstacleWaitTime);
         if (rainAble)
         {
-            if (Rain.gameObject.activeSelf)
+            if (isRaining)
             {
                 Wind.MakeObstacle(false);
-                BosalManager.Instance.Speak("AfflictionWind", 0, true);
             }
             else
             {
-                Rain.MakeRain(false);
-                BosalManager.Instance.Speak("AfflictionRain", 0, true);
+                Rain.MakeObstacle(false);
             }
         } // 비 활성화
     }
@@ -51,12 +55,7 @@ public class PenaltyManager : MonoBehaviour
         counter++;
         if (counter == BosalWarning)
         {
-            BosalManager.Instance.Speak("FirstWarning");
-        }
-        if (counter == TreeCount)
-        {
             BosalManager.Instance.Speak("SecondWarning");
-            //TreeColorChange();
         }
 
         if (counter >= PenaltyStone)
@@ -68,11 +67,16 @@ public class PenaltyManager : MonoBehaviour
     }
     public void Penalty()
     {
+        if (ChapterManager.Instance.chapter == chapter.summer
+        || ChapterManager.Instance.chapter == chapter.summer2
+        || ChapterManager.Instance.chapter == chapter.summer3
+        || ChapterManager.Instance.chapter == chapter.summer4)
+            rainAble = true; //여름에만 활성화
         StoneSpawner.Penalty = true; // 다음 돌은 번뇌돌
         BnStone = true;
         BosalManager.Instance.Speak("KarmaStone");
-        GuideManager.Instance.PlayGuide("penalty");
-        if (rainAble) StartCoroutine(WaitTicksUntilRain(RainTicks)); // RainTicks 만큼 대기
+        GuideManager.Instance.PlayGuide("penalty"); //번뇌돌 이후에 Tick이 돌아와야 Rain 생기므로 가이드 충돌 없음
+        if (rainAble) StartCoroutine(WaitTicksUntilRain(obstacleWaitTime));
     }
     public void PenaltyTrash()//번뇌돌을 버렸을 때
     {

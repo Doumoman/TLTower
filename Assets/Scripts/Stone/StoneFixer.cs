@@ -56,6 +56,8 @@ public class StoneFixer : MonoBehaviour
             // SavePoint 스크립트에 StoneFixer 참조를 자동으로 넘기려면 다음 라인 추가
             currentSavePoint.GetComponent<SavePoint>()?.Init(this);
 
+            CheckAndSound();//배경음악 Ambience로 전환
+
             Debug.Log($"[StoneFixer] Wave {wave} reached. SavePoint spawned at {spawnPos}");
         }
     }
@@ -142,7 +144,7 @@ public class StoneFixer : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-        Destroy(sp); 
+        Destroy(sp);
     }
     IEnumerator FuseAllStonesIntoOne() // Pile된 객체들의 콜라이더를 하나의 콜라이더로 만들기
     {
@@ -185,7 +187,7 @@ public class StoneFixer : MonoBehaviour
         {
             Destroy(child.GetComponent<Rigidbody2D>());
             Destroy(child.GetComponent<Collider2D>());
-                                                         
+
         }
         Destroy(comp);
     }
@@ -227,4 +229,24 @@ public class StoneFixer : MonoBehaviour
     public List<StoneController> GetBatch() { return batch; }
     public int GetWave() { return wave; }
     public void SetY(float yPos) { HighestFixedY = yPos; }
+
+    private void CheckAndSound()
+    {
+        var chap = ChapterManager.Instance.chapter;
+        switch (chap)
+        {
+            case chapter.spring3:
+                SoundManager.Instance.PlayBGM("Spring", 0);
+                break;
+            case chapter.summer4:
+                SoundManager.Instance.PlayBGM("Summer", 0);
+                break;
+            case chapter.autumn9:
+                SoundManager.Instance.PlayBGM("Autumn", 0);
+                break;
+            case chapter.winter3:
+                SoundManager.Instance.PlayBGM("Winter", 0);
+                break;
+        }
+    }
 }

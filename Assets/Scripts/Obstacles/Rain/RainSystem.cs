@@ -10,6 +10,7 @@ public class RainSystem : CountBasedObstacle
     private List<StoneData> stoneDatas = new List<StoneData>();
     Coroutine co;
     bool nonStop = false;
+    bool first = false;
 
     public float duration = 30;
 
@@ -41,12 +42,24 @@ public class RainSystem : CountBasedObstacle
         }
 
         SoundManager.Instance.PlaySFX("rain_start");
-        BosalManager.Instance.Speak("Rain");
+        if (first)
+        {
+            BosalManager.Instance.Speak("RainFirst");
+            first = false;
+        }
         GuideManager.Instance.PlayGuide("rain");
+
+        if (ChapterManager.Instance.chapter == chapter.summer)
+            SoundManager.Instance.PlayBGM("Summer", 3);
+        else if (ChapterManager.Instance.chapter == chapter.summer2 ||
+                 ChapterManager.Instance.chapter == chapter.summer3 ||
+                 ChapterManager.Instance.chapter == chapter.summer4)
+            SoundManager.Instance.PlayBGM("Summer", 4);
 
         StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
+        PenaltyManager.Instance.isRaining = false;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -90,6 +103,7 @@ public class RainSystem : CountBasedObstacle
         stoneCount = 0;
         nonStop = false;
         windOrRain = false;
+        PenaltyManager.Instance.isRaining = false;
     }
 
     //배경 점점어둡게

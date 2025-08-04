@@ -2475,10 +2475,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Voice/WindStart0
   Guid:
-    Data1: 496684399
-    Data2: 1173842608
-    Data3: 662192808
-    Data4: -1591666580
+    Data1: 855291593
+    Data2: 1185453040
+    Data3: 1111136696
+    Data4: 1898403028
   Banks:
   - {fileID: 3165535140363962942}
   IsStream: 0
@@ -2933,10 +2933,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638895215933395147
+  lastModified: 638899395587121566
   FileSizes:
   - Name: Desktop
-    Value: 6446
+    Value: 6418
   Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
@@ -4008,6 +4008,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3923865578970786807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Summer0
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Summer0
+  Guid:
+    Data1: 141265095
+    Data2: 1222588383
+    Data3: -1076203585
+    Data4: 1320653002
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3915290270241599779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4426,33 +4453,6 @@ MonoBehaviour:
     Data4: -201533105
   Banks:
   - {fileID: -6293906536586783629}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-3126858212531199586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Voice/WindFirst0
-  m_EditorClassIdentifier: 
-  Path: event:/Voice/WindFirst0
-  Guid:
-    Data1: 855291593
-    Data2: 1185453040
-    Data3: 1111136696
-    Data4: 1898403028
-  Banks:
-  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5173,7 +5173,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Pause.bank
   Name: Pause
   StudioPath: bank:/Pause
-  lastModified: 638894961149211560
+  lastModified: 638894587919896839
   FileSizes:
   - Name: Desktop
     Value: 448800
@@ -5273,10 +5273,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Voice/WindStart2
   Guid:
-    Data1: 462330748
-    Data2: 1255526666
-    Data3: -732032851
-    Data4: -2093654649
+    Data1: 496684399
+    Data2: 1173842608
+    Data3: 662192808
+    Data4: -1591666580
   Banks:
   - {fileID: 3165535140363962942}
   IsStream: 0
@@ -6611,7 +6611,6 @@ MonoBehaviour:
   - {fileID: 3307583256548322631}
   - {fileID: 818198496774639050}
   - {fileID: -8377529349784258982}
-  - {fileID: 3907991537956554239}
   - {fileID: -6005722222254853528}
   - {fileID: -6872386212071438417}
   - {fileID: -2037413877937355672}
@@ -6622,9 +6621,7 @@ MonoBehaviour:
   - {fileID: 9030319949170631626}
   - {fileID: -228314310690190669}
   - {fileID: -4490884765904513766}
-  - {fileID: 6150607966292502956}
   - {fileID: 3571631113226980138}
-  - {fileID: -3126858212531199586}
   - {fileID: 1397967555553517420}
   - {fileID: -4657962908531973755}
   - {fileID: 7649586371476102478}
@@ -6645,13 +6642,16 @@ MonoBehaviour:
   - {fileID: 201603928044324018}
   - {fileID: -7976308107207406329}
   - {fileID: 4582817850299126177}
+  - {fileID: 1450527493161699098}
+  - {fileID: 7270388661124614850}
+  - {fileID: -3923865578970786807}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638897866889809495
+  cacheTime: 638899395589911863
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -6825,73 +6825,73 @@ MonoBehaviour:
     index: 84
   - key: event:/Voice/Autumn1
     index: 85
-  - key: event:/Voice/WindFirst1
-    index: 86
   - key: event:/Voice/WindStart0
-    index: 87
+    index: 86
   - key: event:/Voice/FindTree1
-    index: 88
+    index: 87
   - key: event:/Voice/WindStart2
-    index: 89
+    index: 88
   - key: event:/Voice/UCanDoIt2
-    index: 90
+    index: 89
   - key: event:/Voice/BeforeEnterWinter0
-    index: 91
+    index: 90
   - key: event:/Voice/BirdFirst0
-    index: 92
+    index: 91
   - key: event:/Voice/HeavyRainEnd0
-    index: 93
+    index: 92
   - key: event:/Voice/Spring2
-    index: 94
+    index: 93
   - key: event:/Voice/Bird0
-    index: 95
+    index: 94
   - key: event:/Voice/BirdPeace1
-    index: 96
-  - key: event:/Voice/Summer3
-    index: 97
+    index: 95
   - key: event:/Voice/Summer1
-    index: 98
-  - key: event:/Voice/WindFirst0
-    index: 99
+    index: 96
   - key: event:/Voice/UCanDoIt1
-    index: 100
+    index: 97
   - key: event:/Voice/PushReset1
-    index: 101
+    index: 98
   - key: event:/Voice/PushReset0
-    index: 102
+    index: 99
   - key: event:/Voice/BirdStone2
-    index: 103
+    index: 100
   - key: event:/Voice/TempleStart0
-    index: 104
+    index: 101
   - key: event:/Voice/Autumn2
-    index: 105
+    index: 102
   - key: event:/Voice/RainStart1
-    index: 106
+    index: 103
   - key: event:/Pause
-    index: 107
+    index: 104
   - key: event:/Voice/Autumn0
-    index: 108
+    index: 105
   - key: event:/Voice/Purify1
-    index: 109
+    index: 106
   - key: event:/Voice/SpaceEndingBuilding2
-    index: 110
+    index: 107
   - key: event:/Voice/SpaceEndingBuilding4
-    index: 111
+    index: 108
   - key: event:/Voice/SpaceEndingBuilding1
-    index: 112
+    index: 109
   - key: event:/Voice/SpaceEndingBuilding3
-    index: 113
+    index: 110
   - key: event:/Voice/SecondWarning1
-    index: 114
+    index: 111
   - key: event:/Voice/Purify0
-    index: 115
+    index: 112
   - key: event:/Voice/KarmaStone1
-    index: 116
+    index: 113
   - key: event:/Voice/SecondWarning0
-    index: 117
+    index: 114
   - key: event:/Voice/SpaceEndingBuilding0
-    index: 118
+    index: 115
   - key: event:/Voice/KarmaStone0
+    index: 116
+  - key: event:/Voice/WindStart3
+    index: 117
+  - key: event:/Voice/WindStart4
+    index: 118
+  - key: event:/Voice/Summer0
     index: 119
 --- !u!114 &39619653358434118
 MonoBehaviour:
@@ -8061,6 +8061,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1450527493161699098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindStart3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindStart3
+  Guid:
+    Data1: -1332691953
+    Data2: 1227297920
+    Data3: 1126504324
+    Data4: 296467547
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1457637287955016493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8346,10 +8373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Voice/Summer2
   Guid:
-    Data1: -2045210572
-    Data2: 1132523359
-    Data3: -1534901571
-    Data4: -1684145481
+    Data1: -783884613
+    Data2: 1244363612
+    Data3: 1262800312
+    Data4: -311348340
   Banks:
   - {fileID: 3165535140363962942}
   IsStream: 0
@@ -8952,7 +8979,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638897866889603194
+  lastModified: 638897339506147567
   FileSizes:
   - Name: Desktop
     Value: 16721760
@@ -9296,7 +9323,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638895215933460493
+  lastModified: 638899395589911863
   FileSizes:
   - Name: Desktop
     Value: 2554368
@@ -9714,10 +9741,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Voice/Summer1
   Guid:
-    Data1: 141265095
-    Data2: 1222588383
-    Data3: -1076203585
-    Data4: 1320653002
+    Data1: -2045210572
+    Data2: 1132523359
+    Data3: -1534901571
+    Data4: -1684145481
   Banks:
   - {fileID: 3165535140363962942}
   IsStream: 0
@@ -9983,33 +10010,6 @@ MonoBehaviour:
     Data4: 1554151283
   Banks:
   - {fileID: -6293906536586783629}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &3907991537956554239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Voice/WindFirst1
-  m_EditorClassIdentifier: 
-  Path: event:/Voice/WindFirst1
-  Guid:
-    Data1: 492345454
-    Data2: 1171767741
-    Data3: -1605108332
-    Data4: -1202143071
-  Banks:
-  - {fileID: 3165535140363962942}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10599,7 +10599,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638886462789354180
+  lastModified: 638899395587111552
   FileSizes:
   - Name: Desktop
     Value: 1524
@@ -11369,33 +11369,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6150607966292502956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Voice/Summer3
-  m_EditorClassIdentifier: 
-  Path: event:/Voice/Summer3
-  Guid:
-    Data1: -783884613
-    Data2: 1244363612
-    Data3: 1262800312
-    Data4: -311348340
-  Banks:
-  - {fileID: 3165535140363962942}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &6194235919292444779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12101,6 +12074,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7270388661124614850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/WindStart4
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/WindStart4
+  Guid:
+    Data1: 462330748
+    Data2: 1255526666
+    Data3: -732032851
+    Data4: -2093654649
+  Banks:
+  - {fileID: 3165535140363962942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7302726363562321974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12359,7 +12359,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638897866889809495
+  lastModified: 638896926713031130
   FileSizes:
   - Name: Desktop
     Value: 1016992
@@ -12378,10 +12378,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Voice/WindStart1
   Guid:
-    Data1: -1332691953
-    Data2: 1227297920
-    Data3: 1126504324
-    Data4: 296467547
+    Data1: 492345454
+    Data2: 1171767741
+    Data3: -1605108332
+    Data4: -1202143071
   Banks:
   - {fileID: 3165535140363962942}
   IsStream: 0

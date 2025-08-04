@@ -26,6 +26,7 @@ public class ResetStone : MonoBehaviour
     public void DestroyStones()
     {
         SoundManager.Instance.PlaySFX("reset_button");
+        BosalManager.Instance.Speak("PushReset");
         foreach (var s in sf.GetBatch().ToList())
         {
             sf.NotifyStoneLost(s);

@@ -106118,12 +106118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BnStone: 0
   StoneSpawner: {fileID: 1047487982}
-  Rain: {fileID: 1224223811}
+  Rain: {fileID: 1591900210}
   Wind: {fileID: 786292891}
   rainAble: 0
+  isRaining: 0
   BosalWarning: 3
-  TreeCount: 5
-  PenaltyStone: 7
+  PenaltyStone: 6
   RainTicks: 1
 --- !u!4 &1276775305
 Transform:
@@ -116088,6 +116088,7 @@ GameObject:
   - component: {fileID: 1343846271}
   - component: {fileID: 1343846273}
   - component: {fileID: 1343846272}
+  - component: {fileID: 1343846274}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -116280,6 +116281,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &1343846274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343846265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7593ca345f39adc47a6948b399b2bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetWidth: 2160
+  targetHeight: 1080
 --- !u!1 &1375127082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1844581885617118026, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
