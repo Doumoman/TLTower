@@ -238,19 +238,16 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("FindTree");
             BosalManager.Instance.Speak("FindTree");
             idleScript = "Spring";
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.spring2)
         {
             SoundManager.Instance.PlayBGM("Spring", 1);
             BosalManager.Instance.Speak("Spring");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.spring3)
         {
             SoundManager.Instance.PlayBGM("Spring", 2);
             BosalManager.Instance.Speak("Spring");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
 
         /* SUMMER
@@ -267,24 +264,20 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("Summer");
             SoundManager.Instance.PlayBGM("Summer", 1);
             idleScript = "Summer";
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = true;
         }
         else if (chapter == chapter.summer2)
         {
             SoundManager.Instance.PlayBGM("Summer", 2);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = true;
         }
         else if (chapter == chapter.summer3)
         {
             SoundManager.Instance.PlayBGM("Summer", 2);
             BosalManager.Instance.Speak("Summer");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = true;
         }
         else if (chapter == chapter.summer4)
         {
             SoundManager.Instance.PlayBGM("Summer", 2);
             BosalManager.Instance.Speak("Summer");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = true;
         }
 
         /* AUTUMN
@@ -297,55 +290,46 @@ public class ChapterManager : MonoBehaviour
         */
         else if (chapter == chapter.autumn)
         {
-            BosalManager.Instance.Speak("Autumn");
             GuideManager.Instance.PlayGuide("autumn", 6f);
+            BosalManager.Instance.Speak("Autumn");
             SoundManager.Instance.PlayBGM("Autumn", 0);
             idleScript = "Autumn";
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn2)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn3)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
             BosalManager.Instance.Speak("Autumn");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn4)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn5)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
             BosalManager.Instance.Speak("Autumn");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn6)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn7)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
             BosalManager.Instance.Speak("Autumn");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn8)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.autumn9)
         {
             SoundManager.Instance.PlayBGM("Autumn", 0);
             BosalManager.Instance.Speak("Autumn");
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         /* WINTER 
         1 : 시작 (비트 1회 재생 후 멜로디 A 루프)
@@ -358,18 +342,17 @@ public class ChapterManager : MonoBehaviour
         else if (chapter == chapter.winter)
         {
             SoundManager.Instance.PlayBGM("Winter", 1);
+            BosalManager.Instance.Speak("BeforeEnterWinter");
+            BosalManager.Instance.Speak("BeforeEnterWinter");
             idleScript = "Winter";
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.winter2)
         {
             SoundManager.Instance.PlayBGM("Winter", 2);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
         else if (chapter == chapter.winter3)
         {
             SoundManager.Instance.PlayBGM("Winter", 3);
-            if (PenaltyManager.Instance) PenaltyManager.Instance.rainAble = false;
         }
 
         /* SPACE

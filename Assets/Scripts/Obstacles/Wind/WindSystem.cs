@@ -42,6 +42,7 @@ public class WindSystem : CountBasedObstacle
 
         SoundManager.Instance.PlaySFX("wind_start");
         GuideManager.Instance.PlayGuide("wind");
+        BosalManager.Instance.Speak("WindStart");
 
         wind.Play();
         windOrRain = true;
