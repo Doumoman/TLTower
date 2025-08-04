@@ -127,7 +127,7 @@ public class MainStoneController : MonoBehaviour,
     #region EventSystem 콜백
     public void OnPointerDown(PointerEventData e)
     {
-        if (activePointer != -1 || State != MainStoneState.Settled) return;
+        if (activePointer != -1) return;
         activePointer = e.pointerId;
 
         SoundManager.Instance.PlaySFX("stone_select");

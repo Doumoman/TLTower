@@ -14903,7 +14903,7 @@ MonoBehaviour:
     position: {x: -9, y: 2}
     rotationZ: 0
     spawnDelay: 0
-  defaultSpawnDelay: 7
+  defaultSpawnDelay: 0
   fadeInDuration: 4
   glowObjects:
   - {fileID: 987101705}
@@ -83853,7 +83853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -107.16}
+  m_AnchoredPosition: {x: -1176.9999, y: -107.16016}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050707038
@@ -126310,7 +126310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -395.7}
+  m_AnchoredPosition: {x: -1176.9999, y: -395.69922}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427571944
