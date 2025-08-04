@@ -15,6 +15,10 @@ public class PenaltyManager : MonoBehaviour
     void Awake()
     {
         counter = 0;
+
+        //싱글톤 구현
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
     }
 
     [Header("페널티 설정")]
@@ -24,12 +28,6 @@ public class PenaltyManager : MonoBehaviour
 
     [SerializeField] private int RainTicks = 1; // 해당 시간을 넘어가면 비 페널티 발생
 
-    //싱글톤 구현
-    private void Start()
-    {
-        if (Instance && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-    }
 
     IEnumerator WaitTicksUntilRain(int ticks)
     {

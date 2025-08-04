@@ -10,7 +10,6 @@ public class CloudSavePoint : MonoBehaviour
             istouched = true;
             CloudSystem.Instance.SetSavePoint(gameObject);
             this.GetComponent<Collider2D>().isTrigger = false;
-            SkyCloudSpawner.Instance.Changedirection();
             ChapterManager.Instance.ChangeChapter();
             Destroy(this);
         }
