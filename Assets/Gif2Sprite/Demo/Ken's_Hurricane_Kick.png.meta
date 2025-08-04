@@ -1,0 +1,844 @@
+fileFormatVersion: 2
+guid: f257401f2a51edb4191c328c2a161113
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a738537441165a9e0800000000000000
+      internalID: -1610774551993154694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b69c28b1fac7930800000000000000
+      internalID: 4142378289967229758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_2
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730b205bbeac96b10800000000000000
+      internalID: 1975333025281650743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_3
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e12dd0d910ab7e0800000000000000
+      internalID: -1749083731226648989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_4
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8eb95f0b5c654a0800000000000000
+      internalID: -6604874439666702103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_5
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 1
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d2974d4f6b86130800000000000000
+      internalID: 3560296668089363822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc727cb5566cc6770800000000000000
+      internalID: 8605471126631950284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_7
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147db04eb66cd0a20800000000000000
+      internalID: 3030296290979993409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_8
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1998dce1a1efb90800000000000000
+      internalID: -7206293634146528821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_9
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ab2429f1fb58e80800000000000000
+      internalID: -8176919406102529414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_10
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dddadee87a6bb6e0800000000000000
+      internalID: -1820744556705292842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_11
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 141
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7ff571d87b07c60800000000000000
+      internalID: 7813947170098247617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d92f45bfce4e3da0800000000000000
+      internalID: -5963242202584897069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_13
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90013cb611a0bc5a0800000000000000
+      internalID: -6500090567240511479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_14
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88323152c07e66bd0800000000000000
+      internalID: -2637166492431211640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_15
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4debca6429321c140800000000000000
+      internalID: 4738107394128395988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_16
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7021658b5e2950ce0800000000000000
+      internalID: -1439582990537190905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_17
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 281
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6421e33b1eb5f60800000000000000
+      internalID: 8024255321047451344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df19faf18b85621b0800000000000000
+      internalID: -5681756332052475395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_19
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa0c9527f5b6b0d0800000000000000
+      internalID: -3407335994966668633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_20
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa9313cab36a4180800000000000000
+      internalID: -9130375640752350556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_21
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6db82bf9bb378550800000000000000
+      internalID: 6162960285048552815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_22
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4999d2051265c30800000000000000
+      internalID: 4347699118518932732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_23
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 421
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6c647d1cb109de0800000000000000
+      internalID: -1328531370719918427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83ea078cf96e5d70800000000000000
+      internalID: 9033774435870106508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_25
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6e90e2e65867570800000000000000
+      internalID: 8464099257954723531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_26
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2248a197993c9c30800000000000000
+      internalID: 4367429061789106733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_27
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea36ee82ba601b2c0800000000000000
+      internalID: -4417742427277859922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_28
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f869820d2b048ec40800000000000000
+      internalID: 5541750478220072591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_29
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 561
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f7b746b1d041ca0800000000000000
+      internalID: -6047193988350640323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 701
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d7a23e7aec722c70800000000000000
+      internalID: 8944849156492666832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ken's_Hurricane_Kick_31
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 701
+        width: 160
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a892d01c96aa55e0800000000000000
+      internalID: -1920039101892749144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ken's_Hurricane_Kick_0: -1610774551993154694
+      Ken's_Hurricane_Kick_1: 4142378289967229758
+      Ken's_Hurricane_Kick_10: -1820744556705292842
+      Ken's_Hurricane_Kick_11: 7813947170098247617
+      Ken's_Hurricane_Kick_12: -5963242202584897069
+      Ken's_Hurricane_Kick_13: -6500090567240511479
+      Ken's_Hurricane_Kick_14: -2637166492431211640
+      Ken's_Hurricane_Kick_15: 4738107394128395988
+      Ken's_Hurricane_Kick_16: -1439582990537190905
+      Ken's_Hurricane_Kick_17: 8024255321047451344
+      Ken's_Hurricane_Kick_18: -5681756332052475395
+      Ken's_Hurricane_Kick_19: -3407335994966668633
+      Ken's_Hurricane_Kick_2: 1975333025281650743
+      Ken's_Hurricane_Kick_20: -9130375640752350556
+      Ken's_Hurricane_Kick_21: 6162960285048552815
+      Ken's_Hurricane_Kick_22: 4347699118518932732
+      Ken's_Hurricane_Kick_23: -1328531370719918427
+      Ken's_Hurricane_Kick_24: 9033774435870106508
+      Ken's_Hurricane_Kick_25: 8464099257954723531
+      Ken's_Hurricane_Kick_26: 4367429061789106733
+      Ken's_Hurricane_Kick_27: -4417742427277859922
+      Ken's_Hurricane_Kick_28: 5541750478220072591
+      Ken's_Hurricane_Kick_29: -6047193988350640323
+      Ken's_Hurricane_Kick_3: -1749083731226648989
+      Ken's_Hurricane_Kick_30: 8944849156492666832
+      Ken's_Hurricane_Kick_31: -1920039101892749144
+      Ken's_Hurricane_Kick_4: -6604874439666702103
+      Ken's_Hurricane_Kick_5: 3560296668089363822
+      Ken's_Hurricane_Kick_6: 8605471126631950284
+      Ken's_Hurricane_Kick_7: 3030296290979993409
+      Ken's_Hurricane_Kick_8: -7206293634146528821
+      Ken's_Hurricane_Kick_9: -8176919406102529414
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
