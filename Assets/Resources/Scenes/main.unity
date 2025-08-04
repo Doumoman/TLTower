@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bee0b41d8d7674ab41ef009220ffd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.36870575
+  speed: 0.2
 --- !u!1 &719568108
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,9 +6510,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.099999994
     y: 0
-    width: 1
+    width: 0.8
     height: 1
   near clip plane: 0
   far clip plane: 1000
