@@ -156,7 +156,7 @@ public class AnimationManager : MonoBehaviour
 
     const int minTickGap = 1;   // 최소 2틱(8초) 간격
     const float TickSec = 4f;   // 1틱 = 4초
-    const float MinGapSec = 4f;   // 최소 4초
+    const float MinGapSec = 8f;   // 최소 4초
     const float MaxGapSec = 12f;  // 최대 12초
     int nextSpawnTick = -1;  // 다음 돌·연출이 실행될 정확한 틱
     bool allStonesDone = false;
@@ -272,23 +272,9 @@ public class AnimationManager : MonoBehaviour
     }
     void ScheduleNextSpawn()
     {
-        float snapTime = Time.time;              // ① 스냅 끝난 실제 시각
-        float earliestTime = snapTime + MinGapSec;   // ② ≥ 8초
-        float latestTime = snapTime + MaxGapSec;   // ③ ≤16초
-
-        /* ④ earliestTime 이후 첫 ‘짝수 틱’(0,8,16…) 탐색 */
-        int earliestTickIdx = Mathf.CeilToInt(earliestTime / TickSec);
-        if (earliestTickIdx % 2 != 0) earliestTickIdx++;   // 홀수면 +1
-
-        /* ⑤ latestTime 을 넘기면, latestTime 이전 마지막 짝수 틱 선택 */
-        float tickTime = earliestTickIdx * TickSec;
-        if (tickTime > latestTime)
-        {
-            earliestTickIdx -= 2;              // 범위 초과 ⇒ 직전 짝수 틱
-            tickTime = earliestTickIdx * TickSec;
-        }
-
-        nextSpawnTick = earliestTickIdx;       // ⑥ 확정
+        int curTick = TickManager.Instance.tickCount;
+        nextSpawnTick = (curTick % 2 == 0) ? curTick + 2  // 최소 8초 보장(+2틱)
+                                           : curTick + 1;
     }
     IEnumerator CoAccelerateAnimation(Animator anim)
     {
@@ -465,7 +451,7 @@ public class AnimationManager : MonoBehaviour
         if (allStonesDone)
         {
             // ── 최소 대기 8초 보장 ──
-            if (Time.time - lastSnapEnd < 8f)   // MinGapSec == 4f
+            if (Time.time - lastSnapEnd < MinGapSec)   // MinGapSec == 4f
                 return;
 
             // ── 2·6·10·14… 틱(짝수이면서 4의 배수는 아닌) 에 맞추기 ──

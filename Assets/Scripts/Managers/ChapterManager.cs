@@ -8,6 +8,7 @@ using UnityEngine;
 
 #if UNITY_EDITOR              // ← 에디터에서만 컴파일 0731 06:07 이동건
 using static UnityEditor.Progress;
+using UnityEngine.SceneManagement;
 #endif
 
 
@@ -109,8 +110,7 @@ public class ChapterManager : MonoBehaviour
 
     private void Start()
     {
-        
-        SaveSystem.Instance?.LoadGame();
+        if (!SceneManager.GetActiveScene().name.Contains("sky prototype"))SaveSystem.Instance?.LoadGame();
         //시작 챕터 감지
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = Array.IndexOf(arr, chapter);
