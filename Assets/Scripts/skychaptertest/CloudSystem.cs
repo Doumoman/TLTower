@@ -67,6 +67,8 @@ public class CloudSystem : MonoBehaviour
         ChapterManager.Instance.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
         cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
 
+        SkyCloudSpawner.Instance.Changedirection();
+
         UpdateUI();
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();

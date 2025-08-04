@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkyCloudSpawner : MonoBehaviour
@@ -47,7 +44,7 @@ public class SkyCloudSpawner : MonoBehaviour
             StopCoroutine(co);
             co = null;
         }
-        directionalForce *= -1;
+        directionalForce = ((int)ChapterManager.Instance.chapter - (int)chapter.autumn) % 2 == 0 ? 1 : -1;
         co = StartCoroutine(MakeCloud());
     }
 
