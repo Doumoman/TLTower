@@ -106124,7 +106124,7 @@ MonoBehaviour:
   isRaining: 0
   BosalWarning: 3
   PenaltyStone: 6
-  RainTicks: 1
+  obstacleWaitTime: 0.5
 --- !u!4 &1276775305
 Transform:
   m_ObjectHideFlags: 0
@@ -203484,6 +203484,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6581215856082232942, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6963863059198656164, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -203637,7 +203641,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4499950921698476726, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+    - {fileID: 7735678986113918261, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+    - {fileID: 9189382853594487130, guid: 617b065066595e046b56acc24ee10aee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 422144099156825981, guid: 617b065066595e046b56acc24ee10aee, type: 3}

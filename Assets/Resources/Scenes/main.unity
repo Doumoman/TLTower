@@ -6817,9 +6817,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.099999994
+    x: 0
     y: 0
-    width: 0.8
+    width: 1
     height: 1
   near clip plane: 0
   far clip plane: 1000
@@ -7206,7 +7206,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4499950921698476726, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+    - {fileID: 7735678986113918261, guid: 617b065066595e046b56acc24ee10aee, type: 3}
+    - {fileID: 9189382853594487130, guid: 617b065066595e046b56acc24ee10aee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 617b065066595e046b56acc24ee10aee, type: 3}
