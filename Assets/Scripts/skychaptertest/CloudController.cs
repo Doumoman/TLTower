@@ -3,6 +3,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/*
+구름 상태 변경 및 조작 기능.
+구름의 콜라이더들 조정
+*/
+
 public enum CloudState { flow, Dragging, Dropped };
 [RequireComponent(typeof(Rigidbody2D))]
 public class CloudController : MonoBehaviour,
@@ -200,6 +205,20 @@ public class CloudController : MonoBehaviour,
         co = null;
     }
 
+    //조인트된 구름의 상태 설정
+    public void Jointed()
+    {
+        separator.gameObject.layer = LayerMask.NameToLayer("JointedCloud");
+        foreach (Collider2D col in colChildren) col.gameObject.layer = LayerMask.NameToLayer("CloudChild");
+    }
+
+    //조인트 해제된 구름의 상태 설정
+    public void DisJointed()
+    {
+        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparator");
+        foreach (Collider2D col in colChildren) col.gameObject.layer = LayerMask.NameToLayer("Default");
+    }
+
     public void Disappear() => StartCoroutine(FadeOutAndDestory());
 
     private IEnumerator FadeOutAndDestory()
@@ -249,7 +268,7 @@ public class CloudController : MonoBehaviour,
             {
                 isRotating = false;
                 SoundManager.Instance.StopLoop("cloud_rotate");
-                rb.angularVelocity = 0;
+                //rb.angularVelocity = 0;
                 //dragOffset = transform.position - (Vector3)mouseWorld;
             }
             return;
@@ -289,9 +308,9 @@ public class CloudController : MonoBehaviour,
         rb.angularVelocity = 0f;
         foreach (Rigidbody2D rb in rbChildren)
         {
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
-            rb.bodyType = RigidbodyType2D.Dynamic;
         }
         rb.Sleep();
 
@@ -317,9 +336,9 @@ public class CloudController : MonoBehaviour,
 
         state = CloudState.Dragging;
         gameObject.tag = "DraggingCloud";
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
+        //rb.velocity = Vector2.zero;
+        //rb.angularVelocity = 0f;
+        //foreach (Rigidbody2D rb in rbChildren) { rb.velocity = Vector2.zero; rb.angularVelocity = 0f; }
         separator.isTrigger = true;
         foreach (Collider2D col in colChildren) col.enabled = false;
 

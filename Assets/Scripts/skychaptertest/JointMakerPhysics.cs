@@ -1,7 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-//jointmaker의 물리 담당. jointmaker컴포넌트가 같이 있을 떄, 또는 부모 오브젝트에 있을 때 두 경우.
+/*
+jointmaker의 충돌/겹침 정보전달 담당. jointmaker컴포넌트가 같이 있을 떄, 또는 부모 오브젝트에 있을 때 두 경우.
+*/
 public class JointMakerPhysics : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision) 

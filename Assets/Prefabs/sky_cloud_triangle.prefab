@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1540721687501253126}
   - component: {fileID: 2535209891562096588}
-  - component: {fileID: 4689657644811653241}
   - component: {fileID: 2356843059706290299}
   - component: {fileID: 8955771945643851402}
   - component: {fileID: 4494374069515721412}
   - component: {fileID: 9124762086641233487}
+  - component: {fileID: 1888361776962866405}
   m_Layer: 0
   m_Name: bone_1
   m_TagString: CloudChild
@@ -64,41 +64,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4689657644811653241
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559211441557816650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!114 &2356843059706290299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +139,41 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 1
   m_Frequency: 5
+--- !u!70 &1888361776962866405
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559211441557816650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.33, y: 0}
+  m_Size: {x: 1.33, y: 0.65}
+  m_Direction: 1
 --- !u!1 &917777181966471208
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,11 +184,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3797760523552085473}
   - component: {fileID: 5498296387358168479}
-  - component: {fileID: 5203524018425665724}
   - component: {fileID: 6407934194088118365}
   - component: {fileID: 2014304873360582694}
   - component: {fileID: 3533874947438024919}
   - component: {fileID: 2694282447494987068}
+  - component: {fileID: 1348149257162907477}
   m_Layer: 0
   m_Name: bone_2
   m_TagString: CloudChild
@@ -238,41 +238,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &5203524018425665724
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917777181966471208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!114 &6407934194088118365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +313,41 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 1
   m_Frequency: 5
+--- !u!70 &1348149257162907477
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917777181966471208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.33, y: 0}
+  m_Size: {x: 1.33, y: 0.65}
+  m_Direction: 1
 --- !u!1 &1373595131232810150
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,9 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c9741824e62214f8993eb33a2b8bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crush: 0
+  waitTime: 1
   flowSpeed: -6
-  linearDrag: 2
-  angularDrag: 2
   checktime: 0.3
   holdToRotate: 0.75
   rotateSpeed: -90
@@ -617,11 +617,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6480440833883130457}
   - component: {fileID: 2957658080742436404}
-  - component: {fileID: 381776749547298204}
   - component: {fileID: 2344343681216070851}
   - component: {fileID: 6432292283970836617}
   - component: {fileID: 42780038485012893}
   - component: {fileID: 6095978253892998302}
+  - component: {fileID: 8048720553742199837}
   m_Layer: 0
   m_Name: bone_3
   m_TagString: CloudChild
@@ -671,41 +671,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &381776749547298204
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825769523800571298}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!114 &2344343681216070851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,6 +746,41 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 1
   m_Frequency: 5
+--- !u!70 &8048720553742199837
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825769523800571298}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09, y: 0}
+  m_Size: {x: 1.33, y: 0.65}
+  m_Direction: 1
 --- !u!1 &4845325210547699683
 GameObject:
   m_ObjectHideFlags: 0

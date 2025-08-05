@@ -3,6 +3,11 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/*
+구름의 연결 능력을 담당. JointmakerPhysics로부터 충돌 정보를 받아 다른 구름과의 연결 형성
+다른 구름과의 연결정보 다룸
+연결정보를 활용한 탐색기능
+*/
 public class JointMaker : MonoBehaviour
 {
     public float breakForce;
@@ -20,9 +25,8 @@ public class JointMaker : MonoBehaviour
         CloudSystem.Instance.NotifyJoint(this);
         isNotyfied = true;
 
-        //분리에서 제외하기
-        separator = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
-        separator.gameObject.layer = LayerMask.NameToLayer("JointedCloud");
+        //조인트된 구름 설정
+        if (TryGetComponent<CloudController>(out CloudController c)) c.Jointed();
 
         if (jm && jm.gameObject == CloudSystem.Instance.savePoint) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
     }
@@ -105,10 +109,12 @@ public class JointMaker : MonoBehaviour
             //StartCoroutine(disconnect(disconnectionInterval));
         }
 
-        if (TryGetComponent<CloudController>(out CloudController _)) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-        if (separator) separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
-        if (TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
+        if (TryGetComponent<CloudController>(out CloudController c))
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            c.DisJointed();
+            c.StartSeparate();
+        }
     }
 
     //[SerializeField] private float disconnectionInterval = 0.1f;
