@@ -147,7 +147,7 @@ public class ChapterManager : MonoBehaviour
             //가을->겨울 다시 돌 기반으로 복귀
             if (chapter == chapter.winter)
             {
-                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length-1].transform.position.y + 2f);  //젤 높은 구름 체크포인트 위치
+                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length-1].transform.position.y);  //젤 높은 구름 체크포인트 위치
                 ResetStone.Instance.CreatePlatform();
             }
 
