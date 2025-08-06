@@ -173,6 +173,9 @@ public class Tree : MonoBehaviour
             lastStem = Instantiate(stem[idx], gameObject.transform);
             lastStem.transform.position = new Vector3(0, lastY + 21.6f, Z);
             lastStem.GetComponent<SpriteRenderer>().sprite = seasons[cm.chapter][idx];
+            List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>(lastStem.GetComponentsInChildren<SpriteRenderer>());
+            SpriteRenderer flowerSp = spriteRenderers.FirstOrDefault(x => x.sortingLayerName == "flower");
+            flowerSp.sprite = seasonFlower[cm.chapter][idx];
 
             if (cm.chapter.ToString().Contains("autumn"))
             {
@@ -227,7 +230,6 @@ public class Tree : MonoBehaviour
         Sprite[] sp1;
         List<SpriteRenderer> suhangmokSp = spriteRenderers.FindAll(x => x.sortingLayerName == "suhangmok");
         List<SpriteRenderer> flowerSp = spriteRenderers.FindAll(x => x.sortingLayerName == "flower");
-        if (flowerSp == null || flowerSp.Count == 0) Debug.Log("꽃잎을 찾을수 없네요");
 
         //챕터에 따라 스프라이트 선택
         sp1 = seasons[cm.chapter];

@@ -39,9 +39,9 @@ public class ChapterManager : MonoBehaviour
     public GameObject[] CloudCheckPoint;
 
     [Header("Settings")]
-    [Tooltip("land챕터부터 space전(winter) 챕터 까지")]
-    public int[] stonesForChapter = new int[(int)chapter.space];
-    
+    [Tooltip("land챕터부터 space전(winter) 챕터 까지")] public int[] stonesForChapter = new int[(int)chapter.space];
+    public float waitTimeBeforeChange = 2f;
+
     int stoneCount = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
     List<GameObject> currentObstacles = new List<GameObject>();
@@ -144,39 +144,45 @@ public class ChapterManager : MonoBehaviour
         {
             chapter = arr[++idx];
 
-            //가을->겨울 다시 돌 기반으로 복귀
-            if (chapter == chapter.winter)
-            {
-                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length-1].transform.position.y);  //젤 높은 구름 체크포인트 위치
-                ResetStone.Instance.CreatePlatform();
-            }
-
-            SetObstacle();
             if (StoneFixer.Instance)
-            {   Debug.Log("StoneFixer.Instance");
+            {   
                 /* space 챕터에는 threshold 가 없으므로 안전 체크 */
                 if (idx < stonesForChapter.Length)
                     StoneFixer.Instance.threshold = stonesForChapter[idx];
                 StoneFixer.Instance.NotifyStoneLost(null);
             }
-            onChapterChage?.Invoke(this, EventArgs.Empty);
             stoneCount = 0;
             Debug.Log(chapter);
+
+            if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
+            {
+                AnimationManager.Instance.Play();
+                StartCoroutine(WaitAndChange());
+            }
+            else
+            {
+                SetObstacle();
+                onChapterChage?.Invoke(this, EventArgs.Empty);
+            }
+
+            if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
+            {
+                Debug.Log("PlayBck");
+                CameraController.Instance.RaiseCameraY();
+                removeYumju?.Invoke(this, EventArgs.Empty);
+            }
+            if (chapter != chapter.space)
+            {
+                SaveSystem.Instance?.SaveGame();
+            }
         }
-        if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
-        {
-            AnimationManager.Instance.Play();
-        }
-        if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
-        {
-            Debug.Log("PlayBck");
-            CameraController.Instance.RaiseCameraY();
-            removeYumju?.Invoke(this, EventArgs.Empty);
-        }
-        if (chapter != chapter.space)
-        {
-            SaveSystem.Instance?.SaveGame();
-        }
+    }
+
+    IEnumerator WaitAndChange()
+    {
+        yield return new WaitForSeconds(waitTimeBeforeChange);
+        SetObstacle();
+        onChapterChage?.Invoke(this, EventArgs.Empty);
     }
     void RemoveAllCheckpoints()
     {
@@ -345,6 +351,10 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("BeforeEnterWinter");
             BosalManager.Instance.Speak("BeforeEnterWinter");
             idleScript = "Winter";
+
+            //가을->겨울 다시 돌 기반으로 복귀
+            StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
+            ResetStone.Instance.CreatePlatform();
         }
         else if (chapter == chapter.winter2)
         {
