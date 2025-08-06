@@ -60,10 +60,9 @@ public class circleController : MonoBehaviour
             sameDirectionCount++;
             lastDownTime = now;
 
-            if (sameDirectionCount >= 3)
+            if (sameDirectionCount == 3)
             {
                 BosalManager.Instance.Speak("UCanDoIt");
-                sameDirectionCount = 0; // 다시 카운트 초기화
             }
         }
 

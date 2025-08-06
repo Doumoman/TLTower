@@ -5,7 +5,7 @@ public class BirdSpawner : MonoBehaviour
 {
     private int span;
     private int spanCount = 0;
-    
+
 
     [Header("settings")]
     [Range(0, 1f)] public float birdChance = 0.4f;
@@ -19,7 +19,6 @@ public class BirdSpawner : MonoBehaviour
     public GameObject birdPoop;
     public GameObject bird;
     public GameObject feather;
-    private bool firstBird = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +36,11 @@ public class BirdSpawner : MonoBehaviour
         {
             if (Random.value < birdChance)
             {
-                    CreateBird(); //사운드 딜레이 이후 새 생성
-                    span = Random.Range(cycleSpanMin, cycleSpanMax);
-                    spanCount = span;
-                    Debug.Log("BirdSpawner: Creating a bird.");
-                }
+                CreateBird(); //사운드 딜레이 이후 새 생성
+                span = Random.Range(cycleSpanMin, cycleSpanMax);
+                spanCount = span;
+                Debug.Log("BirdSpawner: Creating a bird.");
+            }
             else
             {
                 CreateBirdPoop(); //사운드 딜레이 이후 새똥 생성
@@ -134,20 +133,8 @@ public class BirdSpawner : MonoBehaviour
         }
         if (hitPoint != Vector2.zero)
         {
-            if (firstBird)
-            {
-                BosalManager.Instance.Speak("BirdFirst");
-                firstBird = false;
-                BosalManager.Instance.birdBool = true;
-            }
-            else
-            {
-                if (Random.value > 0.5f)
-                {
-                    BosalManager.Instance.Speak("Bird");
-                    BosalManager.Instance.birdBool = true;
-                }
-            }
+            PlaySound(voiceProb);
+
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
             GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
             aliveBird.GetComponent<Bird>().Init(stone, hitPoint, sittime);
@@ -156,5 +143,20 @@ public class BirdSpawner : MonoBehaviour
         {
             Debug.Log("can't find 'PlacedStone' by raycast");
         }
+    }
+    [SerializeField] private int voiceThreshold = 3;
+    [SerializeField] private float voiceProb = 1 / 2;
+    private int voiceCount;
+    void PlaySound(float rate = 1)
+    {
+        voiceCount++;
+        SoundManager.Instance.PlaySFX("Bird");
+        if (Random.value < rate || voiceCount == voiceThreshold)
+        {
+            BosalManager.Instance.Speak("Bird");
+            voiceCount = 0;
+            BosalManager.Instance.birdBool = true; //Bird가 호출되면 BirdStone 호출하지 않기, BirdPeace는 호출함
+        }
+        else BosalManager.Instance.birdBool = false;
     }
 }

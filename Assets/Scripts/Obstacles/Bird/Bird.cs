@@ -104,7 +104,7 @@ public class Bird : MonoBehaviour
             if (satStone != null)
             {
                 if (istouched) ForceRock();
-                else if (!istouched && Random.value < forceChance) ForceRock();
+                else if (!istouched && Random.value < forceChance) ForceRock(); //birdStone 재생
                 else BosalManager.Instance.Speak("BirdPeace");
             }
         }

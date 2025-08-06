@@ -44966,7 +44966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -297}
+  m_AnchoredPosition: {x: -908.99994, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -71658,10 +71658,10 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
   - 0
   - 0
   - 0
@@ -83853,7 +83853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1176.9999, y: -107.16016}
+  m_AnchoredPosition: {x: -1177, y: -107.16016}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050707038
@@ -116123,9 +116123,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.099999994
     y: 0
-    width: 1
+    width: 0.8
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -126310,7 +126310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1176.9999, y: -395.69922}
+  m_AnchoredPosition: {x: -1177, y: -395.69922}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427571944
@@ -131332,7 +131332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -201.99997}
+  m_AnchoredPosition: {x: -908.99994, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -137666,10 +137666,10 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
   - 0
   - 0
   - 0
@@ -154465,9 +154465,9 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
+  - 0.1
+  - 0.1
+  - 0.1
   - 0
   count: 7
   snowFlake: {fileID: 5686642361273476377, guid: 7ffa52fade8c2564a825a30822935deb, type: 3}

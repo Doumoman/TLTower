@@ -6,13 +6,10 @@ public class BirdPoop : MonoBehaviour
     readonly List<StoneController> caught = new(); 
     StoneController anchor;
     bool fused;   // Fuse 한 번만 수행
-    public float VoiceRate = 2 / 3;
+    public float VoiceRate = 0.5f;
+    public int VoiceThreshold = 3;
+    private int voiceCount = 0;
 
-    void PlaySound(float rate = 1)
-    {
-        SoundManager.Instance.PlaySFX("bird_poop");
-        if (Random.value > rate) BosalManager.Instance.Speak("BirdPoop");
-    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,8 +22,6 @@ public class BirdPoop : MonoBehaviour
         // Settled 인 돌만 인정
         if (sc.state != StoneState.Settled && sc.state != StoneState.Dropping)
             return;
-
-        PlaySound(VoiceRate);
 
         // Fixed 돌이랑 부딪히면 제거
         if (sc.state is (StoneState.Fixed)) Destroy(gameObject); ;
@@ -43,6 +38,7 @@ public class BirdPoop : MonoBehaviour
         caught.Add(sc);                                   // 두 번째 돌 등록
         UnityEngine.Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
         SoundManager.Instance.PlaySFX("stone_connect");
+        BosalManager.Instance.Speak("BirdPoop");
 
         if (caught.Count >= 2)
             FuseNow();

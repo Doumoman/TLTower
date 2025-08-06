@@ -10,7 +10,7 @@ public class RainSystem : CountBasedObstacle
     private List<StoneData> stoneDatas = new List<StoneData>();
     Coroutine co;
     bool nonStop = false;
-    bool first = false;
+    bool first = true;
 
     public float duration = 30;
 
@@ -47,6 +47,7 @@ public class RainSystem : CountBasedObstacle
             BosalManager.Instance.Speak("RainFirst");
             first = false;
         }
+        else BosalManager.Instance.Speak("RainStart");
         GuideManager.Instance.PlayGuide("rain");
 
         if (ChapterManager.Instance.chapter == chapter.summer)
