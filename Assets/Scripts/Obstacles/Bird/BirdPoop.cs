@@ -6,8 +6,6 @@ public class BirdPoop : MonoBehaviour
     readonly List<StoneController> caught = new(); 
     StoneController anchor;
     bool fused;   // Fuse 한 번만 수행
-    public float VoiceRate = 0.5f;
-    public int VoiceThreshold = 3;
     private int voiceCount = 0;
 
 
@@ -37,9 +35,13 @@ public class BirdPoop : MonoBehaviour
 
         caught.Add(sc);                                   // 두 번째 돌 등록
         UnityEngine.Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
-        SoundManager.Instance.PlaySFX("stone_connect");
-        BosalManager.Instance.Speak("BirdPoop");
-
+        SoundManager.Instance.PlaySFX("bird_poop");
+        if (Random.Range(0f, 1f) > 0.5f || voiceCount == 2)
+        {
+            BosalManager.Instance.Speak("BirdPoop");
+            voiceCount = 0;
+        }
+        else voiceCount++;
         if (caught.Count >= 2)
             FuseNow();
     }
@@ -67,6 +69,7 @@ public class BirdPoop : MonoBehaviour
         if (anchor == null) return;
         fused = true;
         UnityEngine.Debug.Log("[Glue] FuseNow");
+        SoundManager.Instance.PlaySFX("stone_connect");
 
         // 리더 선정--첫 번째 감지된 돌
         var leader = anchor;

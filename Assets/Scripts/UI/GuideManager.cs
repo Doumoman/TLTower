@@ -61,6 +61,8 @@ public class GuideManager : MonoBehaviour
         else
         {
             HideGuide();
+            VoiceManager.Instance.forceStop = false;
+            VoiceManager.Instance.pauseVoice = false;
             current = GuideUIState.None;
         }
         ClearSelection();
@@ -200,6 +202,7 @@ public class GuideManager : MonoBehaviour
     public void PlayGuide(string key, float delay = 0f)
     {
         VoiceManager.Instance.forceStop = true; //큐잉되자마자 대사 멈춤
+        Debug.Log("forceStop = true, all voices paused");
         if (played.Contains(key)) return;
         if (delay <= 0f) StartPlay(key);
         else StartCoroutine(DelayPlay(key, delay));

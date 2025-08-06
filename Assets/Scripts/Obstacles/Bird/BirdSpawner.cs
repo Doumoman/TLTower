@@ -133,7 +133,7 @@ public class BirdSpawner : MonoBehaviour
         }
         if (hitPoint != Vector2.zero)
         {
-            PlaySound(voiceProb);
+            PlaySound(voiceProb, "Bird");
 
             //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
             GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
@@ -147,13 +147,13 @@ public class BirdSpawner : MonoBehaviour
     [SerializeField] private int voiceThreshold = 3;
     [SerializeField] private float voiceProb = 1 / 2;
     private int voiceCount;
-    void PlaySound(float rate = 1)
+    public void PlaySound(float rate = 1, string str = "")
     {
         voiceCount++;
-        SoundManager.Instance.PlaySFX("Bird");
-        if (Random.value < rate || voiceCount == voiceThreshold)
+        SoundManager.Instance.PlaySFX(str);
+        if (Random.value < rate || voiceCount == voiceThreshold - 1)
         {
-            BosalManager.Instance.Speak("Bird");
+            BosalManager.Instance.Speak(str);
             voiceCount = 0;
             BosalManager.Instance.birdBool = true; //Bird가 호출되면 BirdStone 호출하지 않기, BirdPeace는 호출함
         }
