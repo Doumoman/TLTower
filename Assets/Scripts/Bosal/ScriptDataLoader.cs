@@ -47,18 +47,25 @@ public class ScriptDataLoader : Singleton<ScriptDataLoader>
     public Dictionary<string, int> currentIndex = new Dictionary<string, int>(); // situation별 마지막 호출한 대사
     public int GetNext(string situation)
     {
-        if (!currentIndex.TryGetValue(situation, out int idx))
-        {
-            idx = 0;
-            currentIndex[situation] = idx;
-        }
-        if (!scriptMap.ContainsKey((situation, idx)))
+        if (!scriptMap.ContainsKey((situation, 0))) //대사 situation이 존재하지 않으면
         {
             Debug.Log($"{situation} 대사 없음!!");
-            return -1;
+            return -1; //텍스트는 내보내 줌
         }
 
-        currentIndex[situation] = currentIndex[situation] + 1;
+        if (!currentIndex.TryGetValue(situation, out int idx)) //최초 호출 시 situation이 없으므로
+        {
+            currentIndex.Add(situation, idx);
+            idx = 0; //0 반환 -> 재생, 1 저장
+        }
+        else if (!scriptMap.ContainsKey((situation, idx))) //situation은 있는데 마지막 대사라면
+        {
+            currentIndex[situation] = 0; //0번 대사로 돌아가기
+            idx = 0; //0 반환 -> 재생, 1 저장
+        }
+        else idx = currentIndex[situation];
+
+        currentIndex[situation] = currentIndex[situation] + 1; //다음 호출할 대사 저장
         return idx;
     }
     public void ResetScriptMap() //게임 시작할 때 사용!

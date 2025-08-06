@@ -247,7 +247,7 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.spring2)
         {
-            SoundManager.Instance.PlayBGM("Spring", 1);
+            SoundManager.Instance.PlayBGM("Spring", 2);
             BosalManager.Instance.Speak("Spring");
         }
         else if (chapter == chapter.spring3)
@@ -267,8 +267,8 @@ public class ChapterManager : MonoBehaviour
         */
         else if (chapter == chapter.summer)
         {
-            BosalManager.Instance.Speak("Summer");
             SoundManager.Instance.PlayBGM("Summer", 1);
+            BosalManager.Instance.Speak("Summer");
             idleScript = "Summer";
         }
         else if (chapter == chapter.summer2)
@@ -334,7 +334,7 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.autumn9)
         {
-            SoundManager.Instance.PlayBGM("Autumn", 0);
+            SoundManager.Instance.PlayBGM("Autumn", 2);
             BosalManager.Instance.Speak("Autumn");
         }
         /* WINTER 

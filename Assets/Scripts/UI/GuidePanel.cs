@@ -208,7 +208,7 @@ public class GuidePanel : MonoBehaviour
         returnButton.SetActive(false);
         root.SetActive(false);
 
-        GuideClosed.Invoke();
+        GuideManager.Instance.HandleEsc();
     }
 
     private void UpdateButtons(int idx, int count)

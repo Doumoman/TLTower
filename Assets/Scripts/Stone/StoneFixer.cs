@@ -41,12 +41,14 @@ public class StoneFixer : MonoBehaviour
         if (sc.transform.position.y > HighestFixedY)
             HighestFixedY = sc.transform.position.y;
         // 중복 방지
+
         if (!batch.Contains(sc)) { batch.Add(sc); ChapterManager.Instance?.AddCount(); }//ChapterManger 카운트 올리기
         UpdateUI();
 
         //조건 달성: 세이브포인트 생성 
         if (batch.Count >= threshold && currentSavePoint == null)
         {
+            CheckAndSound();//배경음악 Ambience로 전환
             wave++;
             Vector3 spawnPos = new(
                 0f,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
@@ -55,8 +57,6 @@ public class StoneFixer : MonoBehaviour
             currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
             // SavePoint 스크립트에 StoneFixer 참조를 자동으로 넘기려면 다음 라인 추가
             currentSavePoint.GetComponent<SavePoint>()?.Init(this);
-
-            CheckAndSound();//배경음악 Ambience로 전환
 
             Debug.Log($"[StoneFixer] Wave {wave} reached. SavePoint spawned at {spawnPos}");
         }
