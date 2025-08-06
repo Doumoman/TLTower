@@ -3014,10 +3014,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638901261613414386
+  lastModified: 638899599636620063
   FileSizes:
   - Name: Desktop
-    Value: 6740
+    Value: 6694
   Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
@@ -5340,33 +5340,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 448800
   Exists: 1
---- !u!114 &-2104074342627388311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/stone_snap
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/stone_snap
-  Guid:
-    Data1: -1675268404
-    Data2: 1157420152
-    Data3: -1890606972
-    Data4: -189862934
-  Banks:
-  - {fileID: 7603463501607760657}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-2075321819344940069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6842,14 +6815,13 @@ MonoBehaviour:
   - {fileID: -5925336420982587759}
   - {fileID: -4418010837590820337}
   - {fileID: -4096043802494871304}
-  - {fileID: -2104074342627388311}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638901261613414386
+  cacheTime: 638900988560188554
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -7107,8 +7079,6 @@ MonoBehaviour:
     index: 126
   - key: event:/SFX/space_twinkle
     index: 127
-  - key: event:/SFX/stone_snap
-    index: 128
 --- !u!114 &39619653358434118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9222,10 +9192,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638901257598352868
+  lastModified: 638900988560188554
   FileSizes:
   - Name: Desktop
-    Value: 16722624
+    Value: 16721760
   Exists: 1
 --- !u!114 &2802627735720863432
 MonoBehaviour:
@@ -9566,7 +9536,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638901184161820412
+  lastModified: 638899583540128974
   FileSizes:
   - Name: Desktop
     Value: 4690144
@@ -10869,10 +10839,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638901261613393628
+  lastModified: 638899599636609807
   FileSizes:
   - Name: Desktop
-    Value: 2066
+    Value: 1836
   Exists: 1
 --- !u!114 &4562151794099893698
 MonoBehaviour:
@@ -12628,10 +12598,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638901178464287444
+  lastModified: 638899599638181698
   FileSizes:
   - Name: Desktop
-    Value: 1186784
+    Value: 1148096
   Exists: 1
 --- !u!114 &7605214536590483158
 MonoBehaviour:

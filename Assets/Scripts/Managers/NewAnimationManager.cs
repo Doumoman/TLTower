@@ -190,7 +190,6 @@ public class NewAnimationManager : MonoBehaviour
     int seq = 0;
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
-        SoundManager.Instance.PlaySFX("space_twinkle");
         SoundManager.Instance.PlayBGM("Space", seq++);
         GameObject go = Instantiate(
             p.stoneData.backgroundPrefab,       // 프리팹
