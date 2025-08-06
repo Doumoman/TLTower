@@ -1,0 +1,1526 @@
+fileFormatVersion: 2
+guid: dfcf502cfb9ea5645b6495375d3dfcbe
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_mu_126
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9334ccb463302150800000000000000
+      internalID: 5845728824083624861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_127
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368d5a4ecca5525e0800000000000000
+      internalID: -1935040628829857693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_128
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7069200bcc396a940800000000000000
+      internalID: 5307091718238279175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_129
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b5ef5a9a26762f0800000000000000
+      internalID: -979705913155888262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_130
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd468f78fce1b5210800000000000000
+      internalID: 1322684792251639005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_131
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae90248553f5478d0800000000000000
+      internalID: -2849547981500053014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_132
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233ce76433694ca00800000000000000
+      internalID: 775910182784779058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_133
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8eb3971595fb4d0800000000000000
+      internalID: -3116674210655901463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_134
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 1
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae979ffa8f1be3c0800000000000000
+      internalID: -4329331934932525403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_135
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3586a00367a5193e0800000000000000
+      internalID: -2048756891818235821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_136
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69782cf35ab881da0800000000000000
+      internalID: -5973871363851384938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_137
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcaff22a82c7238b0800000000000000
+      internalID: -5173936507933689141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_138
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea32990568a6e4b10800000000000000
+      internalID: 1967627212317860782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_139
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d776b6dac157790800000000000000
+      internalID: -7533083270550422257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_140
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d622c6f9f769c420800000000000000
+      internalID: 2650764178968684249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_141
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7788938db5830e0800000000000000
+      internalID: -2289979426281588781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_142
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bcb73dbb215fc30800000000000000
+      internalID: 4392437609486076758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_143
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 519
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca1cd7bb7d7c7410800000000000000
+      internalID: 1476192748189784778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_144
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5085c7be9725fae60800000000000000
+      internalID: 7975684148691752965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_145
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfeecd42bce715460800000000000000
+      internalID: 7228698287868276475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_146
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb92c5ef1518f4a0800000000000000
+      internalID: -6559469630522221627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_147
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc6f91f7334505b0800000000000000
+      internalID: -5402838270405022472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_148
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0e6d56485b155b0800000000000000
+      internalID: -5381320499482140438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_149
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfee78bbcb7f34440800000000000000
+      internalID: 4919047607990873851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_150
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1ad3c45739712f0800000000000000
+      internalID: -1002170260067081743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_151
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3fd3e1593e99c80800000000000000
+      internalID: -8315365007365901354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_152
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 1037
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b52e1f234e5eaf0800000000000000
+      internalID: -367636887103186170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_153
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d81284bfcd9cbda00800000000000000
+      internalID: 782440911224709517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_154
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689641dc99d1089f0800000000000000
+      internalID: -468341814838662778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_155
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28bb0ebb83c4f3840800000000000000
+      internalID: 5205963500817529730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_156
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a4a27fd9ed56870800000000000000
+      internalID: 8675585027237104260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_157
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6421fb8af122b990800000000000000
+      internalID: -7371792280078703508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_158
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42afaed1bf09a4a0800000000000000
+      internalID: -6581712123805588918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_159
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0bd990fcbc706590800000000000000
+      internalID: -7683003813361755382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_160
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a11cb7ea1665a430800000000000000
+      internalID: 3793550526872555944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_161
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 1555
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c4eb0239eda7910800000000000000
+      internalID: 1836024521597799502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_162
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9875464e2ecceaef0800000000000000
+      internalID: -94913267261745271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_163
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c50ea393ec60c30800000000000000
+      internalID: 4325371237332180090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_164
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f171b8b282bdcce20800000000000000
+      internalID: 3372311186569369375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_165
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80de52f3d1d1df70800000000000000
+      internalID: 9210373421183979658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_166
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81dba606a20d08e10800000000000000
+      internalID: 2197985498581613848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_167
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e79b292ea872dcd0800000000000000
+      internalID: -2534830950845802522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_168
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496895f4316221940800000000000000
+      internalID: 5265312778727032468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_169
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49bb81f5a5059a2c0800000000000000
+      internalID: -4419913210214696044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_170
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 2073
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9dcc94163c40ab0800000000000000
+      internalID: -5042690860130706971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_171
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ecfdcb02f69c210800000000000000
+      internalID: 1353735349399965202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_172
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b1728eb104eb350800000000000000
+      internalID: 6034331039326215058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_173
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908262c12265c6360800000000000000
+      internalID: 7164195811740755977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_174
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d16cc9337818cac0800000000000000
+      internalID: -3834788199535975981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_175
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08efee4a3bfbef20800000000000000
+      internalID: 3453129767160637451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_176
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4bf5e1d127b19d0800000000000000
+      internalID: -2802520873718795050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_177
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bbaad50735ec3d40800000000000000
+      internalID: 5565575264007269305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_178
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68225c80e67bbb450800000000000000
+      internalID: 6105675403052262022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_179
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 2591
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc6d0d5c9d283720800000000000000
+      internalID: 2826058915774295250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_180
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de723181cd295a980800000000000000
+      internalID: -8528248845361797139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_181
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997e280efde243850800000000000000
+      internalID: 6355756513205872537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_182
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae53786951d43960800000000000000
+      internalID: 7580914254706073252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_183
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c670eb1ee0a4dbf50800000000000000
+      internalID: 6898751631978792812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_184
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd625c965e7ea3fe0800000000000000
+      internalID: -1208398577487501603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_185
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1883b1e33fca339d0800000000000000
+      internalID: -2795700782947944319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_186
+      rect:
+        serializedVersion: 2
+        x: 2587
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908a6d00fa28830a0800000000000000
+      internalID: -6901622740800329719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_187
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9ebbb73861975f0800000000000000
+      internalID: -758550308262778442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mu_188
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 3109
+        width: 429
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5adeebdd31e1f620800000000000000
+      internalID: 2806271698627648095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      logo_mu_126: 5845728824083624861
+      logo_mu_127: -1935040628829857693
+      logo_mu_128: 5307091718238279175
+      logo_mu_129: -979705913155888262
+      logo_mu_130: 1322684792251639005
+      logo_mu_131: -2849547981500053014
+      logo_mu_132: 775910182784779058
+      logo_mu_133: -3116674210655901463
+      logo_mu_134: -4329331934932525403
+      logo_mu_135: -2048756891818235821
+      logo_mu_136: -5973871363851384938
+      logo_mu_137: -5173936507933689141
+      logo_mu_138: 1967627212317860782
+      logo_mu_139: -7533083270550422257
+      logo_mu_140: 2650764178968684249
+      logo_mu_141: -2289979426281588781
+      logo_mu_142: 4392437609486076758
+      logo_mu_143: 1476192748189784778
+      logo_mu_144: 7975684148691752965
+      logo_mu_145: 7228698287868276475
+      logo_mu_146: -6559469630522221627
+      logo_mu_147: -5402838270405022472
+      logo_mu_148: -5381320499482140438
+      logo_mu_149: 4919047607990873851
+      logo_mu_150: -1002170260067081743
+      logo_mu_151: -8315365007365901354
+      logo_mu_152: -367636887103186170
+      logo_mu_153: 782440911224709517
+      logo_mu_154: -468341814838662778
+      logo_mu_155: 5205963500817529730
+      logo_mu_156: 8675585027237104260
+      logo_mu_157: -7371792280078703508
+      logo_mu_158: -6581712123805588918
+      logo_mu_159: -7683003813361755382
+      logo_mu_160: 3793550526872555944
+      logo_mu_161: 1836024521597799502
+      logo_mu_162: -94913267261745271
+      logo_mu_163: 4325371237332180090
+      logo_mu_164: 3372311186569369375
+      logo_mu_165: 9210373421183979658
+      logo_mu_166: 2197985498581613848
+      logo_mu_167: -2534830950845802522
+      logo_mu_168: 5265312778727032468
+      logo_mu_169: -4419913210214696044
+      logo_mu_170: -5042690860130706971
+      logo_mu_171: 1353735349399965202
+      logo_mu_172: 6034331039326215058
+      logo_mu_173: 7164195811740755977
+      logo_mu_174: -3834788199535975981
+      logo_mu_175: 3453129767160637451
+      logo_mu_176: -2802520873718795050
+      logo_mu_177: 5565575264007269305
+      logo_mu_178: 6105675403052262022
+      logo_mu_179: 2826058915774295250
+      logo_mu_180: -8528248845361797139
+      logo_mu_181: 6355756513205872537
+      logo_mu_182: 7580914254706073252
+      logo_mu_183: 6898751631978792812
+      logo_mu_184: -1208398577487501603
+      logo_mu_185: -2795700782947944319
+      logo_mu_186: -6901622740800329719
+      logo_mu_187: -758550308262778442
+      logo_mu_188: 2806271698627648095
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

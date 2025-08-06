@@ -1,0 +1,3770 @@
+fileFormatVersion: 2
+guid: 68f868288ed774746ad58b8aa42b3415
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_nyum_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa05e5540d37995e0800000000000000
+      internalID: -1902362029233123158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 570a25ba16d0a0060800000000000000
+      internalID: 6920358490545496181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_2
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04da068f9257000d0800000000000000
+      internalID: -3458635690699346624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_3
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d36ab78f423f490800000000000000
+      internalID: -7713781087110546124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_4
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee795ab4971a1930800000000000000
+      internalID: 4114627137105395426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_5
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc63479655515aa0800000000000000
+      internalID: -6174059783754912583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_6
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7825955d701025680800000000000000
+      internalID: -8767944391381134713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_7
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1922bf4e20f37a0800000000000000
+      internalID: -6395389763353669129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_8
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741a18e1f9f826120800000000000000
+      internalID: 2405643064543650119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_9
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55e200c95cdc3230800000000000000
+      internalID: 3620010478530651484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_10
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ec8cbcf297daaa0800000000000000
+      internalID: -6148124670101500307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_11
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ae59453a63c7cd0800000000000000
+      internalID: -2559110413126604153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_12
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccb6029dc86abf30800000000000000
+      internalID: 4592098002185141441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_13
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85562a91a9d7fdb20800000000000000
+      internalID: 3161383564245886296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_14
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b9815da771b4ff0800000000000000
+      internalID: -50921154456020175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c756e84193ad110800000000000000
+      internalID: 1286403404018842694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_16
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4fe5789ee6a18410800000000000000
+      internalID: 1477645696444526410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_17
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba198cff5e8aef460800000000000000
+      internalID: 7277439753669611947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_18
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6559d902849df20800000000000000
+      internalID: 3447866294648788647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_19
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1038f67f5112a510800000000000000
+      internalID: 1558827522739154975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_20
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68e84007170378a0800000000000000
+      internalID: -6308690857645512598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_21
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e93163abb7745aa0800000000000000
+      internalID: -6173177541434459673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_22
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9b41409421ff0a0800000000000000
+      internalID: -6845732803769484883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_23
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6034a234ac304e0800000000000000
+      internalID: -2016545818311194915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_24
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248f1bfc7ee420cd0800000000000000
+      internalID: -2593423677883025342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_25
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3dbbe520377cf10800000000000000
+      internalID: 2289925389557683157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_26
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15183310b69241a90800000000000000
+      internalID: -7344199552776044207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_27
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4797a72a2cf663720800000000000000
+      internalID: 2825568697961838964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_28
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade1ee47dffe90270800000000000000
+      internalID: 8217362866981707482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_29
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 361
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99d300a0b0399710800000000000000
+      internalID: 1700443869466057116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df935043e9620970800000000000000
+      internalID: 8719648253300416467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_31
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975e3f41bba421450800000000000000
+      internalID: 6057986616137606521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_32
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63ad4c7a3146e510800000000000000
+      internalID: 1578020438889309035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_33
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b337f0309b5b2f10800000000000000
+      internalID: 2245989514029249458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_34
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5daec02f9e4f2cbe0800000000000000
+      internalID: -1458334043689129259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_35
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d988ae8dd4cd4c690800000000000000
+      internalID: -7582693645675231075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_36
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f396d68a7fd173800800000000000000
+      internalID: 591974825542379839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_37
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46760cbf30a52ebf0800000000000000
+      internalID: -296575652297939100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_38
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e426aac03606fa50800000000000000
+      internalID: 6554433114312418529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_39
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e6a7125ddb5b170800000000000000
+      internalID: 8193663820157840952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_40
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9bb45a9891926cb0800000000000000
+      internalID: -4872171762251154534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_41
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd4973160d0514d0800000000000000
+      internalID: -3164608843410223666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_42
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ec73d39ee0764e0800000000000000
+      internalID: -1988604315543548286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_43
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3533ddf4a48911b0800000000000000
+      internalID: -5685367210410560196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_44
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 721
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e4442b8bc9cc2480800000000000000
+      internalID: -8922534885677841183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_45
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffcbdd12ce9420e10800000000000000
+      internalID: 2162372049620548863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_46
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1192b434e0a88db00800000000000000
+      internalID: 853583923249883409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_47
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4a158eeb2031990800000000000000
+      internalID: -7416581142384368445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_48
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5418ac2f384b43970800000000000000
+      internalID: 8733804056185307461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_49
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733966e0626700160800000000000000
+      internalID: 6989716527501447991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_50
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef9090700317dd30800000000000000
+      internalID: 4456051248915849196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_51
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60845e451b3ae7950800000000000000
+      internalID: 6448771698469980166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_52
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f061c8768adbd990800000000000000
+      internalID: -7360048894920531723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_53
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a69c6c7b2b2a1fa0800000000000000
+      internalID: -5829299301906606429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_54
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f72ab151b69daad0800000000000000
+      internalID: -2689327714145785863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_55
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20fb2233f71d17e0800000000000000
+      internalID: -1793250743337357270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_56
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a6ed0668a8e6eb0800000000000000
+      internalID: -4724686649309631844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_57
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6220f03f02dd2e2a0800000000000000
+      internalID: -6709557361242078682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_58
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 899b4a3178f1181e0800000000000000
+      internalID: -2197440478169482856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_59
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1081
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387cdbf1002a92560800000000000000
+      internalID: 7289535593292089219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf0c7fa59774bc00800000000000000
+      internalID: 915488109041029055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_61
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2522d57113c4b9e70800000000000000
+      internalID: 9122969243898159698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_62
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f21bcd19bb29110800000000000000
+      internalID: 1266280680391782191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_63
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772aa1b15c2036a00800000000000000
+      internalID: 748445008660177527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_64
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c55e8dbe24cb24e0800000000000000
+      internalID: -2005293504035662400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_65
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751d874181f349da0800000000000000
+      internalID: -5939052635939614377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_66
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2b100cceca7e4b0800000000000000
+      internalID: -5411166294428765533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_67
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129dcb074b7be33f0800000000000000
+      internalID: -919095288323581663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_68
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb2cf386986be270800000000000000
+      internalID: 8280827335519513522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_69
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b8aa7927e94b720800000000000000
+      internalID: 2861085878295104293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_70
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090744a6c1c0e8d90800000000000000
+      internalID: -7093719046880464752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_71
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00902788ecd33ae80800000000000000
+      internalID: -8168617341858215680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_72
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d3cdb4f03f27df0800000000000000
+      internalID: -183817387745985267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_73
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45db59424931c8220800000000000000
+      internalID: 2489386221018922324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_74
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1441
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f2671f0230aef00800000000000000
+      internalID: 1146732495144103818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_75
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e4b205a404178b0800000000000000
+      internalID: -5156269410445734241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_76
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f5440aee9eeb220800000000000000
+      internalID: 2503695653964898109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_77
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e6f8cdd2c47aec0800000000000000
+      internalID: -3555789620928090581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_78
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693a1640cbc7f3860800000000000000
+      internalID: 7511859850446480278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_79
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9fb2ce3700e4420800000000000000
+      internalID: 2616028931432380902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_80
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26beebe898cb51540800000000000000
+      internalID: 4978092262119369570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_81
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5351671e175a852c0800000000000000
+      internalID: -4442619123868494539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_82
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 259e518e70f385560800000000000000
+      internalID: 7302656098972330322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_83
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc32bbd7188230f70800000000000000
+      internalID: 9152203404372288461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_84
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240aa8586f808db00800000000000000
+      internalID: 853441984282140738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_85
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49380277ca549f170800000000000000
+      internalID: 8212672002522121108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_86
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c982be5fec2dbe0800000000000000
+      internalID: -1453872174079632384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_87
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fad796d5cdc4be340800000000000000
+      internalID: 4894089929411886511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_88
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6f22c631558b220800000000000000
+      internalID: 2501843134911280809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_89
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1801
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6165830d9b3513090800000000000000
+      internalID: -8056566200861698538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_90
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80369efc56274d160800000000000000
+      internalID: 7049385098347111176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_91
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b516a299214f6a0800000000000000
+      internalID: -6416483120045794542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_92
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9958e5490499d70800000000000000
+      internalID: 9050335932162873780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_93
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd5963bb0c15bcd0800000000000000
+      internalID: -2543095578000532027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_94
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbe5a83451797230800000000000000
+      internalID: 3637062780619975626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_95
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a7c549b8a55c5b0800000000000000
+      internalID: -5348769426896553315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_96
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc532c6b53c56e20800000000000000
+      internalID: 3343293095816158384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_97
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1160fa16591e8cc0800000000000000
+      internalID: -3706997585669496546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_98
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4947d692f0646e450800000000000000
+      internalID: 6117654174762890388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_99
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1feda8dfe30d2ec00800000000000000
+      internalID: 928533442152029937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_100
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81bb16617dafb4f0800000000000000
+      internalID: -810738705347399285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_101
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f571f732984046fe0800000000000000
+      internalID: -1196826613921147041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_102
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ca6faf8a537a760800000000000000
+      internalID: 7468997506898504817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_103
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f00e32ff7259600800000000000000
+      internalID: 474329312529485671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_104
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 2161
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcc609a7d45a5d60800000000000000
+      internalID: 7879703783268601048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_105
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2adc35f7a2c9aa0c0800000000000000
+      internalID: -4563663566047818334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_106
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546e753a5a0305120800000000000000
+      internalID: 2400472089356658245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_107
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eabe4b26bdbeb94d0800000000000000
+      internalID: -3126646188792288338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_108
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c30cfe4b00b18ec0800000000000000
+      internalID: -3566375867284454461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_109
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f952ebd2040391c0800000000000000
+      internalID: -4498247192487503372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_110
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2691c4f89e3ec86e0800000000000000
+      internalID: -1833840355975620254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_111
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a0e1979f12b34f0800000000000000
+      internalID: -848046749466621348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_112
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5242e091268c6360800000000000000
+      internalID: 7164248585962406490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_113
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e18d223a8683a50800000000000000
+      internalID: 6501061111982857734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_114
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9afe596f79c890800800000000000000
+      internalID: 579148611398791081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_115
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5773903ee9957c0800000000000000
+      internalID: -4082056889285249567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_116
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57f77c9220c4ab40800000000000000
+      internalID: 5450692703911671645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_117
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bb3b28ab4b369a0800000000000000
+      internalID: -6240945945455641812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_118
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7b1b4196fd21020800000000000000
+      internalID: 2311155201206237174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_119
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 2521
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa1c28e1a593cd00800000000000000
+      internalID: 991800865569118965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_120
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6415b2a77200430800000000000000
+      internalID: 3747038295638492881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_121
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5764c08b9c19aa0800000000000000
+      internalID: -6155917423321647621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_122
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ebc58c1c8b2dea0800000000000000
+      internalID: -5849409823571132823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_123
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45386a636467e710800000000000000
+      internalID: 1722455760642258252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_124
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8f5f1ee59937640800000000000000
+      internalID: 5076569837773650123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_125
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c69d7541b21e3980800000000000000
+      internalID: -8557381689372993853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_126
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16edfc0e4c5cb500800000000000000
+      internalID: 413306756106413597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_127
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623c35b2878a91db0800000000000000
+      internalID: -4820636692046953690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_128
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b084758ed376d50800000000000000
+      internalID: 6730416236234541872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_129
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11c5d6d4605a79e0800000000000000
+      internalID: -1622896321682357987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_130
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e161b8be1a7c8a60800000000000000
+      internalID: 7677645737126093282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_131
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438658a69c31a9e70800000000000000
+      internalID: 9122625750988843060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_132
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16dac42eadb4c4c0800000000000000
+      internalID: -4268077991201155554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_133
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21beba5242f025bc0800000000000000
+      internalID: -3795954887994643694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_134
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 2881
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e1a923a9487dc10800000000000000
+      internalID: 2078275550863564296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_135
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bcb0795fb0e50870800000000000000
+      internalID: 8648565771878841527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_136
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f63e78c2188252b0800000000000000
+      internalID: -5597261772613601549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_137
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 917eb69bb9593fbf0800000000000000
+      internalID: -291725054785624295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_138
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5951fabe84c0c29d0800000000000000
+      internalID: -2797847761172621931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_139
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89ed3b0db31250a0800000000000000
+      internalID: -6894426376892454514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_140
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 926c6399df71f9b20800000000000000
+      internalID: 3143257442892564009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_141
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc641ed58dd1b320800000000000000
+      internalID: 2572080429231533263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_142
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35689fc5dee15cf0800000000000000
+      internalID: -265168300959832774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_143
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580554a232135faf0800000000000000
+      internalID: -363330167830654843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_144
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35d2e82c77799f90800000000000000
+      internalID: -6946389575096675011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_145
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270f262172a28d390800000000000000
+      internalID: -7793432807864078222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_146
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650804b9b7f44fc10800000000000000
+      internalID: 2086379919683649622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_147
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f5e0084dd30e9a0800000000000000
+      internalID: -6205892303625756823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_148
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef06c1d9974cdf850800000000000000
+      internalID: 6412497471051423998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_149
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 3241
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1299f93bb611b9260800000000000000
+      internalID: 7105291991379843361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_150
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe4f16e07eab7fce0800000000000000
+      internalID: -1371422059969514257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_151
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac7679d784918e30800000000000000
+      internalID: 4504044413537123496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_152
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23199deaa9c228840800000000000000
+      internalID: 5224787560573276466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_153
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4215fe06c6052fa00800000000000000
+      internalID: 788781311156244772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_154
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce563f0de05b3b6a0800000000000000
+      internalID: -6434600367342524948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_155
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76fc557bb38ed3fd0800000000000000
+      internalID: -2360475286495703193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_156
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc94977d4e8564b0800000000000000
+      internalID: -5447791710864892678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_157
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb65e83e72c27f460800000000000000
+      internalID: 7275332272873428670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_158
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27781a059a96b3970800000000000000
+      internalID: 8735692078138361714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_159
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94cb61d692d9bdc0800000000000000
+      internalID: -3622632880042425188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_160
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa49200344f2d4b0800000000000000
+      internalID: -5416998833170593025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_161
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4050cd56eb17a6e30800000000000000
+      internalID: 4497532240449504516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_162
+      rect:
+        serializedVersion: 2
+        x: 3253
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cea96d516e140a0800000000000000
+      internalID: -6898980172685710181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_163
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d2dba93f5ce7f4b0800000000000000
+      internalID: -5406592933901380912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_nyum_164
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 3601
+        width: 269
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7abbac076193240800000000000000
+      internalID: 4771869953869195173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      logo_nyum_0: -1902362029233123158
+      logo_nyum_1: 6920358490545496181
+      logo_nyum_10: -6148124670101500307
+      logo_nyum_100: -810738705347399285
+      logo_nyum_101: -1196826613921147041
+      logo_nyum_102: 7468997506898504817
+      logo_nyum_103: 474329312529485671
+      logo_nyum_104: 7879703783268601048
+      logo_nyum_105: -4563663566047818334
+      logo_nyum_106: 2400472089356658245
+      logo_nyum_107: -3126646188792288338
+      logo_nyum_108: -3566375867284454461
+      logo_nyum_109: -4498247192487503372
+      logo_nyum_11: -2559110413126604153
+      logo_nyum_110: -1833840355975620254
+      logo_nyum_111: -848046749466621348
+      logo_nyum_112: 7164248585962406490
+      logo_nyum_113: 6501061111982857734
+      logo_nyum_114: 579148611398791081
+      logo_nyum_115: -4082056889285249567
+      logo_nyum_116: 5450692703911671645
+      logo_nyum_117: -6240945945455641812
+      logo_nyum_118: 2311155201206237174
+      logo_nyum_119: 991800865569118965
+      logo_nyum_12: 4592098002185141441
+      logo_nyum_120: 3747038295638492881
+      logo_nyum_121: -6155917423321647621
+      logo_nyum_122: -5849409823571132823
+      logo_nyum_123: 1722455760642258252
+      logo_nyum_124: 5076569837773650123
+      logo_nyum_125: -8557381689372993853
+      logo_nyum_126: 413306756106413597
+      logo_nyum_127: -4820636692046953690
+      logo_nyum_128: 6730416236234541872
+      logo_nyum_129: -1622896321682357987
+      logo_nyum_13: 3161383564245886296
+      logo_nyum_130: 7677645737126093282
+      logo_nyum_131: 9122625750988843060
+      logo_nyum_132: -4268077991201155554
+      logo_nyum_133: -3795954887994643694
+      logo_nyum_134: 2078275550863564296
+      logo_nyum_135: 8648565771878841527
+      logo_nyum_136: -5597261772613601549
+      logo_nyum_137: -291725054785624295
+      logo_nyum_138: -2797847761172621931
+      logo_nyum_139: -6894426376892454514
+      logo_nyum_14: -50921154456020175
+      logo_nyum_140: 3143257442892564009
+      logo_nyum_141: 2572080429231533263
+      logo_nyum_142: -265168300959832774
+      logo_nyum_143: -363330167830654843
+      logo_nyum_144: -6946389575096675011
+      logo_nyum_145: -7793432807864078222
+      logo_nyum_146: 2086379919683649622
+      logo_nyum_147: -6205892303625756823
+      logo_nyum_148: 6412497471051423998
+      logo_nyum_149: 7105291991379843361
+      logo_nyum_15: 1286403404018842694
+      logo_nyum_150: -1371422059969514257
+      logo_nyum_151: 4504044413537123496
+      logo_nyum_152: 5224787560573276466
+      logo_nyum_153: 788781311156244772
+      logo_nyum_154: -6434600367342524948
+      logo_nyum_155: -2360475286495703193
+      logo_nyum_156: -5447791710864892678
+      logo_nyum_157: 7275332272873428670
+      logo_nyum_158: 8735692078138361714
+      logo_nyum_159: -3622632880042425188
+      logo_nyum_16: 1477645696444526410
+      logo_nyum_160: -5416998833170593025
+      logo_nyum_161: 4497532240449504516
+      logo_nyum_162: -6898980172685710181
+      logo_nyum_163: -5406592933901380912
+      logo_nyum_164: 4771869953869195173
+      logo_nyum_17: 7277439753669611947
+      logo_nyum_18: 3447866294648788647
+      logo_nyum_19: 1558827522739154975
+      logo_nyum_2: -3458635690699346624
+      logo_nyum_20: -6308690857645512598
+      logo_nyum_21: -6173177541434459673
+      logo_nyum_22: -6845732803769484883
+      logo_nyum_23: -2016545818311194915
+      logo_nyum_24: -2593423677883025342
+      logo_nyum_25: 2289925389557683157
+      logo_nyum_26: -7344199552776044207
+      logo_nyum_27: 2825568697961838964
+      logo_nyum_28: 8217362866981707482
+      logo_nyum_29: 1700443869466057116
+      logo_nyum_3: -7713781087110546124
+      logo_nyum_30: 8719648253300416467
+      logo_nyum_31: 6057986616137606521
+      logo_nyum_32: 1578020438889309035
+      logo_nyum_33: 2245989514029249458
+      logo_nyum_34: -1458334043689129259
+      logo_nyum_35: -7582693645675231075
+      logo_nyum_36: 591974825542379839
+      logo_nyum_37: -296575652297939100
+      logo_nyum_38: 6554433114312418529
+      logo_nyum_39: 8193663820157840952
+      logo_nyum_4: 4114627137105395426
+      logo_nyum_40: -4872171762251154534
+      logo_nyum_41: -3164608843410223666
+      logo_nyum_42: -1988604315543548286
+      logo_nyum_43: -5685367210410560196
+      logo_nyum_44: -8922534885677841183
+      logo_nyum_45: 2162372049620548863
+      logo_nyum_46: 853583923249883409
+      logo_nyum_47: -7416581142384368445
+      logo_nyum_48: 8733804056185307461
+      logo_nyum_49: 6989716527501447991
+      logo_nyum_5: -6174059783754912583
+      logo_nyum_50: 4456051248915849196
+      logo_nyum_51: 6448771698469980166
+      logo_nyum_52: -7360048894920531723
+      logo_nyum_53: -5829299301906606429
+      logo_nyum_54: -2689327714145785863
+      logo_nyum_55: -1793250743337357270
+      logo_nyum_56: -4724686649309631844
+      logo_nyum_57: -6709557361242078682
+      logo_nyum_58: -2197440478169482856
+      logo_nyum_59: 7289535593292089219
+      logo_nyum_6: -8767944391381134713
+      logo_nyum_60: 915488109041029055
+      logo_nyum_61: 9122969243898159698
+      logo_nyum_62: 1266280680391782191
+      logo_nyum_63: 748445008660177527
+      logo_nyum_64: -2005293504035662400
+      logo_nyum_65: -5939052635939614377
+      logo_nyum_66: -5411166294428765533
+      logo_nyum_67: -919095288323581663
+      logo_nyum_68: 8280827335519513522
+      logo_nyum_69: 2861085878295104293
+      logo_nyum_7: -6395389763353669129
+      logo_nyum_70: -7093719046880464752
+      logo_nyum_71: -8168617341858215680
+      logo_nyum_72: -183817387745985267
+      logo_nyum_73: 2489386221018922324
+      logo_nyum_74: 1146732495144103818
+      logo_nyum_75: -5156269410445734241
+      logo_nyum_76: 2503695653964898109
+      logo_nyum_77: -3555789620928090581
+      logo_nyum_78: 7511859850446480278
+      logo_nyum_79: 2616028931432380902
+      logo_nyum_8: 2405643064543650119
+      logo_nyum_80: 4978092262119369570
+      logo_nyum_81: -4442619123868494539
+      logo_nyum_82: 7302656098972330322
+      logo_nyum_83: 9152203404372288461
+      logo_nyum_84: 853441984282140738
+      logo_nyum_85: 8212672002522121108
+      logo_nyum_86: -1453872174079632384
+      logo_nyum_87: 4894089929411886511
+      logo_nyum_88: 2501843134911280809
+      logo_nyum_89: -8056566200861698538
+      logo_nyum_9: 3620010478530651484
+      logo_nyum_90: 7049385098347111176
+      logo_nyum_91: -6416483120045794542
+      logo_nyum_92: 9050335932162873780
+      logo_nyum_93: -2543095578000532027
+      logo_nyum_94: 3637062780619975626
+      logo_nyum_95: -5348769426896553315
+      logo_nyum_96: 3343293095816158384
+      logo_nyum_97: -3706997585669496546
+      logo_nyum_98: 6117654174762890388
+      logo_nyum_99: 928533442152029937
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

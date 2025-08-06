@@ -1,0 +1,2780 @@
+fileFormatVersion: 2
+guid: 3b9097f1c9a4dc140896f1a7d0d4c516
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_top_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e951d67963a8270800000000000000
+      internalID: 8253469291107950156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_1
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eabd2c7e94c3e970800000000000000
+      internalID: 8783079883269847779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_2
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58eaf1dad0c51e3c0800000000000000
+      internalID: -4332080152744841595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_3
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd9c07210007ba20800000000000000
+      internalID: 3077928875281128914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_4
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add20162030e79130800000000000000
+      internalID: 3573571326743424474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_5
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952583777c2f40910800000000000000
+      internalID: 1802832689367634521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_6
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7466807cb6cb12370800000000000000
+      internalID: 8296119159679903303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_7
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32602b3fc8db4be30800000000000000
+      internalID: 4518444739241051683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_8
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de76ea6fde7f1e920800000000000000
+      internalID: 3017965826732877805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_9
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c2a7988e50e6690800000000000000
+      internalID: -7607136224285152199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_10
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f886c8f713da71a0800000000000000
+      internalID: -6810899386532984583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_11
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 1
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc5dd9952c603c40800000000000000
+      internalID: 5490006854515645628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6512635a6491d0da0800000000000000
+      internalID: -5977093339240586922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_13
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5e3e6c8878722d0800000000000000
+      internalID: -3303522780130843203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_14
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2170280b926f9b0800000000000000
+      internalID: -5046800494349577566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_15
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58691d2dace2c1a10800000000000000
+      internalID: 1881430192989247109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_16
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986f1a5a9cc715ac0800000000000000
+      internalID: -3868173399425419639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_17
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59965b0ec62f37290800000000000000
+      internalID: -7893699172409972331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_18
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9274824165a513500800000000000000
+      internalID: 374179569800333097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_19
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11bdd0cba3711ee30800000000000000
+      internalID: 4530928241141996305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_20
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f22a8f411ce5dc20800000000000000
+      internalID: 3230747866801251062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_21
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60e48edc6cfea670800000000000000
+      internalID: 8552050286943068269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_22
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dfea04a6c0ca8b10800000000000000
+      internalID: 1984610545198362585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_23
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 391
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6fc196f8c1c37980800000000000000
+      internalID: -8542270999317328021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21975e9b613fa3420800000000000000
+      internalID: 2610666212948277522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_25
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1561c24fc4d12ba0800000000000000
+      internalID: -6115372832349133539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_26
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa37e5e7970ef2760800000000000000
+      internalID: 7435408322227762090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_27
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fb0b1ca6cc8a300800000000000000
+      internalID: 263685337089359716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_28
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8e64ded74cf7ba0800000000000000
+      internalID: -6088932126050817887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_29
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb930d34a37bca540800000000000000
+      internalID: 5020589145484966334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_30
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34df3da6622128b70800000000000000
+      internalID: 8899695769847856451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_31
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8b41767008a8e10800000000000000
+      internalID: 2200712137206446311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_32
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcebe5915a33b720800000000000000
+      internalID: 2860694310392425658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_33
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e959c9c9b73bd50800000000000000
+      internalID: 6751876178930671223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_34
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fdb71e378ef85bc0800000000000000
+      internalID: -3794002829243859467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_35
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 781
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f662f9f84612f680800000000000000
+      internalID: -8722885025576360208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4b99d9c3a33a7e0800000000000000
+      internalID: -1755495397727816507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_37
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc54cbfcdf6141cd0800000000000000
+      internalID: -2588418606463433267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_38
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beeb43382dca69660800000000000000
+      internalID: 7392285858519629547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_39
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cdd961f0939297c0800000000000000
+      internalID: -4066025262827315767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_40
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b059e0207562a9e0800000000000000
+      internalID: -1611614184382312265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_41
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b74e4a7ff4c1dd70800000000000000
+      internalID: 9066244126421174197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_42
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a692d687059e3d0800000000000000
+      internalID: -3176919583975445878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_43
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049f23bf7d364ceb0800000000000000
+      internalID: -4700522331784414912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_44
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6cb432f44e48a510800000000000000
+      internalID: 1560583328912161899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_45
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b3bf442fda87920800000000000000
+      internalID: 2988329608811330371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_46
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f7e9719c612f3f0800000000000000
+      internalID: -868606725188583526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_47
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 1171
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d25b0b32b15a0f30800000000000000
+      internalID: 4542533000093192920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_48
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff60921bf2919ee80800000000000000
+      internalID: -8148954358123788545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_49
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9a23bdade407c50800000000000000
+      internalID: 6660910550768331198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_50
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e125eb26e8424b990800000000000000
+      internalID: -7371226496138063330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_51
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d77d8cdc43502b0800000000000000
+      internalID: -5619026901632320238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_52
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00708f6e957e425f0800000000000000
+      internalID: -782246061942503680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_53
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c992d436f9468f8a0800000000000000
+      internalID: -6271151845384836708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_54
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7109ee8bcdda071b0800000000000000
+      internalID: -5660833568097660905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_55
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868cc6a435a9a1fe0800000000000000
+      internalID: -1217491066728691608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_56
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2faeb299fc524fb0800000000000000
+      internalID: -4665064037023830225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_57
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488a113c8f4c8e370800000000000000
+      internalID: 8352142081662232708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_58
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66f7ca7de56ab010800000000000000
+      internalID: 1205387920916608621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_59
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 1561
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a77603d803b6790800000000000000
+      internalID: -7535876168513783197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc9eb5d011de8fb0800000000000000
+      internalID: -4643544295536681763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_61
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65bd0aa5a810b860800000000000000
+      internalID: 7543556475647276395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_62
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9851345392667fa0800000000000000
+      internalID: -5803342684908070757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_63
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89688a7345c1abd00800000000000000
+      internalID: 989134216197867160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_64
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e2d1f5e795161e0800000000000000
+      internalID: -2206383943138333090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_65
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78016a27ceb49c2f0800000000000000
+      internalID: -952146367304298361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_66
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25baa2ee809d38fd0800000000000000
+      internalID: -2340788748923786414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_67
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560765f64e65a0220800000000000000
+      internalID: 2452868486177124453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_68
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84723267420501bd0800000000000000
+      internalID: -2661539262244903096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_69
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a3e79305a539260800000000000000
+      internalID: 7103120337901861444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_70
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5028c20dcf9eff0800000000000000
+      internalID: -6195953434229321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_71
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 1951
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ced941e2d98b69b0800000000000000
+      internalID: -5085819815368991034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_72
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655eccaa18f05d290800000000000000
+      internalID: -7866364124541950634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_73
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75b43d15abcf0910800000000000000
+      internalID: 1805885885618894203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_74
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334463db1ab2b3810800000000000000
+      internalID: 1746037254200378419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_75
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a63b5345c349280800000000000000
+      internalID: -9037532219849872888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_76
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f196b36710a0ae7d0800000000000000
+      internalID: -2888485209609901793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_77
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305ac02432ca30d60800000000000000
+      internalID: 7855311442496234755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_78
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a28b3fe78fcfe080800000000000000
+      internalID: -9155871334679739738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_79
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df0619423e7df9c0800000000000000
+      internalID: -3891815748538593328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_80
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10249045bce0dfc10800000000000000
+      internalID: 2088842068620820993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_81
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caddda5dfab734a90800000000000000
+      internalID: -7330879773294600788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_82
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd94992aa540b080800000000000000
+      internalID: -9173755843809337857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_83
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 2341
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7f39c3963a5a4b0800000000000000
+      internalID: -5429754103342041119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_84
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54655ae167a93ad80800000000000000
+      internalID: -8240573061046905275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_85
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7319187c123d6b5f0800000000000000
+      internalID: -741172946621329097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_86
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c76f285f87e2c1b0800000000000000
+      internalID: -5637689180668598336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_87
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca46f748d72fd980800000000000000
+      internalID: -8512040960833205567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_88
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49dcf06bae1df4370800000000000000
+      internalID: 8309090643528895892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_89
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3109bfccba9f67ab0800000000000000
+      internalID: -5010543019129335789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_90
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa0dac417abc28f0800000000000000
+      internalID: -563870857547674967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_91
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6cd0b30d341f1360800000000000000
+      internalID: 7142449786320378990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_92
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4648aaeae7c2eb10800000000000000
+      internalID: 2009388195533833805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_93
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17615000e87ce5590800000000000000
+      internalID: -7683484501547870607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_94
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f0508484a372750800000000000000
+      internalID: 6280052287511793538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_95
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 2731
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a54782aa8de523600800000000000000
+      internalID: 446523597723825242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_96
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 394630c3412f41a10800000000000000
+      internalID: 1879393113240462483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_97
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0054bc50e55e670800000000000000
+      internalID: 8567357245120381136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_98
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069ec47dcac241840800000000000000
+      internalID: 5193825391123163488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_99
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b9b0c26c497fe70800000000000000
+      internalID: 9148944746889845521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_100
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad9037850ca335e0800000000000000
+      internalID: -1931010675468886611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_101
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc9471a202e02520800000000000000
+      internalID: 2675386679584660693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_102
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33e03f48371517d0800000000000000
+      internalID: -2948424850429910214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_103
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c239298f879b7b0800000000000000
+      internalID: -5207998485070926838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_104
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b1db5ba75e56f70800000000000000
+      internalID: 9179995730662464350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_105
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdc95a4c60efdd10800000000000000
+      internalID: 2152685902614875579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_106
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb19a0871a420d3e0800000000000000
+      internalID: -2031083156021800517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_107
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 3121
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfe54766ad9ba910800000000000000
+      internalID: 1849745409988489181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_108
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663f8f9b42391f7c0800000000000000
+      internalID: -4039285604826418330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_109
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef173a97d49921680800000000000000
+      internalID: -8785791365014130178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_110
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd1076e50de80360800000000000000
+      internalID: 7136214219165277680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_111
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9af1e77f284a300800000000000000
+      internalID: 262478677778868708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_112
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a12e3ceadb1a1a0800000000000000
+      internalID: -6799945404044404068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_113
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13dda0a814fe3860800000000000000
+      internalID: 7511709615112704795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_114
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d80f81661901990800000000000000
+      internalID: -7417268718588097143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_115
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11cf4f7fa16a648c0800000000000000
+      internalID: -4015339382994830319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_116
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d573aefa7b70d3050800000000000000
+      internalID: 5781785982125356893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_117
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f6d34e4476ddc90800000000000000
+      internalID: -7143439888355070059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_118
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337181c1b0190c750800000000000000
+      internalID: 6323213353730185011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_top_119
+      rect:
+        serializedVersion: 2
+        x: 3587
+        y: 3511
+        width: 324
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ffef7097a580daf0800000000000000
+      internalID: -373651814341414927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      logo_top_0: 8253469291107950156
+      logo_top_1: 8783079883269847779
+      logo_top_10: -6810899386532984583
+      logo_top_100: -1931010675468886611
+      logo_top_101: 2675386679584660693
+      logo_top_102: -2948424850429910214
+      logo_top_103: -5207998485070926838
+      logo_top_104: 9179995730662464350
+      logo_top_105: 2152685902614875579
+      logo_top_106: -2031083156021800517
+      logo_top_107: 1849745409988489181
+      logo_top_108: -4039285604826418330
+      logo_top_109: -8785791365014130178
+      logo_top_11: 5490006854515645628
+      logo_top_110: 7136214219165277680
+      logo_top_111: 262478677778868708
+      logo_top_112: -6799945404044404068
+      logo_top_113: 7511709615112704795
+      logo_top_114: -7417268718588097143
+      logo_top_115: -4015339382994830319
+      logo_top_116: 5781785982125356893
+      logo_top_117: -7143439888355070059
+      logo_top_118: 6323213353730185011
+      logo_top_119: -373651814341414927
+      logo_top_12: -5977093339240586922
+      logo_top_13: -3303522780130843203
+      logo_top_14: -5046800494349577566
+      logo_top_15: 1881430192989247109
+      logo_top_16: -3868173399425419639
+      logo_top_17: -7893699172409972331
+      logo_top_18: 374179569800333097
+      logo_top_19: 4530928241141996305
+      logo_top_2: -4332080152744841595
+      logo_top_20: 3230747866801251062
+      logo_top_21: 8552050286943068269
+      logo_top_22: 1984610545198362585
+      logo_top_23: -8542270999317328021
+      logo_top_24: 2610666212948277522
+      logo_top_25: -6115372832349133539
+      logo_top_26: 7435408322227762090
+      logo_top_27: 263685337089359716
+      logo_top_28: -6088932126050817887
+      logo_top_29: 5020589145484966334
+      logo_top_3: 3077928875281128914
+      logo_top_30: 8899695769847856451
+      logo_top_31: 2200712137206446311
+      logo_top_32: 2860694310392425658
+      logo_top_33: 6751876178930671223
+      logo_top_34: -3794002829243859467
+      logo_top_35: -8722885025576360208
+      logo_top_36: -1755495397727816507
+      logo_top_37: -2588418606463433267
+      logo_top_38: 7392285858519629547
+      logo_top_39: -4066025262827315767
+      logo_top_4: 3573571326743424474
+      logo_top_40: -1611614184382312265
+      logo_top_41: 9066244126421174197
+      logo_top_42: -3176919583975445878
+      logo_top_43: -4700522331784414912
+      logo_top_44: 1560583328912161899
+      logo_top_45: 2988329608811330371
+      logo_top_46: -868606725188583526
+      logo_top_47: 4542533000093192920
+      logo_top_48: -8148954358123788545
+      logo_top_49: 6660910550768331198
+      logo_top_5: 1802832689367634521
+      logo_top_50: -7371226496138063330
+      logo_top_51: -5619026901632320238
+      logo_top_52: -782246061942503680
+      logo_top_53: -6271151845384836708
+      logo_top_54: -5660833568097660905
+      logo_top_55: -1217491066728691608
+      logo_top_56: -4665064037023830225
+      logo_top_57: 8352142081662232708
+      logo_top_58: 1205387920916608621
+      logo_top_59: -7535876168513783197
+      logo_top_6: 8296119159679903303
+      logo_top_60: -4643544295536681763
+      logo_top_61: 7543556475647276395
+      logo_top_62: -5803342684908070757
+      logo_top_63: 989134216197867160
+      logo_top_64: -2206383943138333090
+      logo_top_65: -952146367304298361
+      logo_top_66: -2340788748923786414
+      logo_top_67: 2452868486177124453
+      logo_top_68: -2661539262244903096
+      logo_top_69: 7103120337901861444
+      logo_top_7: 4518444739241051683
+      logo_top_70: -6195953434229321
+      logo_top_71: -5085819815368991034
+      logo_top_72: -7866364124541950634
+      logo_top_73: 1805885885618894203
+      logo_top_74: 1746037254200378419
+      logo_top_75: -9037532219849872888
+      logo_top_76: -2888485209609901793
+      logo_top_77: 7855311442496234755
+      logo_top_78: -9155871334679739738
+      logo_top_79: -3891815748538593328
+      logo_top_8: 3017965826732877805
+      logo_top_80: 2088842068620820993
+      logo_top_81: -7330879773294600788
+      logo_top_82: -9173755843809337857
+      logo_top_83: -5429754103342041119
+      logo_top_84: -8240573061046905275
+      logo_top_85: -741172946621329097
+      logo_top_86: -5637689180668598336
+      logo_top_87: -8512040960833205567
+      logo_top_88: 8309090643528895892
+      logo_top_89: -5010543019129335789
+      logo_top_9: -7607136224285152199
+      logo_top_90: -563870857547674967
+      logo_top_91: 7142449786320378990
+      logo_top_92: 2009388195533833805
+      logo_top_93: -7683484501547870607
+      logo_top_94: 6280052287511793538
+      logo_top_95: 446523597723825242
+      logo_top_96: 1879393113240462483
+      logo_top_97: 8567357245120381136
+      logo_top_98: 5193825391123163488
+      logo_top_99: 9148944746889845521
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
