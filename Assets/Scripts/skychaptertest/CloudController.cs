@@ -215,7 +215,7 @@ public class CloudController : MonoBehaviour,
     //조인트 해제된 구름의 상태 설정
     public void DisJointed()
     {
-        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparator");
+        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         foreach (Collider2D col in colChildren) col.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
@@ -323,7 +323,7 @@ public class CloudController : MonoBehaviour,
         sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
-        separator.gameObject.layer = 10;
+        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
     }
 

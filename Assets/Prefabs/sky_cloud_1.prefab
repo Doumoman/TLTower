@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crush: 0
-  waitTime: 1
+  waitTime: 2
   flowSpeed: -6
   checktime: 0.3
   holdToRotate: 0.75

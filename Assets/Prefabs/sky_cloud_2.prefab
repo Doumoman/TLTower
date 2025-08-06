@@ -897,9 +897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c9741824e62214f8993eb33a2b8bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crush: 0
+  waitTime: 2
   flowSpeed: -6
-  linearDrag: 2
-  angularDrag: 2
   checktime: 0.3
   holdToRotate: 0.75
   rotateSpeed: -90
