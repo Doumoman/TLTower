@@ -25,7 +25,7 @@ public class GuideManager : MonoBehaviour
 
     /* 내부 상태 */
     private readonly List<string> played = new();
-    private GuideUIState current = GuideUIState.None;
+    public GuideUIState current = GuideUIState.None;
     private GuideUIState prev = GuideUIState.None;
     private bool PauseBGMPlaying = false;
 
@@ -80,7 +80,8 @@ public class GuideManager : MonoBehaviour
         if (prev != current)
         {
             Time.timeScale = (current == GuideUIState.None) ? 1f : 0f;
-            if (current == GuideUIState.None) SoundManager.Instance.Resume();
+            if (current == GuideUIState.None)
+                SoundManager.Instance.Resume();
             else SoundManager.Instance.PauseBGM();
             if (prev == GuideUIState.None)
             {
@@ -92,6 +93,8 @@ public class GuideManager : MonoBehaviour
             {
                 PauseBGMPlaying = false;
                 SoundManager.Instance.StopPauseBGM();
+                VoiceManager.Instance.forceStop = false;
+                VoiceManager.Instance.pauseVoice = false;
             }
             prev = current;
         }
@@ -137,11 +140,9 @@ public class GuideManager : MonoBehaviour
                 current = GuideUIState.PauseOnly;
                 break;
         }
-        if (!guidePanelRoot.activeSelf && !pausePanel.pausepanel.activeSelf)
-            VoiceManager.Instance.forceStop = false;
-        else VoiceManager.Instance.forceStop = true;
         SoundManager.Instance.PlaySFX("pause");
         ClearSelection();
+        CheckVoiceStop();
     }
 
     /* ───────── Pause 토글 버튼 ───────── */
@@ -201,9 +202,9 @@ public class GuideManager : MonoBehaviour
     /* ───────── 자동 가이드 ───────── */
     public void PlayGuide(string key, float delay = 0f)
     {
+        if (played.Contains(key)) return;
         VoiceManager.Instance.forceStop = true; //큐잉되자마자 대사 멈춤
         Debug.Log("forceStop = true, all voices paused");
-        if (played.Contains(key)) return;
         if (delay <= 0f) StartPlay(key);
         else StartCoroutine(DelayPlay(key, delay));
     }

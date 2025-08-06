@@ -52,8 +52,6 @@ public class VoiceManager : Singleton<VoiceManager>
     }
     void Update()
     {
-        
-
         if (forceStop) //PlayGuide에서 true, HandleEsc에서 false
         {
             if (!isStopped)
@@ -70,10 +68,10 @@ public class VoiceManager : Singleton<VoiceManager>
             if (isStopped)
             {
                 isStopped = false;
-                if(!forceStop) Debug.Log("forceStop false!");
+                if (!forceStop) Debug.Log("forceStop false!");
+                Debug.Log($"forceStop == {forceStop}, pauceVoice = {pauseVoice}, isSpeaking == {isSpeaking}");
             }
         }
-
         if (!isSpeaking && voiceQueue.Count > 0 && !pauseVoice)
         {
             isSpeaking = true;
@@ -116,7 +114,7 @@ public class VoiceManager : Singleton<VoiceManager>
                 if (t >= IdleChecker)
                 {
                     string script = ChapterManager.Instance.idleScript;
-                    if (script != null || script != "")
+                    if (script != null && script != "")
                         BosalManager.Instance.Speak(script);
                     t = 0f;
                 }

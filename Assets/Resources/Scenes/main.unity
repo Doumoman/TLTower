@@ -3216,11 +3216,11 @@ RectTransform:
   - {fileID: 518178095}
   m_Father: {fileID: 1781841220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -399.99994, y: 100.00049}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 250, y: 100}
   m_SizeDelta: {x: 700, y: 700}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &692386037
 Animation:
   m_ObjectHideFlags: 0
@@ -7014,9 +7014,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.099999994
+    x: 0.19606164
     y: 0
-    width: 0.8
+    width: 0.6078767
     height: 1
   near clip plane: 0
   far clip plane: 1000
@@ -9370,6 +9370,7 @@ MonoBehaviour:
   pausePanel: {fileID: 45754170}
   guidePanelRoot: {fileID: 1349537603}
   guidePanel: {fileID: 1761433316}
+  current: 0
   pauseButton: {fileID: 782848594}
 --- !u!1 &8253475873087142080
 GameObject:

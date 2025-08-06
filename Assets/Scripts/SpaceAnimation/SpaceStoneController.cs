@@ -216,8 +216,8 @@ public class SpaceStoneController : MonoBehaviour,
         AnimationManager.Instance?.PlaySnapFx(transform.position);
         AnimationManager.Instance?.NotifyStoneSnapped();
 
-        //SoundManager.Instance.PlaySFX("stone_snap");
-        //BosalManager.Instance.Speak("SpaceChapterBuilding");
+        SoundManager.Instance.PlaySFX("stone_snap");
+        BosalManager.Instance.Speak("SpaceEndingBuilding");
     }
     
     #endregion
