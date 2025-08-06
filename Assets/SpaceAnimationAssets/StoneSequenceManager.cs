@@ -37,8 +37,6 @@ public class StoneSequenceManager : MonoBehaviour
 
         /* 3) Fade-Out + 보살 등장 ----------------------- */
         riseStoneAndSceneChange.Run();
-
-
     }
 
    

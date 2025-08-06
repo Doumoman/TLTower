@@ -199,6 +199,7 @@ public class GuidePanel : MonoBehaviour
         SoundManager.Instance.PlaySFX("stamp_button");
         returnButton.SetActive(false);
         root.SetActive(false);
+        UnityEngine.Debug.Log($"ExitButton Called! Current state == {GuideManager.Instance.current}, forceStop == {VoiceManager.Instance.forceStop}");
 
         GuideClosed.Invoke();
     }
@@ -208,7 +209,7 @@ public class GuidePanel : MonoBehaviour
         returnButton.SetActive(false);
         root.SetActive(false);
 
-        GuideManager.Instance.HandleEsc();
+        GuideClosed.Invoke();
     }
 
     private void UpdateButtons(int idx, int count)

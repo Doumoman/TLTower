@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="MixerGroup" id="{135a4943-413e-43a2-a1cf-99736e1dfa72}">
+		<property name="volume">
+			<value>-3.5</value>
+		</property>
 		<property name="name">
 			<value>BGM</value>
 		</property>
@@ -17,10 +20,32 @@
 	<object class="MixerBusEffectChain" id="{11f66741-d3fb-4725-9f3a-b2a95204f9cf}">
 		<relationship name="effects">
 			<destination>{4c379f47-f592-4ca5-9c9a-65d1dc9480fd}</destination>
-			<destination>{7ea072d1-88b3-454f-9f77-8cfa4b57d2b4}</destination>
+			<destination>{d41658b2-70c9-4cbe-835d-2f60e718a17e}</destination>
+			<destination>{a8c5675b-c232-4e77-bcab-824e68fb86e6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dc9f8b06-7b27-4581-a55d-4674c0602ae0}" />
 	<object class="MixerBusFader" id="{4c379f47-f592-4ca5-9c9a-65d1dc9480fd}" />
-	<object class="Sidechain" id="{7ea072d1-88b3-454f-9f77-8cfa4b57d2b4}" />
+	<object class="LimiterEffect" id="{d41658b2-70c9-4cbe-835d-2f60e718a17e}">
+		<property name="release">
+			<value>6.5999999</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{a8c5675b-c232-4e77-bcab-824e68fb86e6}">
+		<property name="threshold">
+			<value>-46.5</value>
+		</property>
+		<property name="attackTime">
+			<value>300</value>
+		</property>
+		<property name="releaseTime">
+			<value>1100</value>
+		</property>
+		<property name="linkChannels">
+			<value>false</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{a61c57f3-5290-4d40-9304-881f875ce884}</destination>
+		</relationship>
+	</object>
 </objects>

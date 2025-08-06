@@ -205,10 +205,11 @@ public class AnimationManager : MonoBehaviour
                                                              : curTick + minTickGap + 1;
         TickManager.Instance.OnTickEvent += HandleTick;
     }
-    
-    
+
+
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
+        SoundManager.Instance.PlaySFX("space_twinkle");
         SoundManager.Instance.PlayBGM("Space", seq++);
         GameObject go = Instantiate(
             p.stoneData.backgroundPrefab,       // 프리팹
@@ -328,9 +329,8 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         //changeSpaceBackGround?.Invoke(this, EventArgs.Empty);
         seqManager.PlaySequence();
+        Debug.Log("우주애니메이션 실행");
     }
-
-
     void OnAllStonesSnapped()
     {
         SoundManager.Instance.PlayBGM("Space", 5);
@@ -342,7 +342,6 @@ public class AnimationManager : MonoBehaviour
         spaceAnimRoot.SetActive(true);
         //Animator anim = spaceAnimRoot.GetComponent<Animator>();
         StartCoroutine(AfterSeconds(4f));
-        Debug.Log("우주애니메이션 실행");
     }
 
     void RemoveYumju(object sender, EventArgs eventArgs)
@@ -476,7 +475,6 @@ public class AnimationManager : MonoBehaviour
             nextSpawnTick += 2;                  // 다음 짝수 틱으로 밀기
             return;
         }
-
 
         /* 5) 새 돌 스폰 */
         int idx = spawnSequence[spawnStep++];
