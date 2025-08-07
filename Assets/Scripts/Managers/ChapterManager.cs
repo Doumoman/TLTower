@@ -156,7 +156,7 @@ public class ChapterManager : MonoBehaviour
 
             if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
             {
-                AnimationManager.Instance.Play();
+                AnimationManager.Instance.Play1();
                 StartCoroutine(WaitAndChange());
             }
             else
@@ -167,6 +167,7 @@ public class ChapterManager : MonoBehaviour
 
             if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
             {
+                AnimationManager.Instance.Play1();
                 Debug.Log("PlayBck");
                 CameraController.Instance.RaiseCameraY();
                 removeYumju?.Invoke(this, EventArgs.Empty);

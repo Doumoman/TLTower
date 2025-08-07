@@ -38,6 +38,16 @@ public class AnimationManager : MonoBehaviour
     [Tooltip("Y축 이동 시간")]
     [SerializeField] float yTime = .25f;
 
+    [Header("Diagonal Cloud Animation (Play1)")]
+    [SerializeField] List<RectTransform> diagonalClouds = new List<RectTransform>(5);
+    [SerializeField] GameObject panel1;
+    [Tooltip("이동 거리 (픽셀)")]
+    [SerializeField] float diagDistance = 2500f;
+
+    [Tooltip("이동 속도 (픽셀/초)")]
+    [SerializeField] float diagSpeed = 6000f;
+
+
     public void Play()
     {
         if (panel == null || leftCloud == null || rightCloud == null)
@@ -46,6 +56,15 @@ public class AnimationManager : MonoBehaviour
             return;
         }
         StartCoroutine(PlayRoutine());
+    }
+    public void Play1()
+    {
+        if (diagonalClouds == null || diagonalClouds.Count == 0)
+        {
+            Debug.LogWarning("AnimationManager: DiagonalClouds 리스트가 비어 있습니다!");
+            return;
+        }
+        StartCoroutine(PlayDiagonalRoutine());
     }
 
     IEnumerator PlayRoutine()
@@ -83,7 +102,39 @@ public class AnimationManager : MonoBehaviour
         a.anchoredPosition = aTo;
         b.anchoredPosition = bTo;
     }
+    IEnumerator PlayDiagonalRoutine()
+    {
+        panel1.SetActive(true);
+        // 8 시 방향 = X축 기준 시계방향 210°(-30° 기울기) → (-cos30°, -sin30°)
+        Vector2 dir = new Vector2(-Mathf.Cos(30f * Mathf.Deg2Rad),
+                                  -Mathf.Sin(30f * Mathf.Deg2Rad)).normalized;
 
+        float duration = diagDistance / diagSpeed;
+
+        // 시작·끝 좌표 캐싱
+        Vector2[] startPos = new Vector2[diagonalClouds.Count];
+        Vector2[] endPos = new Vector2[diagonalClouds.Count];
+        for (int i = 0; i < diagonalClouds.Count; ++i)
+        {
+            startPos[i] = diagonalClouds[i].anchoredPosition;
+            endPos[i] = startPos[i] + dir * diagDistance;
+        }
+
+        // 이동
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            float k = t / duration;
+            for (int i = 0; i < diagonalClouds.Count; ++i)
+                diagonalClouds[i].anchoredPosition = Vector2.Lerp(startPos[i], endPos[i], k);
+            yield return null;
+        }
+        // 마지막 프레임 보정 & 원 위치 복귀
+        for (int i = 0; i < diagonalClouds.Count; ++i)
+        {
+            diagonalClouds[i].anchoredPosition = startPos[i];
+        }
+        panel1.SetActive(false);
+    }
     [System.Serializable]
     public struct StonePreset
     {
@@ -133,8 +184,10 @@ public class AnimationManager : MonoBehaviour
 
     [Header("돌 사라지는거 방지")]
     public GameObject Block;
-    [Header("염주 제거")]
+    [Header("오브젝트 제거")]
     public GameObject Yumju;
+    public GameObject Bell;
+    public GameObject Button;
     [Header("부모 트랜스폼 (없으면 자동 생성)")]
     public Transform stonesParent;
 
@@ -347,6 +400,8 @@ public class AnimationManager : MonoBehaviour
     void RemoveYumju(object sender, EventArgs eventArgs)
     {
         Yumju.SetActive(false);
+        Bell.SetActive(false);
+        Button.SetActive(false);
     }
 
     public void ShowGlow(int idx)

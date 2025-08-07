@@ -6,7 +6,7 @@ public class TestButton : MonoBehaviour
 {
     public void Play()
     {
-        AnimationManager.Instance.Play();
+        AnimationManager.Instance.Play1();
     }
     public void Lower()
     {
