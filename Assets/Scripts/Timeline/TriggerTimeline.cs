@@ -29,7 +29,7 @@ public class StoneTimelineTrigger : MonoBehaviour
         filter.NoFilter();
         filter.useTriggers = true;   // 트리거 콜라이더도 포함
 
-        alreadyPlayed = PlayerPrefs.GetInt(PP_KEY, 0) == (groundTest ? 2222 : 1);
+        alreadyPlayed = PlayerPrefs.GetInt(PP_KEY, 0) == 1;
 
         /* ----- 이미 재생한 적이 있으면 5초 지점부터 바로 실행 ----- */
         if (alreadyPlayed)
