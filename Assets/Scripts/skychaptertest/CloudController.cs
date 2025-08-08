@@ -43,7 +43,8 @@ public class CloudController : MonoBehaviour,
     [Header("Settings")]
     public float waitTime = 1f;
     public float flowSpeed = -1;
-    [Tooltip("구름 분리시 검사 실행 쿨타임")]public float checktime = 0.3f; 
+    [Tooltip("구름 분리시 검사 실행 쿨타임")]public float checktime = 0.3f;
+    public Color baseColor = new Color32(0x6F, 0x54, 0x4D, 0xFF);
 
     [Header("Drag & Rotate")]
     public float holdToRotate = 0.75f;
@@ -84,7 +85,9 @@ public class CloudController : MonoBehaviour,
 
         gameObject.tag = "FlowCloud";
         sr.sortingLayerName = "FlowCloud";
-        sr.color = new Color(1, 1, 1, 0.7f);
+        Color c = baseColor;
+        c.a = 0.7f;
+        sr.color = c;
 
         state = CloudState.flow;
     }
@@ -319,7 +322,7 @@ public class CloudController : MonoBehaviour,
             col.enabled = true;
             col.isTrigger = false;
         }
-        sr.color = Color.white;
+        sr.color = baseColor;
         sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
@@ -350,7 +353,9 @@ public class CloudController : MonoBehaviour,
         holdStartPos = ScreenToWorld();
         isRotating = false;
 
-        sr.color = new Color(1, 1, 1, 0.5f);
+        Color c = baseColor;
+        c.a = 0.5f;
+        sr.color = c;
         sr.sortingLayerName = "DraggingStone";
     }
 

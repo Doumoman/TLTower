@@ -721,7 +721,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 83448590d6c98a245a15a9fd54a77b75, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43529412, g: 0.32941177, b: 0.3019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -881,6 +881,7 @@ MonoBehaviour:
   waitTime: 1
   flowSpeed: -6
   checktime: 0.3
+  baseColor: {r: 0.43529412, g: 0.32941177, b: 0.3019608, a: 1}
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
