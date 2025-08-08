@@ -14958,6 +14958,10 @@ MonoBehaviour:
   yDistance: 1000
   xTime: 2.5
   yTime: 2
+  diagonalClouds: []
+  panel1: {fileID: 0}
+  diagDistance: 2500
+  diagSpeed: 6000
   presets:
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 0
@@ -15001,6 +15005,8 @@ MonoBehaviour:
   glowFadeOut: 0.3
   Block: {fileID: 1961988237}
   Yumju: {fileID: 1408709549}
+  Bell: {fileID: 0}
+  Button: {fileID: 0}
   stonesParent: {fileID: 0}
   seqManager: {fileID: 579511420}
   postSnapDelay: 4
@@ -181379,8 +181385,8 @@ MonoBehaviour:
   spanMin: 0.5
   spanMax: 1.5
   skyCloud:
-  - {fileID: 619677952725524264, guid: 39a4778325bcd8040a1329829897f530, type: 3}
-  - {fileID: 2144978920086071233, guid: 8c08d061d6007c44cbe30e3c96008715, type: 3}
+  - {fileID: 2644197636394065909, guid: dae8b8794daf22842883fbef563bfa60, type: 3}
+  - {fileID: 1481195216759900164, guid: e95ff48f2e65f7444b0f64d84a6c0f16, type: 3}
 --- !u!4 &2023078723
 Transform:
   m_ObjectHideFlags: 0
