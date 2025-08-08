@@ -35,7 +35,7 @@ public class PresetStoneSpawnerMain : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt(PP_KEY, 0) == 1 && !groundTest) return;
+        if (PlayerPrefs.GetInt(PP_KEY, 0) == 1) return;
 
         foreach (var p in presets)
             SpawnSingleStone(p);

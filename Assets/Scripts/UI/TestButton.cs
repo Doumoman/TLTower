@@ -8,6 +8,10 @@ public class TestButton : MonoBehaviour
     {
         AnimationManager.Instance.Play1();
     }
+    public void PlayStA()
+    {
+        AnimationManager.Instance.PlaySummertoAutumn();
+    }
     public void Lower()
     {
         CameraController.Instance.RaiseCameraY();

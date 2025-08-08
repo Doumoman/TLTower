@@ -63,6 +63,24 @@ public class ResetStone : MonoBehaviour
 
         // 새 플랫폼 생성 & 기록
         lastPlatform = Instantiate(platform, pos, Quaternion.identity);
+
+        /* ───── space 챕터면 외형 변경 ───── */
+        if (ChapterManager.Instance && ChapterManager.Instance.chapter == chapter.space)
+        {
+            // 전체 스케일 1.21배
+            lastPlatform.transform.localScale = Vector3.one * 1.21f;
+
+            // 본체 색상 #676767
+            if (lastPlatform.TryGetComponent(out SpriteRenderer bodySr))
+                bodySr.color = new Color32(0x67, 0x67, 0x67, 0xFF);
+
+            // 자식 “checkpoint_hand” 색상 #CFCFCF
+            var hand = lastPlatform.transform.Find("platform");
+            if (hand && hand.TryGetComponent(out SpriteRenderer handSr))
+                handSr.color = new Color32(0xCF, 0xCF, 0xCF, 0xFF);
+        }
+        /* ──────────────────────────────── */
+
     }
 
     public void CreatePlatform()
