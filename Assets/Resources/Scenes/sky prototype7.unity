@@ -14962,6 +14962,10 @@ MonoBehaviour:
   panel1: {fileID: 0}
   diagDistance: 2500
   diagSpeed: 6000
+  saClouds: []
+  saPanel: {fileID: 0}
+  saDistance: 3000
+  saDurationRange: {x: 3, y: 5}
   presets:
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 0
@@ -68007,6 +68011,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
   count: 5
   followSpeed: 1
   duration: 30
@@ -68125,8 +68131,9 @@ MonoBehaviour:
   cloudSpawner: {fileID: 2023078721}
   skyStage: {fileID: 346484770}
   cloudLimit: 0
-  cloudLimitList: 08000000050000000f0000000a000000140000000f0000000a0000001e0000001e000000
+  cloudLimitList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000005000000
   remainingTMP: {fileID: 218071892}
+  breakForce: 500
   waitTime: 1
   moveTime: 2.5
 --- !u!4 &797172749
@@ -90359,6 +90366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -131312,6 +131321,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
   count: 5
   duration: 10
   ps: {fileID: 1280793119}
@@ -136984,6 +136995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -178297,7 +178310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd74b80f71ec724c89ee4f949b2a4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapter: 7
+  chapter: 17
   seasonalObstacles:
   - season: 0
     obstacles: []
@@ -178387,16 +178400,16 @@ MonoBehaviour:
     - {fileID: 163963651}
   - season: 16
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
-    - {fileID: 1276775303}
+    - {fileID: 346484770}
+    - {fileID: 797172747}
+    - {fileID: 2023078721}
+    - {fileID: 375672336}
   - season: 17
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
-    - {fileID: 1276775303}
+    - {fileID: 346484770}
+    - {fileID: 797172747}
+    - {fileID: 2023078721}
+    - {fileID: 1760901178}
   - season: 18
     obstacles:
     - {fileID: 1322940009}
@@ -178404,19 +178417,33 @@ MonoBehaviour:
     - {fileID: 1757047012}
     - {fileID: 1276775303}
   - season: 19
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+    - {fileID: 1276775303}
+  - season: 20
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+    - {fileID: 1276775303}
+  - season: 21
     obstacles: []
   CloudCheckPoint:
   - {fileID: 418371992}
   - {fileID: 2070533721}
   - {fileID: 1593611528}
   - {fileID: 1970521651}
+  - {fileID: 253818789}
   - {fileID: 974486681}
+  - {fileID: 29452073}
   - {fileID: 2043838509}
   - {fileID: 930900503}
   - {fileID: 344401267}
   - {fileID: 125527004}
   - {fileID: 461293738}
-  stonesForChapter: 05000000080000000d00000012000000080000000d000000120000000000000000000000000000000000000000000000000000000000000000000000000000001e0000000d00000001000000
+  stonesForChapter: 0a0000000a0000000a0000000a0000000a0000000a0000000a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000a00000001000000
   waitTimeBeforeChange: 2
   idleScript: 
 --- !u!4 &7441153810912732321

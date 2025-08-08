@@ -16,6 +16,8 @@ public class CloudSystem : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI remainingTMP;
 
+    [Header("Settings")]
+    public float breakForce;
     public float HighestJointY {  get; private set; }
     public static CloudSystem Instance { get; private set; }
 
@@ -52,7 +54,7 @@ public class CloudSystem : MonoBehaviour
     public IEnumerator NewSavePoint(GameObject go)
     {
         savePoint = go;
-        float force = nodes[0].breakForce;
+        float force = breakForce;
         if (nodes[0].TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) Destroy(jmp);
         DestroyAll(true);
         yield return null;  //jm이 사라지길 한 프레임 기다리기
