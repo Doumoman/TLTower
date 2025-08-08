@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
+using Random = UnityEngine.Random;
 
 public class AnimationManager : MonoBehaviour
 {
@@ -48,6 +49,16 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] float diagSpeed = 6000f;
 
 
+    [Header("☁ Summer → Autumn Cloud Animation")]
+    [SerializeField] List<RectTransform> saClouds = new List<RectTransform>();
+    [Tooltip("애니메이션을 재생할 패널 오브젝트 (옵션)")]
+    [SerializeField] GameObject saPanel;
+    [Tooltip("오른쪽 → 왼쪽 이동 거리 (픽셀, +값이면 왼쪽으로 이동)")]
+    [SerializeField] float saDistance = 3000f;
+
+    [Tooltip("도달 시간 범위 (초) – min, max")]
+    [SerializeField] Vector2 saDurationRange = new Vector2(3f, 5f);
+
     public void Play()
     {
         if (panel == null || leftCloud == null || rightCloud == null)
@@ -66,7 +77,19 @@ public class AnimationManager : MonoBehaviour
         }
         StartCoroutine(PlayDiagonalRoutine());
     }
-
+    /// <summary>
+    /// 구름들을 같은 거리만큼 왼쪽으로 보낸다.
+    /// 각 구름은 3~5초 랜덤 시간으로 도착.
+    /// </summary>
+    public void PlaySummertoAutumn()
+    {
+        if (saClouds == null || saClouds.Count == 0)
+        {
+            Debug.LogWarning("AnimationManager: saClouds 리스트가 비어 있습니다!");
+            return;
+        }
+        StartCoroutine(PlaySummertoAutumnRoutine());
+    }
     IEnumerator PlayRoutine()
     {
         panel.SetActive(true);
@@ -134,6 +157,46 @@ public class AnimationManager : MonoBehaviour
             diagonalClouds[i].anchoredPosition = startPos[i];
         }
         panel1.SetActive(false);
+    }
+    IEnumerator PlaySummertoAutumnRoutine()
+    {
+        if (saPanel) saPanel.SetActive(true);
+
+        int n = saClouds.Count;
+        Vector2[] start = new Vector2[n];
+        Vector2[] end = new Vector2[n];
+        float[] dur = new float[n];
+
+        // 오른쪽 → 왼쪽 = Vector2.left 방향
+        for (int i = 0; i < n; ++i)
+        {
+            start[i] = saClouds[i].anchoredPosition;
+            end[i] = start[i] + Vector2.left * saDistance;
+            dur[i] = Random.Range(saDurationRange.x, saDurationRange.y);
+        }
+
+        float t = 0f;
+        while (true)
+        {
+            bool allDone = true;
+            t += Time.deltaTime;
+
+            for (int i = 0; i < n; ++i)
+            {
+                float k = Mathf.Clamp01(t / dur[i]);
+                saClouds[i].anchoredPosition = Vector2.Lerp(start[i], end[i], k);
+                if (k < 1f) allDone = false;
+            }
+
+            if (allDone) break;
+            yield return null;
+        }
+
+        // 원위치 복귀 & 패널 끄기
+        for (int i = 0; i < n; ++i)
+            saClouds[i].anchoredPosition = start[i];
+
+        if (saPanel) saPanel.SetActive(false);
     }
     [System.Serializable]
     public struct StonePreset
