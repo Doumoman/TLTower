@@ -26191,55 +26191,6 @@ Transform:
   - {fileID: 48269758}
   m_Father: {fileID: 1343846268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &145768637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 145768638}
-  - component: {fileID: 145768639}
-  m_Layer: 0
-  m_Name: SkyParticle7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &145768638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145768637}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &145768639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145768637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1985679660}
-  - {fileID: 952275455}
-  - {fileID: 729305925}
-  - {fileID: 1815718018}
 --- !u!1 &152877339
 GameObject:
   m_ObjectHideFlags: 0
@@ -31154,57 +31105,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &163963651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 163963652}
-  - component: {fileID: 163963653}
-  m_Layer: 0
-  m_Name: SkyParticle9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &163963652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163963651}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &163963653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163963651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1421552096}
-  - {fileID: 2051520573}
-  - {fileID: 1445370882}
-  - {fileID: 1815718018}
-  - {fileID: 237125479}
-  - {fileID: 1901028523}
 --- !u!1 &171687182
 GameObject:
   m_ObjectHideFlags: 0
@@ -106827,52 +106727,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &749215457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 749215458}
-  - component: {fileID: 749215459}
-  m_Layer: 0
-  m_Name: SkyParticle2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &749215458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749215457}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &749215459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749215457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1326303627}
 --- !u!1 &753061526
 GameObject:
   m_ObjectHideFlags: 0
@@ -107061,54 +106915,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &766312234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 766312235}
-  - component: {fileID: 766312236}
-  m_Layer: 0
-  m_Name: SkyParticle5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &766312235
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766312234}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766312236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766312234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1404103088}
-  - {fileID: 98136538}
-  - {fileID: 1234339813}
 --- !u!1 &779125179
 GameObject:
   m_ObjectHideFlags: 0
@@ -112089,61 +111895,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788028635}
   m_CullTransparentMesh: 1
---- !u!1 &797172747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 797172749}
-  - component: {fileID: 797172748}
-  m_Layer: 0
-  m_Name: CloudSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &797172748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797172747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd103c00ec1be841a45dd3ad4cb4e12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savePoint: {fileID: 534890699}
-  nodes:
-  - {fileID: 534890704}
-  cloudSpawner: {fileID: 2023078721}
-  skyStage: {fileID: 1479258961}
-  cloudLimit: 0
-  cloudLimitList: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
-  remainingTMP: {fileID: 218071892}
-  breakForce: 500
-  waitTime: 1
-  moveTime: 2.5
---- !u!4 &797172749
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797172747}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &809127700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6233489088789562397, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
@@ -117074,53 +116825,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &887075928
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 887075929}
-  - component: {fileID: 887075930}
-  m_Layer: 0
-  m_Name: SkyParticle4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &887075929
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887075928}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &887075930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887075928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 743180674}
-  - {fileID: 229426426}
 --- !u!1 &888900256
 GameObject:
   m_ObjectHideFlags: 0
@@ -129367,53 +129071,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050707036}
   m_CullTransparentMesh: 1
---- !u!1 &1054916566
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1054916567}
-  - component: {fileID: 1054916568}
-  m_Layer: 0
-  m_Name: SkyParticle3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1054916567
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054916566}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1054916568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054916566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1777792660}
-  - {fileID: 1662432564}
 --- !u!1 &1070136504
 GameObject:
   m_ObjectHideFlags: 0
@@ -139141,55 +138798,6 @@ CircleCollider2D:
   m_Offset: {x: 0.20300554, y: -0.081910156}
   serializedVersion: 2
   m_Radius: 1.758367
---- !u!1 &1081754647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1081754648}
-  - component: {fileID: 1081754649}
-  m_Layer: 0
-  m_Name: SkyParticle6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1081754648
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081754647}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1081754649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081754647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 586316126}
-  - {fileID: 1985679660}
-  - {fileID: 645952401}
-  - {fileID: 729305925}
 --- !u!1 &1084451170
 GameObject:
   m_ObjectHideFlags: 0
@@ -178033,55 +177641,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7447094508700683844, guid: ac8fbeab8888c234cb598c057737ae30, type: 3}
   m_PrefabInstance: {fileID: 1139430173}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1409924195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1409924196}
-  - component: {fileID: 1409924197}
-  m_Layer: 0
-  m_Name: SkyParticle8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1409924196
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409924195}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1409924197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409924195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 1706208404}
-  - {fileID: 729305925}
-  - {fileID: 1815718018}
-  - {fileID: 237125479}
 --- !u!1 &1421552093
 GameObject:
   m_ObjectHideFlags: 0
@@ -198106,46 +197665,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450661371}
   m_CullTransparentMesh: 1
---- !u!1 &1459816193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1459816194}
-  m_Layer: 0
-  m_Name: ----sky Particles----
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1459816194
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459816193}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1723326962}
-  - {fileID: 749215458}
-  - {fileID: 1054916567}
-  - {fileID: 887075929}
-  - {fileID: 766312235}
-  - {fileID: 1081754648}
-  - {fileID: 145768638}
-  - {fileID: 1409924196}
-  - {fileID: 163963652}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479258961
 GameObject:
   m_ObjectHideFlags: 0
@@ -231156,52 +230675,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &1723326961
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1723326962}
-  - component: {fileID: 1723326963}
-  m_Layer: 0
-  m_Name: SkyParticle1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1723326962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723326961}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1459816194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1723326963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723326961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70d0fd5fd52ebc4090fe13f556d389a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psArray:
-  - {fileID: 7990668}
 --- !u!1 &1728424236
 GameObject:
   m_ObjectHideFlags: 0
@@ -295021,67 +294494,67 @@ MonoBehaviour:
   - season: 7
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 79069495}
   - season: 8
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 293850809}
   - season: 9
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 693749049}
   - season: 10
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 496848078}
   - season: 11
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 1175090515}
   - season: 12
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 507823319}
   - season: 13
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 472189630}
   - season: 14
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 1952834865}
   - season: 15
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 1404138744}
   - season: 16
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 189867603}
   - season: 17
     obstacles:
     - {fileID: 1479258961}
-    - {fileID: 797172747}
+    - {fileID: 0}
     - {fileID: 2023078721}
     - {fileID: 1483082202}
   - season: 18
@@ -295525,7 +294998,5 @@ SceneRoots:
   - {fileID: 1480919436}
   - {fileID: 8547741856005359281}
   - {fileID: 346484771}
-  - {fileID: 797172749}
-  - {fileID: 1459816194}
   - {fileID: 234176712}
   - {fileID: 1479258962}
