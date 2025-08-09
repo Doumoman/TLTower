@@ -3014,10 +3014,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638901315656585415
+  lastModified: 638903894280878376
   FileSizes:
   - Name: Desktop
-    Value: 6740
+    Value: 6774
   Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
@@ -5335,7 +5335,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Pause.bank
   Name: Pause
   StudioPath: bank:/Pause
-  lastModified: 638901315656605581
+  lastModified: 638903797723085450
   FileSizes:
   - Name: Desktop
     Value: 448800
@@ -6843,13 +6843,14 @@ MonoBehaviour:
   - {fileID: -4418010837590820337}
   - {fileID: -4096043802494871304}
   - {fileID: -2104074342627388311}
+  - {fileID: 5216762146703807786}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638901315656839040
+  cacheTime: 638903896146148113
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -7109,6 +7110,8 @@ MonoBehaviour:
     index: 127
   - key: event:/SFX/stone_snap
     index: 128
+  - key: event:/SFX/stone_small
+    index: 129
 --- !u!114 &39619653358434118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9222,7 +9225,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638901315656555219
+  lastModified: 638903797719954888
   FileSizes:
   - Name: Desktop
     Value: 16722624
@@ -9566,7 +9569,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638901315656839040
+  lastModified: 638903797739839262
   FileSizes:
   - Name: Desktop
     Value: 4690144
@@ -10409,14 +10412,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/stone_select
   Guid:
-    Data1: 164910517
-    Data2: 1090085182
-    Data3: -2085996646
-    Data4: 381716079
+    Data1: 81244724
+    Data2: 1196587439
+    Data3: 1559734462
+    Data4: -973713924
   Banks:
   - {fileID: 7603463501607760657}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -10869,7 +10872,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638901315656575414
+  lastModified: 638903894280865153
   FileSizes:
   - Name: Desktop
     Value: 2066
@@ -10996,14 +10999,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/stone
   Guid:
-    Data1: -1335821411
-    Data2: 1131139397
-    Data3: 56374958
-    Data4: -352440226
+    Data1: 1021407394
+    Data2: 1191521212
+    Data3: 990226102
+    Data4: 125312326
   Banks:
   - {fileID: 7603463501607760657}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -11143,6 +11146,33 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 0
+--- !u!114 &5216762146703807786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stone_small
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stone_small
+  Guid:
+    Data1: 89498573
+    Data2: 1232326193
+    Data3: -1921062217
+    Data4: 2045318264
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 10000
   Length: 0
 --- !u!114 &5252193044702688818
 MonoBehaviour:
@@ -12628,10 +12658,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638901315656666363
+  lastModified: 638903896146148113
   FileSizes:
   - Name: Desktop
-    Value: 1186784
+    Value: 1193856
   Exists: 1
 --- !u!114 &7605214536590483158
 MonoBehaviour:

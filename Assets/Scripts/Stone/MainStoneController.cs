@@ -34,6 +34,7 @@ public class MainStoneController : MonoBehaviour,
 
     Rigidbody2D _rb;
     SpriteRenderer _sr;
+    SpatialSound ss;
     PolygonCollider2D _phys, _click;
 
     /* Drag / Rotate ------------------------------------------------------ */
@@ -58,6 +59,8 @@ public class MainStoneController : MonoBehaviour,
         SetSettledVisual();
         if (State == MainStoneState.Settled)
             tag = "PlacedStone";
+
+        ss = GetComponent<SpatialSound>();
     }
     #endregion
     /* ==================================================================== */
@@ -81,7 +84,7 @@ public class MainStoneController : MonoBehaviour,
                 holdTimer += Time.deltaTime;
                 if (holdTimer >= holdToRotate)
                 {
-                    SoundManager.Instance.PlayLoop("stone_rotate");
+                    ss.PlayLoop("stone_rotate");
                     isRotating = true;
                     holdTimer = 0f;
                     holdStartPos = cur;
@@ -130,7 +133,7 @@ public class MainStoneController : MonoBehaviour,
         if (activePointer != -1) return;
         activePointer = e.pointerId;
 
-        SoundManager.Instance.PlaySFX("stone_select");
+        ss.PlaySFX("stone_select");
         BeginDrag(e.position);
     }
 
@@ -148,7 +151,7 @@ public class MainStoneController : MonoBehaviour,
                 isRotating = false;
                 RB.angularVelocity = 0f;
                 dragOffset = (Vector2)transform.position - curWorld;
-                SoundManager.Instance.StopLoop("stone_rotate");
+                ss.StopLoop();
             }
             return;
         }
@@ -280,4 +283,31 @@ public class MainStoneController : MonoBehaviour,
         return lastPointerWorld;
 #endif
     }
+
+    #region 음향
+    private float CollisionSound = 0.1f;
+    private float maxSound = 2f;
+    private float minSound = 0;
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        float colForce;
+        Rigidbody2D body = col.gameObject.GetComponent<Rigidbody2D>();
+        Debug.Log($"collision with {body}");
+        if (State == MainStoneState.Dropping && (body.CompareTag("StoneSound") ||body.CompareTag("PlacedStone"))) // 정지한 돌은 사운드 X
+        {
+            colForce = col.relativeVelocity.magnitude * _rb.mass;
+            ss.PlaySFX("stone", ControlSound(colForce));
+        }
+    }
+
+    float ControlSound(float force)
+    {
+        //사운드 크기를 계산하는 부분. 로그로 하는 게 낫긴 할듯?
+        float ans = CollisionSound * Mathf.Log10(force) + 0.5f;
+        ans = minSound >= ans ? minSound : ans;
+        Debug.Log("collision force " + ans);
+        return maxSound < ans ? maxSound : ans;
+    }
+    #endregion
 }

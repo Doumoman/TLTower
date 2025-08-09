@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6287619506704292845}
   - component: {fileID: 6163382586189140608}
   - component: {fileID: 6225783334479882667}
+  - component: {fileID: -7012272374365039175}
   m_Layer: 0
   m_Name: ZY_BG
   m_TagString: Untagged
@@ -223,3 +224,15 @@ MonoBehaviour:
   unfreezeTime: 3
   timerResetTime: 0
   color: {r: 0, g: 1, b: 1, a: 0}
+--- !u!114 &-7012272374365039175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384864364383070363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

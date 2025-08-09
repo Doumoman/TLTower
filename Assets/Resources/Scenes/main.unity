@@ -3387,9 +3387,10 @@ GameObject:
   - component: {fileID: 765782380}
   - component: {fileID: 765782382}
   - component: {fileID: 765782383}
+  - component: {fileID: 765782384}
   m_Layer: 0
   m_Name: TriggerFloor
-  m_TagString: Untagged
+  m_TagString: StoneSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3527,6 +3528,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &765782384
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765782378}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &766911536
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,9 +4768,10 @@ GameObject:
   - component: {fileID: 1025061769}
   - component: {fileID: 1025061771}
   - component: {fileID: 1025061772}
+  - component: {fileID: 1025061773}
   m_Layer: 5
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: StoneSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5109,6 +5138,33 @@ PolygonCollider2D:
       - {x: 2.7949219, y: -4.883203}
       - {x: 2.7632813, y: -4.89375}
   m_UseDelaunayMesh: 0
+--- !u!50 &1025061773
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025061767}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1031367502
 GameObject:
   m_ObjectHideFlags: 0
@@ -7014,9 +7070,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.1686644
     y: 0
-    width: 1
+    width: 0.6626712
     height: 1
   near clip plane: 0
   far clip plane: 1000

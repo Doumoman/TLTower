@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.EventSystems;
-
+using FMODUnity;
+using FMOD.Studio;
+using Unity.Mathematics;
 
 public enum StoneState { Background, Dragging, Dropping, Settled, Fixed }
 
@@ -58,15 +60,13 @@ public class StoneController : MonoBehaviour,
     public float holdToRotate = 0.75f;
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
-
-    //회전 사운드 설정
-    const string ROTATE_SFX_PATH = "event:/SFX/stone_rotate";
     bool rotateSfxPlaying = false;
     const float stopAngularEps = 3f;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
-    PolygonCollider2D physCol;   
+    SpatialSound ss;
+    PolygonCollider2D physCol;
     PolygonCollider2D clickCol;
     ChapterManager cm;
 
@@ -75,6 +75,7 @@ public class StoneController : MonoBehaviour,
     Vector2 lastPointerWorld;
     float holdTimer;
     bool isRotating;
+    string zy;
 
     void Awake()
     {
@@ -92,13 +93,17 @@ public class StoneController : MonoBehaviour,
         CreateOutlineObject(); // 빨간색 테두리 형성
         cm = ChapterManager.Instance;
         cm.onChapterChage += OnChapterChanged;
+
+        ss = GetComponent<SpatialSound>();
+        if (name == "ZY_BG(Clone)" || name == "ZY_BG") zy = "stone_small";
+        else zy = "stone";
     }
     void OnChapterChanged(object sender, System.EventArgs e)
     {
         if (cm.chapter == chapter.space)
             Destroy(gameObject);
     }
-    
+
     void Update()
     {
         if (state == StoneState.Dropping)
@@ -158,7 +163,7 @@ public class StoneController : MonoBehaviour,
                 {
                     if (!rotateSfxPlaying)
                     {
-                        SoundManager.Instance.PlayLoop(ROTATE_SFX_PATH);
+                        ss.PlayLoop("stone_rotate");
                         rotateSfxPlaying = true;
                     }
                     // 회전 시작
@@ -185,7 +190,7 @@ public class StoneController : MonoBehaviour,
 
             if (stopped)
             {
-                SoundManager.Instance.StopLoop(ROTATE_SFX_PATH); // 페이드아웃 포함
+                ss.StopLoop(); // 페이드아웃 포함
                 rotateSfxPlaying = false;
             }
         }
@@ -317,7 +322,7 @@ public class StoneController : MonoBehaviour,
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
     {
-        SoundManager.Instance.PlaySFX("stone_select");
+        ss.PlaySFX("stone_select");
         if (activePointer != -1) return;
         activePointer = eventData.pointerId;
 
@@ -326,7 +331,8 @@ public class StoneController : MonoBehaviour,
             StoneSpawner.Instance.SpawnPlayableAndBeginDrag(this);
             return;
         }
-        if (state == StoneState.Dropping || state == StoneState.Settled){
+        if (state == StoneState.Dropping || state == StoneState.Settled)
+        {
             StartDragging();
         }
         dragOffset = transform.position - (Vector3)ScreenToWorld(eventData.position);
@@ -395,7 +401,7 @@ public class StoneController : MonoBehaviour,
         CameraController.Instance.EndDrag();
         AnyStoneBeingDragged = false;
     }
-    
+
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
@@ -481,4 +487,32 @@ public class StoneController : MonoBehaviour,
         if (cm) cm.onChapterChage -= OnChapterChanged;
         if (outlineSR.enabled) ChapterManager.Instance.RemoveCount();
     }
+
+    #region 음향
+    private float CollisionSound = 0.15f;
+    private float maxSound = 2f;
+    private float minSound = 0;
+    private StudioEventEmitter em;
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        float colForce;
+        Rigidbody2D body = col.gameObject.GetComponent<Rigidbody2D>();
+        Debug.Log($"collision with {body}");
+        if (state == StoneState.Dropping && (body.CompareTag("Stone") || body.CompareTag("StoneSound") ||body.CompareTag("PlacedStone")||body.CompareTag("FixedStone"))) // 정지한 돌은 사운드 X
+        {
+            colForce = col.relativeVelocity.magnitude * rb.mass;
+            ss.PlaySFX(zy, ControlSound(colForce));
+        }
+    }
+
+    float ControlSound(float force)
+    {
+        //사운드 크기를 계산하는 부분. 로그로 하는 게 낫긴 할듯?
+        float ans = CollisionSound * math.log10(force) + 0.5f;
+        ans = minSound >= ans ? minSound : ans;
+        Debug.Log("collision force " + ans);
+        return maxSound < ans ? maxSound : ans;
+    }
+    #endregion
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2722820355028308453}
   - component: {fileID: 6327433974331182758}
   - component: {fileID: 7469990748829871935}
+  - component: {fileID: 6272190000230497199}
   m_Layer: 0
   m_Name: MStone
   m_TagString: Untagged
@@ -193,3 +194,15 @@ MonoBehaviour:
   settleVelocityEps: 0.05
   dragAlpha: 0.5
   clickScaleUp: 1.05
+--- !u!114 &6272190000230497199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879320011222045551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

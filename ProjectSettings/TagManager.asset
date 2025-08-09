@@ -21,6 +21,7 @@ TagManager:
   - FloatingStone
   - bookmark
   - SnappingStone
+  - StoneSound
   layers:
   - Default
   - TransparentFX
