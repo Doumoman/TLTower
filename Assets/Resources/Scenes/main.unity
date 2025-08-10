@@ -3160,9 +3160,9 @@ GameObject:
   - component: {fileID: 692386036}
   - component: {fileID: 692386035}
   - component: {fileID: 692386033}
-  - component: {fileID: 692386037}
   - component: {fileID: 692386041}
   - component: {fileID: 692386042}
+  - component: {fileID: 692386043}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3221,22 +3221,6 @@ RectTransform:
   m_AnchoredPosition: {x: 569.6, y: 309.2}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!111 &692386037
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692386032}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 545d608e6639d2b47a02310197c1bf02, type: 2}
-  m_Animations:
-  - {fileID: 0}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!320 &692386041
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -3269,6 +3253,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+--- !u!111 &692386043
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692386032}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 78cab8fddc893d0468ee7a0e70ba7c9f, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &719568108
 GameObject:
   m_ObjectHideFlags: 0
@@ -6988,7 +6987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1793554342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7070,9 +7069,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1686644
+    x: 0
     y: 0
-    width: 0.6626712
+    width: 1
     height: 1
   near clip plane: 0
   far clip plane: 1000
