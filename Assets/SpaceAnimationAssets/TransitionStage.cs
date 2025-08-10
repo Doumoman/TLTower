@@ -47,7 +47,6 @@ public class TransitionStage : MonoBehaviour
 
         // 지정된 시간만큼 기다리면 모든 페이드가 완료됨
         yield return new WaitForSeconds(fadeTime);
-        for (int i = 0; i < 6; i++) BosalManager.Instance.Speak("SpaceEnding");
     }
 
     /* ────────── 유틸 ────────── */

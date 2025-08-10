@@ -74655,7 +74655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -297}
+  m_AnchoredPosition: {x: -908.9999, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -128974,7 +128974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -107.16016}
+  m_AnchoredPosition: {x: -1176.9999, y: -107.16016}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050707038
@@ -145585,7 +145585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -201.99997}
+  m_AnchoredPosition: {x: -1176.9999, y: -201.99997}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169692345
@@ -167106,9 +167106,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.043994844
     y: 0
-    width: 1
+    width: 0.9120103
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -182508,7 +182508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -395.69922}
+  m_AnchoredPosition: {x: -1176.9999, y: -395.69922}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427571944
@@ -192508,7 +192508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -201.99997}
+  m_AnchoredPosition: {x: -908.9999, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -294389,9 +294389,10 @@ GameObject:
   - component: {fileID: 3492224317696798429}
   - component: {fileID: 3245847003641050379}
   - component: {fileID: 7477989672254757532}
+  - component: {fileID: 7477989672254757533}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: StoneSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294590,7 +294591,7 @@ MonoBehaviour:
   - {fileID: 1257502397}
   - {fileID: 1688660037}
   - {fileID: 1373711162}
-  stonesForChapter: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  stonesForChapter: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   waitTimeBeforeChange: 2
   idleScript: 
 --- !u!4 &7441153810912732321
@@ -294620,7 +294621,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -294653,6 +294654,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7477989672254757533
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4362427235994614882}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &8114452975391710880
 PrefabInstance:
   m_ObjectHideFlags: 0

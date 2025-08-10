@@ -14,6 +14,8 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         StopBGM();
         StopPauseBGM();
+        eventInstances = new List<EventInstance>();
+        eventEmitters = new List<StudioEventEmitter>();
     }
     public void Play(string str, int state)
     {
@@ -150,5 +152,26 @@ public class SoundManager : Singleton<SoundManager>
         Pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Pause.release();
         Debug.Log($"Pause BGM Stopped!");
+    }
+
+    private List<EventInstance> eventInstances;
+    private List<StudioEventEmitter> eventEmitters;
+
+    public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject go)
+    {
+        StudioEventEmitter emitter = go.GetComponent<StudioEventEmitter>();
+        emitter.EventReference = eventReference;
+        eventEmitters.Add(emitter);
+        return emitter;
+    }
+
+    private void Cleanup()
+    {
+        foreach (EventInstance ei in eventInstances)
+        {
+            ei.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            ei.release();
+        }
+        foreach (StudioEventEmitter se in eventEmitters) se.Stop();
     }
 }

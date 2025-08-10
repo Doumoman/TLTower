@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{b8b75408-d293-4646-98a7-d0cfea52dc63}">
+		<property name="name">
+			<value>pan2d</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d573b6e2-efa8-44f4-8213-a25a5af81c4a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8188c684-473f-4559-91a5-272892d72988}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8188c684-473f-4559-91a5-272892d72988}">
+		<property name="minimum">
+			<value>-100</value>
+		</property>
+		<property name="maximum">
+			<value>100</value>
+		</property>
+		<property name="initialValue">
+			<value>98.019801980198025</value>
+		</property>
+	</object>
+</objects>

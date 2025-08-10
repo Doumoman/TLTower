@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2353503323013563044}
   - component: {fileID: 2957562379252744426}
   - component: {fileID: -47168652556677343}
+  - component: {fileID: -7148024006794659604}
   m_Layer: 0
   m_Name: BN_BG
   m_TagString: Untagged
@@ -248,3 +249,17 @@ MonoBehaviour:
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
+  CollisionSound: 0.5
+  maxSound: 1
+--- !u!114 &-7148024006794659604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618928910048275170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
