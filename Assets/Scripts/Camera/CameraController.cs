@@ -171,7 +171,7 @@ public class CameraController : MonoBehaviour
                     return Mathf.Infinity;
 
                 //가을 챕터에서는 다음 체크포인트가 기준
-                limit = cm.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn + 1].transform.position.y - 3;
+                limit = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn + 1].transform.position.y - 3;
             }
             /* ② 그 외 챕터는 StoneFixer 기준 */
             else
@@ -204,7 +204,7 @@ public class CameraController : MonoBehaviour
         else
         {
             ChapterManager cm = ChapterManager.Instance;
-            if (cm.chapter.ToString().Contains("autumn")) minY = cm.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
+            if (cm.chapter.ToString().Contains("autumn")) minY = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
             else minY = TopLimit - 5f;
         }
         targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);

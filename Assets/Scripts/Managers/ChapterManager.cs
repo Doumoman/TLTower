@@ -36,7 +36,7 @@ public class ChapterManager : MonoBehaviour
 
     [Header("References")]
     public List<SeasonObstacle> seasonalObstacles;
-    public GameObject[] CloudCheckPoint;
+    public static GameObject[] CloudCheckPoint;
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")] public int[] stonesForChapter = new int[(int)chapter.space];
@@ -100,11 +100,6 @@ public class ChapterManager : MonoBehaviour
                 }
             }
             seasonalObstacles = newItems.OrderBy(se => se.season).ToList();
-        }
-
-        if (CloudCheckPoint == null || CloudCheckPoint.Length != ((int)chapter.winter - (int)chapter.autumn + 1))
-        {
-            CloudCheckPoint = new GameObject[(int)chapter.winter - (int)chapter.autumn + 1];
         }
     }
 

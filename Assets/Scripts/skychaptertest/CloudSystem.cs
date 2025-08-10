@@ -65,7 +65,7 @@ public class CloudSystem : MonoBehaviour
         FindHighestJM();
         StartCoroutine(MoveCamera());
 
-        if (ChapterManager.Instance.chapter != chapter.winter) ChapterManager.Instance.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
+        if (ChapterManager.Instance.chapter != chapter.winter) ChapterManager.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
         cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
 
         SkyCloudSpawner.Instance.Changedirection();
