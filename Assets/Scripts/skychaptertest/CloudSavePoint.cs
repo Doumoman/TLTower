@@ -14,4 +14,9 @@ public class CloudSavePoint : MonoBehaviour
             Destroy(this);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (this.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) Destroy(jmp);
+    }
 }

@@ -127,10 +127,19 @@ public class ChapterManager : MonoBehaviour
         }
 
         //가을챕터 체크포인트 설정
+        int targetLayer = LayerMask.NameToLayer("SkySavePoint");    //  모든 오브젝트 찾기 (씬 전체)
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();  //  특정 레이어 필터링
+        CloudCheckPoint = allObjects
+            .Where(obj => obj.layer == targetLayer)
+            .OrderBy(obj => obj.transform.position.y)   // Y좌표 오름차순
+            .ToArray();
         if (chapter.ToString().Contains("autumn"))
         {
             CloudSystem.Instance.SetSavePoint(CloudCheckPoint[(int)chapter - (int)chapter.autumn]);
         }
+
+
+        
     }
 
     //돌 개수 확인 후 챕터전환 확인

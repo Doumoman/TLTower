@@ -55,7 +55,6 @@ public class CloudSystem : MonoBehaviour
     {
         savePoint = go;
         float force = breakForce;
-        if (nodes[0].TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) Destroy(jmp);
         DestroyAll(true);
         yield return null;  //jm이 사라지길 한 프레임 기다리기
 
@@ -134,7 +133,7 @@ public class CloudSystem : MonoBehaviour
 
     public int GetNodeLength()
     {
-        List<JointMaker> newNodes = nodes;
+        List<JointMaker> newNodes = new List<JointMaker>(nodes);
         foreach(JointMaker node in nodes)
         {
             if (node == null) newNodes.Remove(node);
