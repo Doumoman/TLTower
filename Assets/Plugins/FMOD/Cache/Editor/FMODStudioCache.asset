@@ -54,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-9109198806511486562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_bend
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_bend
+  Guid:
+    Data1: 546155836
+    Data2: 1115748080
+    Data3: -1693770597
+    Data4: -1829706075
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-9078367271964038683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,6 +2115,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6390043935370520431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_long
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_long
+  Guid:
+    Data1: -901465320
+    Data2: 1331743352
+    Data3: -127741796
+    Data4: 248949331
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6384703055732997287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,10 +3068,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638903894280878376
+  lastModified: 638908244477779895
   FileSizes:
   - Name: Desktop
-    Value: 6774
+    Value: 6978
   Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
@@ -5711,6 +5765,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1687622329000582435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_short
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_short
+  Guid:
+    Data1: -825458969
+    Data2: 1132001551
+    Data3: 913070264
+    Data4: 1089584094
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1593446443045426107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6844,13 +6925,18 @@ MonoBehaviour:
   - {fileID: -4096043802494871304}
   - {fileID: -2104074342627388311}
   - {fileID: 5216762146703807786}
+  - {fileID: -6390043935370520431}
+  - {fileID: -9109198806511486562}
+  - {fileID: 8280782319899552738}
+  - {fileID: -1687622329000582435}
+  - {fileID: 3450192202925187538}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638903896146148113
+  cacheTime: 638908257132253211
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -7112,6 +7198,16 @@ MonoBehaviour:
     index: 128
   - key: event:/SFX/stone_small
     index: 129
+  - key: event:/SFX/stroke_long
+    index: 130
+  - key: event:/SFX/stroke_bend
+    index: 131
+  - key: event:/SFX/stroke_short_2
+    index: 132
+  - key: event:/SFX/stroke_short
+    index: 133
+  - key: event:/SFX/stroke_medium
+    index: 134
 --- !u!114 &39619653358434118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9949,6 +10045,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3450192202925187538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_medium
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_medium
+  Guid:
+    Data1: -1553728777
+    Data2: 1311022885
+    Data3: -1082694496
+    Data4: 1265490972
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3487105402585786619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10129,7 +10252,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 7603463501607760657}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -10872,7 +10995,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638903894280865153
+  lastModified: 638908244477759112
   FileSizes:
   - Name: Desktop
     Value: 2066
@@ -12658,10 +12781,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638903896146148113
+  lastModified: 638908257132253211
   FileSizes:
   - Name: Desktop
-    Value: 1193856
+    Value: 1326624
   Exists: 1
 --- !u!114 &7605214536590483158
 MonoBehaviour:
@@ -13090,6 +13213,33 @@ MonoBehaviour:
   Banks:
   - {fileID: -3897477470145983205}
   IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8280782319899552738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_short_2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_short_2
+  Guid:
+    Data1: -535862133
+    Data2: 1136714795
+    Data3: -618939768
+    Data4: 319416370
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []

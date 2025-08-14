@@ -3162,7 +3162,6 @@ GameObject:
   - component: {fileID: 692386033}
   - component: {fileID: 692386041}
   - component: {fileID: 692386042}
-  - component: {fileID: 692386043}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3252,22 +3251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bee0b41d8d7674ab41ef009220ffd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
---- !u!111 &692386043
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692386032}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 78cab8fddc893d0468ee7a0e70ba7c9f, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  speed: 1
+  enableTrace: 1
+  traceEveryNFrames: 30
 --- !u!1 &719568108
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,8 +6760,6 @@ PlayableDirector:
     value: {fileID: 638379325}
   - key: {fileID: 0}
     value: {fileID: 719568109}
-  - key: {fileID: 3167768071058350573, guid: a200ea989f090e342843f0cfeb1f0f73, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -8779470346730424954, guid: a200ea989f090e342843f0cfeb1f0f73, type: 2}
     value: {fileID: 933802246}
   - key: {fileID: 2222108684213905194, guid: a200ea989f090e342843f0cfeb1f0f73, type: 2}
@@ -6798,8 +6782,6 @@ PlayableDirector:
     value: {fileID: 1696282818}
   - key: {fileID: 6770395375616553513, guid: a200ea989f090e342843f0cfeb1f0f73, type: 2}
     value: {fileID: 2072213744}
-  - key: {fileID: 1205461593500838502, guid: a200ea989f090e342843f0cfeb1f0f73, type: 2}
-    value: {fileID: 692386033}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1781841222
@@ -7069,9 +7051,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.037243158
     y: 0
-    width: 1
+    width: 0.9255137
     height: 1
   near clip plane: 0
   far clip plane: 1000
