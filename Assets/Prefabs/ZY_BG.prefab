@@ -236,3 +236,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePath: event:/SFX/
+  rb: {fileID: 0}

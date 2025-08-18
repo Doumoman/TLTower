@@ -10066,7 +10066,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14962,6 +14962,10 @@ MonoBehaviour:
   panel1: {fileID: 0}
   diagDistance: 2500
   diagSpeed: 6000
+  saClouds: []
+  saPanel: {fileID: 0}
+  saDistance: 3000
+  saDurationRange: {x: 3, y: 5}
   presets:
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 0
@@ -25003,7 +25007,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -31147,7 +31151,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -36438,7 +36442,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -37036,7 +37040,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -42157,7 +42161,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -72795,6 +72799,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
   count: 5
   followSpeed: 1
   duration: 30
@@ -72913,8 +72919,9 @@ MonoBehaviour:
   cloudSpawner: {fileID: 2023078721}
   skyStage: {fileID: 346484770}
   cloudLimit: 0
-  cloudLimitList: 08000000050000000f0000000a000000140000000f0000000a0000001e0000001e000000
+  cloudLimitList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   remainingTMP: {fileID: 218071892}
+  breakForce: 0
   waitTime: 1
   moveTime: 2.5
 --- !u!4 &797172749
@@ -73214,7 +73221,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -78360,7 +78367,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -78758,9 +78765,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5662a1a0bbba43647b3af8274f11efee, type: 3}
   - {fileID: 21300000, guid: 270de5f4a3dab8541bf354dc2dc9a247, type: 3}
   autumn:
-  - {fileID: 21300000, guid: 5bc5545d309c275499759bd97ccdfa34, type: 3}
-  - {fileID: 21300000, guid: 29fa0ee4864436b458b38369ae876238, type: 3}
-  - {fileID: 21300000, guid: fc9e08473953c004a99705b152b0d9f0, type: 3}
+  - {fileID: 21300000, guid: 3fa9243c19fd8574e947c77e89b60c55, type: 3}
+  - {fileID: 21300000, guid: 30303582336029a43af45638a02e4cbc, type: 3}
+  - {fileID: 21300000, guid: 7919363be0a2f454ebbb22639b3eb5c4, type: 3}
   winter:
   - {fileID: 21300000, guid: b6a6a274909900a49aa50dd5268649c3, type: 3}
   - {fileID: 21300000, guid: 7a6ec5f9b824f92468a13ad56a31bfda, type: 3}
@@ -95243,6 +95250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -136196,6 +136205,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
   count: 5
   duration: 10
   ps: {fileID: 1280793119}
@@ -136307,7 +136318,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -141868,6 +141879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chance:
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -166772,7 +166785,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181854,7 +181867,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182002,7 +182015,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92f7d21a5a0c4fa4faff6665e4d45240, type: 3}
-  m_Color: {r: 0.7924528, g: 0.6341163, b: 0.35510856, a: 1}
+  m_Color: {r: 0.8867924, g: 0.7768673, b: 0.6734603, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188198,18 +188211,11 @@ MonoBehaviour:
     - {fileID: 1276775303}
   - season: 19
     obstacles: []
-  CloudCheckPoint:
-  - {fileID: 418371992}
-  - {fileID: 2070533721}
-  - {fileID: 1593611528}
-  - {fileID: 1970521651}
-  - {fileID: 974486681}
-  - {fileID: 2043838509}
-  - {fileID: 930900503}
-  - {fileID: 344401267}
-  - {fileID: 125527004}
-  - {fileID: 461293738}
-  stonesForChapter: 05000000080000000d00000012000000080000000d000000120000000000000000000000000000000000000000000000000000000000000000000000000000001e0000000d00000001000000
+  - season: 20
+    obstacles: []
+  - season: 21
+    obstacles: []
+  stonesForChapter: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   waitTimeBeforeChange: 2
   idleScript: 
 --- !u!4 &7441153810912732321

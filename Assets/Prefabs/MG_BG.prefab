@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.48419505, y: 0.27981174, z: -9.955858}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1.25}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 1.375}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -240,3 +240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePath: event:/SFX/
+  rb: {fileID: 0}

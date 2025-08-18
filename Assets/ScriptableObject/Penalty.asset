@@ -20,8 +20,8 @@ MonoBehaviour:
   - {fileID: -1213639076, guid: 9d98417f300c7bd4a9944646e6d5271b, type: 3}
   backgroundPrefab: {fileID: 7618928910048275170, guid: 256a51ac9c614784a9ff134b7f934911, type: 3}
   playablePrefab: {fileID: 8381074090682818706, guid: 90d1f6adfe2359c448eda53aaa240942, type: 3}
-  mass: 100
-  angularDrag: 0.05
+  mass: 10
+  angularDrag: 0.1
   gravityScale: 1
   scale: {x: 0, y: 0}
   material2D: {fileID: 0}

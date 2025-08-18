@@ -23,4 +23,4 @@ MonoBehaviour:
   gravityScale: 1
   scale: {x: 0, y: 0}
   material2D: {fileID: 0}
-  spawnChance: 1
+  spawnChance: 0

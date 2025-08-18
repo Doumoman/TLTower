@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 9
+  targetChapter: 14
   toggle: 0
 --- !u!95 &288178984
 Animator:
@@ -6969,7 +6969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1793554342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7051,9 +7051,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.037243158
+    x: 0
     y: 0
-    width: 0.9255137
+    width: 1
     height: 1
   near clip plane: 0
   far clip plane: 1000
