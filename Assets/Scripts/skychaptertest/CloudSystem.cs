@@ -66,11 +66,13 @@ public class CloudSystem : MonoBehaviour
         StartCoroutine(MoveCamera());
 
         if (ChapterManager.Instance.chapter != chapter.winter) ChapterManager.CloudCheckPoint[(int)ChapterManager.Instance.chapter - (int)chapter.autumn + 1].AddComponent<CloudSavePoint>();
-        cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
+        if (ChapterManager.Instance.chapter < chapter.winter)
+        {
+            cloudLimit = cloudLimitList[(int)ChapterManager.Instance.chapter - (int)chapter.autumn];
+            UpdateUI();
+        }
 
         SkyCloudSpawner.Instance.Changedirection();
-
-        UpdateUI();
         //SkyCloudSpawner cs = cloudSpawner.GetComponent<SkyCloudSpawner>();
         //cs.Changedirection();
     }

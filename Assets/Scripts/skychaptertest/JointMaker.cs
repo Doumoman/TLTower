@@ -28,7 +28,13 @@ public class JointMaker : MonoBehaviour
         //조인트된 구름 설정
         if (TryGetComponent<CloudController>(out CloudController c)) c.Jointed();
 
-        if (jm && jm.gameObject == CloudSystem.Instance.savePoint) GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
+        //체크포인트에 연결된 경우
+        if (jm && jm.gameObject == CloudSystem.Instance.savePoint)
+        {
+            //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //체크포인트랑 닿은건 고정시킴
+            if (c) c.IgnoreCollision(jm.gameObject);
+
+        }
     }
 
     //날 잡고있던 조인트 파괴시, 날 잡던 구름을 initial 리스트에서 제거하기. 그리고 검사 실행

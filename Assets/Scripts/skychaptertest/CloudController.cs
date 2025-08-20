@@ -243,6 +243,16 @@ public class CloudController : MonoBehaviour,
         Destroy(gameObject);
     }
 
+    //구름의 bone들과 특정 오브젝트(체크포인트)와의 충돌 무시
+    public void IgnoreCollision(GameObject go)
+    {
+        foreach (Collider2D col in colChildren)
+        {
+            Physics2D.IgnoreCollision(col, go.GetComponent<Collider2D>());
+        }
+    }
+
+
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
     {
