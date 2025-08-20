@@ -980,6 +980,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8116825221523852642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_short
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_short
+  Guid:
+    Data1: -825458969
+    Data2: 1132001551
+    Data3: 913070264
+    Data4: 1089584094
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8093379698021571674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,7 +3095,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638908244477779895
+  lastModified: 638913031536984137
   FileSizes:
   - Name: Desktop
     Value: 6978
@@ -5157,6 +5184,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2521433482904749694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_medium
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_medium
+  Guid:
+    Data1: -1553728777
+    Data2: 1311022885
+    Data3: -1082694496
+    Data4: 1265490972
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2517239924116819064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5389,7 +5443,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Pause.bank
   Name: Pause
   StudioPath: bank:/Pause
-  lastModified: 638903797723085450
+  lastModified: 638898237959774091
   FileSizes:
   - Name: Desktop
     Value: 448800
@@ -5758,6 +5812,33 @@ MonoBehaviour:
     Data4: 646577504
   Banks:
   - {fileID: -6293906536586783629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1719461418991010879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_bend
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_bend
+  Guid:
+    Data1: 546155836
+    Data2: 1115748080
+    Data3: -1693770597
+    Data4: -1829706075
+  Banks:
+  - {fileID: 7603463501607760657}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6925,18 +7006,18 @@ MonoBehaviour:
   - {fileID: -4096043802494871304}
   - {fileID: -2104074342627388311}
   - {fileID: 5216762146703807786}
-  - {fileID: -6390043935370520431}
-  - {fileID: -9109198806511486562}
-  - {fileID: 8280782319899552738}
-  - {fileID: -1687622329000582435}
-  - {fileID: 3450192202925187538}
+  - {fileID: 7357433554935351446}
+  - {fileID: -1719461418991010879}
+  - {fileID: 1771277386108883181}
+  - {fileID: -8116825221523852642}
+  - {fileID: -2521433482904749694}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638908257132253211
+  cacheTime: 638913031537322653
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -8647,6 +8728,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1771277386108883181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_short_2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_short_2
+  Guid:
+    Data1: -535862133
+    Data2: 1136714795
+    Data3: -618939768
+    Data4: 319416370
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1776500317335012410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9321,7 +9429,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638903797719954888
+  lastModified: 638903386372403382
   FileSizes:
   - Name: Desktop
     Value: 16722624
@@ -9665,7 +9773,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638903797739839262
+  lastModified: 638903386373003507
   FileSizes:
   - Name: Desktop
     Value: 4690144
@@ -10995,7 +11103,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638908244477759112
+  lastModified: 638904266322223116
   FileSizes:
   - Name: Desktop
     Value: 2066
@@ -12577,6 +12685,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7357433554935351446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/stroke_long
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/stroke_long
+  Guid:
+    Data1: -901465320
+    Data2: 1331743352
+    Data3: -127741796
+    Data4: 248949331
+  Banks:
+  - {fileID: 7603463501607760657}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7444014133838602478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12781,7 +12916,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638908257132253211
+  lastModified: 638913031537322653
   FileSizes:
   - Name: Desktop
     Value: 1326624
