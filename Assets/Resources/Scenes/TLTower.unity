@@ -10122,18 +10122,18 @@ MonoBehaviour:
   presets:
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 0
-    position: {x: 7, y: 3}
+    position: {x: 7, y: 5.5}
     rotationZ: -97.3
-    spawnDelay: 0
-  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
-    spriteIndex: 1
-    position: {x: -7, y: 3}
-    rotationZ: -44.8
     spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 2
     position: {x: 7, y: 8}
     rotationZ: 22.87
+    spawnDelay: 0
+  - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
+    spriteIndex: 1
+    position: {x: -7, y: 3}
+    rotationZ: -44.8
     spawnDelay: 0
   - stoneData: {fileID: 11400000, guid: 4dfd2d20c1757b041a0117596063c7ac, type: 2}
     spriteIndex: 3
@@ -10149,8 +10149,8 @@ MonoBehaviour:
   fadeInDuration: 4
   glowObjects:
   - {fileID: 987101705}
-  - {fileID: 240604452}
   - {fileID: 1561074820}
+  - {fileID: 240604452}
   - {fileID: 1186295569}
   - {fileID: 967942393}
   glowSortingOrder: 100
@@ -20216,7 +20216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedIndex: 0
-  snapRange: 1
+  snapRange: 1.5
   snapPoint: {fileID: 171687183}
   snapRotationZ: -87.8
   snapTime: 3
@@ -106071,7 +106071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedIndex: 3
-  snapRange: 1
+  snapRange: 1.5
   snapPoint: {fileID: 1287000890}
   snapRotationZ: 0
   snapTime: 3
@@ -106419,8 +106419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5ba91312bba834fb84b1f8e9897511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expectedIndex: 1
-  snapRange: 1
+  expectedIndex: 2
+  snapRange: 1.5
   snapPoint: {fileID: 1336854761}
   snapRotationZ: -42.03
   snapTime: 3
@@ -112053,10 +112053,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5ba91312bba834fb84b1f8e9897511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expectedIndex: 2
-  snapRange: 1
+  expectedIndex: 1
+  snapRange: 1.5
   snapPoint: {fileID: 1381699796}
-  snapRotationZ: -20.36
+  snapRotationZ: 0
   snapTime: 3
 --- !u!58 &1381699798
 CircleCollider2D:
@@ -128014,7 +128014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedIndex: 4
-  snapRange: 1
+  snapRange: 1.5
   snapPoint: {fileID: 1544632875}
   snapRotationZ: -21.48
   snapTime: 3
@@ -143306,17 +143306,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistHalos:
-  - {fileID: 706396535}
-  - {fileID: 1931850630}
   - {fileID: 980140411}
-  - {fileID: 220068561}
   - {fileID: 1861673487}
+  - {fileID: 706396535}
+  - {fileID: 220068561}
+  - {fileID: 1931850630}
   flashHalos:
-  - {fileID: 1500741983}
-  - {fileID: 392753045}
   - {fileID: 830690310}
-  - {fileID: 160127635}
   - {fileID: 77154718}
+  - {fileID: 1500741983}
+  - {fileID: 160127635}
+  - {fileID: 392753045}
   delayBetweenHalos: 4
   flashDuration: 1
   fadeInTime: 0.5
