@@ -15,14 +15,14 @@ MonoBehaviour:
   typeId: 0
   stoneName: BT
   sprites:
-  - {fileID: 312863867, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: 962757676, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: 1040602687, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: -400604574, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: 1292271185, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: 413853046, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: 1841264901, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
-  - {fileID: -941917470, guid: ae7581dc61f41bd4cb78a55a82673002, type: 3}
+  - {fileID: -804722156, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -1722756687, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -1973729470, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -1789527771, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -1438206403, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -1073089856, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: -2049337589, guid: 079d536a0cbd154438028f444f55c687, type: 3}
+  - {fileID: 856649934, guid: 079d536a0cbd154438028f444f55c687, type: 3}
   - {fileID: 485340221, guid: adc383de5dad4864c80d68aa58d3cb73, type: 3}
   - {fileID: 1991718401, guid: adc383de5dad4864c80d68aa58d3cb73, type: 3}
   - {fileID: 787991144, guid: adc383de5dad4864c80d68aa58d3cb73, type: 3}

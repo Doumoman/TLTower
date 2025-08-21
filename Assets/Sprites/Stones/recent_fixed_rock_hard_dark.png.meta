@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: b7ce76546a33eb244a17bee245ae5b6e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1473
+        width: 595
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94e9279403198b4cada6ddeb0c94ef1
+      internalID: 2061427066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_1
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 1509
+        width: 754
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d502e9d48afcda459059ba8da077b2e
+      internalID: 130990653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 926
+        width: 783
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6445f9c4182cd48a3ca21e2654aa87
+      internalID: -281403834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 888
+        width: 595
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c110cfb4d89a02e45bff90a06dc461ae
+      internalID: -358589778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_38
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 402
+        width: 739
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3a5623c6f2d544ea56458617b67e8e
+      internalID: 1143956843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_64
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 414
+        width: 633
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d448bb77ebea6418af46568418dfea
+      internalID: -1704950741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_71
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 17
+        width: 705
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3c6ddbb0fe33340a71ef260f215e38
+      internalID: -2057370677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recent_fixed_rock_hard_dark_72
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 607
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a30bd66736c76642999ab4c3b81e420
+      internalID: -1674588714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      recent_fixed_rock_hard_dark_0: 2061427066
+      recent_fixed_rock_hard_dark_1: 130990653
+      recent_fixed_rock_hard_dark_10: -159506615
+      recent_fixed_rock_hard_dark_11: -1816362069
+      recent_fixed_rock_hard_dark_12: -454226958
+      recent_fixed_rock_hard_dark_13: -1043648548
+      recent_fixed_rock_hard_dark_14: -341051065
+      recent_fixed_rock_hard_dark_15: 436739388
+      recent_fixed_rock_hard_dark_16: -75841573
+      recent_fixed_rock_hard_dark_17: 2000323812
+      recent_fixed_rock_hard_dark_18: -1904589093
+      recent_fixed_rock_hard_dark_19: 1677955548
+      recent_fixed_rock_hard_dark_2: -1663526778
+      recent_fixed_rock_hard_dark_20: 176822091
+      recent_fixed_rock_hard_dark_21: 1695541606
+      recent_fixed_rock_hard_dark_22: 460904917
+      recent_fixed_rock_hard_dark_23: 1557807200
+      recent_fixed_rock_hard_dark_24: 1608002436
+      recent_fixed_rock_hard_dark_25: -1108873215
+      recent_fixed_rock_hard_dark_26: -1535902731
+      recent_fixed_rock_hard_dark_27: -1936720522
+      recent_fixed_rock_hard_dark_28: 1141114015
+      recent_fixed_rock_hard_dark_29: 959533238
+      recent_fixed_rock_hard_dark_3: 650628394
+      recent_fixed_rock_hard_dark_30: -1980821900
+      recent_fixed_rock_hard_dark_31: 644139596
+      recent_fixed_rock_hard_dark_32: 12240630
+      recent_fixed_rock_hard_dark_33: -846427961
+      recent_fixed_rock_hard_dark_34: 1807282222
+      recent_fixed_rock_hard_dark_35: -1654544049
+      recent_fixed_rock_hard_dark_36: -591194510
+      recent_fixed_rock_hard_dark_37: -254217593
+      recent_fixed_rock_hard_dark_38: 1143956843
+      recent_fixed_rock_hard_dark_39: -573381932
+      recent_fixed_rock_hard_dark_4: 1260717535
+      recent_fixed_rock_hard_dark_40: 120085828
+      recent_fixed_rock_hard_dark_41: -1441521957
+      recent_fixed_rock_hard_dark_42: 1079992402
+      recent_fixed_rock_hard_dark_43: 1112609174
+      recent_fixed_rock_hard_dark_44: -867334352
+      recent_fixed_rock_hard_dark_45: -506392402
+      recent_fixed_rock_hard_dark_46: -2123886739
+      recent_fixed_rock_hard_dark_47: -245187479
+      recent_fixed_rock_hard_dark_48: -679916286
+      recent_fixed_rock_hard_dark_49: 424593677
+      recent_fixed_rock_hard_dark_5: 958663841
+      recent_fixed_rock_hard_dark_50: -1154288194
+      recent_fixed_rock_hard_dark_51: -1177980833
+      recent_fixed_rock_hard_dark_52: -1774861988
+      recent_fixed_rock_hard_dark_53: -1937124800
+      recent_fixed_rock_hard_dark_54: -798985796
+      recent_fixed_rock_hard_dark_55: -1533822931
+      recent_fixed_rock_hard_dark_56: 1042718207
+      recent_fixed_rock_hard_dark_57: 1847871678
+      recent_fixed_rock_hard_dark_58: 176704761
+      recent_fixed_rock_hard_dark_59: 2054719177
+      recent_fixed_rock_hard_dark_6: 1264833836
+      recent_fixed_rock_hard_dark_60: -1480609227
+      recent_fixed_rock_hard_dark_61: 1242742398
+      recent_fixed_rock_hard_dark_62: 1547875269
+      recent_fixed_rock_hard_dark_63: -860413367
+      recent_fixed_rock_hard_dark_64: -1704950741
+      recent_fixed_rock_hard_dark_65: -158863478
+      recent_fixed_rock_hard_dark_66: 1386830595
+      recent_fixed_rock_hard_dark_67: -1242539184
+      recent_fixed_rock_hard_dark_68: 1502004192
+      recent_fixed_rock_hard_dark_69: -922962247
+      recent_fixed_rock_hard_dark_7: 1548215470
+      recent_fixed_rock_hard_dark_70: 81856136
+      recent_fixed_rock_hard_dark_71: -2057370677
+      recent_fixed_rock_hard_dark_72: -1674588714
+      recent_fixed_rock_hard_dark_73: -1223644066
+      recent_fixed_rock_hard_dark_74: -1541604147
+      recent_fixed_rock_hard_dark_75: -1157778615
+      recent_fixed_rock_hard_dark_76: -2129128660
+      recent_fixed_rock_hard_dark_8: -281403834
+      recent_fixed_rock_hard_dark_9: -358589778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

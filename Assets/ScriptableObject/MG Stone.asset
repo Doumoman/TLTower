@@ -15,14 +15,14 @@ MonoBehaviour:
   typeId: 1
   stoneName: MG
   sprites:
-  - {fileID: 784181730, guid: 86d6aaa83679d51408b0eded02798f1a, type: 3}
-  - {fileID: 784181730, guid: 86d6aaa83679d51408b0eded02798f1a, type: 3}
-  - {fileID: 1828609507, guid: 86d6aaa83679d51408b0eded02798f1a, type: 3}
-  - {fileID: 353431667, guid: ef4323764aa4f0c44aab9d3667efcc1f, type: 3}
-  - {fileID: -1997388667, guid: 86d6aaa83679d51408b0eded02798f1a, type: 3}
-  - {fileID: 462626468, guid: ef4323764aa4f0c44aab9d3667efcc1f, type: 3}
-  - {fileID: 2050151683, guid: ef4323764aa4f0c44aab9d3667efcc1f, type: 3}
-  - {fileID: -1447206384, guid: ef4323764aa4f0c44aab9d3667efcc1f, type: 3}
+  - {fileID: 2061427066, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: 130990653, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: -281403834, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: -358589778, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: 1143956843, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: -1704950741, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: -2057370677, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
+  - {fileID: -1674588714, guid: b7ce76546a33eb244a17bee245ae5b6e, type: 3}
   backgroundPrefab: {fileID: 1384864364383070363, guid: fbaafd02959f5e74582e07475c8edff8, type: 3}
   playablePrefab: {fileID: 6879320011222045551, guid: f3be5c5275d35c54c82250f4e8d892c0, type: 3}
   mass: 10
