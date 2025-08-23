@@ -32,10 +32,16 @@ public class StoneFixer : MonoBehaviour
     {
         if (sc.state != StoneState.Settled) return;
 
-        // 최고 높이 갱신
-        if (sc.transform.position.y > HighestSettledY)
+        float topY = sc.transform.position.y;
+
+        if (sc.TryGetComponent(out Collider2D col))
         {
-            HighestSettledY = sc.transform.position.y;
+            topY = col.bounds.max.y;
+        }
+        // 최고 높이 갱신
+        if (topY > HighestSettledY)
+        {
+            HighestSettledY = topY;
             CameraController.Instance.CenterOnY(HighestSettledY);
         }
         if (sc.transform.position.y > HighestFixedY)
@@ -52,7 +58,7 @@ public class StoneFixer : MonoBehaviour
             wave++;
             Vector3 spawnPos = new(
                 0f,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
-                HighestSettledY + 1.5f,
+                HighestSettledY + 2f,
                 0f);
             currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
             // SavePoint 스크립트에 StoneFixer 참조를 자동으로 넘기려면 다음 라인 추가

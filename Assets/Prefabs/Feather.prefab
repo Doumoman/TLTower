@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018c9ea0ccb24e4cbc5f8bf35c9fea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 2
   fadeOutSpeed: 1
 --- !u!61 &4839344393442477493
 BoxCollider2D:

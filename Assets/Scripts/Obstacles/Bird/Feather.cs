@@ -7,8 +7,14 @@ public class Feather : MonoBehaviour
 {
     public float duration = 5f;
     public float fadeOutSpeed = 0.1f;
+    float lifeSpan = 7f;
 
     Coroutine co = null;
+
+    private void Start()
+    {
+        co = StartCoroutine(Life());
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +25,7 @@ public class Feather : MonoBehaviour
         if (TryGetComponent<Animator>(out Animator animator)) Destroy(animator);
         if (co != null) StopCoroutine(co);
         co = null;
-        co = StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeOut()
@@ -38,6 +44,12 @@ public class Feather : MonoBehaviour
             yield return null;
         }
 
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
+    }
+
+    IEnumerator Life()
+    {
+        yield return new WaitForSeconds(duration);
+        StartCoroutine(FadeOut());
     }
 }

@@ -74,10 +74,10 @@ public class BirdSpawner : MonoBehaviour
         while (safty-- > 0)
         {
             RandomPoint();
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 20);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 15);
             foreach (RaycastHit2D hit in hits)
             {
-                if (hit.collider.gameObject.tag == "PlacedStone")
+                if (hit.collider.gameObject.TryGetComponent<StoneController>(out StoneController sc) && sc.state == StoneState.Settled)
                 {
                     hitPoint = hit.point;
                     stone = hit.collider.gameObject;
@@ -88,6 +88,7 @@ public class BirdSpawner : MonoBehaviour
             {
                 break;
             }
+            hitPoint = Vector2.zero;
         }
     }
     void GetStonePoint(out Vector2 hitPoint) => GetStonePoint(out hitPoint, out GameObject _);
@@ -97,17 +98,17 @@ public class BirdSpawner : MonoBehaviour
     IEnumerator DropBirdPoop()
     {
         GetStonePoint(out Vector2 hitpoint);
-        GameObject go = MakeNotice();
-        yield return new WaitForSeconds(waitAfterFeather); //예고 발생 후 기다리기
-        if (go) Destroy(go);
-
         if (hitpoint != Vector2.zero)
         {
+            GameObject go = MakeNotice();
+            yield return new WaitForSeconds(waitAfterFeather); //예고 발생 후 기다리기
+            //if (go) Destroy(go);
+
             Instantiate(birdPoop, transform.position, Quaternion.Euler(0, 0, 90));
         }
         else
         {
-            Debug.Log("can't find 'PlacedStone' by raycast");
+            Debug.Log("can't find 'Settled Stone' by raycast");
         }
     }
 
@@ -117,31 +118,41 @@ public class BirdSpawner : MonoBehaviour
     IEnumerator SendBird()
     {
         GetStonePoint(out Vector2 hitPoint, out GameObject stone);
-        GameObject go = MakeNotice();
-        yield return new WaitForSeconds(waitAfterFeather);
-        if (go) Destroy(go);
 
-        hitPoint = Vector2.zero;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 10);
-        foreach (RaycastHit2D hit in hits)
-        {
-            if (hit.collider.gameObject.tag == "PlacedStone")
-            {
-                hitPoint = hit.point;
-                stone = hit.collider.gameObject;
-            }
-        }
         if (hitPoint != Vector2.zero)
         {
-            PlaySound(voiceProb, "Bird");
+            GameObject go = MakeNotice();
+            yield return new WaitForSeconds(waitAfterFeather);
+            //if (go) Destroy(go);
 
-            //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
-            GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
-            aliveBird.GetComponent<Bird>().Init(stone, hitPoint, sittime);
+            hitPoint = Vector2.zero;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 15);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider.gameObject.TryGetComponent<StoneController>(out StoneController sc) && sc.state == StoneState.Settled)
+                {
+                    hitPoint = hit.point;
+                    stone = hit.collider.gameObject;
+                    break;
+                }
+            }
+
+            if (hitPoint != Vector2.zero)
+            {
+                //PlaySound(voiceProb, "Bird");
+
+                //hit 지점의 x좌표가 0이상이면 화면 오른쪽 밖에, 아니면 화면 왼쪽 밖에 생성
+                GameObject aliveBird = (hitPoint.x >= 0) ? Instantiate(bird, new Vector2(15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0)) : Instantiate(bird, new Vector2(-15, hitPoint.y + 5), Quaternion.Euler(0, 0, 0));
+                aliveBird.GetComponent<Bird>().Init(stone, hitPoint, sittime);
+            }
+            else
+            {
+                Debug.Log("can't find 'Settled Stone' by raycast");
+            }
         }
         else
         {
-            Debug.Log("can't find 'PlacedStone' by raycast");
+            Debug.Log("can't find 'Settled Stone' by raycast");
         }
     }
     [SerializeField] private int voiceThreshold = 3;
