@@ -48,7 +48,7 @@ public class RainSystem : CountBasedObstacle
             first = false;
         }
         else BosalManager.Instance.Speak("RainStart");
-        GuideManager.Instance.PlayGuide("rain");
+        GuideManager.Instance.PlayGuide("rain", 2f);
 
         if (ChapterManager.Instance.chapter == chapter.summer)
             SoundManager.Instance.PlayBGM("Summer", 3);
@@ -82,6 +82,13 @@ public class RainSystem : CountBasedObstacle
 
     public void StopRain()
     {
+        if (ChapterManager.Instance.chapter == chapter.summer)
+            SoundManager.Instance.PlayBGM("Summer", 1);
+        else if (ChapterManager.Instance.chapter == chapter.summer2 ||
+                 ChapterManager.Instance.chapter == chapter.summer3 ||
+                 ChapterManager.Instance.chapter == chapter.summer4)
+            SoundManager.Instance.PlayBGM("Summer", 2);
+
         stoneDatas = StoneSpawner.Instance.stoneDataList;
         foreach (var item in stoneDatas)
         {

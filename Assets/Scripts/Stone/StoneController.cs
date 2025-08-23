@@ -489,8 +489,8 @@ public class StoneController : MonoBehaviour,
     }
 
     #region 음향
-    private float CollisionSound = 0.15f;
-    private float maxSound = 2f;
+    private float CollisionSound = 0.3f;
+    private float maxSound = 4f;
     private float minSound = 0;
     private StudioEventEmitter em;
     

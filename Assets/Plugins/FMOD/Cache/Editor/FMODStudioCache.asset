@@ -3095,7 +3095,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638908244477779895
+  lastModified: 638915588168857236
   FileSizes:
   - Name: Desktop
     Value: 6978
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638908257132253211
+  cacheTime: 638915588168857236
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -11103,10 +11103,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638908244477759112
+  lastModified: 638915588168837118
   FileSizes:
   - Name: Desktop
-    Value: 2066
+    Value: 2082
   Exists: 1
 --- !u!114 &4562151794099893698
 MonoBehaviour:

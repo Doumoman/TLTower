@@ -55,7 +55,7 @@ public class BirdSpawner : MonoBehaviour
         GameObject go = Instantiate(feather);
         go.transform.position = this.transform.position;
         SoundManager.Instance.PlaySFX("bird_alert");
-        GuideManager.Instance.PlayGuide("bird", 2f);
+        GuideManager.Instance.PlayGuide("bird", 6f);
         return go;
     }
     //제일 높은 돌을 기준으로 일정 y좌표 위에서, 무작위로 위치 선정

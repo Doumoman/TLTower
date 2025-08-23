@@ -3,14 +3,13 @@
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=20308 (153137), maxchannels=256, flags=0x00020000
 [LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=44100, nAvgBytesPerSec=352800, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
 [LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 1880 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 512 * 4
-[LOG] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
+[LOG] OutputWASAPI::init                       : Output buffer size: 2048 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 512 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 0
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001BABA99DDD8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001D036F83078 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,11 +19,1208 @@
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9138, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D3F48
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E92C8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E92C8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D4208
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E92C8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001CFA58E9138)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D036AEE228)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D02A366B98)
+[LOG] SoundI::release                          : spring_ambient_001 (000001CFA58E9458)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D036AEE6A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D02A366A08)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9138, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D44C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4627136
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF37DE3C68
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Spring0', format=5, channels=2, frequency=48000, lengthbytes=39232, lengthpcm=160496, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.613007.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9458, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9458
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D3F48
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9458
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001CFA58E9138)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D036AEE3A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2EE1BF18)
+[LOG] SoundI::release                          : spring_ambient_001 (000001CFA58E92C8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D036AEE0A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D02A366878)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] SoundI::release                          :  (000001CFEF675EF8)
+[LOG] SoundI::release                          :     pause (000001CFEF3719F8)
+[LOG] SoundI::release                          :  (000001CFEF676318)
+[LOG] SoundI::release                          :     pause_ambient (000001CFEF372478)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9138, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D4208
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E92C8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E92C8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D4368
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E92C8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001CFA58E9138)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D036AEE6A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2EE1BA68)
+[LOG] SoundI::release                          : spring_ambient_001 (000001CFA58E9458)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D036AEE528)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2EE1C3C8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF417DECB8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='stone_select', format=5, channels=2, frequency=48000, lengthbytes=10240, lengthpcm=38870, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.512543.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF417DBB38
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='rock_fall_02', format=5, channels=2, frequency=48000, lengthbytes=25280, lengthpcm=114102, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.291809.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF417DD3F8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='stone_rotate', format=5, channels=2, frequency=48000, lengthbytes=74592, lengthpcm=278360, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.294769.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9458, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9458
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D44C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9458
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001CFA58E9138, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFA58E9138
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF305D3F48
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFA58E9138
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001CFA58E9458)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D036AEE228)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2EE1BD88)
+[LOG] SoundI::release                          : spring_ambient_001 (000001CFA58E92C8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D036AEE0A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2EE1BBF8)
+[LOG] SoundI::release                          :  (000001CFEF675D98)
+[LOG] SoundI::release                          :     stamp_button (000001CFEF3725F8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D83F8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169D38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D83F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2E78)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001CFA58E9138)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D036AEE3A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2EE1C3C8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D88A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8268, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8268
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8268
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D88A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713998)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D80D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F29F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713E48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8A38, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8A38
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8A38
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D8A38)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D8268)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2E78)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713CB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8268, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8268
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8268
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D83F8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D8268)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D80D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2878)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8268, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8268
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169D38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8268
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D80D8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2878)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D83F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F29F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713E48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D83F8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D80D8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2878)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D8268)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4627136
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF37DE3428
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Spring1', format=5, channels=2, frequency=48000, lengthbytes=38560, lengthpcm=155480, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.568665.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8268, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8268
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8268
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D80D8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2878)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D83F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2E78)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713E48)
+[LOG] SoundI::release                          :  (000001CF505AAF58)
+[LOG] SoundI::release                          :     FindTree0 (000001D0D49CB468)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D83F8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D88A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D83F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D8268)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F29F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D7C28, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D7C28
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D7C28
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D7C28)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2878)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713998)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D88A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2E78)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713E48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D88A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D88A8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D8A38, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D8A38
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169A78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D8A38
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D88A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F29F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D80D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713CB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D83F8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF4316A578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D83F8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D01B0D80D8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CF43169BD8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D01B0D80D8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D01B0D83F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F29F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D8A38)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2878)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068538)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2E78)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D01B0D80D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713CB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A0683A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A0683A8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068538)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2E78)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068088)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F29F8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF675ED8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068218)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F29F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713CB8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A0683A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2878)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713E48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068088)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2E78)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068538)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A0683A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF675ED8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A0683A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F29F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068218)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2878)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713CB8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4627136
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000150065EF18
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCF256D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCF256D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCF256D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCF256D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001CF37DE23A8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Spring2', format=5, channels=2, frequency=48000, lengthbytes=40384, lengthpcm=165511, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.796722.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A0683A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF675ED8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A0683A8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F2E78)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068088)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SoundI::release                          :  (000001D0254E58B8)
+[LOG] SoundI::release                          :     FindTree1 (000001CF2D51F378)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068088)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CFA58F29F8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001D038713E48)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068538)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2878)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713CB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A0683A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF675ED8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A0683A8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068088)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA39D8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA038)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068218)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CFA58F2CF8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001D038713998)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068538)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA39D8)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA4E8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A0683A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA36D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA358)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068538)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA3558)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA358)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068088)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA3B58)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA038)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A0683A8, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A0683A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A0683A8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068088)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA3558)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA038)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068218)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA36D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA4E8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676458
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068538, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068538
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF675ED8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068538
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068218)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA3558)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA4E8)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A0683A8)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA3B58)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA358)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068088, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676198
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068088
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001D02A068218, queue head = 000001CFA58E90F8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D02A068218
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 97088
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFEF676038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='spring_ambient_001', format=5, channels=2, frequency=48000, lengthbytes=803872, lengthpcm=2857586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228516.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D02A068218
+[LOG] SoundI::release                          : Spring_melody_001 (3) (000001D02A068088)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF2DBA3B58)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (000001CF381BA358)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068538)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA3858)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA038)
+[LOG] SoundI::release                          :  (000001CF505AA458)
+[LOG] SoundI::release                          :     Spring0 (000001D0D49CB168)
+[LOG] SoundI::release                          : spring_ambient_001 (000001D02A068218)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF2DBA3558)
+[LOG] SoundI::release                          :     spring_ambient_001 (000001CF381BA4E8)
+[LOG] SoundI::release                          :  (000001D0254E5A18)
+[LOG] SoundI::release                          :     spring_beat_001 (000001CF2D51F1F8)
+[LOG] SoundI::release                          :  (000001CF4316A2D8)
+[LOG] SoundI::release                          :     stone_rotate (000001D0D4B58398)
+[LOG] SoundI::release                          :  (000001CF43169EB8)
+[LOG] SoundI::release                          :     stone_select (000001D0D4B58E18)
+[LOG] SoundI::release                          :  (000001CF4316A018)
+[LOG] SoundI::release                          :     rock_fall_02 (000001D0D4B58218)
+[LOG] SoundI::release                          :  (000001CF505AA718)
+[LOG] SoundI::release                          :     Spring1 (000001D0D49CBA68)
+[LOG] SoundI::release                          :  (000001CF505AAF58)
+[LOG] SoundI::release                          :     Spring2 (000001D0D49CACE8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::closeInternal                   : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -32,3 +1228,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::closeInternal                   : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
