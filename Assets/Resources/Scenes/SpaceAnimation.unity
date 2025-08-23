@@ -5181,7 +5181,7 @@ Transform:
   m_GameObject: {fileID: 468185855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55, y: -3.7, z: 0}
+  m_LocalPosition: {x: -0.55, y: -9.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26418,11 +26418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutTargets:
   - {fileID: 1242118037}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 250453611}
+  - {fileID: 456195083}
+  - {fileID: 1318199864}
+  - {fileID: 579056823}
+  - {fileID: 994431409}
   bodhisattva: {fileID: 1510055818}
   additionalImages:
   - {fileID: 896039093}
