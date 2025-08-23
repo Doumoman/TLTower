@@ -8,13 +8,14 @@ public class SpaceAnimationSequence : MonoBehaviour
     public RiseStage riseStage;
     public TransitionStage transitionStage;
 
-    [Header("Optional Extras")]
-    public ParticleSystem spaceParticles;
-
     [Header("Screen Fade-In")]
     public float delay = 1f;
     public SpriteRenderer blackScreen;   // 전체 화면을 덮는 검은 SpriteRenderer
     public float fadeInTime = 1f;        // 알파 1 → 0 으로 줄이는 시간
+
+    [Header("Particles")]
+    [SerializeField] GameObject particleRoot;
+
     void Start()
     {
         // 필요하면 자동 Play
@@ -42,6 +43,9 @@ public class SpaceAnimationSequence : MonoBehaviour
         //spaceParticles?.Play();
         yield return transitionStage.Run();
 
+        if (particleRoot)
+            ActivateWithParents(particleRoot);
+
     }
     IEnumerator FadeInFromBlack()
     {
@@ -61,5 +65,16 @@ public class SpaceAnimationSequence : MonoBehaviour
         }
         c.a = 0f;
         blackScreen.color = c;
+    }
+    static void ActivateWithParents(GameObject go)
+    {
+        var t = go.transform;
+        var stack = new Stack<Transform>();
+        while (t != null) { stack.Push(t); t = t.parent; }
+        while (stack.Count > 0)
+        {
+            var tr = stack.Pop();
+            if (!tr.gameObject.activeSelf) tr.gameObject.SetActive(true);
+        }
     }
 }
