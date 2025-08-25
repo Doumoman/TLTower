@@ -392,12 +392,13 @@ public class ChapterManager : MonoBehaviour
         /* SPACE
         0 : 시작 (재생)
         1 ~ 4 : 돌 1 ~ 4개 완성 시 재생, 악기 쌓기
-        5 : 돌 모두 완성 시 재생, 하이라이트로 전환
+        5 : 돌 모두 완성 시 재생, 하이라이트로 전환s
          */
         else if (chapter == chapter.space)
         {
             //Debug.Log("우주브금 실행");
             idleScript = null;
+            SoundManager.Instance.StopBGM();
             SoundManager.Instance.PlayBGM("Space", 0);
         }
 
