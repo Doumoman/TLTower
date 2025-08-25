@@ -307,6 +307,12 @@ public class StoneController : MonoBehaviour,
 
         gameObject.layer = LayerMask.NameToLayer("FixedStone");
 
+        if (stoneTypeIndex == 99)
+        {
+            PenaltyManager.Instance.PenaltyStoneSettled(); // 번뇌돌이 새똥에 붙는 즉시 settled 처리
+            Debug.Log("번뇌돌 Settled");
+        }
+
         if (physCol)
         {
             physCol.enabled = true;
