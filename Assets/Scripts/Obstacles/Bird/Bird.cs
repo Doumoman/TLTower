@@ -30,7 +30,6 @@ public class Bird : MonoBehaviour
         timer = 0f;
 
         animator = GetComponentInChildren<Animator>();
-        Debug.Log("나 새이고 새로 태어났어");
     }
 
     void Update()
