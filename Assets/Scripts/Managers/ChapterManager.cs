@@ -40,7 +40,7 @@ public class ChapterManager : MonoBehaviour
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")] public int[] stonesForChapter = new int[(int)chapter.space];
-    public float waitTimeBeforeChange = 2f;
+    private float waitTimeBeforeChange = 1f;
 
     int stoneCount = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
@@ -219,6 +219,8 @@ public class ChapterManager : MonoBehaviour
     }
 
     public string idleScript = "";
+    public bool autumnCloudCatch = false;
+    public float autumnCloudTime = 10f;
     void SetObstacle()
     {
         //현재 챕터의 요소 설정
@@ -245,6 +247,7 @@ public class ChapterManager : MonoBehaviour
         if (chapter == chapter.spring)
         {
             GuideManager.Instance.PlayGuide("control", 1f);
+            GuideManager.Instance.PlayGuide("yumju", 1f);
             SoundManager.Instance.PlayBGM("Spring", 1);
             BosalManager.Instance.Speak("FindTree");
             BosalManager.Instance.Speak("FindTree");
@@ -301,7 +304,23 @@ public class ChapterManager : MonoBehaviour
         */
         else if (chapter == chapter.autumn)
         {
-            GuideManager.Instance.PlayGuide("autumn", 6f);
+            float currentTime = Time.deltaTime;
+            IEnumerator cloudCheck()
+            {
+                if (autumnCloudCatch)
+                {
+                    GuideManager.Instance.PlayGuide("autumn");
+                    yield break;
+                }
+                if (currentTime - Time.deltaTime > autumnCloudTime)
+                {
+                    GuideManager.Instance.PlayGuide("autumn");
+                    yield break;
+                }
+                yield return null;
+            }
+            StartCoroutine(cloudCheck());
+            GuideManager.Instance.PlayGuide("autumn");
             BosalManager.Instance.Speak("Autumn");
             SoundManager.Instance.PlayBGM("Autumn", 0);
             idleScript = "Autumn";

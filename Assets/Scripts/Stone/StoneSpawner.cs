@@ -122,6 +122,7 @@ public class StoneSpawner : MonoBehaviour
     StoneData GetPenaltyStoneData()
     {
         Penalty = false; // Penalty 상태 초기화
+        GuideManager.Instance.PlayGuide("penalty");
         return penaltyStoneData[0];
     }
 

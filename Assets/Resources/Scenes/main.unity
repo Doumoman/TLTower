@@ -2658,6 +2658,34 @@ PrefabInstance:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 45754166}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].key
+      value: yumju
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].bookmark
+      value: 
+      objectReference: {fileID: 21300000, guid: b2b4784ffbe6c7d40b16b4c311998658, type: 3}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].sprite.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].sprite.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ba7e18aebd96516469adf479b992c659, type: 3}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].sprite.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: eb85068acf023ca408a34100d7b4e54d, type: 3}
+    - target: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: guideImages.Array.data[6].sprite.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 61552ae88ba4fcd458ec924d7d685c2c, type: 3}
     - target: {fileID: 2108186478166822836, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
       value: -250
@@ -3168,7 +3196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &692386033
 Animator:
   serializedVersion: 5
@@ -3252,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  enableTrace: 1
+  enableTrace: 0
   traceEveryNFrames: 30
 --- !u!1 &719568108
 GameObject:
@@ -4754,7 +4782,7 @@ GameObject:
   - component: {fileID: 1025061771}
   - component: {fileID: 1025061772}
   - component: {fileID: 1025061773}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Floor
   m_TagString: StoneSound
   m_Icon: {fileID: 0}
@@ -7051,9 +7079,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.1947774
     y: 0
-    width: 1
+    width: 0.6104452
     height: 1
   near clip plane: 0
   far clip plane: 1000
