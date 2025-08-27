@@ -501,7 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 22
+  targetChapter: 20
   toggle: 0
 --- !u!95 &98768734
 Animator:
@@ -2688,7 +2688,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 61552ae88ba4fcd458ec924d7d685c2c, type: 3}
     - target: {fileID: 2108186478166822836, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2239534965833578491, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2716,7 +2716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3311921683382181174, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 3324956947649092917, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_Pivot.x
@@ -2832,11 +2832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3694092258024233827, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 3970677807281641720, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 4251817258852175082, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_Pivot.y
@@ -5277,7 +5277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 21
+  targetChapter: 17
   toggle: 0
 --- !u!95 &1115515597
 Animator:
@@ -6259,7 +6259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 20
+  targetChapter: 15
   toggle: 0
 --- !u!95 &1709168230
 Animator:
@@ -6755,8 +6755,8 @@ RectTransform:
   - {fileID: 692386036}
   - {fileID: 782848595}
   - {fileID: 1793554342}
-  - {fileID: 1497968680}
   - {fileID: 1196907688332024309}
+  - {fileID: 1497968680}
   - {fileID: 45754167}
   - {fileID: 1703931601}
   - {fileID: 535576624}
@@ -8012,7 +8012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 20
+  targetChapter: 16
   toggle: 0
 --- !u!95 &1958260603
 Animator:
