@@ -51673,7 +51673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -297}
+  m_AnchoredPosition: {x: -909.00006, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -111514,9 +111514,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1947774
+    x: 0
     y: 0
-    width: 0.6104452
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -127273,7 +127273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909, y: -201.99997}
+  m_AnchoredPosition: {x: -909.00006, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -186326,8 +186326,10 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 21
     obstacles: []
-  stonesForChapter: 080000000d000000120000000d00000012000000180000001c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120000001200000012000000
+  stonesForChapter: 080000000d000000120000000d00000012000000180000001c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120000001200000001000000
   idleScript: 
+  autumnCloudCatch: 0
+  autumnCloudTime: 10
 --- !u!4 &7441153810912732321
 Transform:
   m_ObjectHideFlags: 0
