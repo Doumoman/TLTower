@@ -20334,10 +20334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5483c283a5fe64fb5e1e5a3d59f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdChance: 0.1
+  birdChance: 0.2
   cycleSpanInit: 4
   cycleSpanMin: 13
-  cycleSpanMax: 20
+  cycleSpanMax: 17
   sittime: 16
   waitAfterFeather: 4
   birdPoop: {fileID: 4791323934794703054, guid: 00331c9013c08404591077b3cbb609d2, type: 3}
@@ -51673,7 +51673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00006, y: -297}
+  m_AnchoredPosition: {x: -909, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -68269,8 +68269,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
+  - 1
+  - 0.3
+  - 0.3
+  - 0.3
+  - 1
   - 0
   - 0
   - 0
@@ -100895,6 +100898,9 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
   count: 5
   duration: 30
   ps: {fileID: 1280793119}
@@ -127273,7 +127279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00006, y: -201.99997}
+  m_AnchoredPosition: {x: -909, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -133536,8 +133542,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0.5
+  - 0.5
+  - 0.5
   - 1
-  - 1
   - 0
   - 0
   - 0
@@ -133554,9 +133564,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  count: 2
-  duration: 10
+  count: 5
+  duration: 30
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
@@ -149393,9 +149402,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  count: 7
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  count: 5
   snowFlake: {fileID: 5686642361273476377, guid: 7ffa52fade8c2564a825a30822935deb, type: 3}
 --- !u!4 &1757047014
 Transform:
@@ -186222,14 +186234,11 @@ MonoBehaviour:
     - {fileID: 195804320}
   - season: 3
     obstacles:
-    - {fileID: 1591900208}
-    - {fileID: 786292889}
-    - {fileID: 1276775303}
+    - {fileID: 195804320}
   - season: 4
     obstacles:
-    - {fileID: 786292889}
     - {fileID: 1591900208}
-    - {fileID: 195804320}
+    - {fileID: 786292889}
     - {fileID: 1276775303}
   - season: 5
     obstacles:
@@ -186245,88 +186254,105 @@ MonoBehaviour:
     - {fileID: 1276775303}
   - season: 7
     obstacles:
-    - {fileID: 1479258961}
-    - {fileID: 829335406}
-    - {fileID: 2023078721}
-    - {fileID: 79069495}
+    - {fileID: 195804320}
+    - {fileID: 786292889}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 8
     obstacles:
-    - {fileID: 1479258961}
-    - {fileID: 829335406}
-    - {fileID: 2023078721}
-    - {fileID: 293850809}
+    - {fileID: 195804320}
+    - {fileID: 786292889}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 9
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 693749049}
+    - {fileID: 79069495}
   - season: 10
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 496848078}
+    - {fileID: 293850809}
   - season: 11
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1175090515}
+    - {fileID: 693749049}
   - season: 12
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 507823319}
+    - {fileID: 496848078}
   - season: 13
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 472189630}
+    - {fileID: 1175090515}
   - season: 14
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1952834865}
+    - {fileID: 507823319}
   - season: 15
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1404138744}
+    - {fileID: 472189630}
   - season: 16
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 189867603}
+    - {fileID: 1952834865}
   - season: 17
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1483082202}
+    - {fileID: 1404138744}
   - season: 18
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
+    - {fileID: 1479258961}
+    - {fileID: 829335406}
+    - {fileID: 2023078721}
+    - {fileID: 189867603}
   - season: 19
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
+    - {fileID: 1479258961}
+    - {fileID: 829335406}
+    - {fileID: 2023078721}
+    - {fileID: 1483082202}
   - season: 20
     obstacles:
     - {fileID: 1322940009}
     - {fileID: 142037665}
     - {fileID: 1757047012}
   - season: 21
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 22
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 23
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 24
     obstacles: []
-  stonesForChapter: 080000000d000000120000000d00000012000000180000001c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120000001200000001000000
+  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000d0000000d00000012000000
   idleScript: 
   autumnCloudCatch: 0
   autumnCloudTime: 10
