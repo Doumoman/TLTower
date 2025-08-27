@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class ResetStone : MonoBehaviour
 {
     public static ResetStone Instance { get; private set; }
@@ -41,10 +42,21 @@ public class ResetStone : MonoBehaviour
             if (currentWave > 0)
             {
                 CreatePlatform();
+                StartCoroutine(FocusCameraNextFrame(2f, 0.35f));
             }
         }
     }
+    private IEnumerator FocusCameraNextFrame(float offsetY = 2f, float duration = 0.35f)
+    {
+        // 플랫폼 트랜스폼들이 세팅될 때까지 한 프레임 양보
+        yield return null; // 또는 new WaitForEndOfFrame();
 
+        if (lastPlatform && CameraController.Instance)
+        {
+            float targetY = lastPlatform.transform.position.y + offsetY;
+            CameraController.Instance.CenterOnY(targetY, duration);
+        }
+    }
     //초기화시 위치 기준이 되는 돌의 stonecontroller를 얻음
     public void GetSc(StoneController s)
     {
@@ -80,7 +92,11 @@ public class ResetStone : MonoBehaviour
                 handSr.color = new Color32(0xCF, 0xCF, 0xCF, 0xFF);
         }
         /* ──────────────────────────────── */
-
+        if (CameraController.Instance != null)
+        {
+            float targetY = lastPlatform.transform.position.y + 2f;
+            CameraController.Instance.CenterOnY(targetY, 0f);
+        }
     }
 
     public void CreatePlatform()
