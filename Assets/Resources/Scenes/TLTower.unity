@@ -5408,7 +5408,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5460,7 +5460,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 5
       minScalar: 5
       maxCurve:
@@ -5468,7 +5468,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0.55882263
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5476,8 +5476,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.5044478
+          value: 0.92059064
+          inSlope: 0.6615571
+          outSlope: 0.6615571
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.997345
+          value: 0.705883
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5515,7 +5524,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5578,15 +5587,24 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0.5
-      minScalar: 1
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
           value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.50399274
+          value: 0.6617615
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5631,7 +5649,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5684,7 +5702,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -6162,7 +6180,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 112
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -20334,10 +20352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5483c283a5fe64fb5e1e5a3d59f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdChance: 0.1
+  birdChance: 0.2
   cycleSpanInit: 4
   cycleSpanMin: 13
-  cycleSpanMax: 20
+  cycleSpanMax: 17
   sittime: 16
   waitAfterFeather: 4
   birdPoop: {fileID: 4791323934794703054, guid: 00331c9013c08404591077b3cbb609d2, type: 3}
@@ -68273,6 +68291,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 1
+  - 0
+  - 0.3
+  - 0.3
+  - 1
   - 0
   - 0
   - 0
@@ -68285,14 +68308,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  count: 5
+  count: 4
   followSpeed: 1
   duration: 30
   wind: {fileID: 1243338724}
   windcol: {fileID: 1071991622}
-  force: 100
+  force: 120
   width: 6
   left: 0
 --- !u!1 &788028635
@@ -79529,7 +79550,7 @@ MonoBehaviour:
   penaltyStoneData:
   - {fileID: 11400000, guid: 7c0ab14be254ec44592eb9f66bf72d32, type: 2}
   spawnSlots: []
-  defaultSpawnDelay: 4
+  defaultSpawnDelay: 2
   stonesParent: {fileID: 0}
 --- !u!4 &1047487983
 Transform:
@@ -79560,13 +79581,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezeOnStart: 0
   timeSetting:
-  - 3
-  - 2
+  - 10
   - 4
-  - 1
-  unfreezeTime: 2.5
+  - 8
+  - 4
+  unfreezeTime: 4
   timerResetTime: 1
-  color: {r: 0.2784314, g: 0.5019608, b: 0.5176471, a: 1}
+  color: {r: 0.24313726, g: 0.42352942, b: 0.43529412, a: 1}
 --- !u!1 &1050403802
 GameObject:
   m_ObjectHideFlags: 0
@@ -94273,7 +94294,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 0.57254905}
+  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 0.7176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101216,7 +101237,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -101270,7 +101291,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.16862746}
+      maxColor: {r: 0.44535422, g: 0.6792453, b: 0.633137, a: 0.12941177}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -101651,7 +101672,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 1
-    maxNumParticles: 30
+    maxNumParticles: 50
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -101917,7 +101938,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 8
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -102142,20 +102163,20 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 2
+          outSlope: 2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -105118,8 +105139,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 3
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -133536,7 +133557,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
   - 1
+  - 0.7
+  - 0.7
+  - 0.7
   - 1
   - 0
   - 0
@@ -133554,9 +133579,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  count: 2
-  duration: 10
+  count: 4
+  duration: 30
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
@@ -149393,9 +149417,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
   - 0
-  - 0
-  count: 7
+  count: 4
   snowFlake: {fileID: 5686642361273476377, guid: 7ffa52fade8c2564a825a30822935deb, type: 3}
 --- !u!4 &1757047014
 Transform:
@@ -186222,14 +186249,11 @@ MonoBehaviour:
     - {fileID: 195804320}
   - season: 3
     obstacles:
-    - {fileID: 1591900208}
-    - {fileID: 786292889}
-    - {fileID: 1276775303}
+    - {fileID: 195804320}
   - season: 4
     obstacles:
     - {fileID: 786292889}
     - {fileID: 1591900208}
-    - {fileID: 195804320}
     - {fileID: 1276775303}
   - season: 5
     obstacles:
@@ -186245,88 +186269,109 @@ MonoBehaviour:
     - {fileID: 1276775303}
   - season: 7
     obstacles:
-    - {fileID: 1479258961}
-    - {fileID: 829335406}
-    - {fileID: 2023078721}
-    - {fileID: 79069495}
+    - {fileID: 195804320}
+    - {fileID: 786292889}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 8
     obstacles:
-    - {fileID: 1479258961}
-    - {fileID: 829335406}
-    - {fileID: 2023078721}
-    - {fileID: 293850809}
+    - {fileID: 195804320}
+    - {fileID: 786292889}
+    - {fileID: 1591900208}
+    - {fileID: 1276775303}
   - season: 9
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 693749049}
+    - {fileID: 79069495}
   - season: 10
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 496848078}
+    - {fileID: 293850809}
   - season: 11
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1175090515}
+    - {fileID: 693749049}
   - season: 12
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 507823319}
+    - {fileID: 496848078}
   - season: 13
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 472189630}
+    - {fileID: 1175090515}
   - season: 14
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1952834865}
+    - {fileID: 507823319}
   - season: 15
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1404138744}
+    - {fileID: 472189630}
   - season: 16
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 189867603}
+    - {fileID: 1952834865}
   - season: 17
     obstacles:
     - {fileID: 1479258961}
     - {fileID: 829335406}
     - {fileID: 2023078721}
-    - {fileID: 1483082202}
+    - {fileID: 1404138744}
   - season: 18
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
+    - {fileID: 1479258961}
+    - {fileID: 829335406}
+    - {fileID: 2023078721}
+    - {fileID: 189867603}
   - season: 19
     obstacles:
-    - {fileID: 1322940009}
-    - {fileID: 142037665}
-    - {fileID: 1757047012}
+    - {fileID: 1479258961}
+    - {fileID: 829335406}
+    - {fileID: 2023078721}
+    - {fileID: 1483082202}
   - season: 20
     obstacles:
     - {fileID: 1322940009}
     - {fileID: 142037665}
     - {fileID: 1757047012}
   - season: 21
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 22
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 23
+    obstacles:
+    - {fileID: 1322940009}
+    - {fileID: 142037665}
+    - {fileID: 1757047012}
+  - season: 24
     obstacles: []
+<<<<<<< Updated upstream
   stonesForChapter: 080000000d000000120000000d00000012000000180000001c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120000001200000001000000
+=======
+  stonesForChapter: 03000000080000000c00000012000000080000000c000000120000001200000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000064000000630000006200000061000000
+>>>>>>> Stashed changes
   idleScript: 
   autumnCloudCatch: 0
   autumnCloudTime: 10
