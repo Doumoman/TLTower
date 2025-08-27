@@ -16,12 +16,6 @@ public class SpaceAnimationSequence : MonoBehaviour
     [Header("Particles")]
     [SerializeField] GameObject particleRoot;
 
-    [Header("Bosal Speak Timing")]
-    [Tooltip("보살 대사를 몇 번 말할지")]
-    [SerializeField] int speakRepeat = 7;
-
-    [Tooltip("대사 간격(초). TickManager.Tick을 기준으로 가장 가까운 틱 수로 변환됨")]
-    [SerializeField] float speakIntervalSeconds = 8f;
     void Start()
     {
         // 필요하면 자동 Play
@@ -52,9 +46,7 @@ public class SpaceAnimationSequence : MonoBehaviour
         if (particleRoot)
             ActivateWithParents(particleRoot);
 
-        // 여기 입니다.
     }
-    
     IEnumerator FadeInFromBlack()
     {
         yield return new WaitForSeconds(delay);
