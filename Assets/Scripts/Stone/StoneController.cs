@@ -517,7 +517,7 @@ public class StoneController : MonoBehaviour,
         //사운드 크기를 계산하는 부분. 로그로 하는 게 낫긴 할듯?
         float ans = CollisionSound * math.log10(force) + 0.5f;
         ans = minSound >= ans ? minSound : ans;
-        Debug.Log("collision force " + ans);
+        //Debug.Log("collision force " + ans);
         return maxSound < ans ? maxSound : ans;
     }
     #endregion

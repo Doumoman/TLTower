@@ -23,6 +23,8 @@ public class ResetStone : MonoBehaviour
     {
         cm = ChapterManager.Instance;
         sf = StoneFixer.Instance;
+
+
     }
     public void DestroyStones()
     {
@@ -38,24 +40,49 @@ public class ResetStone : MonoBehaviour
         {
             Vector2 highPos = new Vector2(0, sc.transform.position.y);
             sf.SetY(highPos.y);
-
             if (currentWave > 0)
             {
                 CreatePlatform();
             }
         }
+        StartCoroutine(FocusCameraToPlatform(1f, 0.4f));
     }
-    private IEnumerator FocusCameraNextFrame(float offsetY = 2f, float duration = 0.35f)
+    private float GetPlatformTopY(GameObject go)
     {
-        // 플랫폼 트랜스폼들이 세팅될 때까지 한 프레임 양보
-        yield return null; // 또는 new WaitForEndOfFrame();
+        if (!go) return 0f;
 
-        if (lastPlatform && CameraController.Instance)
-        {
-            float targetY = lastPlatform.transform.position.y + offsetY;
-            CameraController.Instance.CenterOnY(targetY, duration);
-        }
+        float top = go.transform.position.y;
+
+        // 1) Collider2D 우선
+        var cols = go.GetComponentsInChildren<Collider2D>();
+        foreach (var c in cols) top = Mathf.Max(top, c.bounds.max.y);
+        if (cols.Length > 0) return top;
+        Debug.Log(top);
+        // 2) SpriteRenderer 보조
+        var srs = go.GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in srs) top = Mathf.Max(top, sr.bounds.max.y);
+
+        return top;
     }
+
+    // 플랫폼 기준으로 카메라 이동(부드럽게)
+    private IEnumerator FocusCameraToPlatform(float extra = 1f, float duration = 0.4f)
+    {
+        // 같은 프레임에 CreatePlatform/SpawnPlatformAt이 호출될 수 있으니 한 프레임 양보
+        yield return null;
+
+        if (CameraController.Instance == null) yield break;
+
+        float topY = GetPlatformTopY(lastPlatform);
+        float targetY = topY + extra;
+
+        // 카메라 상한에 걸리면 상한까지만 이동 (외부 수정 없이 안전)
+        float limit = CameraController.Instance.CurrentTopLimit;
+        if (targetY > limit) targetY = limit;
+        CameraController.Instance.CenterOnY(targetY, duration);
+        Debug.Log($"[ResetStone] Camera -> PlatformTop+{extra} (targetY={targetY:F2})");
+    }
+
     //초기화시 위치 기준이 되는 돌의 stonecontroller를 얻음
     public void GetSc(StoneController s)
     {
