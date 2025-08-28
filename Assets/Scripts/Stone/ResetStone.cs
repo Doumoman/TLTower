@@ -42,7 +42,6 @@ public class ResetStone : MonoBehaviour
             if (currentWave > 0)
             {
                 CreatePlatform();
-                StartCoroutine(FocusCameraNextFrame(2f, 0.35f));
             }
         }
     }
@@ -92,11 +91,6 @@ public class ResetStone : MonoBehaviour
                 handSr.color = new Color32(0xCF, 0xCF, 0xCF, 0xFF);
         }
         /* ──────────────────────────────── */
-        if (CameraController.Instance != null)
-        {
-            float targetY = lastPlatform.transform.position.y + 2f;
-            CameraController.Instance.CenterOnY(targetY, 0f);
-        }
     }
 
     public void CreatePlatform()
