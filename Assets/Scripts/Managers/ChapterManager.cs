@@ -168,6 +168,13 @@ public class ChapterManager : MonoBehaviour
                 SetObstacle();
                 onChapterChage?.Invoke(this, EventArgs.Empty);
             }
+            
+            if (chapter == chapter.winter)
+            {
+                //가을->겨울 다시 돌 기반으로 복귀
+                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
+                ResetStone.Instance.CreatePlatform();
+            }
 
             if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
             {
@@ -375,10 +382,6 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("BeforeEnterWinter");
             BosalManager.Instance.Speak("BeforeEnterWinter");
             idleScript = "Winter";
-
-            //가을->겨울 다시 돌 기반으로 복귀
-            StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
-            ResetStone.Instance.CreatePlatform();
         }
         else if (chapter == chapter.winter2)
         {

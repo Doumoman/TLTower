@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3187965467756494353}
   m_Layer: 0
   m_Name: birdPoop
-  m_TagString: Untagged
+  m_TagString: Birdpoop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,4 +161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18afe88e8a3289241991cdccf0ba743d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoiceRate: 0

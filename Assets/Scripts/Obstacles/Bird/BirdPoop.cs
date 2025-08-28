@@ -35,13 +35,16 @@ public class BirdPoop : MonoBehaviour
 
         caught.Add(sc);                                   // 두 번째 돌 등록
         UnityEngine.Debug.Log($"[Glue] add {sc.name}, now {caught.Count}");
-        SoundManager.Instance.PlaySFX("bird_poop");
-        if (Random.Range(0f, 1f) > 0.5f || voiceCount == 2)
+        if (CompareTag("Birdpoop"))
         {
-            BosalManager.Instance.Speak("BirdPoop");
-            voiceCount = 0;
+            SoundManager.Instance.PlaySFX("bird_poop");
+            if (Random.Range(0f, 1f) > 0.5f || voiceCount == 2)
+            {
+                BosalManager.Instance.Speak("BirdPoop");
+                voiceCount = 0;
+            }
+            else voiceCount++;
         }
-        else voiceCount++;
         if (caught.Count >= 2)
             FuseNow();
     }
