@@ -47,7 +47,7 @@ public class VoiceManager : Singleton<VoiceManager>
     public void PlayVoice(string path, int idx) //보이스 단일 출력 시 사용
     {
         var voiceData = new KeyValuePair<string, int>(path, idx == -1 ? ScriptDataLoader.Instance.GetNext(path) : idx);
-        Debug.Log($"{voiceData.Key}{voiceData.Value} Queued!");
+        Debug.Log($"Current Cue : {voiceQueue.Count}, Enqueue Voice {voiceData.Key}{voiceData.Value}");
         voiceQueue.Enqueue(voiceData);
     }
     void Update()

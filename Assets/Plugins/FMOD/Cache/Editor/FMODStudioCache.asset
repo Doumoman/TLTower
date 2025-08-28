@@ -1757,7 +1757,7 @@ MonoBehaviour:
     Data4: -1195038628
   Banks:
   - {fileID: 3165535140363962942}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638920240198045978
+  cacheTime: 638920267954233411
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -9773,10 +9773,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638920240198045978
+  lastModified: 638920267954233411
   FileSizes:
   - Name: Desktop
-    Value: 4184480
+    Value: 3071392
   Exists: 1
 --- !u!114 &3174163160490294221
 MonoBehaviour:
@@ -13023,7 +13023,7 @@ MonoBehaviour:
     Data4: 48281214
   Banks:
   - {fileID: 3165535140363962942}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
