@@ -38,7 +38,7 @@ public class StoneTimelineTrigger : MonoBehaviour
             director.Play();
             Debug.Log("다음 챕터 진입중...");
             SoundManager.Instance.PlaySFX("next_chapter");
-            SoundManager.Instance.PlayBGM("Spring", 2);
+            SoundManager.Instance.PlayBGMInstant("Spring", 2);
         }
         else
         {

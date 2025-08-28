@@ -267,6 +267,11 @@ public class ChapterManager : MonoBehaviour
         }
         else if (chapter == chapter.spring3)
         {
+            SoundManager.Instance.PlayBGM("Spring", 1);
+            BosalManager.Instance.Speak("Spring");
+        }
+        else if (chapter == chapter.spring4)
+        {
             SoundManager.Instance.PlayBGM("Spring", 2);
             BosalManager.Instance.Speak("Spring");
         }
@@ -296,6 +301,10 @@ public class ChapterManager : MonoBehaviour
             BosalManager.Instance.Speak("Summer");
         }
         else if (chapter == chapter.summer4)
+        {
+            SoundManager.Instance.PlayBGM("Summer", 2);
+        }
+        else if (chapter == chapter.summer5)
         {
             SoundManager.Instance.PlayBGM("Summer", 2);
             BosalManager.Instance.Speak("Summer");
@@ -339,16 +348,15 @@ public class ChapterManager : MonoBehaviour
         else if (chapter == chapter.autumn3)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
-            BosalManager.Instance.Speak("Autumn");
         }
         else if (chapter == chapter.autumn4)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
+            BosalManager.Instance.Speak("Autumn");
         }
         else if (chapter == chapter.autumn5)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
-            BosalManager.Instance.Speak("Autumn");
         }
         else if (chapter == chapter.autumn6)
         {
@@ -366,7 +374,15 @@ public class ChapterManager : MonoBehaviour
         else if (chapter == chapter.autumn9)
         {
             SoundManager.Instance.PlayBGM("Autumn", 2);
+        }
+        else if (chapter == chapter.autumn10)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 1);
             BosalManager.Instance.Speak("Autumn");
+        }
+        else if (chapter == chapter.autumn11)
+        {
+            SoundManager.Instance.PlayBGM("Autumn", 2);
         }
         /* WINTER 
         1 : 시작 (비트 1회 재생 후 멜로디 A 루프)
@@ -388,6 +404,10 @@ public class ChapterManager : MonoBehaviour
             SoundManager.Instance.PlayBGM("Winter", 2);
         }
         else if (chapter == chapter.winter3)
+        {
+            SoundManager.Instance.PlayBGM("Winter", 3);
+        }
+        else if (chapter == chapter.winter4)
         {
             SoundManager.Instance.PlayBGM("Winter", 3);
         }

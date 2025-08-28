@@ -52,9 +52,13 @@ public class SpaceAnimationSequence : MonoBehaviour
         if (particleRoot)
             ActivateWithParents(particleRoot);
 
-        // 여기 입니다.
+        for (int i = 0; i < speakRepeat; i++)
+        {
+            BosalManager.Instance.Speak("SpaceEnding");
+            Debug.Log($"SpaceEnding 대사 {i + 1}회차 출력");
+        }
     }
-    
+
     IEnumerator FadeInFromBlack()
     {
         yield return new WaitForSeconds(delay);

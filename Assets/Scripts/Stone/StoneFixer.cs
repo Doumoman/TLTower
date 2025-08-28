@@ -241,16 +241,16 @@ public class StoneFixer : MonoBehaviour
         var chap = ChapterManager.Instance.chapter;
         switch (chap)
         {
-            case chapter.spring3:
+            case chapter.spring4:
                 SoundManager.Instance.PlayBGM("Spring", 0);
                 break;
-            case chapter.summer4:
+            case chapter.summer5:
                 SoundManager.Instance.PlayBGM("Summer", 0);
                 break;
-            case chapter.autumn9:
+            case chapter.autumn11:
                 SoundManager.Instance.PlayBGM("Autumn", 0);
                 break;
-            case chapter.winter3:
+            case chapter.winter4:
                 SoundManager.Instance.PlayBGM("Winter", 0);
                 break;
         }

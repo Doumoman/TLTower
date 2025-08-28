@@ -48,6 +48,7 @@ public class RiseStoneAndSceneChange : MonoBehaviour
     /* ────────── 핵심 시퀀스 ────────── */
     IEnumerator PlaySequence()
     {
+        SoundManager.Instance.PlaySFX("buddha_rise");
         /* 1단계 ─ 느린 상승 */
         yield return MoveChunksBy(slowMoveDistance, slowMoveTime,
                                   AnimationCurve.EaseInOut(0, 0, 1, 1));
