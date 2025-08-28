@@ -205,7 +205,7 @@ public class CameraController : MonoBehaviour
         {
             ChapterManager cm = ChapterManager.Instance;
             if (cm.chapter.ToString().Contains("autumn")) minY = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
-            else minY = TopLimit - 5f;
+            
         }
         targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);
 
@@ -315,8 +315,6 @@ public class CameraController : MonoBehaviour
 
         _raiseRoutine = StartCoroutine(CoRaiseCameraY(amount, duration));
     }
-
-
     IEnumerator CoRaiseCameraY(float amount, float dur)
     {
         // 1) 목표 Y 계산 → CenterOnY 재사용
