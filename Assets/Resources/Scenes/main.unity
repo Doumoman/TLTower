@@ -2416,7 +2416,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 517495370}
         m_TargetAssemblyTypeName: PlayerPrefsButton, Assembly-CSharp
-        m_MethodName: ChapterChange
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7931,9 +7931,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1860215
+    x: 0
     y: 0
-    width: 0.627957
+    width: 1
     height: 1
   near clip plane: 0
   far clip plane: 1000
