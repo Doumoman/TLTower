@@ -336,5 +336,4 @@ public class CameraController : MonoBehaviour
     }
     #endregion
     public float CurrentTopLimit => TopLimit;
-    public float CurrentBottomLimit => minY;
 }
