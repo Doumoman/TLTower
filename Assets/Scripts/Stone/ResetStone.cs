@@ -45,6 +45,11 @@ public class ResetStone : MonoBehaviour
                 CreatePlatform();
             }
         }
+        if (CloudSystem.Instance != null)
+        {
+            CloudSystem.Instance.DestroyAll();
+            CloudSystem.Instance.UpdateUI();
+        }
         StartCoroutine(FocusCameraToPlatform(1f, 0.4f));
     }
     private float GetPlatformTopY(GameObject go)
@@ -78,7 +83,18 @@ public class ResetStone : MonoBehaviour
 
         // 카메라 상한에 걸리면 상한까지만 이동 (외부 수정 없이 안전)
         float limit = CameraController.Instance.CurrentTopLimit;
-        if (targetY > limit) targetY = limit;
+        // 하늘챕터면 카메라 하한도 추가함(체크포인트 밑으로 내려가는 것 방지용)
+        if (CloudSystem.Instance != null)
+        {
+            float bottomLimit = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
+            targetY = Mathf.Clamp(targetY, bottomLimit, limit);
+            yield return new WaitForSeconds(CloudSystem.Instance.waitTime);         //하늘 챕터에서는 잠깐 멈춘 후 이동
+        }
+        else
+        {
+            targetY = (targetY > limit) ? limit : targetY;
+        }
+
         CameraController.Instance.CenterOnY(targetY, duration);
         Debug.Log($"[ResetStone] Camera -> PlatformTop+{extra} (targetY={targetY:F2})");
     }

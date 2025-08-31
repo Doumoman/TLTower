@@ -477,7 +477,7 @@ public class StoneController : MonoBehaviour,
 
         outlineSR = go.AddComponent<SpriteRenderer>();
         outlineSR.sprite = sr.sprite;
-        outlineSR.color = Color.red;
+        outlineSR.color = new Color(0.6f, 0.6f, 0.6f, 1);
 
         outlineSR.sortingLayerID = sr.sortingLayerID;
         outlineSR.sortingOrder = sr.sortingOrder - 1;
