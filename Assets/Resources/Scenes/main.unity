@@ -2414,9 +2414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 517495370}
-        m_TargetAssemblyTypeName: PlayerPrefsButton, Assembly-CSharp
-        m_MethodName: ChapterChange
+      - m_Target: {fileID: 1703931602}
+        m_TargetAssemblyTypeName: QuitPanel, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2996,6 +2996,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495830233646356206, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495830233646356206, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3495830233646356206, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
@@ -7931,9 +7935,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1860215
+    x: 0.13354838
     y: 0
-    width: 0.627957
+    width: 0.73290324
     height: 1
   near clip plane: 0
   far clip plane: 1000
