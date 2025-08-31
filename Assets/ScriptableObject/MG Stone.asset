@@ -30,4 +30,4 @@ MonoBehaviour:
   gravityScale: 1
   scale: {x: 0, y: 0}
   material2D: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
-  spawnChance: 0.15
+  spawnChance: 0.135

@@ -2414,9 +2414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 517495370}
-        m_TargetAssemblyTypeName: PlayerPrefsButton, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 1703931602}
+        m_TargetAssemblyTypeName: QuitPanel, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4894,7 +4894,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 495afc18c0ccef84d855c2ef1965e923, type: 3}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6152,18 +6152,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1781841220}
     m_Modifications:
-    - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
-      propertyPath: FontSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
-      propertyPath: isTextBig
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
-      propertyPath: changeSize
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1330315642020226280, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6243,14 +6231,6 @@ PrefabInstance:
     - target: {fileID: 1330315642020226280, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5746024577905700940, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
-      propertyPath: m_fontSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5746024577905700940, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8253475872681246731, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: m_Name
@@ -7955,9 +7935,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.11700767
+    x: 0.13354838
     y: 0
-    width: 0.76598465
+    width: 0.73290324
     height: 1
   near clip plane: 0
   far clip plane: 1000

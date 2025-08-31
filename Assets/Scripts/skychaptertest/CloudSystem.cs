@@ -123,20 +123,14 @@ public class CloudSystem : MonoBehaviour
     }
 
     //jointMaker모두 없애기
-    public void DestroyAll(bool includeSavePoint = false)
+    public void DestroyAll(bool preventReJoint = false)
     {
-        List<JointMaker> jms = new List<JointMaker>(nodes);
-        foreach (JointMaker node in jms)
+        foreach (JointMaker node in nodes)
         {
-            if (includeSavePoint) Destroy(node);
-            if (node.TryGetComponent<CloudController>(out CloudController c))
-            {
-                if (!includeSavePoint) Destroy(node);
-                c.Disappear();
-                nodes.Remove(node);
-            }
+            Destroy(node);
+            if (node.TryGetComponent<CloudController>(out CloudController c)) c.Disappear();
         }
-        if (includeSavePoint) nodes.Clear();
+        nodes.Clear();
     }
 
     public int GetNodeLength()
@@ -150,7 +144,7 @@ public class CloudSystem : MonoBehaviour
         return nodes.Count; 
     }
 
-    public void UpdateUI()
+    void UpdateUI()
     {
         if (!remainingTMP) return;
 

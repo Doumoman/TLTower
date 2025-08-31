@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.414, y: -0.768, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6225084048202578072}
@@ -259,9 +259,7 @@ MonoBehaviour:
   waitTime: 1
   flowSpeed: -6
   checktime: 0.3
-  baseColor: {r: 0.81960785, g: 0.8862745, b: 0.8980392, a: 1}
-  flowColor: {r: 0.6509434, g: 0.5903417, b: 0.5741812, a: 0.5372549}
-  dragColor: {r: 0.6069776, g: 0.79670703, b: 0.8301887, a: 0.5372549}
+  baseColor: {r: 0.43529412, g: 0.32941177, b: 0.3019608, a: 1}
   holdToRotate: 0.75
   rotateSpeed: -90
   moveDeadZone: 0.4
