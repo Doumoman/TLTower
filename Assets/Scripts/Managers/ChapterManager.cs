@@ -40,7 +40,7 @@ public class ChapterManager : MonoBehaviour
 
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")] public int[] stonesForChapter = new int[(int)chapter.space];
-    private float waitTimeBeforeChange = 1f;
+    public float waitTimeBeforeChange = 1f;
 
     int stoneCount = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
