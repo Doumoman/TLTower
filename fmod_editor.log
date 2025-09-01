@@ -9,23 +9,188 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 0
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001F30CD61F78 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002B88AEED8F8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] SoundI::release                          : pause_melody (000002B9423C3D88)
+[LOG] SoundI::release                          :     pause_melody (000002B92DF6FF48)
+[LOG] SoundI::release                          :     pause_melody (000002B9423C9508)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B9423C7758, queue head = 000002B9423C0B48, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423C7758
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] AsyncThread::getAsyncThread              :     index = 0 / 5
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B9423C51D8, queue head = 000002B9423C0B48, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AEAE8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_melody', format=5, channels=2, frequency=48000, lengthbytes=115744, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.233887.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423C7758
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423C51D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AEF08
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_beat', format=5, channels=2, frequency=48000, lengthbytes=225376, lengthpcm=947931, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.903107.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423C51D8
+[LOG] SoundI::release                          : pause_beat (000002B9423C8888)
+[LOG] SoundI::release                          :     pause_beat (000002B92DF700C8)
+[LOG] SoundI::release                          :     pause_beat (000002B9423C9698)
+[LOG] SoundI::release                          : pause_melody (000002B9423B4838)
+[LOG] SoundI::release                          :     pause_melody (000002B92DF70248)
+[LOG] SoundI::release                          :     pause_melody (000002B9423B4388)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B9423CD1F8, queue head = 000002B9423C0B48, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423CD1F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AE568
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_melody', format=5, channels=2, frequency=48000, lengthbytes=115744, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.233887.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423CD1F8
+[LOG] SoundI::release                          : pause_melody (000002B9423C7758)
+[LOG] SoundI::release                          :     pause_melody (000002B81C583A78)
+[LOG] SoundI::release                          :     pause_melody (000002B9423C3D88)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B9423B1188, queue head = 000002B9423C0B48, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423B1188
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] AsyncThread::getAsyncThread              :     index = 0 / 5
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B9423B57D8, queue head = 000002B9423C0B48, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AEC48
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_melody', format=5, channels=2, frequency=48000, lengthbytes=115744, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.233887.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423B1188
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423B57D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AE988
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_beat', format=5, channels=2, frequency=48000, lengthbytes=225376, lengthpcm=947931, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.903107.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423B57D8
+[LOG] SoundI::release                          : pause_beat (000002B9423C51D8)
+[LOG] SoundI::release                          :     pause_beat (000002B81C584078)
+[LOG] SoundI::release                          :     pause_beat (000002B9423C78E8)
+[LOG] SoundI::release                          : pause_melody (000002B9423CD1F8)
+[LOG] SoundI::release                          :     pause_melody (000002B81C584378)
+[LOG] SoundI::release                          :     pause_melody (000002B9423B4518)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B9423C6DF8, queue head = 000002B9423C0B48, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423C6DF8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AF068
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_melody', format=5, channels=2, frequency=48000, lengthbytes=115744, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.233887.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423C6DF8
+[LOG] SoundI::release                          : pause_melody (000002B9423B1188)
+[LOG] SoundI::release                          :     pause_melody (000002B81C583D78)
+[LOG] SoundI::release                          :     pause_melody (000002B9423B6F48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B9423C4B98, queue head = 000002B9423C0B48, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423C4B98
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD/Build/Desktop/Pause.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] AsyncThread::getAsyncThread              :     index = 0 / 5
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B9423C4D28, queue head = 000002B9423C0B48, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AE408
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_melody', format=5, channels=2, frequency=48000, lengthbytes=115744, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.233887.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423C4B98
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9423C4D28
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Pause.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 444512
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4288
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B81D8AE568
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='pause_beat', format=5, channels=2, frequency=48000, lengthbytes=225376, lengthpcm=947931, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.903107.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9423C4D28
+[LOG] SoundI::release                          : pause_beat (000002B9423B57D8)
+[LOG] SoundI::release                          :     pause_beat (000002B81C5841F8)
+[LOG] SoundI::release                          :     pause_beat (000002B9423B5AF8)
+[LOG] SoundI::release                          : pause_melody (000002B9423C6DF8)
+[LOG] SoundI::release                          :     pause_melody (000002B81C584378)
+[LOG] SoundI::release                          :     pause_melody (000002B9423C9378)
+[LOG] SoundI::release                          : pause_beat (000002B9423C4D28)
+[LOG] SoundI::release                          :     pause_beat (000002B81C5844F8)
+[LOG] SoundI::release                          :     pause_beat (000002B9423C9058)
+[LOG] SoundI::release                          : pause_melody (000002B9423C4B98)
+[LOG] SoundI::release                          :     pause_melody (000002B81C584078)
+[LOG] SoundI::release                          :     pause_melody (000002B9423C5CC8)
+[LOG] SoundI::release                          :  (000002B81D8AF088)
+[LOG] SoundI::release                          :     pause_ambient (000002B833C0C598)
+[LOG] SoundI::release                          :  (000002B81D8AEC68)
+[LOG] SoundI::release                          :     pause (000002B833C0C118)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::closeInternal                   : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -33,3 +198,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::closeInternal                   : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
