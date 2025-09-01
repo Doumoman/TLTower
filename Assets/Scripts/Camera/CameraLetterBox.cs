@@ -1,60 +1,74 @@
 using UnityEngine;
 
-[ExecuteAlways]
 [RequireComponent(typeof(Camera))]
 public class CameraLetterBox : MonoBehaviour
 {
-    // 목표 비율 (가로 / 세로)
-    [SerializeField] float targetWidth  = 2160f;
+    [SerializeField] float targetWidth = 2160f;
     [SerializeField] float targetHeight = 1080f;
 
     Camera _cam;
+    int _lastW, _lastH;
 
     void Awake()
     {
         _cam = GetComponent<Camera>();
-        UpdateLetterbox();
+        SafeUpdateLetterbox(true);
+    }
+
+    void OnEnable()
+    {
+        if (_cam == null) _cam = GetComponent<Camera>();
+        SafeUpdateLetterbox(true);
     }
 
     void OnValidate()
     {
-        // 에디터에서 값이 바뀔 때 즉시 반영
         if (_cam == null) _cam = GetComponent<Camera>();
-        UpdateLetterbox();
-    }
-
-    void UpdateLetterbox()
-    {
-        float targetAspect = targetWidth / targetHeight;
-        float windowAspect = (float)Screen.width / Screen.height;
-        float scaleHeight = windowAspect / targetAspect;
-
-        Rect rect = _cam.rect;
-
-        if (scaleHeight < 1.0f)
-        {
-            // 창이 더 좁아서 상하에 검은 바 생김
-            rect.width  = 1.0f;
-            rect.height = scaleHeight;
-            rect.x      = 0;
-            rect.y      = (1.0f - scaleHeight) / 2.0f;
-        }
-        else
-        {
-            // 창이 더 넓어서 좌우에 검은 바 생김
-            float scaleWidth = 1.0f / scaleHeight;
-            rect.width  = scaleWidth;
-            rect.height = 1.0f;
-            rect.x      = (1.0f - scaleWidth) / 2.0f;
-            rect.y      = 0;
-        }
-
-        _cam.rect = rect;
+        SafeUpdateLetterbox(true);
     }
 
     void Update()
     {
-        // 빌드된 화면 크기가 바뀔 때마다 레터박스 재계산
-        UpdateLetterbox();
+        SafeUpdateLetterbox(false);
+    }
+
+    void SafeUpdateLetterbox(bool force)
+    {
+        // 1) 입력값 가드
+        if (targetWidth <= 0f || !float.IsFinite(targetWidth)) return;
+        if (targetHeight <= 0f || !float.IsFinite(targetHeight)) return;
+
+        // 2) 해상도 유효성 가드 (0 프레임 방지)
+        int w = Mathf.Max(Screen.width, 1);
+        int h = Mathf.Max(Screen.height, 1);
+
+        // 해상도 변했을 때만 재계산 (에디터/런타임 부담↓)
+        if (!force && w == _lastW && h == _lastH) return;
+
+        _lastW = w; _lastH = h;
+
+        float targetAspect = targetWidth / targetHeight;
+        float windowAspect = (float)w / h;
+        float scaleHeight = windowAspect / targetAspect;
+
+        var rect = _cam.rect;
+
+        if (scaleHeight < 1f)
+        {
+            rect.width = 1f;
+            rect.height = Mathf.Clamp01(scaleHeight);
+            rect.x = 0f;
+            rect.y = (1f - rect.height) * 0.5f;
+        }
+        else
+        {
+            float scaleWidth = 1f / scaleHeight;      // scaleHeight>=1 → 안전
+            rect.width = Mathf.Clamp01(scaleWidth);
+            rect.height = 1f;
+            rect.x = (1f - rect.width) * 0.5f;
+            rect.y = 0f;
+        }
+
+        _cam.rect = rect;
     }
 }

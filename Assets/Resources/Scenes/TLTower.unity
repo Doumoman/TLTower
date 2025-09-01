@@ -94411,7 +94411,7 @@ PrefabInstance:
       objectReference: {fileID: 830498449}
     - target: {fileID: 2108186478166822836, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2239534965833578491, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94435,7 +94435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3311921683382181174, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324956947649092917, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_Pivot.x
@@ -94551,11 +94551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3694092258024233827, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3970677807281641720, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4251817258852175082, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_Pivot.y
@@ -94579,7 +94579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211554933777988119, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044215017873662735, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
       propertyPath: cam
@@ -111699,9 +111699,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0556266
+    x: 0
     y: 0
-    width: 0.8887468
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
