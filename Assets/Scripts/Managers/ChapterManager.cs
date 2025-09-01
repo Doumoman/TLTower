@@ -123,18 +123,13 @@ public class ChapterManager : MonoBehaviour
 
         //가을챕터 체크포인트 설정
         int targetLayer = LayerMask.NameToLayer("SkySavePoint");    //  모든 오브젝트 찾기 (씬 전체)
-        GameObject[] allObjects = FindObjectsOfType<GameObject>();  //  특정 레이어 필터링
+        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);  //  특정 레이어 필터링
         CloudCheckPoint = allObjects
             .Where(obj => obj.layer == targetLayer)
             .OrderBy(obj => obj.transform.position.y)   // Y좌표 오름차순
             .ToArray();
         if (chapter.ToString().Contains("autumn"))
-        {
             CloudSystem.Instance.SetSavePoint(CloudCheckPoint[(int)chapter - (int)chapter.autumn]);
-        }
-
-
-        
     }
 
     //돌 개수 확인 후 챕터전환 확인
@@ -168,13 +163,6 @@ public class ChapterManager : MonoBehaviour
                 SetObstacle();
                 onChapterChage?.Invoke(this, EventArgs.Empty);
             }
-            
-            if (chapter == chapter.winter)
-            {
-                //가을->겨울 다시 돌 기반으로 복귀
-                StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
-                ResetStone.Instance.CreatePlatform();
-            }
 
             if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
             {
@@ -189,12 +177,23 @@ public class ChapterManager : MonoBehaviour
             }
         }
     }
-
+    
     IEnumerator WaitAndChange()
     {
         yield return new WaitForSeconds(waitTimeBeforeChange);
         SetObstacle();
         onChapterChage?.Invoke(this, EventArgs.Empty);
+
+        if (chapter == chapter.autumn)
+        {
+            CloudSystem.Instance.SetSavePoint(CloudCheckPoint[0]);
+        }
+        if (chapter == chapter.winter)
+        {
+            //가을->겨울 다시 돌 기반으로 복귀
+            StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
+            ResetStone.Instance.CreatePlatform();
+        }
     }
     void RemoveAllCheckpoints()
     {
