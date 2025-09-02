@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1330315642020226280}
   - component: {fileID: 1301303790503218869}
-  - component: {fileID: 830558876469520561}
   - component: {fileID: 206575744868857500}
   - component: {fileID: 5746024577905700940}
   m_Layer: 5
@@ -55,21 +54,10 @@ MonoBehaviour:
   fadeSpeed: 2
   FontSize: 36
   changeSize: 2
-  padding: 30
   isTextBig: 1
+  TextPosition: 0
+  LeftTopRightBottom: {x: 30, y: 30, z: 30, w: 30}
   birdBool: 0
---- !u!114 &830558876469520561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253475872681246731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c551265fe87b6342bf1fa0315eb1c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &206575744868857500
 CanvasRenderer:
   m_ObjectHideFlags: 0

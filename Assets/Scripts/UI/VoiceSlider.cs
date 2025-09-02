@@ -14,7 +14,7 @@ public class VoiceSlider : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
 
         // 저장된 슬라이더 값 불러오기
-        float savedVolume = PlayerPrefs.GetFloat("VoiceVolume", 1.0f); // 기본값은 1.0f
+        float savedVolume = PlayerPrefs.GetFloat("VoiceVolume", .75f); // 기본값은 .75f
         if (soundManager != null && voiceSlider != null)
         {
             voiceSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화

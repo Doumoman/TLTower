@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using System;
 
-public class BosalManager : Singleton<BosalManager>
+public class BosalManager : MonoBehaviour
 {
     private TextMeshProUGUI bosalText;
     
@@ -34,9 +34,10 @@ public class BosalManager : Singleton<BosalManager>
     private bool NoScriptOnce = false;*/
     public List<System.Action> Actions = new(); // Tick에 등록할 액션들
 
-    protected override void Awake()
+    public static BosalManager Instance { get; private set; }
+    private void Awake()
     {
-        base.Awake();
+        Instance = this;
         bosalText = GetComponentInChildren<TextMeshProUGUI>();
         bosalText.fontSize = FontSize;
         bosalText.text = "";

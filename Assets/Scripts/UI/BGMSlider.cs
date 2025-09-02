@@ -15,7 +15,7 @@ public class BGMSlider : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
 
         // 저장된 슬라이더 값 불러오기
-        float savedVolume = PlayerPrefs.GetFloat("bgmVolume", 1.0f); // 기본값은 1.0f
+        float savedVolume = PlayerPrefs.GetFloat("bgmVolume", .75f); // 기본값은 .75f
         if (soundManager != null && bgmSlider != null)
         {
             bgmSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화

@@ -15,7 +15,7 @@ public class SFXSlider : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
 
         // 저장된 슬라이더 값 불러오기
-        float savedVolume = PlayerPrefs.GetFloat("sfxVolume", 1.0f); // 기본값은 1.0f
+        float savedVolume = PlayerPrefs.GetFloat("sfxVolume", .75f); // 기본값은 .75f
         if (soundManager != null && sfxSlider != null)
         {
             sfxSlider.value = savedVolume; // 저장된 값으로 슬라이더 초기화
