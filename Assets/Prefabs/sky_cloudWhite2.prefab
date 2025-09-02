@@ -262,7 +262,7 @@ MonoBehaviour:
   baseColor: {r: 0.81960785, g: 0.8862745, b: 0.8980392, a: 1}
   flowColor: {r: 0.6509434, g: 0.5903417, b: 0.5741812, a: 0.5372549}
   dragColor: {r: 0.6069776, g: 0.79670703, b: 0.8301887, a: 0.5372549}
-  holdToRotate: 0.75
+  holdToRotate: 1
   rotateSpeed: -90
   moveDeadZone: 0.4
 --- !u!1 &4458440337903520300

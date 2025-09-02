@@ -193,7 +193,7 @@ MonoBehaviour:
   DespawnerCheck: 0
   settleCheckTime: 0.3
   settleVelocityEps: 0.05
-  holdToRotate: 0.75
+  holdToRotate: 1
   rotateSpeed: -90
   moveDeadZone: 0.4
 --- !u!114 &-8475085476358745588

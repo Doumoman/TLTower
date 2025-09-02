@@ -324,18 +324,18 @@ public class ChapterManager : MonoBehaviour
             {
                 if (autumnCloudCatch)
                 {
-                    GuideManager.Instance.PlayGuide("autumn");
+                    GuideManager.Instance.PlayGuide("autumn",2f);
                     yield break;
                 }
                 if (currentTime - Time.deltaTime > autumnCloudTime)
                 {
-                    GuideManager.Instance.PlayGuide("autumn");
+                    GuideManager.Instance.PlayGuide("autumn",2f);
                     yield break;
                 }
                 yield return null;
             }
             StartCoroutine(cloudCheck());
-            GuideManager.Instance.PlayGuide("autumn");
+            GuideManager.Instance.PlayGuide("autumn",2f);
             BosalManager.Instance.Speak("Autumn");
             SoundManager.Instance.PlayBGM("Autumn", 0);
             idleScript = "Autumn";
