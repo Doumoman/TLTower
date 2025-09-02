@@ -18,7 +18,6 @@
 		<relationship name="effects">
 			<destination>{c8dfd43a-3b63-4ba6-903f-e4b7b61197f5}</destination>
 			<destination>{c15e08a2-b006-43b2-9f26-57c91b66777d}</destination>
-			<destination>{70aa9529-821a-467f-8b72-4298e0df4c36}</destination>
 			<destination>{a61c57f3-5290-4d40-9304-881f875ce884}</destination>
 		</relationship>
 	</object>
@@ -40,10 +39,6 @@
 		<property name="gain">
 			<value>8.5</value>
 		</property>
-		<relationship name="sidechains">
-			<destination>{a61c57f3-5290-4d40-9304-881f875ce884}</destination>
-		</relationship>
 	</object>
-	<object class="LimiterEffect" id="{70aa9529-821a-467f-8b72-4298e0df4c36}" />
 	<object class="Sidechain" id="{a61c57f3-5290-4d40-9304-881f875ce884}" />
 </objects>

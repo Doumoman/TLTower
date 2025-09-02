@@ -3435,7 +3435,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c241272d0cf40a140860e0d0e8056683, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0.0010000000474974513
   m_SceneBindings:
@@ -7955,9 +7955,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.11700767
+    x: 0.20795697
     y: 0
-    width: 0.76598465
+    width: 0.58408606
     height: 1
   near clip plane: 0
   far clip plane: 1000
