@@ -188,7 +188,7 @@ MonoBehaviour:
   DespawnerCheck: 0
   settleCheckTime: 0.3
   settleVelocityEps: 0.05
-  holdToRotate: 0.75
+  holdToRotate: 1
   rotateSpeed: -90
   moveDeadZone: 0.4
 --- !u!114 &1386976799645814635
@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9bd8ab39a4e8449b333e0d31eda25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePath: event:/SFX/
+  rb: {fileID: 0}
 --- !u!114 &6141699045918035490
 MonoBehaviour:
   m_ObjectHideFlags: 0
