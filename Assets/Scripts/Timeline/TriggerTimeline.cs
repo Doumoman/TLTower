@@ -39,6 +39,7 @@ public class StoneTimelineTrigger : MonoBehaviour
             Debug.Log("다음 챕터 진입중...");
             SoundManager.Instance.PlaySFX("next_chapter");
             SoundManager.Instance.PlayBGMInstant("Spring", 2);
+            BosalManager.Instance.ManualSpeakStop();
         }
         else
         {
@@ -61,6 +62,7 @@ public class StoneTimelineTrigger : MonoBehaviour
 
             PlayerPrefs.SetInt(PP_KEY, 1);
             PlayerPrefs.Save();
+            BosalManager.Instance.ManualSpeakStop();
             Debug.Log("다음 챕터 진입중...");
             SoundManager.Instance.PlaySFX("next_chapter");
             SoundManager.Instance.PlayBGM("Spring", 2);
