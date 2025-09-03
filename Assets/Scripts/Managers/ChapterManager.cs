@@ -211,6 +211,11 @@ public class ChapterManager : MonoBehaviour
 
     public void LoadChapter(chapter ch)
     {
+        //저장된게 우주챕터면 바로 엔딩으로 이동
+        RiseStoneAndSceneChange rsasc = FindObjectOfType<RiseStoneAndSceneChange>(true);
+        string nextScene = rsasc.nextScene;
+        if (ch == chapter.space) SceneManager.LoadScene(nextScene);
+
         chapter = ch;
 
         // idx 재계산

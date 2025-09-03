@@ -17,6 +17,8 @@ public class WarnigPanel : MonoBehaviour
     }
     public void CloseWarning()
     {
+        PlayerPrefs.SetInt("sawEnding", 0);
+        PlayerPrefs.Save();
         SoundManager.Instance.PlaySFX("pause");
         Panel.SetActive(false);
     }
