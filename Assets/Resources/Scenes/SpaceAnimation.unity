@@ -35403,6 +35403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1171906263}
   - component: {fileID: 1171906264}
+  - component: {fileID: 1171906265}
   m_Layer: 0
   m_Name: SpaceAnimationManager
   m_TagString: Untagged
@@ -35458,6 +35459,19 @@ MonoBehaviour:
   firstFadeDuration: 4
   subsequentFadeDuration: 6
   speakIntervalSeconds: 12
+--- !u!114 &1171906265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171906261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efebb1153a667442a2ff6d89b529baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnTime: 10
 --- !u!1 &1218640690
 GameObject:
   m_ObjectHideFlags: 0
@@ -45744,9 +45758,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.22737068
+    x: 0
     y: 0
-    width: 0.54525864
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

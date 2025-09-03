@@ -64,6 +64,7 @@ public class RiseStoneAndSceneChange : MonoBehaviour
         yield return new WaitForSeconds(blackHoldTime);
 
         /* 씬 교체 */
+        SaveSystem.Instance.SaveGame();
         SceneManager.LoadScene(nextScene);
     }
 
