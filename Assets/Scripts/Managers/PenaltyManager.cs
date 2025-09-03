@@ -86,6 +86,7 @@ public class PenaltyManager : MonoBehaviour
     public void PenaltyStoneSettled()
     {
         Debug.Log($"PenaltyStoneSettled called.");
+        if(StoneSpawner.Penalty == false) return;
         StoneSpawner.Penalty = false; // 번뇌돌이 정착되면 다음 돌은 일반 돌
         rainAble = false; //이미 큐잉된 비가 있다면 정지
         counter = 0;

@@ -4076,8 +4076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: StoneTimelinePlayed
   setValue: 0
-  targetChapter: 0
-  toggle: 0
+  targetChapter: 6
+  toggle: 1
 --- !u!1 &804168318
 GameObject:
   m_ObjectHideFlags: 0
@@ -7287,6 +7287,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1330315642020226280, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
   m_PrefabInstance: {fileID: 1198633134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1744414099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
+  m_PrefabInstance: {fileID: 1198633134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c55fbcfc1ca35c4f986a39b0ef2c695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1761433316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1426874230581029643, guid: e4f92a7b32d4ecd4686c5752f356e495, type: 3}
@@ -7994,10 +8005,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.28717673
-    y: 0
-    width: 0.42564654
-    height: 1
+    x: 0
+    y: 0.10438144
+    width: 1
+    height: 0.7912371
   near clip plane: 0
   far clip plane: 1000
   field of view: 60
@@ -8133,7 +8144,7 @@ PrefabInstance:
     - target: {fileID: 461049248041318217, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
+      objectReference: {fileID: 1744414099}
     - target: {fileID: 461049248041318217, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BiggerText
@@ -8213,7 +8224,7 @@ PrefabInstance:
     - target: {fileID: 6053108811811886959, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
+      objectReference: {fileID: 1744414099}
     - target: {fileID: 6053108811811886959, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SmallerText
