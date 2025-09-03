@@ -26,8 +26,12 @@ public class LoadOrQuit : MonoBehaviour
         }
         else
         {
-            load.SetActive(true);
             quit.SetActive(false);
         }
+    }
+
+    public void NewGame()
+    {
+        quit.SetActive(false);
     }
 }
