@@ -6,154 +6,268 @@ using UnityEngine;
 
 public class Credits : MonoBehaviour
 {
-
-    // Start is called before the first frame update
     [Header("텍스트")]
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private int nameSize = 30;
     [SerializeField] private TextMeshProUGUI roleText;
     [SerializeField] private int roleSize = 15;
+
+    [Header("타이밍")]
     [SerializeField] private float fadeDuration = 1f;
-    [SerializeField] private float quickFadeDuration = 0.2f; // 터치 시 빠르게 넘기기.
-    [SerializeField] private float waitDuration = 5f;
-    [SerializeField] private KeyValuePair<string, string>[] credits = new KeyValuePair<string, string>[0];
+    [SerializeField] private float quickFadeDuration = 0.2f; // 터치 시 빠르게 넘기기
+    [SerializeField] private float waitDuration = 2f;
+
+    [Header("데이터")]
+    [SerializeField] private List<string> names = new List<string>();
+    [SerializeField] private List<string> roles = new List<string>();
+
+    private KeyValuePair<string, string>[] credits = new KeyValuePair<string, string>[0];
+
     private int currentCreditIndex = 0;
     private bool fadingIn = false;
     private bool fadingOut = false;
+    private bool skippable = false;
+
+    // 마스터/스텝 코루틴 핸들
+    private Coroutine sequenceCo = null;
+    private Coroutine stepCo = null;
+    private Coroutine skipCo = null;
+    public bool end = false;
+
     void Start()
     {
         nameText.text = "";
         nameText.fontSize = nameSize;
         roleText.text = "";
         roleText.fontSize = roleSize;
+
+        // 투명으로 초기화
+        SetAlpha(nameText, 0f);
+        SetAlpha(roleText, 0f);
+
         currentCreditIndex = 0;
-    }
-    /*
-    터치 없을 시 8초 주기로, 틱 시작 -> 1초 FI -> 5초 대기 -> 1초 FO
-    */
-    public void Show()
-    {
-        while (currentCreditIndex < credits.Length) //skip 시에도 늘어날 수 있음
+
+        // credits 배열 초기화
+        int count = Mathf.Min(names.Count, roles.Count);
+        credits = new KeyValuePair<string, string>[count];
+        for (int i = 0; i < count; i++)
         {
-            StartCoroutine(ShowAndFade(credits[currentCreditIndex].Key));
-            currentCreditIndex++;
+            credits[i] = new KeyValuePair<string, string>(names[i], roles[i]);
         }
     }
-    private IEnumerator ShowAndFade(string key)
+
+    // 외부에서 호출
+    public void Play()
     {
-        TickManager.Instance.TickWait(1); // 틱에 맞춰서 실행
-        nameText.text = key;
-        roleText.text = credits[currentCreditIndex].Value;
-        yield return FadeIn(fadeDuration, nameText);
-        yield return FadeIn(fadeDuration, roleText); // t +1s
-        yield return WaitCoroutine(waitDuration); // 5초간 띄우기 -> t +6s
-        yield return FadeOut(fadeDuration, nameText); // t +7s
-        yield return FadeOut(fadeDuration, roleText);
+        skippable = true;
+        if (sequenceCo != null)
+            StopCoroutine(sequenceCo);
+
+        sequenceCo = StartCoroutine(Sequence());
     }
-    private IEnumerator WaitCoroutine(float seconds = -1f)
+
+    // 마스터 시퀀스: 각 항목을 순차 실행
+    IEnumerator Sequence()
     {
-        if (seconds == -1f)
-            seconds = waitDuration;
+        currentCreditIndex = 0;
+
+        while (currentCreditIndex < credits.Length)
+        {
+            if (skipRequested) { skipRequested = false; continue; }
+
+            var pair = credits[currentCreditIndex];
+            stepCo = StartCoroutine(ShowAndFade(pair.Key, pair.Value));
+            yield return stepCo;
+            stepCo = null;
+            currentCreditIndex++;
+
+            yield return WaitNextTick();
+            if (skipRequested) { skipRequested = false; }
+        }
+        end = true;
+    }
+
+    private IEnumerator ShowAndFade(string key, string value)
+    {
+        nameText.text = key;
+        roleText.text = value;
+
+        // 동시에 페이드인
+        yield return FadeBoth(FadeIn(fadeDuration, nameText),
+                              FadeIn(fadeDuration, roleText));
+
+        // 대기
+        yield return WaitCoroutine(waitDuration);
+
+        // 동시에 페이드아웃
+        yield return FadeBoth(FadeOut(fadeDuration, nameText),
+                              FadeOut(fadeDuration, roleText));
+    }
+
+    private IEnumerator WaitCoroutine(float seconds)
+    {
         yield return new WaitForSeconds(seconds);
     }
-    private IEnumerator FadeIn(float duration = -1f, TextMeshProUGUI text = null)
+
+    private IEnumerator FadeIn(float duration, TextMeshProUGUI text)
     {
-        if (duration == -1f)
-            duration = fadeDuration;
-        Color originalColor = text.color;
-        Color targetColor = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
-        float elapsed = 0;
+        Color original = text.color;
+        Color target = new Color(original.r, original.g, original.b, 1f);
+        float elapsed = 0f;
 
         fadingIn = true;
-
         while (elapsed < duration)
         {
-            text.color = Color.Lerp(originalColor, targetColor, elapsed / duration);
+            text.color = Color.Lerp(original, target, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-
-        text.color = targetColor;
+        text.color = target;
         fadingIn = false;
     }
-    private IEnumerator FadeOut(float duration = -1f, TextMeshProUGUI text = null)
+
+    private IEnumerator FadeOut(float duration, TextMeshProUGUI text)
     {
-        if (duration == -1f)
-            duration = fadeDuration;
-        Color originalColor = text.color;
-        Color targetColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
-        float elapsed = 0;
+        Color original = text.color;
+        Color target = new Color(original.r, original.g, original.b, 0f);
+        float elapsed = 0f;
 
         fadingOut = true;
-
         while (elapsed < duration)
         {
-            text.color = Color.Lerp(originalColor, targetColor, elapsed / duration);
+            text.color = Color.Lerp(original, target, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-
-        text.color = targetColor;
+        text.color = target;
         fadingOut = false;
     }
 
+    private void SetAlpha(TextMeshProUGUI text, float a)
+    {
+        var c = text.color;
+        c.a = a;
+        text.color = c;
+    }
+
     /*
-    Skip
-    text가 없을 때 : QuickFadeIn 후 WaitCoroutine -> FadeOut
-    FadeIn 중일 때 : StopCoroutine(FadeIn), 투명도 1로 즉시 전환, WaitCoroutine -> FadeOut 실시
-    WaitCoroutine 중일 때 : StopAllCoroutines, QuickFadeOut, 다음 틱에서 그냥 FadeIn
-    FadeOut 중일 때 : StopCoroutine(FadeOut), 투명도 0으로 즉시 전환, 다음 틱에서 그냥 FadeIn
-    */
+     Skip
+      - text가 없을 때(둘 다 알파 0): QuickFadeIn -> Wait -> FadeOut
+      - 둘 다 불투명(알파 1): QuickFadeOut
+      - FadeIn 중: FadeIn 중단, 즉시 알파 1로 세팅 -> Wait -> FadeOut
+      - FadeOut 중: FadeOut 중단, 즉시 알파 0으로 세팅 -> (다음 틱에서 그냥 FadeIn)
+     */
 
-
+    private bool skipRequested = false; // 스킵 요청 신호
     public void Skip()
     {
-        if (nameText.color == Color.clear)
+        if (!skippable) return; // 스킵 불가 상태면 무시
+        skipRequested = true;
+
+        if (stepCo != null)
         {
-            StartCoroutine(QuickFadeIn(credits[currentCreditIndex].Key));
+            StopCoroutine(stepCo);
+            stepCo = null;
         }
-        else if (nameText.color.a == 1f)
+
+        if (skipCo != null)
         {
-            StopAllCoroutines();
-            StartCoroutine(QuickFadeOut());
+            StopCoroutine(skipCo);
+        }
+
+        skipCo = StartCoroutine(HandleSkip());
+    }
+    private IEnumerator HandleSkip()
+    {
+        int tickAtSkip = TickManager.Instance.tickCount;
+        float nameA = nameText.color.a;
+        float roleA = roleText.color.a;
+        bool bothClear = nameA <= 0.001f && roleA <= 0.001f;
+        bool bothOpaque = nameA >= 0.999f && roleA >= 0.999f;
+
+        if (bothClear)
+        {
+            // text가 없을 때 : QuickFadeIn -> Wait -> 정상 FadeOut
+
+            if (end) yield break; // 이미 끝났으면 무시
+            var pair = SafeCurrentPair(); // 현재 인덱스가 범위를 벗어났을 수 있으니 안전 접근
+            if (pair.HasValue)
+            {
+                nameText.text = pair.Value.Key;
+                roleText.text = pair.Value.Value;
+
+                yield return FadeBoth(FadeIn(quickFadeDuration, nameText),
+                              FadeIn(quickFadeDuration, roleText));
+
+                yield return WaitCoroutine(waitDuration);
+
+                yield return FadeBoth(FadeOut(fadeDuration, nameText),
+                              FadeOut(fadeDuration, roleText));
+            }
+        }
+        else if (bothOpaque)
+        {
+            // 둘 다 1: 빠른 페이드 아웃
+            yield return FadeBoth(FadeOut(quickFadeDuration, nameText),
+                              FadeOut(quickFadeDuration, roleText));
         }
         else if (fadingIn)
         {
-            StopAllCoroutines();
-            Color c = nameText.color;
-            c.a = 1f;
-            nameText.color = c;
-            c = roleText.color;
-            c.a = 1f;
-            roleText.color = c;
-            StartCoroutine(WaitCoroutine());
-            StartCoroutine(FadeOut(fadeDuration, nameText));
-            StartCoroutine(FadeOut(fadeDuration, roleText));
+            // FadeIn 중 : 즉시 1로 고정 -> Wait -> 정상 FadeOut
+            SetAlpha(nameText, 1f);
+            SetAlpha(roleText, 1f);
+
+            yield return WaitCoroutine(waitDuration);
+
+            yield return FadeOut(fadeDuration, nameText);
+            yield return FadeOut(fadeDuration, roleText);
+            fadingIn = false; // 상태 정리
         }
         else if (fadingOut)
         {
-            StopAllCoroutines();
-            Color c = nameText.color;
-            c.a = 0f;
-            nameText.color = c;
-            c = roleText.color;
-            c.a = 0f;
-            roleText.color = c;
+            // FadeOut 중 : 즉시 0으로 고정 (다음 틱에서 그냥 FadeIn)
+            SetAlpha(nameText, 0f);
+            SetAlpha(roleText, 0f);
+            fadingOut = false;
         }
+
+        if (currentCreditIndex < credits.Length - 1)
+            currentCreditIndex++; // 다음 항목으로 넘어감
+        else end = true;
+        skipRequested = false;
+        if (tickAtSkip == TickManager.Instance.tickCount)
+            yield return WaitNextTick(); // 다음 틱까지 대기
+        skipCo = null;
     }
-    private IEnumerator QuickFadeIn(string key)
+
+    // 현재 인덱스가 범위 내면 KeyValuePair 반환
+    private KeyValuePair<string, string>? SafeCurrentPair()
     {
-        nameText.text = key;
-        roleText.text = credits[currentCreditIndex].Value;
-        yield return StartCoroutine(FadeIn(quickFadeDuration, nameText));
-        yield return StartCoroutine(FadeIn(quickFadeDuration, roleText));
-        yield return StartCoroutine(WaitCoroutine());
-        yield return StartCoroutine(FadeOut(fadeDuration, nameText));
-        yield return StartCoroutine(FadeOut(fadeDuration, roleText));
+        if (currentCreditIndex >= 0 && currentCreditIndex < credits.Length)
+            return credits[currentCreditIndex];
+        return null;
     }
-    private IEnumerator QuickFadeOut()
+
+    private IEnumerator WaitNextTick()
     {
-        yield return StartCoroutine(FadeOut(quickFadeDuration, nameText));
-        yield return StartCoroutine(FadeOut(quickFadeDuration, roleText));
+        int start = TickManager.Instance.tickCount;           // 현재까지 온 틱 스냅샷
+        while (!skipRequested && TickManager.Instance.tickCount == start)
+            yield return null;             // 다음 틱 오거나 스킵될 때까지 대기
+    }
+
+    private IEnumerator FadeBoth(IEnumerator a, IEnumerator b)
+    {
+        bool aDone = false, bDone = false;
+
+        StartCoroutine(Wrap(a, () => aDone = true));
+        StartCoroutine(Wrap(b, () => bDone = true));
+
+        yield return new WaitUntil(() => aDone && bDone);
+    }
+
+    private IEnumerator Wrap(IEnumerator routine, System.Action onDone)
+    {
+        yield return routine;
+        onDone?.Invoke();
     }
 }

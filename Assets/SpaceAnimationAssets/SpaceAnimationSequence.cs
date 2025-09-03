@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpaceAnimationSequence : MonoBehaviour
@@ -31,6 +32,9 @@ public class SpaceAnimationSequence : MonoBehaviour
 
     [Tooltip("대사 간격(초). TickManager.Tick을 기준으로 가장 가까운 틱 수로 변환됨")]
     [SerializeField] float speakIntervalSeconds = 8f;
+    [Tooltip("크레딧 호출하기.")]
+    [SerializeField] Credits credits;
+    [SerializeField] int creditsDelay = 3;
     void Start()
     {
         // 필요하면 자동 Play
@@ -62,12 +66,26 @@ public class SpaceAnimationSequence : MonoBehaviour
             ActivateWithParents(particleRoot);
 
 
-        for (int i = 0; i < 7; i++) 
-        { 
+        for (int i = 0; i < 7; i++)
+        {
             BosalManager.Instance.Speak("SpaceEnding");
         }
         yield return new WaitForSeconds(27f);
-        StartCoroutine(FadeSpritesSequence());
+        yield return StartCoroutine(FadeSpritesSequence());
+        yield return new WaitForSeconds(5f); //대충 5초쯤 기다려 놓고
+        yield return TickManager.Instance.TickWait(creditsDelay);
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM("Ground", 0);
+        credits.Play();
+        StartCoroutine(EndCheck());
+    }
+    IEnumerator EndCheck()
+    {
+        while (!credits.end)
+        {
+            yield return null;
+        }
+        EndSpace.Instance.EndOfSpace();
     }
     IEnumerator FadeInFromBlack()
     {
