@@ -20336,8 +20336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdChance: 0.2
   cycleSpanInit: 4
-  cycleSpanMin: 13
-  cycleSpanMax: 17
+  cycleSpanMin: 10
+  cycleSpanMax: 15
   sittime: 16
   waitAfterFeather: 4
   birdPoop: {fileID: 4791323934794703054, guid: 00331c9013c08404591077b3cbb609d2, type: 3}
@@ -74147,8 +74147,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.7830189, g: 0.55914843, b: 0.28439835, a: 1}
-      maxColor: {r: 0.764151, g: 0.67583066, b: 0.19824673, a: 1}
+      minColor: {r: 0.9339623, g: 0.63539547, b: 0.2687344, a: 1}
+      maxColor: {r: 0.9245283, g: 0.8165637, b: 0.24857599, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -75300,8 +75300,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0.75686276}
-        key1: {r: 1, g: 1, b: 1, a: 0.827451}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.827451}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -111049,7 +111049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99994, y: 35}
+  m_AnchoredPosition: {x: -357.99988, y: 35}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -111327,9 +111327,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.22737068
+    x: 0.28717673
     y: 0
-    width: 0.54525864
+    width: 0.42564654
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -133372,7 +133372,7 @@ MonoBehaviour:
   - 0
   - 0
   count: 5
-  duration: 30
+  duration: 40
   ps: {fileID: 1280793119}
   normal: {fileID: 6200000, guid: 5bf3c54b4026478418ffdb6e9b6b01d8, type: 2}
   rainy: {fileID: 6200000, guid: be96b57d518998d478169aae99178874, type: 2}
@@ -175638,7 +175638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -247.99998}
+  m_AnchoredPosition: {x: 0, y: -248}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042834999
@@ -186154,7 +186154,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000012000000
+  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000001200000012000000
   waitTimeBeforeChange: 1.5
   idleScript: 
   autumnCloudCatch: 0

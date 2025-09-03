@@ -883,7 +883,7 @@ MonoBehaviour:
   checktime: 0.3
   baseColor: {r: 0.81590426, g: 0.8833618, b: 0.8962264, a: 1}
   flowColor: {r: 0.6509804, g: 0.5921569, b: 0.57254905, a: 0.5372549}
-  dragColor: {r: 0.60784316, g: 0.79607844, b: 0.83137256, a: 0.5372549}
+  dragColor: {r: 0.5803922, g: 0.61960787, b: 0.62352943, a: 0.5372549}
   holdToRotate: 1
   rotateSpeed: -90
   moveDeadZone: 0.4
