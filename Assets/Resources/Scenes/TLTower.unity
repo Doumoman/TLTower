@@ -51675,7 +51675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00024, y: -297}
+  m_AnchoredPosition: {x: -909.00037, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -111049,7 +111049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99985, y: 35}
+  m_AnchoredPosition: {x: -357.99976, y: 34.99994}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -111327,10 +111327,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.44598284
-    width: 1
-    height: 0.10803432
+    x: 0.24515086
+    y: 0
+    width: 0.5096983
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -127086,7 +127086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00024, y: -201.99997}
+  m_AnchoredPosition: {x: -909.00037, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -175459,7 +175459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -367.99997, y: 178}
+  m_AnchoredPosition: {x: -367.99994, y: 178}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037386059
@@ -186154,7 +186154,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000001200000012000000
+  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000012000000
   waitTimeBeforeChange: 1.5
   idleScript: 
   autumnCloudCatch: 0

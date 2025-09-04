@@ -10194,7 +10194,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51e9520bfb8c1654fb8160738fd66b30, type: 2}
-  m_sharedMaterial: {fileID: -3097097232006810121, guid: 51e9520bfb8c1654fb8160738fd66b30, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3d8e8c95013df7e46a9700399df01645, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15568,7 +15568,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51e9520bfb8c1654fb8160738fd66b30, type: 2}
-  m_sharedMaterial: {fileID: -3097097232006810121, guid: 51e9520bfb8c1654fb8160738fd66b30, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3d8e8c95013df7e46a9700399df01645, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -46254,9 +46254,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.10783318
+    y: 0.16666666
     width: 1
-    height: 0.78433365
+    height: 0.6666667
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -57518,10 +57518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 462146575}
-  nameSize: 30
+  nameSize: 35
   roleText: {fileID: 628144309}
-  roleSize: 15
-  fadeDuration: 1
+  roleSize: 20
+  fadeDuration: 0.9
   quickFadeDuration: 0.1
   waitDuration: 5
   names:
@@ -57533,8 +57533,9 @@ MonoBehaviour:
   - "\uC724\uD76C\uB77C"
   - "\uCD5C\uC608\uC778"
   - "\uC774\uC5F0\uC218"
+  - "\uAC10\uC0AC\uD569\uB2C8\uB2E4"
   roles:
-  - "\uAE30\uD68D \uCD1D\uAD04 / \uBCF4\uC0B4 \uB300\uC0AC"
+  - "\uCD1D\uAD04 \uAE30\uD68D / \uBCF4\uC0B4 \uB300\uC0AC"
   - "\uAE30\uD68D \uBCF4\uC870"
   - "\uAC1C\uBC1C"
   - "\uAC1C\uBC1C"
@@ -57542,6 +57543,7 @@ MonoBehaviour:
   - "\uBBF8\uC220"
   - "\uBBF8\uC220"
   - "\uC74C\uD5A5"
+  - "\uD50C\uB808\uC774 \uD574\uC8FC\uC154\uC11C"
   end: 0
 --- !u!1 &1868529643
 GameObject:
