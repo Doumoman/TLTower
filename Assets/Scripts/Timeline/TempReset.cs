@@ -14,6 +14,7 @@ public class PlayerPrefsButton : MonoBehaviour
 
     [Header("챕터 지정")]
     [SerializeField] QuickChapter targetChapter = QuickChapter.spring;
+    public SceneLoader sceneLoader;
 
 
     [Header("토글 모드")]
@@ -47,7 +48,11 @@ public class PlayerPrefsButton : MonoBehaviour
     {
         SaveSystem.Instance.ResetGame();
     }
-    public void ChapterChange() => SaveSystem.SetChapter(targetChapter);
+    public void ChapterChange()
+    {
+        SaveSystem.SetChapter(targetChapter);
+        sceneLoader.LoadGame();
+    }
     public void ExitGame()
     {
 #if UNITY_EDITOR

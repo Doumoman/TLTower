@@ -50,6 +50,7 @@ public class SpaceAnimationSequence : MonoBehaviour
 
     public IEnumerator Play()
     {
+        PlayerPrefs.SetInt("CurrentChapter", (int)chapter.space);
         Coroutine fadeCo = StartCoroutine(FadeInFromBlack());
         Coroutine riseCo = StartCoroutine(riseStage.Run());
 
@@ -75,9 +76,7 @@ public class SpaceAnimationSequence : MonoBehaviour
         yield return new WaitForSeconds(5f); //대충 5초쯤 기다려 놓고
         yield return TickManager.Instance.TickWait(creditsDelay);
         SoundManager.Instance.StopBGM();
-        SoundManager.Instance.PlayBGM("Ground", 0);
         credits.Play();
-        StartCoroutine(EndCheck());
     }
     IEnumerator EndCheck()
     {

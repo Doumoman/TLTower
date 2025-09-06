@@ -130,7 +130,7 @@ public class GuideManager : MonoBehaviour
 
             case GuideUIState.PauseOnly:
                 HidePause();
-                pauseButton.SetActive(true); // Pause 버튼 보임 이동건 수정 0731 20:31
+                if ((chapter)PlayerPrefs.GetInt("CurrentChapter") != chapter.space) pauseButton.SetActive(true); // Pause 버튼 보임 이동건 수정 0731 20:31
                 current = GuideUIState.None;
                 break;
 
@@ -162,7 +162,7 @@ public class GuideManager : MonoBehaviour
         else if (current == GuideUIState.PauseOnly) // Pause 상태에서 주변 화면 눌렀을 때
         {
             HidePause();
-            pauseButton.SetActive(true); // Pause 버튼 다시 보임
+            if ((chapter)PlayerPrefs.GetInt("CurrentChapter") != chapter.space) pauseButton.SetActive(true); // Pause 버튼 다시 보임
             current = GuideUIState.None;
             SoundManager.Instance.PlaySFX("pause");
             //CheckVoiceStop에서 Voice 검사
@@ -177,7 +177,7 @@ public class GuideManager : MonoBehaviour
         }
         else if (current == GuideUIState.GuideThenPause) // PlayGuide 호출 후 Pause 상태에서 주변 화면 눌렀을 때
         {
-            pauseButton.SetActive(true); // Pause 버튼 보임
+            if ((chapter)PlayerPrefs.GetInt("CurrentChapter") != chapter.space) pauseButton.SetActive(true); // Pause 버튼 보임
             HidePause();
             ShowGuide();
             current = GuideUIState.GuideReturn;

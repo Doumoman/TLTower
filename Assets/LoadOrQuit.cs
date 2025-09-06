@@ -5,35 +5,24 @@ using UnityEngine;
 public class LoadOrQuit : MonoBehaviour
 {
     [Header("References")]
-    public GameObject load;
-    public GameObject quit;
-
-    //엔딩을 본 상태면 종료버튼 활성화, 아니면 계속버튼을 활성화
+    public GameObject button;
     void Start()
     {
-        if (PlayerPrefs.HasKey("sawEnding"))
+        Debug.Log(PlayerPrefs.GetInt("CurrentChapter", -1));
+        if (!PlayerPrefs.HasKey("CurrentChapter") || (chapter)PlayerPrefs.GetInt("CurrentChapter") == chapter.spring)
         {
-            if (PlayerPrefs.GetInt("sawEnding") == 1)
-            {
-                load.SetActive(false);
-                quit.SetActive(true);
-            }
-            else
-            {
-                load.SetActive(true);
-                quit.SetActive(false);
-            }
+            button.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            button.GetComponent<UnityEngine.UI.Image>().color = new Color(.8f, .8f, .8f, 0.5f);
         }
         else
         {
-            load.SetActive(true);
-            quit.SetActive(false);
+            button.GetComponent<UnityEngine.UI.Button>().interactable = true;
+            button.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1f);
         }
     }
 
     public void NewGame()
     {
-        load.SetActive(true);
-        quit.SetActive(false);
+        button.SetActive(false);
     }
 }

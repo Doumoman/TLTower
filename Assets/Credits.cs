@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
 {
@@ -20,13 +21,18 @@ public class Credits : MonoBehaviour
     [Header("데이터")]
     [SerializeField] private List<string> names = new List<string>();
     [SerializeField] private List<string> roles = new List<string>();
+    [Header("버튼")]
+    [SerializeField] private GameObject button;
+    [SerializeField] private int EnableTime = 8;
+    [SerializeField] private int DisableTime = 24;
+    [SerializeField] private int buttonFadeDuration = 3;
 
     private KeyValuePair<string, string>[] credits = new KeyValuePair<string, string>[0];
 
     private int currentCreditIndex = 0;
     private bool fadingIn = false;
     private bool fadingOut = false;
-    private bool skippable = false;
+    [SerializeField] private bool skippable = false;
 
     // 마스터/스텝 코루틴 핸들
     private Coroutine sequenceCo = null;
@@ -40,6 +46,7 @@ public class Credits : MonoBehaviour
         nameText.fontSize = nameSize;
         roleText.text = "";
         roleText.fontSize = roleSize;
+        button.SetActive(false);
 
         // 투명으로 초기화
         SetAlpha(nameText, 0f);
@@ -59,7 +66,10 @@ public class Credits : MonoBehaviour
     // 외부에서 호출
     public void Play()
     {
-        skippable = true;
+
+        end = false;
+        currentCreditIndex = 0;
+        if (PlayerPrefs.HasKey("sawEnding") && PlayerPrefs.GetInt("sawEnding") == 1) skippable = true;
         if (sequenceCo != null)
             StopCoroutine(sequenceCo);
 
@@ -69,6 +79,8 @@ public class Credits : MonoBehaviour
     // 마스터 시퀀스: 각 항목을 순차 실행
     IEnumerator Sequence()
     {
+        SoundManager.Instance.PlayBGM("Space 2", 0);
+        yield return new WaitForSeconds(20f);
         currentCreditIndex = 0;
 
         while (currentCreditIndex < credits.Length)
@@ -84,7 +96,10 @@ public class Credits : MonoBehaviour
             yield return WaitNextTick();
             if (skipRequested) { skipRequested = false; }
         }
+        Debug.Log("Credits end");
         end = true;
+        PlayerPrefs.SetInt("sawCredits", 1);
+        yield return EndButton(EnableTime, DisableTime);
     }
 
     private IEnumerator ShowAndFade(string key, string value)
@@ -269,5 +284,57 @@ public class Credits : MonoBehaviour
     {
         yield return routine;
         onDone?.Invoke();
+    }
+
+    private IEnumerator EndButton(int enable = 8, int disable = 24)
+    {
+        Debug.Log("End Button Start");
+        while(true){
+            StartCoroutine(FadeInButton(buttonFadeDuration));
+            yield return new WaitForSeconds(enable - buttonFadeDuration);
+            StartCoroutine(FadeOutButton(buttonFadeDuration));
+            yield return new WaitForSeconds(disable - buttonFadeDuration);
+        }
+    }
+
+    private IEnumerator FadeInButton(float duration)
+    {
+        button.SetActive(true);
+        Color original = button.GetComponent<Image>().color;
+        Color target = new Color(original.r, original.g, original.b, 1f);
+        float elapsed = 0f;
+
+        fadingIn = true;
+        while (elapsed < duration)
+        {
+            button.GetComponent<Image>().color = Color.Lerp(original, target, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        button.GetComponent<Image>().color = target;
+    }
+
+    private IEnumerator FadeOutButton(float duration)
+    {
+        Color original = button.GetComponent<Image>().color;
+        Color target = new Color(original.r, original.g, original.b, 0f);
+        float elapsed = 0f;
+
+        fadingOut = true;
+        while (elapsed < duration)
+        {
+            button.GetComponent<Image>().color = Color.Lerp(original, target, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        button.GetComponent<Image>().color = target;
+        button.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.DeleteKey("KEY_CHAPTER");
+        StopCoroutine(EndButton(EnableTime, DisableTime));
+        button.SetActive(false);
     }
 }
