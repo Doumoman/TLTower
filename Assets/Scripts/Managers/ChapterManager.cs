@@ -329,18 +329,18 @@ public class ChapterManager : MonoBehaviour
             {
                 if (autumnCloudCatch)
                 {
-                    GuideManager.Instance.PlayGuide("autumn",2f);
+                    GuideManager.Instance.PlayGuide("autumn", 2f);
                     yield break;
                 }
                 if (currentTime - Time.deltaTime > autumnCloudTime)
                 {
-                    GuideManager.Instance.PlayGuide("autumn",2f);
+                    GuideManager.Instance.PlayGuide("autumn", 2f);
                     yield break;
                 }
                 yield return null;
             }
             StartCoroutine(cloudCheck());
-            GuideManager.Instance.PlayGuide("autumn",2f);
+            GuideManager.Instance.PlayGuide("autumn", 2f);
             BosalManager.Instance.Speak("Autumn");
             SoundManager.Instance.PlayBGM("Autumn", 0);
             idleScript = "Autumn";
@@ -426,7 +426,14 @@ public class ChapterManager : MonoBehaviour
             //Debug.Log("우주브금 실행");
             idleScript = null;
             SoundManager.Instance.StopBGM();
-            SoundManager.Instance.PlayBGM("Space", 0);
+            Debug.Log("SoundManager.Instance.spaceLoaded: " + SoundManager.Instance.spaceLoaded);
+            if (SoundManager.Instance.spaceLoaded == false)
+                SoundManager.Instance.PlayBGM("Space", 0);
+            else
+            {
+                SoundManager.Instance.PlayBGM("Space 3", 0);
+                SoundManager.Instance.spaceLoaded = false;
+            }
         }
 
         else

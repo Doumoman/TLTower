@@ -16,5 +16,7 @@ public class SceneLoader: MonoBehaviour
         SceneManager.LoadScene("TLTower");
         Time.timeScale = 1.0f;
         SoundManager.Instance.PlaySFX("game_start");
+        if (PlayerPrefs.GetInt("CurrentChapter", -1) == (int)chapter.space)
+            SoundManager.Instance.spaceLoaded = true;
     }
 }

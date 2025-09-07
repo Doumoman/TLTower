@@ -89,4 +89,5 @@ public enum QuickChapter
     winter2 = (int)chapter.winter2,    // 21
     winter3 = (int)chapter.winter3,    // 22
     winter4 = (int)chapter.winter4,    // 23
+    space = (int)chapter.space,    // 24
 }

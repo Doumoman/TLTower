@@ -3095,10 +3095,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638927788779156362
+  lastModified: 638928875564430637
   FileSizes:
   - Name: Desktop
-    Value: 7022
+    Value: 7066
   Exists: 1
 --- !u!114 &-5448194966732891332
 MonoBehaviour:
@@ -7039,13 +7039,14 @@ MonoBehaviour:
   - {fileID: -8116825221523852642}
   - {fileID: -2521433482904749694}
   - {fileID: -440669073723661273}
+  - {fileID: 2799734315891431182}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4553732071330575388}
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638927837928609060
+  cacheTime: 638928891255721965
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -7319,6 +7320,8 @@ MonoBehaviour:
     index: 134
   - key: event:/BGM/Space 2
     index: 135
+  - key: event:/BGM/Space 3
+    index: 136
 --- !u!114 &39619653358434118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9459,11 +9462,38 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638927837928609060
+  lastModified: 638928891253098113
   FileSizes:
   - Name: Desktop
-    Value: 16733088
+    Value: 16734496
   Exists: 1
+--- !u!114 &2799734315891431182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Space 3
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Space 3
+  Guid:
+    Data1: -825879241
+    Data2: 1189706707
+    Data3: 1664175278
+    Data4: 1385842004
+  Banks:
+  - {fileID: 2670347828736727735}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 53088
 --- !u!114 &2802627735720863432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9803,10 +9833,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638920267954233411
+  lastModified: 638928891255721965
   FileSizes:
   - Name: Desktop
-    Value: 3071392
+    Value: 3071168
   Exists: 1
 --- !u!114 &3174163160490294221
 MonoBehaviour:
@@ -11133,7 +11163,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638927788779146309
+  lastModified: 638928875564430637
   FileSizes:
   - Name: Desktop
     Value: 1924

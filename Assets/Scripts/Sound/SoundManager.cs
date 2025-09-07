@@ -85,6 +85,7 @@ public class SoundManager : Singleton<SoundManager>
     private EventInstance BGM;
     private EventInstance Pause;
     private string current = "";
+    public bool spaceLoaded = false;
 
     public void PlayBGM(string name, int state)
     {

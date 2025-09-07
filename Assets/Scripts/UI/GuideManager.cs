@@ -61,6 +61,7 @@ public class GuideManager : MonoBehaviour
         else
         {
             HideGuide();
+            pauseButton.SetActive(true);
             VoiceManager.Instance.forceStop = false;
             VoiceManager.Instance.pauseVoice = false;
             current = GuideUIState.None;

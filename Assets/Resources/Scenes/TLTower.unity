@@ -185852,6 +185852,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1921544825}
     m_Modifications:
+    - target: {fileID: 758321895820930691, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 809127702}
+    - target: {fileID: 758321895820930691, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 758321895820930691, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuitPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3827701273922599411, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -186154,7 +186166,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000000000000
+  stonesForChapter: 03000000080000000c00000012000000080000000c0000000c00000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000012000000
   waitTimeBeforeChange: 1.5
   idleScript: 
   autumnCloudCatch: 0

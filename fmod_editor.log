@@ -9,7 +9,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 0
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000025ACBAC8428 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000024B8CF4C128 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -21,11 +21,455 @@
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000053B3E6F2B8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA7F55D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA7F55D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA7F55D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA7F55D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000024A9ED9A6A8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='stroke_medium', format=5, channels=2, frequency=48000, lengthbytes=11296, lengthpcm=50155, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.198273.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000053B3E6F2B8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA7F55D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA7F55D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA7F55D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA7F55D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000024A9ED9BD58
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='stroke_bend', format=5, channels=2, frequency=48000, lengthbytes=17920, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.124084.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1283104
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 43520
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000053B3E6F2B8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA7F55D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA7F55D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA7F55D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA7F55D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000024A9ED9BD58
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='game_start', format=5, channels=2, frequency=48000, lengthbytes=43936, lengthpcm=184320, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.974854.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4848, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4848
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67BA88
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Spring_melody_001 (3)', format=5, channels=2, frequency=48000, lengthbytes=942784, lengthpcm=3270112, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.992798.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4848
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4CF8, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4CF8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67B7C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 30000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_highlight', format=5, channels=2, frequency=48000, lengthbytes=1176352, lengthpcm=4036231, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.943054.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4CF8
+[LOG] SoundI::release                          : Spring_melody_001 (3) (0000024BF8AE4848)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (0000024BECFDAE88)
+[LOG] SoundI::release                          :     Spring_melody_001 (3) (0000024AAD319B08)
+[LOG] SoundI::release                          : spring_ambient_001 (0000024BF8AE49D8)
+[LOG] SoundI::release                          :     spring_ambient_001 (0000024B61182298)
+[LOG] SoundI::release                          :     spring_ambient_001 (0000024AAD319338)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4B68, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4B68
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67BA88
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding0', format=5, channels=2, frequency=48000, lengthbytes=928, lengthpcm=31346, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.006744.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4B68
+[LOG] SoundI::release                          : SpaceEnding0 (0000024BF8AE4B68)
+[LOG] SoundI::release                          :     SpaceEnding0 (0000024BECFD9988)
+[LOG] SoundI::release                          :     SpaceEnding0 (0000024AAD319FB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4208, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4208
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67B928
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding1', format=5, channels=2, frequency=48000, lengthbytes=121056, lengthpcm=462680, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.614777.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4208
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : SpaceEnding1 (0000024BF8AE4208)
+[LOG] SoundI::release                          :     SpaceEnding1 (0000024BECFDA588)
+[LOG] SoundI::release                          :     SpaceEnding1 (0000024AAD319658)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4078, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4078
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67BA88
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding2', format=5, channels=2, frequency=48000, lengthbytes=62624, lengthpcm=241998, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.442993.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4078
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : SpaceEnding2 (0000024BF8AE4078)
+[LOG] SoundI::release                          :     SpaceEnding2 (0000024BECFDC508)
+[LOG] SoundI::release                          :     SpaceEnding2 (0000024AAD319E28)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4208, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4208
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67B928
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding3', format=5, channels=2, frequency=48000, lengthbytes=92928, lengthpcm=363624, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.694641.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4208
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : SpaceEnding3 (0000024BF8AE4208)
+[LOG] SoundI::release                          :     SpaceEnding3 (0000024BECFDAE88)
+[LOG] SoundI::release                          :     SpaceEnding3 (0000024AAD319B08)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8AE4208, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8AE4208
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AAC67BA88
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding4', format=5, channels=2, frequency=48000, lengthbytes=122784, lengthpcm=478981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.498901.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8AE4208
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : SpaceEnding4 (0000024BF8AE4208)
+[LOG] SoundI::release                          :     SpaceEnding4 (0000024BECFD9988)
+[LOG] SoundI::release                          :     SpaceEnding4 (0000024AAD319338)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024A34A9A5C8, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A34A9A5C8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A0D1606E8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding5', format=5, channels=2, frequency=48000, lengthbytes=40032, lengthpcm=154226, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.535034.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A34A9A5C8
+[LOG] SoundI::release                          : SpaceEnding5 (0000024A34A9A5C8)
+[LOG] SoundI::release                          :     SpaceEnding5 (0000024BECFDC508)
+[LOG] SoundI::release                          :     SpaceEnding5 (0000024AAD319B08)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/Voice.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024A34A99498, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A34A99498
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/Voice.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3008384
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 63008
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A0D162108
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SpaceEnding6', format=5, channels=2, frequency=48000, lengthbytes=68576, lengthpcm=264568, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.425049.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A34A99498
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : SpaceEnding6 (0000024A34A99498)
+[LOG] SoundI::release                          :     SpaceEnding6 (0000024BECFD9208)
+[LOG] SoundI::release                          :     SpaceEnding6 (0000024AAD319E28)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : space_highlight (0000024BF8AE4CF8)
+[LOG] SoundI::release                          :     space_highlight (0000024BECFDB188)
+[LOG] SoundI::release                          :     space_highlight (0000024AAD3194C8)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000053B3E6F2B8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA7F55D480
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA7F55D440
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA7F55D560
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA7F55D620
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000024A46022C78
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='space_beat_001', format=5, channels=2, frequency=48000, lengthbytes=106112, lengthpcm=443872, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.392731.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8B67838, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67838
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AA8A5E998
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_001', format=5, channels=2, frequency=48000, lengthbytes=218368, lengthpcm=817528, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.292358.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67838
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8B67518, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67518
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AA8A5EAF8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_001', format=5, channels=2, frequency=48000, lengthbytes=218368, lengthpcm=817528, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.292358.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67518
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          : space_pad_001 (0000024BF8B67838)
+[LOG] SoundI::release                          :     space_pad_001 (0000024BECFDA408)
+[LOG] SoundI::release                          :     space_pad_001 (0000024AAD319FB8)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8B67E78, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67E78
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] AsyncThread::getAsyncThread              :     index = 0 / 5
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024AA8A5E998
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 0000024BF8B67838, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_001', format=5, channels=2, frequency=48000, lengthbytes=218368, lengthpcm=817528, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.292358.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67E78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67838
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5101FCC8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_002', format=5, channels=2, frequency=48000, lengthbytes=401824, lengthpcm=1586155, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.552155.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67838
+[LOG] SoundI::release                          : space_pad_001 (0000024BF8B67518)
+[LOG] SoundI::release                          :     space_pad_001 (0000024BECFDA888)
+[LOG] SoundI::release                          :     space_pad_001 (0000024AAD319B08)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8B679C8, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B679C8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5101F488
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_001', format=5, channels=2, frequency=48000, lengthbytes=218368, lengthpcm=817528, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.292358.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B679C8
+[LOG] SoundI::release                          : space_pad_001 (0000024BF8B67E78)
+[LOG] SoundI::release                          :     space_pad_001 (0000024BECFDCC88)
+[LOG] SoundI::release                          :     space_pad_001 (0000024AAD3197E8)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000024BF8B67B58, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] SystemI::createSound                     : filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67B58
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 0000024BF8B67068, queue head = 0000024BF8AE4678, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5101FE28
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD/Build/Desktop/BGM.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              :     index = 0 / 5
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 0000024BF8B671F8, queue head = 0000024BF8AE4678, queue count = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_001', format=5, channels=2, frequency=48000, lengthbytes=218368, lengthpcm=817528, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.292358.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67B58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B67068
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5101F5E8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_pad_002', format=5, channels=2, frequency=48000, lengthbytes=401824, lengthpcm=1586155, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.552155.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B67068
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024BF8B671F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMOD/Build/Desktop/BGM.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16625536
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 108960
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5101F748
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='space_melody_001', format=5, channels=2, frequency=48000, lengthbytes=458176, lengthpcm=1633802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.435608.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024BF8B671F8
+[LOG] SoundI::release                          : space_pad_001 (0000024BF8B679C8)
+[LOG] SoundI::release                          :     space_pad_001 (0000024BECFD9E08)
+[LOG] SoundI::release                          :     space_pad_001 (0000024AAD319E28)
+[LOG] SoundI::release                          : space_pad_002 (0000024BF8B67838)
+[LOG] SoundI::release                          :     space_pad_002 (0000024BECFDB188)
+[LOG] SoundI::release                          :     space_pad_002 (0000024AAD319658)
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[WRN] FMOD_OS_Net_Listen                       : Cannot listen for connections, port 9264 is currently in use.
+[LOG] SoundI::release                          :  (0000024B4C2ADB68)
+[LOG] SoundI::release                          :     stroke_medium (0000024BECFDCE08)
+[LOG] SoundI::release                          :  (0000024B4C2ADCC8)
+[LOG] SoundI::release                          :     stroke_bend (0000024BECFDAA08)
+[LOG] SoundI::release                          :  (0000024B4C2ADE28)
+[LOG] SoundI::release                          :     game_start (0000024BECFDBF08)
+[LOG] SoundI::release                          : space_melody_001 (0000024BF8B671F8)
+[LOG] SoundI::release                          :     space_melody_001 (0000024BECFDA888)
+[LOG] SoundI::release                          :     space_melody_001 (0000024AAD319FB8)
+[LOG] SoundI::release                          : space_pad_002 (0000024BF8B67068)
+[LOG] SoundI::release                          :     space_pad_002 (0000024BECFDA408)
+[LOG] SoundI::release                          :     space_pad_002 (0000024AAD3197E8)
+[LOG] SoundI::release                          : space_pad_001 (0000024BF8B67B58)
+[LOG] SoundI::release                          :     space_pad_001 (0000024BECFDCC88)
+[LOG] SoundI::release                          :     space_pad_001 (0000024AAD319B08)
+[LOG] SoundI::release                          :  (0000024B4C2AD068)
+[LOG] SoundI::release                          :     spring_beat_001 (0000024B6117EF98)
+[LOG] SoundI::release                          :  (0000024A0D1605A8)
+[LOG] SoundI::release                          :     space_beat_001 (0000024BECFDAB88)
+[LOG] SoundI::release                          :  (0000024B4C2ADA08)
+[LOG] SoundI::release                          :     next_chapter (0000024B61180C18)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::closeInternal                   : Closed.
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -33,3 +477,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::closeInternal                   : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
