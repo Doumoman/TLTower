@@ -33,5 +33,6 @@ public class BGMSlider : MonoBehaviour
         }
 
         PlayerPrefs.SetFloat("bgmVolume", value);
+        PlayerPrefs.Save();
     }
 }

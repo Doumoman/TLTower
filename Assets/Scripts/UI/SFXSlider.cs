@@ -30,5 +30,6 @@ public class SFXSlider : MonoBehaviour
         if (soundManager != null)
             sfxBus.setVolume(value);
         PlayerPrefs.SetFloat("sfxVolume", value);
+        PlayerPrefs.Save();
     }
 }

@@ -15796,7 +15796,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: FontSize
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: isTextBig
@@ -15804,7 +15804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: changeSize
-      value: 1.5
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: TextPosition
@@ -46398,10 +46398,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.14668092
-    y: 0
-    width: 0.70663816
-    height: 1
+    x: 0
+    y: 0.44649732
+    width: 1
+    height: 0.10700539
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

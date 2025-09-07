@@ -35626,7 +35626,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: FontSize
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: isTextBig
@@ -35634,7 +35634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: changeSize
-      value: 1.5
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: TextPosition
@@ -51675,7 +51675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.0004, y: -297}
+  m_AnchoredPosition: {x: -909.00055, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -111049,7 +111049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.9997, y: 34.99994}
+  m_AnchoredPosition: {x: -357.99982, y: 35}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -127086,7 +127086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.0004, y: -201.99997}
+  m_AnchoredPosition: {x: -909.00055, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -175459,7 +175459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -367.99994, y: 178}
+  m_AnchoredPosition: {x: -368.00006, y: 178}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037386059
@@ -186154,7 +186154,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000012000000
+  stonesForChapter: 03000000080000000c00000012000000080000000c0000001200000012000000120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000000000000
   waitTimeBeforeChange: 1.5
   idleScript: 
   autumnCloudCatch: 0
@@ -186431,7 +186431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9154385130308501292, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: Openquitpanel
       objectReference: {fileID: 0}
     - target: {fileID: 9154385130308501292, guid: 617b065066595e046b56acc24ee10aee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

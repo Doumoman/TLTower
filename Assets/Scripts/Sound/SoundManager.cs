@@ -54,7 +54,7 @@ public class SoundManager : Singleton<SoundManager>
     public void PlaySFX(string path)
     {
         var instance = RuntimeManager.CreateInstance("event:/SFX/" + path);
-        instance.setVolume(PlayerPrefs.GetFloat("sfxVolume"));
+        instance.setVolume(PlayerPrefs.GetFloat("sfxVolume", 0.75f));
         instance.start();
         instance.release();
         Debug.Log(path + " Playing!");
@@ -99,11 +99,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         //기존 BGM 정지
-        if (BGM.isValid())
-        {
-            BGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            BGM.release();
-        }
+        StopBGM();
 
         //새 BGM 재생
         TickPlay(name, state);
@@ -172,9 +168,10 @@ public class SoundManager : Singleton<SoundManager>
 
     public void StopPauseBGM()
     {
-        if (!Pause.isValid()) return;
+        if (!Pause.isValid()) Pause = RuntimeManager.CreateInstance("event:/pause");
         Pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Pause.release();
+        Pause.clearHandle();
         Debug.Log($"Pause BGM Stopped!");
     }
 

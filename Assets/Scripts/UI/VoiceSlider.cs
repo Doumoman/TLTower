@@ -29,5 +29,6 @@ public class VoiceSlider : MonoBehaviour
         if (soundManager != null)
             voiceBus.setVolume(value);
         PlayerPrefs.SetFloat("VoiceVolume", value);
+        PlayerPrefs.Save();
     }
 }

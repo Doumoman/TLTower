@@ -9,7 +9,7 @@ public class LoadOrQuit : MonoBehaviour
     void Start()
     {
         Debug.Log(PlayerPrefs.GetInt("CurrentChapter", -1));
-        if (!PlayerPrefs.HasKey("CurrentChapter") || (chapter)PlayerPrefs.GetInt("CurrentChapter") == chapter.spring)
+        if (!PlayerPrefs.HasKey("CurrentChapter") || PlayerPrefs.GetInt("CurrentChapter") == (int)chapter.spring)
         {
             button.GetComponent<UnityEngine.UI.Button>().interactable = false;
             button.GetComponent<UnityEngine.UI.Image>().color = new Color(.8f, .8f, .8f, 0.5f);

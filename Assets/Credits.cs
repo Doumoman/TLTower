@@ -99,6 +99,7 @@ public class Credits : MonoBehaviour
         Debug.Log("Credits end");
         end = true;
         PlayerPrefs.SetInt("sawCredits", 1);
+        PlayerPrefs.Save();
         yield return EndButton(EnableTime, DisableTime);
     }
 
@@ -333,7 +334,9 @@ public class Credits : MonoBehaviour
 
     public void Reset()
     {
-        PlayerPrefs.DeleteKey("KEY_CHAPTER");
+        PlayerPrefs.SetInt("KEY_CHAPTER", 0);
+        PlayerPrefs.SetInt("sawCredits", 1);
+        PlayerPrefs.Save();
         StopCoroutine(EndButton(EnableTime, DisableTime));
         button.SetActive(false);
     }
