@@ -2756,6 +2756,7 @@ PrefabInstance:
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: FontSize
       value: 22
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: isTextBig
@@ -2763,6 +2764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1301303790503218869, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
       propertyPath: changeSize
+      value: 1.35
       value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 1330315642020226280, guid: 9151a722b52e1a74c982137b3a1a822e, type: 3}
