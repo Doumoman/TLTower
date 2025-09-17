@@ -39,7 +39,7 @@ public class SavePoint : MonoBehaviour
         var results = new Collider2D[16];
         var filter = new ContactFilter2D { useTriggers = false };
 
-        int cnt = col.OverlapCollider(filter, results);
+        int cnt = col.Overlap(filter, results);
         for (int i = 0; i < cnt; i++)
         {
             var stone = results[i].GetComponent<StoneController>();

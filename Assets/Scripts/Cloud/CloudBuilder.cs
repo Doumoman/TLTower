@@ -144,7 +144,7 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         anchorRb.gravityScale = dragGravity;        // 중력 OFF
         anchorRb.WakeUp();
 
-        anchorRb.velocity = Vector2.zero;
+        anchorRb.linearVelocity = Vector2.zero;
         anchorRb.angularVelocity = 0f;
         ZeroChildrenVelocity();
 
@@ -192,7 +192,7 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
             var rb = c.GetComponent<Rigidbody2D>();
             if (rb)
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
             }
         }

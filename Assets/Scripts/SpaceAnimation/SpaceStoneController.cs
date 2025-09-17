@@ -44,7 +44,7 @@ public class SpaceStoneController : MonoBehaviour,
 
         poly = GetComponent<PolygonCollider2D>();
         _rb.gravityScale = 0f;     // ★ 무중력
-        _rb.angularDrag = 0.05f;
+        _rb.angularDamping = 0.05f;
         _rb.mass = 1f;
         _sr = GetComponent<SpriteRenderer>();
 
@@ -59,7 +59,7 @@ public class SpaceStoneController : MonoBehaviour,
 
         // ② 물리 파라미터
         _rb.mass = mass;
-        _rb.angularDrag = angDrag;
+        _rb.angularDamping = angDrag;
 
         // ③ 프리셋 인덱스 저장(스냅 검사용)
         presetIndex = index;
@@ -123,7 +123,7 @@ public class SpaceStoneController : MonoBehaviour,
 
         _rb.isKinematic = true;
         _rb.angularVelocity = 0f;
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
         _sr.color = new Color(1, 1, 1, dragAlpha);
         _sr.sortingOrder += 10; 
         
@@ -179,7 +179,7 @@ public class SpaceStoneController : MonoBehaviour,
         tag = "SnappingStone";
 
         /* 물리·충돌 끄기 */
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
         _rb.angularVelocity = 0f;
         _rb.isKinematic = true;
         _phys.enabled = false;
