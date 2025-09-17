@@ -68,12 +68,12 @@ public class CloudController : MonoBehaviour,
 
     void Flow()
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
         rb.bodyType = RigidbodyType2D.Static;
         foreach (var rbChild in rbChildren)
         {
-            rbChild.velocity = Vector2.zero;
+            rbChild.linearVelocity = Vector2.zero;
             rbChild.bodyType = RigidbodyType2D.Static;
             rbChild.gravityScale = 0;
         }
@@ -176,7 +176,7 @@ public class CloudController : MonoBehaviour,
         ContactFilter2D filter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
         filter.SetLayerMask(mask);
 
-        int count = separator.OverlapCollider(filter, results);
+        int count = separator.Overlap(filter, results);
         if (count > 0)
         {
             foreach (Collider2D col in colChildren) col.isTrigger = true;
@@ -188,7 +188,7 @@ public class CloudController : MonoBehaviour,
             {
                 yield return new WaitForSeconds(checktime);
 
-                count = separator.OverlapCollider(filter, results);
+                count = separator.Overlap(filter, results);
                 if (count > 0)
                 {
                     if (results[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
@@ -317,12 +317,12 @@ public class CloudController : MonoBehaviour,
         SoundManager.Instance.PlaySFX("cloud_deselect");
 
         rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         foreach (Rigidbody2D rb in rbChildren)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
         rb.Sleep();

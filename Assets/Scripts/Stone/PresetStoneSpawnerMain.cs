@@ -60,7 +60,7 @@ public class PresetStoneSpawnerMain : MonoBehaviour
                mass·angularDrag 값을 넘기려면 Init 이전에 설정)         */
         var rb = go.GetComponent<Rigidbody2D>();
         rb.mass = p.stoneData.mass;
-        rb.angularDrag = p.stoneData.angularDrag;
+        rb.angularDamping = p.stoneData.angularDrag;
         rb.gravityScale = 1f;
 
         /* 4) MainStone 초기화 (스프라이트 등) */

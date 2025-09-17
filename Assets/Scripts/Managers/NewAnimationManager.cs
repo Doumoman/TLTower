@@ -215,10 +215,10 @@ public class NewAnimationManager : MonoBehaviour
 
 
         rb.mass = p.stoneData.mass;
-        rb.angularDrag = p.stoneData.angularDrag;
+        rb.angularDamping = p.stoneData.angularDrag;
         rb.gravityScale = 0f;               // Space → 무중력
 
-        mc.Init(spr, index, rb.mass, rb.angularDrag);
+        mc.Init(spr, index, rb.mass, rb.angularDamping);
 
         StartCoroutine(CoFadeIn(sr, fadeInDuration));
     }

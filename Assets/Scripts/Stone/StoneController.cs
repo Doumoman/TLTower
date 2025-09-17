@@ -55,6 +55,7 @@ public class StoneController : MonoBehaviour,
     const string DRAG_LAYER = "DraggingStone";   // 드래그 전용 Sorting Layer
     string originalSortingLayer;                 // 복구용 레이어 이름
     int originalOrder;
+    private PenaltyManager penaltyManager;
 
     [Header("Drag & Rotate")]
     public float holdToRotate = 0.75f;
@@ -79,6 +80,7 @@ public class StoneController : MonoBehaviour,
 
     void Awake()
     {
+        penaltyManager = FindAnyObjectByType<PenaltyManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         gameObject.tag = "Stone";
@@ -108,7 +110,7 @@ public class StoneController : MonoBehaviour,
     {
         if (state == StoneState.Dropping)
         {
-            bool slow = rb.velocity.magnitude < settleVelocityEps &&
+            bool slow = rb.linearVelocity.magnitude < settleVelocityEps &&
                         Mathf.Abs(rb.angularVelocity) < 5f;
 
             settleTimer = slow ? settleTimer + Time.deltaTime : 0;
@@ -118,7 +120,7 @@ public class StoneController : MonoBehaviour,
                 state = StoneState.Settled;
                 if (stoneTypeIndex == 99)
                 {
-                    PenaltyManager.Instance.PenaltyStoneSettled(); // 번뇌돌 Settled 보고, PenaltyManager에서 효과 관리
+                    penaltyManager.PenaltyStoneSettled(); // 번뇌돌 Settled 보고, PenaltyManager에서 효과 관리
                     Debug.Log("번뇌돌 Settled");
                 }
                 outlineSR.enabled = true;
@@ -240,7 +242,7 @@ public class StoneController : MonoBehaviour,
 
         if (!rb) rb = gameObject.AddComponent<Rigidbody2D>();
         rb.mass = data.mass;
-        rb.angularDrag = data.angularDrag;
+        rb.angularDamping = data.angularDrag;
         rb.gravityScale = 0f;
         rb.isKinematic = true;
 
@@ -309,7 +311,7 @@ public class StoneController : MonoBehaviour,
 
         if (stoneTypeIndex == 99)
         {
-            PenaltyManager.Instance.PenaltyStoneSettled(); // 번뇌돌이 새똥에 붙는 즉시 settled 처리
+            penaltyManager.PenaltyStoneSettled(); // 번뇌돌이 새똥에 붙는 즉시 settled 처리
             Debug.Log("번뇌돌 Settled");
         }
 
@@ -395,7 +397,7 @@ public class StoneController : MonoBehaviour,
 
         rb.isKinematic = false;
         rb.gravityScale = 1f;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.Sleep();
 
@@ -421,7 +423,7 @@ public class StoneController : MonoBehaviour,
         outlineSR.sortingLayerID = sr.sortingLayerID;
         outlineSR.sortingOrder = sr.sortingOrder - 1;
 
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         if (physCol) physCol.enabled = false;
         SetGroupPhysicsColliders(false);

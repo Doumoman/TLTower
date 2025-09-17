@@ -76,7 +76,7 @@ public class StoneTimelineTrigger : MonoBehaviour
         const int Max = 64;  // 트리거 안에 동시에 있을 수 있는 최대 콜라이더 수
         Collider2D[] results = new Collider2D[Max];
 
-        int hit = triggerCol.OverlapCollider(filter, results);
+        int hit = triggerCol.Overlap(filter, results);
 
         int count = 0;
         for (int i = 0; i < hit; i++)

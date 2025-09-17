@@ -54,7 +54,7 @@ public class JointMakerPhysics : MonoBehaviour
         Collider2D[] results = new Collider2D[10];
         ContactFilter2D filter = new ContactFilter2D { useTriggers = false };
     
-        int count = col.OverlapCollider(filter, results);
+        int count = col.Overlap(filter, results);
         for (int i = 0; i < count; i++)
         {
             GameObject go = results[i].gameObject;

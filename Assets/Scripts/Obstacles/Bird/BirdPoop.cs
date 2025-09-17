@@ -57,7 +57,7 @@ public class BirdPoop : MonoBehaviour
         var rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic; // 중력·충돌력 無
         rb.gravityScale = 0;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         // 필요하면 회전/이동 모두 잠그기
         // rb.constraints = RigidbodyConstraints2D.FreezeAll;

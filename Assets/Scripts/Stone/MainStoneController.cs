@@ -102,7 +102,7 @@ public class MainStoneController : MonoBehaviour,
         /* ② Dropping 중 ‘거의 정지’ → Settled 전환 ----------------------- */
         if (State == MainStoneState.Dropping)
         {
-            bool slow = RB.velocity.magnitude < settleVelocityEps &&
+            bool slow = RB.linearVelocity.magnitude < settleVelocityEps &&
                         Mathf.Abs(RB.angularVelocity) < 5f;
 
             settleTimer = slow ? settleTimer + Time.deltaTime : 0f;
@@ -122,7 +122,7 @@ public class MainStoneController : MonoBehaviour,
 
         // 물리 파라미터 설정
         RB.mass = mass;
-        RB.angularDrag = angDrag;
+        RB.angularDamping = angDrag;
     }
 
     void RebuildColliders() => BuildColliders();
@@ -185,7 +185,7 @@ public class MainStoneController : MonoBehaviour,
         tag = "DraggingStone";
         State = MainStoneState.Dragging;
 
-        RB.velocity = Vector2.zero;
+        RB.linearVelocity = Vector2.zero;
         RB.angularVelocity = 0f;
 
         RB.isKinematic = true;
@@ -211,7 +211,7 @@ public class MainStoneController : MonoBehaviour,
 
         RB.isKinematic = false;
         RB.gravityScale = 1f;
-        RB.velocity = Vector2.zero;
+        RB.linearVelocity = Vector2.zero;
         RB.angularVelocity = 0f;
 
         Phys.enabled = true;
@@ -231,7 +231,7 @@ public class MainStoneController : MonoBehaviour,
 
         tag = "PlacedStone";               // ★ 여기서 태그 부여
 
-        RB.velocity = Vector2.zero;
+        RB.linearVelocity = Vector2.zero;
         RB.angularVelocity = 0f;
 
         // 필요 시 정착 이벤트 호출

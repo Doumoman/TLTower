@@ -8,6 +8,7 @@ using UnityEngine.InputSystem; // 오류가 나서 추가 0731 06:07 이동건
 public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();
+    PenaltyManager penaltyManager;
     Coroutine co;
     bool nonStop = false;
     bool first = true;
@@ -60,7 +61,7 @@ public class RainSystem : CountBasedObstacle
         StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
-        PenaltyManager.Instance.isRaining = false;
+        penaltyManager.isRaining = false;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -111,7 +112,7 @@ public class RainSystem : CountBasedObstacle
         stoneCount = 0;
         nonStop = false;
         windOrRain = false;
-        PenaltyManager.Instance.isRaining = false;
+        penaltyManager.isRaining = false;
     }
 
     //배경 점점어둡게
@@ -146,6 +147,7 @@ public class RainSystem : CountBasedObstacle
     protected override void OnEnable()
     {
         base.OnEnable();
+        penaltyManager = FindAnyObjectByType<PenaltyManager>();
     }
     protected override void OnDisable()
     {
