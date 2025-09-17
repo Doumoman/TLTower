@@ -10165,7 +10165,7 @@ MonoBehaviour:
   Yumju: {fileID: 1408709549}
   Bell: {fileID: 2100203730}
   Button: {fileID: 672429099}
-  stonesParent: {fileID: 0}
+  stonesParent: {fileID: 1343846268}
   seqManager: {fileID: 579511420}
   postSnapDelay: 4
   snapFxPrefab: {fileID: 956132795}
@@ -10175,6 +10175,15 @@ MonoBehaviour:
   slowDuration: 3
   midSpeed: 0
   endSpeed: 10
+  spawnRelativeToCamera: 1
+  parentToMainCamera: 1
+  cameraOffset: {x: 0, y: 0}
+  anchorYToCamera: 1
+  cameraYWorldOffset: -1
+  useViewportY: 0
+  viewportY: 0.5
+  useViewportAnchor: 0
+  viewportAnchor: {x: 0.5, y: 0.5}
 --- !u!1 &77154718
 GameObject:
   m_ObjectHideFlags: 0
@@ -51675,7 +51684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00055, y: -297}
+  m_AnchoredPosition: {x: -909.0005, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -111328,9 +111337,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.44649732
+    y: 0
     width: 1
-    height: 0.10700539
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -127086,7 +127095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00055, y: -201.99997}
+  m_AnchoredPosition: {x: -909.0005, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819

@@ -285,6 +285,17 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] float midSpeed = 0.5f;
     [SerializeField] float endSpeed = 2.0f;
 
+    [Header(" Camera 기준 스폰 옵션")]
+    [SerializeField] private bool spawnRelativeToCamera = true;   // 카메라 기준 좌표 사용
+    [SerializeField] private bool parentToMainCamera = true;    // 스폰된 돌들을 카메라 자식으로 둘지
+    [SerializeField] private Vector2 cameraOffset = Vector2.zero; // 카메라 중심에서의 추가 오프셋
+
+    [SerializeField] private bool anchorYToCamera = true;     // Y를 카메라 기준으로 고정
+    [SerializeField] private float cameraYWorldOffset = -1f;  // 카메라 Y + 오프셋(월드 단위)
+    [SerializeField] private bool useViewportY = false;
+    [SerializeField][Range(0f, 1f)] private float viewportY = 0.5f;
+    [SerializeField] private bool useViewportAnchor = false;
+    [SerializeField] private Vector2 viewportAnchor = new Vector2(0.5f, 0.5f);
 
     readonly int[] spawnSequence = { 4, 3, 1, 2, 0 };   // 원하는 순서
     int spawnStep = 0;
@@ -309,7 +320,12 @@ public class AnimationManager : MonoBehaviour
         lastSnapEnd = Time.time - postSnapDelay; // 바로 스폰 가능
 
         if (!stonesParent)
+        {
             stonesParent = new GameObject("Stones").transform;
+
+            if (parentToMainCamera && Camera.main)
+                stonesParent.SetParent(Camera.main.transform, worldPositionStays: false);
+        }
 
         int idx0 = spawnSequence[spawnStep++];
         SpawnSingleStone(presets[idx0], idx0);
@@ -327,9 +343,11 @@ public class AnimationManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("space_twinkle");
         SoundManager.Instance.PlayBGM("Space", seq++);
+        Vector3 worldPos = ResolveSpawnPosition(p);
+
         GameObject go = Instantiate(
             p.stoneData.backgroundPrefab,       // 프리팹
-            p.position,                         // 위치
+            worldPos,                         // 위치
             Quaternion.Euler(0, 0, p.rotationZ),// 회전
             stonesParent);                      // 부모
 
@@ -601,5 +619,36 @@ public class AnimationManager : MonoBehaviour
 
         waitingSnap = true;   // 다시 스냅 대기
         /* 다음 스폰은 Snap → ScheduleNextSpawn() 에서 결정 */
+    }
+    Vector3 ResolveSpawnPosition(StonePreset p)
+    {
+        // X는 Preset 그 값 그대로 사용
+        float x = p.position.x;
+        float y;
+        float z = 0f;
+
+        if (anchorYToCamera && Camera.main != null)
+        {
+            var cam = Camera.main;
+
+            if (useViewportY)
+            {
+                // 뷰포트 Y지점 → 월드Y로 변환 후, world 오프셋 더하기
+                var anchor = cam.ViewportToWorldPoint(new Vector3(0.5f, Mathf.Clamp01(viewportY), Mathf.Abs(cam.transform.position.z)));
+                y = anchor.y + cameraYWorldOffset;
+            }
+            else
+            {
+                // 카메라 중심 Y + 오프셋(월드 단위)
+                y = cam.transform.position.y + cameraYWorldOffset;
+            }
+        }
+        else
+        {
+            // 기존처럼 Preset Y 사용
+            y = p.position.y;
+        }
+
+        return new Vector3(x, y, z);
     }
 }
