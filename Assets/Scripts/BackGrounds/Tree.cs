@@ -169,7 +169,7 @@ public class Tree : MonoBehaviour
         float lastY = lastStem.transform.position.y;
         if ((StoneFixer.Instance && StoneFixer.Instance.HighestSettledY > lastY) || (CloudSystem.Instance && CloudSystem.Instance.HighestJointY > lastY))
         {
-            int idx = UnityEngine.Random.Range(0, spring.Length-1);
+            int idx = UnityEngine.Random.Range(0, spring.Length);
             lastStem = Instantiate(stem[idx], gameObject.transform);
             lastStem.transform.position = new Vector3(0, lastY + 21.6f, Z);
             lastStem.GetComponent<SpriteRenderer>().sprite = seasons[cm.chapter][idx];
@@ -238,6 +238,7 @@ public class Tree : MonoBehaviour
         {
             if (currentSp == sp1) break;
             int index = Array.FindIndex(currentSp, x => x == spriteRenderer.sprite);
+            if (index < 0) continue;
             spriteRenderer.sprite = sp1[index];
         }
         currentSp = sp1;
@@ -251,6 +252,7 @@ public class Tree : MonoBehaviour
 
             if (currentFlowerSp == sp1) break;
             int index = Array.FindIndex(currentFlowerSp, x => x == spriteRenderer.sprite);
+            if (index < 0) continue;
             spriteRenderer.sprite = sp1[index];
         }
         currentFlowerSp = sp1;
