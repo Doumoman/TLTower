@@ -77,7 +77,7 @@ public class CameraController : MonoBehaviour
     public void EndDrag() //외부에서 돌 드래그 상태 입력받기
     {
         _dragTarget = null;
-        
+        _dragCloudTarget = null;
     }
 
     private void Update()

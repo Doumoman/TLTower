@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,11 +16,35 @@ public class CloudController : MonoBehaviour,
                                IPointerUpHandler,
                                IDragHandler
 {
+    private readonly struct TransformSnapshot
+    {
+        public readonly Transform Transform;
+        public readonly Vector3 LocalPosition;
+        public readonly Quaternion LocalRotation;
+        public readonly Vector3 LocalScale;
+        public readonly int Layer;
+        public readonly string Tag;
+        public readonly bool ActiveSelf;
+
+        public TransformSnapshot(Transform target)
+        {
+            Transform = target;
+            LocalPosition = target.localPosition;
+            LocalRotation = target.localRotation;
+            LocalScale = target.localScale;
+            Layer = target.gameObject.layer;
+            Tag = target.gameObject.tag;
+            ActiveSelf = target.gameObject.activeSelf;
+        }
+    }
+
     Rigidbody2D rb;
     Rigidbody2D[] rbChildren;
     Collider2D col;
     Collider2D[] colChildren;
     SpriteRenderer sr;
+    JointMakerPhysics[] jointPhysics;
+    TransformSnapshot[] childTransformSnapshots;
     
     CloudState state = CloudState.flow;
     
@@ -34,7 +59,8 @@ public class CloudController : MonoBehaviour,
 
     float timer = 0f; //상호작용 없으면 돌아가는 용도
 
-    public static bool AnyCloudBeingDragged { get; private set; }
+    private static CloudController draggedCloud;
+    public static bool AnyCloudBeingDragged => draggedCloud != null;
     //Vector3 dragOffset;
     Vector2 holdStartPos;
     Vector2 lastPointerWorld;
@@ -58,12 +84,193 @@ public class CloudController : MonoBehaviour,
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
     private readonly Collider2D[] separateOverlapResults = new Collider2D[1];
+    private readonly HashSet<Collider2D> ignoredCollisionTargets = new HashSet<Collider2D>();
     private Camera inputCamera;
     private Color authoredBaseColor;
+    private float authoredFlowSpeed;
+    private Quaternion authoredRootRotation;
+    private Vector3 authoredRootScale;
+    private int authoredRootLayer;
+    private string authoredRootTag;
+    private bool authoredRendererEnabled;
+    private int authoredSortingOrder;
+    private SkyCloudPool cloudPool;
+    private bool isInPool;
+    private bool isDespawning;
 
     private void Awake()
     {
         authoredBaseColor = baseColor;
+        authoredFlowSpeed = flowSpeed;
+        authoredRootRotation = transform.localRotation;
+        authoredRootScale = transform.localScale;
+        authoredRootLayer = gameObject.layer;
+        authoredRootTag = gameObject.tag;
+
+        inputCamera = Camera.main;
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+        rbChildren = GetComponentsInChildren<Rigidbody2D>(true)
+            .Where(c => c.gameObject != gameObject)
+            .ToArray();
+
+        Collider2D[] childColliders = GetComponentsInChildren<Collider2D>(true)
+            .Where(c => c.gameObject != gameObject)
+            .ToArray();
+        separator = childColliders.FirstOrDefault(
+            c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
+        colChildren = childColliders.Where(c => c != separator).ToArray();
+
+        sr = GetComponent<SpriteRenderer>();
+        authoredRendererEnabled = sr.enabled;
+        authoredSortingOrder = sr.sortingOrder;
+        jointPhysics = GetComponentsInChildren<JointMakerPhysics>(true);
+        childTransformSnapshots = GetComponentsInChildren<Transform>(true)
+            .Where(t => t != transform)
+            .Select(t => new TransformSnapshot(t))
+            .ToArray();
+    }
+
+    internal bool IsPoolCleanupComplete =>
+        GetComponent<JointMaker>() == null &&
+        GetComponentsInChildren<FixedJoint2D>(true).Length == 0;
+
+    internal void InitializePool(SkyCloudPool owner)
+    {
+        cloudPool = owner;
+    }
+
+    internal void PrepareForSpawn(
+        Vector3 spawnPosition,
+        int directionalForce,
+        float minBaseColorNoise,
+        float maxBaseColorNoise)
+    {
+        StopAllCoroutines();
+        co = null;
+        flowTransitionCoroutine = null;
+        StopJointPhysicsCoroutines();
+        CancelDragInteraction();
+        RestoreIgnoredCollisions();
+
+        SetBodiesSimulated(false);
+        transform.SetParent(null, false);
+        transform.SetPositionAndRotation(spawnPosition, authoredRootRotation);
+        transform.localScale = authoredRootScale;
+        gameObject.layer = authoredRootLayer;
+        gameObject.tag = authoredRootTag;
+
+        foreach (TransformSnapshot snapshot in childTransformSnapshots)
+        {
+            if (!snapshot.Transform) continue;
+
+            snapshot.Transform.localPosition = snapshot.LocalPosition;
+            snapshot.Transform.localRotation = snapshot.LocalRotation;
+            snapshot.Transform.localScale = snapshot.LocalScale;
+            snapshot.Transform.gameObject.layer = snapshot.Layer;
+            snapshot.Transform.gameObject.tag = snapshot.Tag;
+            snapshot.Transform.gameObject.SetActive(snapshot.ActiveSelf);
+        }
+
+        foreach (JointMakerPhysics physics in jointPhysics)
+        {
+            if (physics) physics.enabled = true;
+        }
+
+        baseColor = authoredBaseColor;
+        ApplyBaseColorNoise(minBaseColorNoise, maxBaseColorNoise);
+        flowSpeed = authoredFlowSpeed * (directionalForce < 0 ? -1f : 1f);
+
+        activePointer = -1;
+        holdStartPos = Vector2.zero;
+        lastPointerWorld = Vector2.zero;
+        holdTimer = 0f;
+        isRotating = false;
+        timer = 0f;
+        crush = false;
+        jm = null;
+        isDespawning = false;
+        isInPool = false;
+        inputCamera = Camera.main;
+
+        sr.enabled = authoredRendererEnabled;
+        sr.sortingOrder = authoredSortingOrder;
+        Flow();
+        gameObject.SetActive(true);
+    }
+
+    internal void StoreInPool(Transform poolRoot)
+    {
+        StopAllCoroutines();
+        co = null;
+        flowTransitionCoroutine = null;
+        StopJointPhysicsCoroutines();
+        CancelDragInteraction();
+        RestoreIgnoredCollisions();
+
+        FreezePhysics();
+        DisableInteractionColliders();
+
+        state = CloudState.flow;
+        timer = 0f;
+        crush = false;
+        jm = null;
+        gameObject.layer = authoredRootLayer;
+        gameObject.tag = authoredRootTag;
+        sr.sortingOrder = authoredSortingOrder;
+
+        isInPool = true;
+        transform.SetParent(poolRoot, false);
+        gameObject.SetActive(false);
+    }
+
+    private void StopJointPhysicsCoroutines()
+    {
+        foreach (JointMakerPhysics physics in jointPhysics)
+        {
+            if (!physics) continue;
+            physics.StopAllCoroutines();
+            physics.enabled = false;
+        }
+    }
+
+    private void SetBodiesSimulated(bool simulated)
+    {
+        rb.simulated = simulated;
+        foreach (Rigidbody2D childBody in rbChildren)
+        {
+            if (childBody) childBody.simulated = simulated;
+        }
+    }
+
+    private void FreezePhysics()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.gravityScale = 0f;
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = false;
+
+        foreach (Rigidbody2D childBody in rbChildren)
+        {
+            if (!childBody) continue;
+
+            childBody.linearVelocity = Vector2.zero;
+            childBody.angularVelocity = 0f;
+            childBody.gravityScale = 0f;
+            childBody.bodyType = RigidbodyType2D.Static;
+            childBody.simulated = false;
+        }
+    }
+
+    private void DisableInteractionColliders()
+    {
+        col.enabled = false;
+        separator.enabled = false;
+        foreach (Collider2D childCollider in colChildren)
+        {
+            if (childCollider) childCollider.enabled = false;
+        }
     }
 
     public void ApplyBaseColorNoise(float minPercent, float maxPercent)
@@ -89,35 +296,35 @@ public class CloudController : MonoBehaviour,
     // Start is called before the first frame update
     void Start()
     {
-        inputCamera = Camera.main;
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
-        rbChildren = GetComponentsInChildren<Rigidbody2D>().Where<Rigidbody2D>(c => c.gameObject != gameObject).ToArray();
-        colChildren = GetComponentsInChildren<Collider2D>().Where<Collider2D>(c => c.gameObject != gameObject).ToArray();
-        separator = colChildren.FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("CloudSeparate"));
-        colChildren = colChildren.Where<Collider2D>(c => c != separator).ToArray();
-        sr = GetComponent<SpriteRenderer>();
-        Flow();
+        // 풀 밖에서 직접 생성된 구름과 기존 테스트 장면의 동작은 유지한다.
+        if (cloudPool == null) Flow();
     }
 
     void Flow()
     {
         timer = 0f;
         rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.simulated = true;
         rb.gravityScale = 0;
         rb.bodyType = RigidbodyType2D.Static;
         foreach (var rbChild in rbChildren)
         {
             rbChild.linearVelocity = Vector2.zero;
+            rbChild.angularVelocity = 0f;
+            rbChild.simulated = true;
             rbChild.bodyType = RigidbodyType2D.Static;
             rbChild.gravityScale = 0;
         }
         
+        col.enabled = true;
         separator.isTrigger = true;
+        separator.enabled = true;
         col.isTrigger = true;
         foreach (var col in colChildren)
         {
             col.enabled = false;
+            col.isTrigger = false;
         }
 
         gameObject.tag = "FlowCloud";
@@ -130,6 +337,8 @@ public class CloudController : MonoBehaviour,
     // Update is called once per frame
     void Update()
     {
+        if (isInPool || isDespawning) return;
+
         if (state == CloudState.Dragging && !isRotating)
         {
             // 현재 포인터의 월드 좌표 얻기
@@ -178,7 +387,8 @@ public class CloudController : MonoBehaviour,
                 StartFlowTransition();
             }
         }
-        if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
+        if (transform.position.x < -15 || transform.position.x > 15)
+            ReturnToPoolImmediately(reexamineConnections: true);
     }
 
     private void StartFlowTransition()
@@ -285,18 +495,14 @@ public class CloudController : MonoBehaviour,
         foreach (Collider2D col in colChildren) col.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
-    public void Disappear()
+    public void Disappear(bool reexamineConnections = true)
     {
-        if (flowTransitionCoroutine != null)
-        {
-            StopCoroutine(flowTransitionCoroutine);
-            flowTransitionCoroutine = null;
-        }
+        if (!BeginDespawn(reexamineConnections)) return;
 
-        StartCoroutine(FadeOutAndDestory());
+        StartCoroutine(FadeOutAndReturn());
     }
 
-    private IEnumerator FadeOutAndDestory()
+    private IEnumerator FadeOutAndReturn()
     {
         Color c = sr.color;
         float current = c.a;
@@ -312,23 +518,118 @@ public class CloudController : MonoBehaviour,
             yield return null;
         }
 
+        CompleteDespawn();
+    }
+
+    private void ReturnToPoolImmediately(bool reexamineConnections)
+    {
+        if (!BeginDespawn(reexamineConnections)) return;
+        CompleteDespawn();
+    }
+
+    private bool BeginDespawn(bool reexamineConnections)
+    {
+        if (isInPool || isDespawning) return false;
+
+        isDespawning = true;
+        StopAllCoroutines();
+        co = null;
+        flowTransitionCoroutine = null;
+        StopJointPhysicsCoroutines();
+        CancelDragInteraction();
+        RestoreIgnoredCollisions();
+
+        state = CloudState.ReturningToFlow;
+        FreezePhysics();
+        DisableInteractionColliders();
+
+        JointMaker dynamicJointMaker = GetComponent<JointMaker>();
+        if (dynamicJointMaker)
+        {
+            dynamicJointMaker.PrepareForDespawn();
+            if (CloudSystem.Instance)
+                CloudSystem.Instance.NotifyCloudDespawned(dynamicJointMaker, reexamineConnections);
+
+            Destroy(dynamicJointMaker);
+        }
+
+        // 연결 생성 도중 반환되는 예외 상황도 정리한다. 프리팹에는 FixedJoint2D가 없다.
+        foreach (FixedJoint2D joint in GetComponentsInChildren<FixedJoint2D>(true))
+        {
+            if (!joint || !joint.enabled) continue;
+            joint.enabled = false;
+            Destroy(joint);
+        }
+
+        jm = null;
+        return true;
+    }
+
+    private void CompleteDespawn()
+    {
+        if (cloudPool != null)
+        {
+            cloudPool.Release(this);
+            return;
+        }
+
         Destroy(gameObject);
     }
 
     //구름의 bone들과 특정 오브젝트(체크포인트)와의 충돌 무시
     public void IgnoreCollision(GameObject go)
     {
-        foreach (Collider2D col in colChildren)
+        if (!go || !go.TryGetComponent(out Collider2D targetCollider)) return;
+
+        ignoredCollisionTargets.Add(targetCollider);
+        foreach (Collider2D childCollider in colChildren)
         {
-            Physics2D.IgnoreCollision(col, go.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(childCollider, targetCollider, true);
         }
+    }
+
+    private void RestoreIgnoredCollisions()
+    {
+        foreach (Collider2D targetCollider in ignoredCollisionTargets)
+        {
+            if (!targetCollider) continue;
+
+            foreach (Collider2D childCollider in colChildren)
+            {
+                if (childCollider)
+                    Physics2D.IgnoreCollision(childCollider, targetCollider, false);
+            }
+        }
+
+        ignoredCollisionTargets.Clear();
+    }
+
+    private void CancelDragInteraction()
+    {
+        bool ownedDrag = draggedCloud == this;
+        if ((ownedDrag || isRotating) && SoundManager.Instance)
+            SoundManager.Instance.StopLoop("cloud_rotate");
+
+        activePointer = -1;
+        holdTimer = 0f;
+        holdStartPos = Vector2.zero;
+        lastPointerWorld = Vector2.zero;
+        isRotating = false;
+
+        if (!ownedDrag) return;
+
+        draggedCloud = null;
+        if (CameraController.Instance) CameraController.Instance.EndDrag();
     }
 
 
     int activePointer = -1;
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isInPool || isDespawning) return;
         if (activePointer != -1) return;
+        if (draggedCloud && draggedCloud != this) return;
+
         activePointer = eventData.pointerId;
         SoundManager.Instance.PlaySFX("cloud_select");
 
@@ -406,7 +707,7 @@ public class CloudController : MonoBehaviour,
         }
         sr.color = baseColor; // 생성 시 정해진 이 구름만의 고유 색상으로 복구
         sr.sortingLayerName = "Default";
-        AnyCloudBeingDragged = false;
+        if (draggedCloud == this) draggedCloud = null;
         CameraController.Instance.EndDrag();
         separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
         CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
@@ -419,7 +720,7 @@ public class CloudController : MonoBehaviour,
         co = null;
         flowTransitionCoroutine = null;
         timer = 0f;
-        AnyCloudBeingDragged = true;
+        draggedCloud = this;
         CameraController.Instance.BeginDrag(this);
 
         state = CloudState.Dragging;
@@ -471,5 +772,7 @@ public class CloudController : MonoBehaviour,
     private void OnDestroy()
     {
         StopAllCoroutines();
+        CancelDragInteraction();
+        RestoreIgnoredCollisions();
     }
 }

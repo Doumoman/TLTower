@@ -90,6 +90,20 @@ public class CloudSystem : MonoBehaviour
         ExamineAndDeprive();
     }
 
+    public void NotifyCloudDespawned(JointMaker jm, bool examineRemaining)
+    {
+        if (jm) nodes.Remove(jm);
+        if (!examineRemaining) return;
+
+        if (!savePoint || !savePoint.TryGetComponent(out JointMaker _))
+        {
+            UpdateUI();
+            return;
+        }
+
+        ExamineAndDeprive();
+    }
+
     //가장 높은 JointMaker 찾기
     public void FindHighestJM()
     {
@@ -128,13 +142,15 @@ public class CloudSystem : MonoBehaviour
         List<JointMaker> jms = new List<JointMaker>(nodes);
         foreach (JointMaker node in jms)
         {
-            if (includeSavePoint) Destroy(node);
+            if (!node) continue;
+
             if (node.TryGetComponent<CloudController>(out CloudController c))
             {
-                if (!includeSavePoint) Destroy(node);
-                c.Disappear();
-                nodes.Remove(node);
+                c.Disappear(reexamineConnections: false);
+                continue;
             }
+
+            if (includeSavePoint) Destroy(node);
         }
         if (includeSavePoint) nodes.Clear();
     }
