@@ -24,6 +24,10 @@ public class StoneFixer : MonoBehaviour
     public float HighestSettledY { get; private set; } = 0f;
     public float HighestFixedY { get; private set; } = 0f;
 
+    GameObject fixedSurfaceRoot;
+    Transform exposedColliderRoot;
+    CompositeCollider2D fixedSurfaceComposite;
+
     readonly List<StoneController> batch = new();   // 이번 라운드 Settled
     int wave = 0;                                   // 몇 번째 묶음인지
 
@@ -79,32 +83,27 @@ public class StoneFixer : MonoBehaviour
     public void FixAllStones()
     {
         if (batch.Count == 0) return;
-        ResetStone.Instance.CreatePlatform();
-        // Pile 루트 생성
-        GameObject pileRoot = new($"StonePile_Wave{wave}");
-        var pileRB = pileRoot.AddComponent<Rigidbody2D>();
-        pileRB.bodyType = RigidbodyType2D.Static;   // Static
-        var pileCC = pileRoot.AddComponent<CompositeCollider2D>();
-        pileCC.geometryType = CompositeCollider2D.GeometryType.Polygons; // Outlines
 
-        // 이번 wave 의 돌들을 자식으로 옮기고 usedByComposite 설정
+        ClearExposedColliderProxies();
+        ResetStone.Instance.CreatePlatform();
+
+        GameObject visualRoot = new($"FixedStoneVisuals_Wave{wave}");
+        int fixedColliderCount = 0;
+
         foreach (var s in batch)
         {
+            if (!s) continue;
             if (s.state != StoneState.Settled && s.state != StoneState.Fixed) continue;
 
-            // 돌 상태 Fixed
+            PolygonCollider2D sourceCollider = s.GetPhysicsCollider();
+            if (sourceCollider && sourceCollider.enabled)
+            {
+                CreateColliderProxy(sourceCollider, s.name);
+                fixedColliderCount++;
+            }
+
             s.SetFixed();
-
-            // Rigidbody 제거 → 정적 Collider 로 변환
-            if (s.TryGetComponent(out Rigidbody2D rb))
-                Destroy(rb);
-
-            // Collider 를 Composite 로 편입
-            if (s.TryGetComponent(out PolygonCollider2D pc2d))
-                pc2d.usedByComposite = true;
-
-            // Pile 루트의 자식으로 이동(월드 좌표 유지)
-            s.transform.SetParent(pileRoot.transform, true);
+            s.transform.SetParent(visualRoot.transform, true);
         }
 
         // 내부 리스트 초기화·UI 리셋
@@ -121,8 +120,75 @@ public class StoneFixer : MonoBehaviour
             currentSavePoint = null;          // 코루틴이 참조를 가지고 있으므로 안전
         }
 
-        Debug.Log($"[StoneFixer] Wave {wave} fixed → PileCollider 생성");
-        StartCoroutine(FuseAllStonesIntoOne());
+        Debug.Log(
+            $"[StoneFixer] Wave {wave} fixed → FixedSurface 생성 " +
+            $"(이전 스테이지 돌 Collider {fixedColliderCount}개)");
+    }
+
+    public void AttachPlatformToFixedSurface(GameObject platform)
+    {
+        if (!platform) return;
+
+        EnsureFixedSurfaceRoot();
+        platform.transform.SetParent(fixedSurfaceRoot.transform, true);
+
+        foreach (var col in platform.GetComponentsInChildren<Collider2D>(true))
+        {
+            if (col.isTrigger) continue;
+
+            col.gameObject.layer = LayerMask.NameToLayer("FixedStone");
+            col.compositeOperation = Collider2D.CompositeOperation.Merge;
+        }
+    }
+
+    void EnsureFixedSurfaceRoot()
+    {
+        if (fixedSurfaceRoot) return;
+
+        fixedSurfaceRoot = new GameObject("FixedSurfaceRoot");
+        fixedSurfaceRoot.layer = LayerMask.NameToLayer("FixedStone");
+
+        var body = fixedSurfaceRoot.AddComponent<Rigidbody2D>();
+        body.bodyType = RigidbodyType2D.Static;
+        body.simulated = true;
+
+        fixedSurfaceComposite = fixedSurfaceRoot.AddComponent<CompositeCollider2D>();
+        fixedSurfaceComposite.geometryType = CompositeCollider2D.GeometryType.Polygons;
+
+        exposedColliderRoot = new GameObject("ExposedStoneColliders").transform;
+        exposedColliderRoot.SetParent(fixedSurfaceRoot.transform, false);
+        exposedColliderRoot.gameObject.layer = fixedSurfaceRoot.layer;
+    }
+
+    void ClearExposedColliderProxies()
+    {
+        EnsureFixedSurfaceRoot();
+
+        for (int i = exposedColliderRoot.childCount - 1; i >= 0; --i)
+        {
+            GameObject proxy = exposedColliderRoot.GetChild(i).gameObject;
+            proxy.SetActive(false);
+            Destroy(proxy);
+        }
+    }
+
+    void CreateColliderProxy(PolygonCollider2D source, string stoneName)
+    {
+        GameObject proxy = new($"{stoneName}_FixedCollider");
+        proxy.layer = fixedSurfaceRoot.layer;
+        proxy.transform.SetParent(exposedColliderRoot, false);
+        proxy.transform.SetPositionAndRotation(source.transform.position, source.transform.rotation);
+        proxy.transform.localScale = source.transform.lossyScale;
+
+        var copy = proxy.AddComponent<PolygonCollider2D>();
+        copy.offset = source.offset;
+        copy.pathCount = source.pathCount;
+        for (int i = 0; i < source.pathCount; ++i)
+            copy.SetPath(i, source.GetPath(i));
+
+        copy.isTrigger = false;
+        copy.sharedMaterial = source.sharedMaterial;
+        copy.compositeOperation = Collider2D.CompositeOperation.Merge;
     }
     IEnumerator RemoveSavePointAfterFade(GameObject sp)
     {
@@ -151,51 +217,6 @@ public class StoneFixer : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         Destroy(sp);
-    }
-    IEnumerator FuseAllStonesIntoOne() // Pile된 객체들의 콜라이더를 하나의 콜라이더로 만들기
-    {
-        GameObject root = new("StonePile_All");
-        var rootRb = root.AddComponent<Rigidbody2D>();
-        rootRb.bodyType = RigidbodyType2D.Static;
-
-        var comp = root.AddComponent<CompositeCollider2D>();
-        comp.geometryType = CompositeCollider2D.GeometryType.Polygons;
-
-        // 돌 정리: 자식 편입 + usedByComposite
-        foreach (var s in FindObjectsOfType<StoneController>())
-        {
-            if (s.state != StoneState.Settled && s.state != StoneState.Fixed) continue;
-
-            // Rigidbody/Collider 유지한 채 자식으로
-            s.transform.SetParent(root.transform, true);
-
-            if (s.TryGetComponent(out PolygonCollider2D pc))
-                pc.usedByComposite = true;
-            if (s.TryGetComponent(out Rigidbody2D rb))
-                rb.bodyType = RigidbodyType2D.Static;   // 물리 무력화
-        }
-
-        yield return new WaitForFixedUpdate();
-
-        // 새 PolygonCollider2D에 경계 복사
-        var poly = root.AddComponent<PolygonCollider2D>();
-        poly.pathCount = comp.pathCount;
-        var pts = new List<Vector2>();
-        for (int i = 0; i < comp.pathCount; ++i)
-        {
-            pts.Clear();
-            comp.GetPath(i, pts);
-            poly.SetPath(i, pts.ToArray());
-        }
-
-        // 자식 돌의 Rigidbody/Collider 파괴
-        foreach (Transform child in root.transform)
-        {
-            Destroy(child.GetComponent<Rigidbody2D>());
-            Destroy(child.GetComponent<Collider2D>());
-
-        }
-        Destroy(comp);
     }
     #endregion
     float GetHighestFixedYInScene()

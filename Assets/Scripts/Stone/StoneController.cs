@@ -281,6 +281,23 @@ public class StoneController : MonoBehaviour,
             clickCol.SetPath(i, path);
         }
     }
+
+    public PolygonCollider2D GetPhysicsCollider()
+    {
+        if (physCol && !physCol.isTrigger) return physCol;
+
+        foreach (var col in GetComponents<PolygonCollider2D>())
+        {
+            if (!col.isTrigger)
+            {
+                physCol = col;
+                return physCol;
+            }
+        }
+
+        return null;
+    }
+
     public void SetFixed()
     {
         if (state == StoneState.Fixed) return;

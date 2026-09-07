@@ -133,6 +133,8 @@ public class ResetStone : MonoBehaviour
             if (hand && hand.TryGetComponent(out SpriteRenderer handSr))
                 handSr.color = new Color32(0xCF, 0xCF, 0xCF, 0xFF);
         }
+
+        StoneFixer.Instance?.AttachPlatformToFixedSurface(lastPlatform);
         /* ──────────────────────────────── */
     }
 
