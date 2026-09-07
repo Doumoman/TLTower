@@ -48,12 +48,14 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     [SerializeField] float dragGravity = 0f;    // 끌 때
     [SerializeField] float releasedGravity = 0.02f;
     Rigidbody2D anchorRb;
+    Camera inputCamera;
     readonly List<Rigidbody2D> childRbs = new();
 
     void Awake()
     {
         stickyLayer = LayerMask.NameToLayer(stickyCloudLayerName);
         draggingLayer = LayerMask.NameToLayer(draggingCloudLayerName);
+        inputCamera = Camera.main;
 
         // Anchor 의 Rigidbody2D 세팅 (드래그 대상)
         anchorRb = GetComponent<Rigidbody2D>();
@@ -154,7 +156,8 @@ public class CloudBuilder : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector3 world = Camera.main.ScreenToWorldPoint(eventData.position);
+        if (!inputCamera) inputCamera = Camera.main;
+        Vector3 world = inputCamera.ScreenToWorldPoint(eventData.position);
         Vector2 target = new(world.x, world.y);
         anchorRb.MovePosition(target);
     }

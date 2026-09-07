@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class StoneSpawner : MonoBehaviour
 {
@@ -23,6 +22,9 @@ public class StoneSpawner : MonoBehaviour
     readonly Dictionary<Transform, StoneController> slotToStub = new();
     readonly Dictionary<Transform, Coroutine> slotTimer = new();
     readonly List<StoneController> active = new();
+    readonly List<Transform> pendingSlots = new();
+    static readonly WaitForSeconds FlowerPointPollDelay = new WaitForSeconds(0.5f);
+    TickManager tickManager;
 
     public static bool Penalty = false; // true면 다음 돌이 번뇌돌, PenaltyManager에서 관리
     void Awake()
@@ -31,31 +33,43 @@ public class StoneSpawner : MonoBehaviour
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
-    private List<System.Action> Actions = new(); // TickManager에서 호출할 액션 목록
     void Start()
     {
         cm = ChapterManager.Instance;
         if (!stonesParent) stonesParent = new GameObject("Stones").transform;
-        
 
-        TickManager.Instance.OnTickEvent += (sender, eventArgs) =>
-        {
-            foreach (var action in Actions)
-                action.Invoke();
-            
-            Actions.Clear();
-        }; // Tick에 액션 등록 후 실행
+        tickManager = TickManager.Instance;
+        tickManager.OnTickEvent += HandleTick;
 
         StartCoroutine(MonitorFlowerPoints());
     }
+
+    void HandleTick(object sender, System.EventArgs eventArgs)
+    {
+        foreach (Transform slot in pendingSlots)
+            CreateStubAtSlot(slot);
+
+        pendingSlots.Clear();
+    }
+
+    void OnDestroy()
+    {
+        if (tickManager != null)
+            tickManager.OnTickEvent -= HandleTick;
+
+        if (Instance == this)
+            Instance = null;
+    }
+
     IEnumerator MonitorFlowerPoints()
     {
         while (true)
         {
             // 현재 씬에 존재하는 FlowerPoint 전부 스캔
-            foreach (var tr in GameObject.FindGameObjectsWithTag("FlowerPoint")
-                                         .Select(go => go.transform))
+            GameObject[] flowerPoints = GameObject.FindGameObjectsWithTag("FlowerPoint");
+            foreach (GameObject flowerPoint in flowerPoints)
             {
+                Transform tr = flowerPoint.transform;
                 // 아직 등록되지 않은 슬롯이면 즉시 추가 + Stub 생성
                 if (!knownSlots.Contains(tr))
                 {
@@ -70,7 +84,7 @@ public class StoneSpawner : MonoBehaviour
             spawnSlots.RemoveAll(t => t == null);
             */
 
-            yield return new WaitForSeconds(0.5f);   // 주기 조정 가능
+            yield return FlowerPointPollDelay;   // 주기 조정 가능
         }
     }
 
@@ -79,7 +93,7 @@ public class StoneSpawner : MonoBehaviour
     // Stub 생성 
     void CreateStubAtSlot(Transform slot)
     {
-        if (cm.chapter == chapter.space || cm.chapter.ToString().Contains("autumn"))
+        if (cm.chapter == chapter.space || IsAutumnChapter(cm.chapter))
         {
             Debug.Log("생성금지");
             return;
@@ -107,7 +121,10 @@ public class StoneSpawner : MonoBehaviour
     // 스폰 확률 계산 
     StoneData GetRandomStoneData()
     {
-        float total = stoneDataList.Sum(d => d.spawnChance);
+        float total = 0f;
+        foreach (StoneData data in stoneDataList)
+            total += data.spawnChance;
+
         float r = Random.value * total;
         float acc = 0f;
 
@@ -174,12 +191,12 @@ public class StoneSpawner : MonoBehaviour
 
     void TickCreateStubAtSlot(Transform slot)
     {
-        if (cm.chapter == chapter.space || cm.chapter.ToString().Contains("autumn"))
+        if (cm.chapter == chapter.space || IsAutumnChapter(cm.chapter))
         {
             Debug.Log("생성금지");
             return;
         }
-        Actions.Add(() => CreateStubAtSlot(slot));
+        pendingSlots.Add(slot);
     }
 
     public void NotifyPlaced(StoneController sc)
@@ -190,9 +207,20 @@ public class StoneSpawner : MonoBehaviour
     }
 
     // 외부 호출용 쇼트컷 
-    public void ScheduleRandomStone(float delay) =>  // 기존 API 유지
-        spawnSlots.FirstOrDefault(s => !slotToStub.ContainsKey(s) && !slotTimer.ContainsKey(s))
-                   ?.Let(slot => ScheduleStub(slot, delay));
+    public void ScheduleRandomStone(float delay)
+    {
+        foreach (Transform slot in spawnSlots)
+        {
+            if (slotToStub.ContainsKey(slot) || slotTimer.ContainsKey(slot))
+                continue;
+
+            ScheduleStub(slot, delay);
+            break;
+        }
+    }
+
+    static bool IsAutumnChapter(chapter value) =>
+        value >= chapter.autumn && value <= chapter.autumn11;
 
     StoneData GetStoneDataByIndex(int idx)
     {

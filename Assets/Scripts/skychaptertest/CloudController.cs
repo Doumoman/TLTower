@@ -52,10 +52,13 @@ public class CloudController : MonoBehaviour,
     public float holdToRotate = 0.75f;
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
+    private readonly Collider2D[] separateOverlapResults = new Collider2D[1];
+    private Camera inputCamera;
 
     // Start is called before the first frame update
     void Start()
     {
+        inputCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         rbChildren = GetComponentsInChildren<Rigidbody2D>().Where<Rigidbody2D>(c => c.gameObject != gameObject).ToArray();
@@ -171,32 +174,32 @@ public class CloudController : MonoBehaviour,
     public IEnumerator Separate() 
     {
         yield return null;
-        Collider2D[] results = new Collider2D[1];
+        WaitForSeconds checkDelay = new WaitForSeconds(checktime);
         LayerMask mask = LayerMask.GetMask("CloudSeparate", "JointedCloud");
         ContactFilter2D filter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
         filter.SetLayerMask(mask);
 
-        int count = separator.Overlap(filter, results);
+        int count = separator.Overlap(filter, separateOverlapResults);
         if (count > 0)
         {
             foreach (Collider2D col in colChildren) col.isTrigger = true;
             separator.isTrigger = false;
-            if (results[0].transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
+            if (separateOverlapResults[0].transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.StartSeparate();
 
             //separator랑 겹치는 게 없을 때 까지 콜라이더 활성화(튕기기)실행
             while (true)
             {
-                yield return new WaitForSeconds(checktime);
+                yield return checkDelay;
 
-                count = separator.Overlap(filter, results);
+                count = separator.Overlap(filter, separateOverlapResults);
                 if (count > 0)
                 {
-                    if (results[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
+                    if (separateOverlapResults[0].transform.parent.TryGetComponent<JointMaker>(out JointMaker _)) //JointMaker가 있는 대상이면 조인트용 겹침검사 실행
                     {
                         CheckOverlap();
                         break;
                     }
-                    else if (results[0].transform.parent.TryGetComponent<CloudController>(out c)) c.StartSeparate();
+                    else if (separateOverlapResults[0].transform.parent.TryGetComponent<CloudController>(out c)) c.StartSeparate();
                 }
                 else break;
             }
@@ -367,11 +370,13 @@ public class CloudController : MonoBehaviour,
         sr.sortingLayerName = "DraggingStone";
     }
 
-    Vector2 ScreenToWorld() =>
-    Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector2 ScreenToWorld() => ScreenToWorld(Input.mousePosition);
 
-    Vector2 ScreenToWorld(Vector2 screenPos) =>
-        Camera.main.ScreenToWorldPoint(screenPos);
+    Vector2 ScreenToWorld(Vector2 screenPos)
+    {
+        if (!inputCamera) inputCamera = Camera.main;
+        return inputCamera.ScreenToWorldPoint(screenPos);
+    }
 
     Vector2 GetCurrentPointerWorld()
     {

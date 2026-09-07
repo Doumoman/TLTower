@@ -6,6 +6,18 @@ jointmaker의 충돌/겹침 정보전달 담당. jointmaker컴포넌트가 같�
 */
 public class JointMakerPhysics : MonoBehaviour
 {
+    private const int MaxOverlapResults = 10;
+    private static readonly WaitForSeconds JointActivationDelay = new WaitForSeconds(0.5f);
+    private readonly Collider2D[] overlapResults = new Collider2D[MaxOverlapResults];
+    private Collider2D cachedCollider;
+    private ContactFilter2D overlapFilter;
+
+    private void Awake()
+    {
+        cachedCollider = GetComponent<Collider2D>();
+        overlapFilter = new ContactFilter2D { useTriggers = false };
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         if (transform.parent.TryGetComponent<CloudController>(out CloudController c)) c.crush = true;
@@ -50,14 +62,13 @@ public class JointMakerPhysics : MonoBehaviour
     //드래그 끝났을 시 겹친 다른 오브젝트에 조인트 형성 함수 실행
     public void CheckOverlap()
     {
-        Collider2D col = GetComponent<Collider2D>();
-        Collider2D[] results = new Collider2D[10];
-        ContactFilter2D filter = new ContactFilter2D { useTriggers = false };
-    
-        int count = col.Overlap(filter, results);
+        if (cachedCollider == null)
+            cachedCollider = GetComponent<Collider2D>();
+
+        int count = cachedCollider.Overlap(overlapFilter, overlapResults);
         for (int i = 0; i < count; i++)
         {
-            GameObject go = results[i].gameObject;
+            GameObject go = overlapResults[i].gameObject;
             if (go.TryGetComponent<JointMakerPhysics>(out JointMakerPhysics jmp)) jmp.MakeJoint(gameObject);
         }
     }
@@ -71,7 +82,7 @@ public class JointMakerPhysics : MonoBehaviour
         joint.breakForce = 1000;
         joint.breakAction = JointBreakAction2D.CallbackOnly;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return JointActivationDelay;
         if (joint) joint.breakForce = breakForce;
     }
 }

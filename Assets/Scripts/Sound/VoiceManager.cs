@@ -62,15 +62,12 @@ public class VoiceManager : Singleton<VoiceManager>
             }
             return;
         }
-        else
+        else if (isStopped)
         {
             instance.setPaused(false);
-            if (isStopped)
-            {
-                isStopped = false;
-                if (!forceStop) Debug.Log("forceStop false!");
-                Debug.Log($"forceStop == {forceStop}, pauceVoice = {pauseVoice}, isSpeaking == {isSpeaking}");
-            }
+            isStopped = false;
+            Debug.Log("forceStop false!");
+            Debug.Log($"forceStop == {forceStop}, pauceVoice = {pauseVoice}, isSpeaking == {isSpeaking}");
         }
         if (!isSpeaking && voiceQueue.Count > 0 && !pauseVoice)
         {

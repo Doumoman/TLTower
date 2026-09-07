@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class BirdSpawner : MonoBehaviour
 {
+    private TickManager tickManager;
+    private bool hasStarted;
+    private bool isTickSubscribed;
     private int span;
     private int spanCount = 0;
 
@@ -26,11 +29,45 @@ public class BirdSpawner : MonoBehaviour
         span = Random.Range(cycleSpanInit, cycleSpanMax);
         spanCount = span;
 
-        TickManager.Instance.OnTickEvent += TickEvent;
+        hasStarted = true;
+        SubscribeToTick();
+    }
+
+    private void OnEnable()
+    {
+        if (hasStarted)
+            SubscribeToTick();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeFromTick();
+    }
+
+    private void SubscribeToTick()
+    {
+        if (isTickSubscribed) return;
+
+        tickManager = TickManager.Instance;
+        if (tickManager == null) return;
+
+        tickManager.OnTickEvent += TickEvent;
+        isTickSubscribed = true;
+    }
+
+    private void UnsubscribeFromTick()
+    {
+        if (!isTickSubscribed) return;
+
+        if (tickManager != null)
+            tickManager.OnTickEvent -= TickEvent;
+
+        isTickSubscribed = false;
     }
 
     private void TickEvent(object sender, System.EventArgs eventArgs)
     {
+        if (!isActiveAndEnabled) return;
 
         if (spanCount-- <= 0)
         {

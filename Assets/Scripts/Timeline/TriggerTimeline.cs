@@ -16,6 +16,8 @@ public class StoneTimelineTrigger : MonoBehaviour
     /* ───────── 내부 ───────── */
     Collider2D triggerCol;
     ContactFilter2D filter;       // 모든 Collider 허용 (NoFilter)
+    const int MaxOverlapResults = 64;
+    readonly Collider2D[] overlapResults = new Collider2D[MaxOverlapResults];
     bool alreadyPlayed;          // PlayerPrefs 로드 결과
     const string PP_KEY = "StoneTimelinePlayed";
 
@@ -50,6 +52,9 @@ public class StoneTimelineTrigger : MonoBehaviour
 
     void Update()
     {
+        if (alreadyPlayed && playOnlyOnce)
+            return;
+
         int cur = CountStonesInside();
 
 
@@ -72,16 +77,12 @@ public class StoneTimelineTrigger : MonoBehaviour
     /* ───────── 현재 트리거 내부 돌 개수 계산 ───────── */
     int CountStonesInside()
     {
-        // NonAlloc 방식으로 GC 최소화
-        const int Max = 64;  // 트리거 안에 동시에 있을 수 있는 최대 콜라이더 수
-        Collider2D[] results = new Collider2D[Max];
-
-        int hit = triggerCol.Overlap(filter, results);
+        int hit = triggerCol.Overlap(filter, overlapResults);
 
         int count = 0;
         for (int i = 0; i < hit; i++)
         {
-            if (results[i] != null && results[i].CompareTag(stoneTag))
+            if (overlapResults[i] != null && overlapResults[i].CompareTag(stoneTag))
                 count++;
         }
         return count;

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class CloudSpawner : MonoBehaviour
 {
@@ -17,10 +14,15 @@ public class CloudSpawner : MonoBehaviour
     public int Randomness = 3;
 
     private float cameraThreshold = 0;
+    private Camera mainCamera;
+    private readonly List<Vector2> positions = new List<Vector2>();
 
     
     void Start()
-    {   
+    {
+        mainCamera = MainCamera.GetComponent<Camera>();
+        positions.Capacity = ScreenDivision + 1;
+
         if(numberOfClouds>ScreenDivision){
             numberOfClouds = ScreenDivision-2;
         }
@@ -40,10 +42,13 @@ public class CloudSpawner : MonoBehaviour
         SavePositions();
     }
     void SavePositions(){
-        List<Vector2> positions = new List<Vector2>();
+        positions.Clear();
+        float halfWidth = mainCamera.orthographicSize * mainCamera.aspect;
+        Vector2 left = new Vector2(-halfWidth, MainCamera.transform.position.y + 10);
+        float step = halfWidth / ScreenDivision * 2;
+
         for(int i=0; i<=ScreenDivision; i++){
-            Vector2 Left = new Vector2(- MainCamera.GetComponent<Camera>().orthographicSize * MainCamera.GetComponent<Camera>().aspect, MainCamera.transform.position.y+10);
-            Vector2 Spawn = Left + new Vector2(MainCamera.GetComponent<Camera>().orthographicSize * MainCamera.GetComponent<Camera>().aspect / ScreenDivision * i * 2, 0);
+            Vector2 Spawn = left + new Vector2(step * i, 0);
 
             positions.Add(Spawn); //구름을 생성할 모든 위치를 저장
         }

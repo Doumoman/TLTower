@@ -13,6 +13,7 @@ public class Bird : MonoBehaviour
     private float timer;
     private Animator animator;
     private float sittime;
+    private Camera inputCamera;
 
     [Header("Settings")]
     public float flyTime;
@@ -21,6 +22,7 @@ public class Bird : MonoBehaviour
 
     public void Init(GameObject stone, Vector2 surfacePoint, float time)
     {
+        inputCamera = Camera.main;
         sittime = time;
         goPoint = new Vector2(-transform.position.x, transform.position.y);
         satStone = stone;
@@ -59,7 +61,8 @@ public class Bird : MonoBehaviour
                 Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    Vector2 thouchPoint = Camera.main.ScreenToWorldPoint(touch.position);
+                    if (!inputCamera) inputCamera = Camera.main;
+                    Vector2 thouchPoint = inputCamera.ScreenToWorldPoint(touch.position);
                     RaycastHit2D hit2d = Physics2D.Raycast(thouchPoint, Vector2.zero);
 
                     if (hit2d.collider != null)
@@ -73,7 +76,8 @@ public class Bird : MonoBehaviour
             }
             if (Input.GetMouseButtonUp(0))
             {
-                Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (!inputCamera) inputCamera = Camera.main;
+                Vector2 mousePoint = inputCamera.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit2d = Physics2D.Raycast(mousePoint, Vector2.zero);
                 if (hit2d.collider != null)
                 {

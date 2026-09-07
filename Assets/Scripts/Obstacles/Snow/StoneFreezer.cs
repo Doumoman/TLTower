@@ -19,6 +19,7 @@ public class StoneFreezer : MonoBehaviour
 
     ParticleSystem ps;
     GameObject snowParticle;
+    SpriteRenderer spriteRenderer;
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     [Header("references")]
@@ -33,12 +34,13 @@ public class StoneFreezer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         snowParticle = GameObject.Find("SnowParticle");
         ps = snowParticle.GetComponent<ParticleSystem>();
         if (FreezerSettler.Instance == null) Destroy(this);
 
         //FreezerSettler를 통해 값 설정
-        Sprite spr = gameObject.GetComponent<SpriteRenderer>().sprite;
+        Sprite spr = spriteRenderer.sprite;
         float[] timeSetting = FreezerSettler.Instance.GetTime(spr);
         freezeTime = timeSetting[0];
         unfreezeTime = timeSetting[1];
@@ -60,7 +62,7 @@ public class StoneFreezer : MonoBehaviour
 
         if (freezeOnStart)
         {
-            if (gameObject.GetComponent<SpriteRenderer>().color != color) FreezeStone();
+            if (spriteRenderer.color != color) FreezeStone();
             return;
         }
 
@@ -128,7 +130,7 @@ public class StoneFreezer : MonoBehaviour
                 break;
             }
         }
-        gameObject.GetComponent<SpriteRenderer>().color = color;
+        spriteRenderer.color = color;
     }
 
     //돌의 색과 마찰 원래대로
@@ -143,7 +145,7 @@ public class StoneFreezer : MonoBehaviour
                 break;
             }
         }
-        gameObject.GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
+        spriteRenderer.color = UnityEngine.Color.white;
         isFreezed = false;
     }
 

@@ -9,6 +9,12 @@ public class LoadOrQuit : MonoBehaviour
     void Start()
     {
         Debug.Log(PlayerPrefs.GetInt("CurrentChapter", -1));
+        if (button == null)
+        {
+            Debug.LogError("[LoadOrQuit] Continue button is not assigned.", this);
+            return;
+        }
+
         if (!PlayerPrefs.HasKey("CurrentChapter") || PlayerPrefs.GetInt("CurrentChapter") == (int)chapter.spring)
         {
             button.GetComponent<UnityEngine.UI.Button>().interactable = false;

@@ -33,6 +33,7 @@ public class BosalManager : MonoBehaviour
     private float lastSpeaktime;
     private bool NoScriptOnce = false;*/
     public List<System.Action> Actions = new(); // Tick에 등록할 액션들
+    private TickManager tickManager;
 
     public static BosalManager Instance { get; private set; }
     private void Awake()
@@ -51,13 +52,8 @@ public class BosalManager : MonoBehaviour
     }
     void Start()
     {
-        TickManager.Instance.OnTickEvent += (sender, eventArgs) =>
-        {
-            foreach (var action in Actions)
-                action.Invoke();
-
-            Actions.Clear();
-        }; // Tick에 액션 등록 후 실행
+        tickManager = TickManager.Instance;
+        tickManager.OnTickEvent += HandleTick;
 
         var rt = GetComponent<RectTransform>();
         var tmp = GetComponent<TMP_Text>();
@@ -90,6 +86,23 @@ public class BosalManager : MonoBehaviour
                 tmp.margin = LeftTopRightBottom;
                 break;
         }
+    }
+
+    private void HandleTick(object sender, System.EventArgs eventArgs)
+    {
+        foreach (var action in Actions)
+            action.Invoke();
+
+        Actions.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        if (tickManager != null)
+            tickManager.OnTickEvent -= HandleTick;
+
+        if (Instance == this)
+            Instance = null;
     }
     IEnumerator FadeIn()
     {

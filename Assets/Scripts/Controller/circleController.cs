@@ -14,6 +14,7 @@ public class circleController : MonoBehaviour
     private int sameDirectionCount = 0;
     private int lastDirection = 0;
     private float lastDownTime = -1f;
+    private ChapterManager chapterManager;
 
     void Start()
     {
@@ -24,8 +25,16 @@ public class circleController : MonoBehaviour
         rect.eulerAngles = new Vector3(0, 0, currentRotation);
         preRock = rock;
 
-        ChapterManager.Instance.onSetteled += UP;
-        ChapterManager.Instance.onDestroyed += Down;
+        chapterManager = ChapterManager.Instance;
+        chapterManager.onSetteled += UP;
+        chapterManager.onDestroyed += Down;
+    }
+
+    void OnDestroy()
+    {
+        if (chapterManager == null) return;
+        chapterManager.onSetteled -= UP;
+        chapterManager.onDestroyed -= Down;
     }
 
     void Update()

@@ -31,7 +31,9 @@ public class TickManager : Singleton<TickManager>
             if (remainingTime <= 0f)
             {
                 tickCount++;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
                 Debug.Log("틱! 현재 틱 카운트: " + tickCount);
+#endif
                 OnTickEvent?.Invoke(this, EventArgs.Empty);
 
                 remainingTime += Tick;

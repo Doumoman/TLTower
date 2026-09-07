@@ -35,10 +35,12 @@ public class SpaceStoneController : MonoBehaviour,
     Vector2 dragOffset, lastPointerWorld, holdStartPos;
     float holdTimer;
     bool isRotating;
+    Camera inputCamera;
 
     /* ================================================================= */
     void Awake()
     {
+        inputCamera = Camera.main;
         _rb = GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
         BuildColliders();
 
@@ -246,6 +248,9 @@ public class SpaceStoneController : MonoBehaviour,
     /* ================================================================= */
 
     /* 유틸리티 */
-    Vector2 ScreenToWorld(Vector2 p) =>
-        Camera.main.ScreenToWorldPoint(p);
+    Vector2 ScreenToWorld(Vector2 p)
+    {
+        if (!inputCamera) inputCamera = Camera.main;
+        return inputCamera.ScreenToWorldPoint(p);
+    }
 }

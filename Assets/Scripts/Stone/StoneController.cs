@@ -70,6 +70,7 @@ public class StoneController : MonoBehaviour,
     PolygonCollider2D physCol;
     PolygonCollider2D clickCol;
     ChapterManager cm;
+    Camera inputCamera;
 
     Vector3 dragOffset;
     Vector2 holdStartPos;
@@ -83,6 +84,7 @@ public class StoneController : MonoBehaviour,
         penaltyManager = FindAnyObjectByType<PenaltyManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        inputCamera = Camera.main;
         gameObject.tag = "Stone";
         var cols = GetComponents<Collider2D>();
         //physCol = cols.FirstOrDefault(c => !c.isTrigger);
@@ -441,11 +443,13 @@ public class StoneController : MonoBehaviour,
         sr.color = new Color(1, 1, 1, 0.5f);
     }
 
-    Vector2 ScreenToWorld() =>
-    Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector2 ScreenToWorld() => ScreenToWorld(Input.mousePosition);
 
-    Vector2 ScreenToWorld(Vector2 screenPos) =>
-        Camera.main.ScreenToWorldPoint(screenPos);
+    Vector2 ScreenToWorld(Vector2 screenPos)
+    {
+        if (!inputCamera) inputCamera = Camera.main;
+        return inputCamera.ScreenToWorldPoint(screenPos);
+    }
     void SetGroupPhysicsColliders(bool enabled)
     {
         foreach (var col in GetComponentsInChildren<Collider2D>())
@@ -505,9 +509,12 @@ public class StoneController : MonoBehaviour,
     void OnCollisionEnter2D(Collision2D col)
     {
         float colForce;
-        Rigidbody2D body = col.gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D body = col.collider != null ? col.collider.attachedRigidbody : null;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         Debug.Log($"collision with {body}");
-        if (state == StoneState.Dropping && (body.CompareTag("Stone") || body.CompareTag("StoneSound") ||body.CompareTag("PlacedStone")||body.CompareTag("FixedStone"))) // 정지한 돌은 사운드 X
+#endif
+        if (state == StoneState.Dropping && body != null &&
+            (body.CompareTag("Stone") || body.CompareTag("StoneSound") || body.CompareTag("PlacedStone") || body.CompareTag("FixedStone"))) // 정지한 돌은 사운드 X
         {
             colForce = col.relativeVelocity.magnitude * rb.mass;
             ss.PlaySFX(zy, ControlSound(colForce));

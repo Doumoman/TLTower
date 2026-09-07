@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
+    static bool IsAutumnChapter(chapter value) =>
+        value >= chapter.autumn && value <= chapter.autumn11;
     
     SpriteRenderer sr;         // Tree 오브젝트의 SpriteRenderer
     Transform childTransform;  // 'Child'라는 이름의 자식 Transform
@@ -177,7 +179,7 @@ public class Tree : MonoBehaviour
             SpriteRenderer flowerSp = spriteRenderers.FirstOrDefault(x => x.sortingLayerName == "flower");
             flowerSp.sprite = seasonFlower[cm.chapter][idx];
 
-            if (cm.chapter.ToString().Contains("autumn"))
+            if (IsAutumnChapter(cm.chapter))
             {
                 for (int j = 0; j < lastStem.transform.childCount; j++)
                 {
@@ -194,7 +196,7 @@ public class Tree : MonoBehaviour
         // ChapterManager가 null이면 처리하지 않음
         if (cm == null) return;
 
-        if (cm.chapter.ToString().Contains("autumn"))
+        if (IsAutumnChapter(cm.chapter))
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -247,7 +249,7 @@ public class Tree : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in flowerSp)
         {
             //가을 챕터는 꽃잎 안보이기
-            if (cm.chapter.ToString().Contains("autumn")) { spriteRenderer.enabled = false; continue; }
+            if (IsAutumnChapter(cm.chapter)) { spriteRenderer.enabled = false; continue; }
             else spriteRenderer.enabled = true;
 
             if (currentFlowerSp == sp1) break;

@@ -36,6 +36,9 @@ public class CameraController : MonoBehaviour
     ChapterManager.Instance &&
     ChapterManager.Instance.chapter == chapter.space;
 
+    static bool IsAutumnChapter(chapter value) =>
+        value >= chapter.autumn && value <= chapter.autumn11;
+
 
     private void Awake()
     {
@@ -164,7 +167,7 @@ public class CameraController : MonoBehaviour
             ChapterManager cm = ChapterManager.Instance;
 
             /* ① 가을 챕터일 때는 CloudSystem 기준 */
-            if (cm.chapter.ToString().Contains("autumn"))
+            if (IsAutumnChapter(cm.chapter))
             {
                 // CloudSystem 싱글톤이 아직 없다면 제한 없음
                 if (CloudSystem.Instance == null)
@@ -196,18 +199,19 @@ public class CameraController : MonoBehaviour
         if (_directionForce == Vector3.zero) return;
 
         Vector3 targetPos = transform.position + _directionForce;
+        float topLimit = TopLimit;
 
-        if (TopLimit - 5f < 0f)
+        if (topLimit - 5f < 0f)
         {
             minY = 0f;
         }
         else
         {
             ChapterManager cm = ChapterManager.Instance;
-            if (cm.chapter.ToString().Contains("autumn")) minY = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
+            if (IsAutumnChapter(cm.chapter)) minY = ChapterManager.CloudCheckPoint[(int)cm.chapter - (int)chapter.autumn].transform.position.y + 3; //가을에선 현재 체크포인트가 최소
             
         }
-        targetPos.y = Mathf.Clamp(targetPos.y, minY, TopLimit);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, topLimit);
 
         targetPos.x = transform.position.x;
         targetPos.z = transform.position.z;

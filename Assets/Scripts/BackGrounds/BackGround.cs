@@ -7,7 +7,7 @@ using System.Linq;  // for : someChild = transform.GetComponentsInChildren<Trans
 public class BackGround : MonoBehaviour
 {
     BackGround cm;             // 만약 BackGround 라는 컴포넌트를 찾고 싶다면
-
+    
     Transform someChild;       // 자식 오브젝트 Transform
 
 

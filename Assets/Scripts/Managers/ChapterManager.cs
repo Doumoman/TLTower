@@ -128,7 +128,7 @@ public class ChapterManager : MonoBehaviour
             .Where(obj => obj.layer == targetLayer)
             .OrderBy(obj => obj.transform.position.y)   // Y좌표 오름차순
             .ToArray();
-        if (chapter.ToString().Contains("autumn"))
+        if (chapter >= chapter.autumn && chapter <= chapter.autumn11)
             CloudSystem.Instance.SetSavePoint(CloudCheckPoint[(int)chapter - (int)chapter.autumn]);
     }
 

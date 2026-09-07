@@ -8,7 +8,7 @@ using UnityEngine.InputSystem; // 오류가 나서 추가 0731 06:07 이동건
 public class RainSystem : CountBasedObstacle
 {
     private List<StoneData> stoneDatas = new List<StoneData>();
-    PenaltyManager penaltyManager;
+    [SerializeField] private PenaltyManager penaltyManager;
     Coroutine co;
     bool nonStop = false;
     bool first = true;
@@ -19,7 +19,7 @@ public class RainSystem : CountBasedObstacle
     public ParticleSystem ps;
     public PhysicsMaterial2D normal;
     public PhysicsMaterial2D rainy;
-
+    
     [Header("Darken")]
     public GameObject darkenBackGround;
     public float speed = 0.1f;
@@ -61,7 +61,8 @@ public class RainSystem : CountBasedObstacle
         StartCoroutine(BackGroundFadeIn());
         ps.Play();
         windOrRain = true;
-        penaltyManager.isRaining = false;
+        if (penaltyManager != null)
+            penaltyManager.isRaining = false;
 
         if (!autoStop) { nonStop = true; return; }
         if (co != null) StopCoroutine(co);
@@ -83,18 +84,29 @@ public class RainSystem : CountBasedObstacle
 
     public void StopRain()
     {
-        if (ChapterManager.Instance.chapter == chapter.summer)
-            SoundManager.Instance.PlayBGM("Summer", 1);
-        else if (ChapterManager.Instance.chapter == chapter.summer2 ||
-                 ChapterManager.Instance.chapter == chapter.summer3 ||
-                 ChapterManager.Instance.chapter == chapter.summer4)
-            SoundManager.Instance.PlayBGM("Summer", 2);
+        StopRain(immediate: false);
+    }
 
-        stoneDatas = StoneSpawner.Instance.stoneDataList;
-        foreach (var item in stoneDatas)
+    private void StopRain(bool immediate)
+    {
+        if (!immediate && ChapterManager.Instance != null && SoundManager.Instance != null)
         {
-            if (item.material2D != rainy) continue;
-            item.material2D = normal;
+            if (ChapterManager.Instance.chapter == chapter.summer)
+                SoundManager.Instance.PlayBGM("Summer", 1);
+            else if (ChapterManager.Instance.chapter == chapter.summer2 ||
+                     ChapterManager.Instance.chapter == chapter.summer3 ||
+                     ChapterManager.Instance.chapter == chapter.summer4)
+                SoundManager.Instance.PlayBGM("Summer", 2);
+        }
+
+        if (StoneSpawner.Instance != null)
+        {
+            stoneDatas = StoneSpawner.Instance.stoneDataList;
+            foreach (var item in stoneDatas)
+            {
+                if (item.material2D != rainy) continue;
+                item.material2D = normal;
+            }
         }
 
         GameObject[] stones = GameObject.FindGameObjectsWithTag("PlacedStone");
@@ -107,12 +119,28 @@ public class RainSystem : CountBasedObstacle
             }
         }
 
-        StartCoroutine(BackGroundFadeOut());
-        ps.Stop();
+        if (!immediate && isActiveAndEnabled)
+        {
+            StartCoroutine(BackGroundFadeOut());
+        }
+        else if (darkenBackGround != null && darkenBackGround.TryGetComponent(out Image image))
+        {
+            Color backgroundColor = image.color;
+            backgroundColor.a = 0f;
+            image.color = backgroundColor;
+        }
+
+        if (ps != null)
+            ps.Stop();
+
         stoneCount = 0;
         nonStop = false;
         windOrRain = false;
-        penaltyManager.isRaining = false;
+        if (penaltyManager != null)
+            penaltyManager.isRaining = false;
+
+        if (immediate)
+            co = null;
     }
 
     //배경 점점어둡게
@@ -147,11 +175,12 @@ public class RainSystem : CountBasedObstacle
     protected override void OnEnable()
     {
         base.OnEnable();
-        penaltyManager = FindAnyObjectByType<PenaltyManager>();
+        if (penaltyManager == null)
+            penaltyManager = FindAnyObjectByType<PenaltyManager>(FindObjectsInactive.Include);
     }
     protected override void OnDisable()
     {
         base.OnDisable();
-        StopRain();
+        StopRain(immediate: true);
     }
 }

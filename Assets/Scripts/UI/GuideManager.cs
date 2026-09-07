@@ -40,6 +40,15 @@ public class GuideManager : MonoBehaviour
         guidePanel.GuideClosed.AddListener(OnGuideClosed);
     }
 
+    private void OnDestroy()
+    {
+        if (guidePanel != null)
+            guidePanel.GuideClosed.RemoveListener(OnGuideClosed);
+
+        if (Instance == this)
+            Instance = null;
+    }
+
     private void ShowGuide() => guidePanelRoot.SetActive(true);
     private void HideGuide() => guidePanelRoot.SetActive(false);
 

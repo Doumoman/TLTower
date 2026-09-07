@@ -34,6 +34,7 @@ public class MainStoneController : MonoBehaviour,
 
     Rigidbody2D _rb;
     SpriteRenderer _sr;
+    Camera inputCamera;
     SpatialSound ss;
     PolygonCollider2D _phys, _click;
 
@@ -52,6 +53,7 @@ public class MainStoneController : MonoBehaviour,
     #region 초기화
     void Awake()
     {
+        inputCamera = Camera.main;
         if (!TryGetComponent(out Rigidbody2D rb))
             gameObject.AddComponent<Rigidbody2D>();
 
@@ -269,8 +271,11 @@ public class MainStoneController : MonoBehaviour,
     /* ==================================================================== */
 
     /* 유틸리티 ----------------------------------------------------------- */
-    Vector2 ScreenToWorld(Vector2 screenPos) =>
-        Camera.main.ScreenToWorldPoint(screenPos);
+    Vector2 ScreenToWorld(Vector2 screenPos)
+    {
+        if (!inputCamera) inputCamera = Camera.main;
+        return inputCamera.ScreenToWorldPoint(screenPos);
+    }
 
     Vector2 GetCurrentPointerWorld()
     {
@@ -292,9 +297,10 @@ public class MainStoneController : MonoBehaviour,
     void OnCollisionEnter2D(Collision2D col)
     {
         float colForce;
-        Rigidbody2D body = col.gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D body = col.collider != null ? col.collider.attachedRigidbody : null;
         Debug.Log($"collision with {body}");
-        if (State == MainStoneState.Dropping && (body.CompareTag("StoneSound") ||body.CompareTag("PlacedStone"))) // 정지한 돌은 사운드 X
+        if (State == MainStoneState.Dropping && body != null &&
+            (body.CompareTag("StoneSound") || body.CompareTag("PlacedStone"))) // 정지한 돌은 사운드 X
         {
             colForce = col.relativeVelocity.magnitude * _rb.mass;
             ss.PlaySFX("stone", ControlSound(colForce));
