@@ -12,6 +12,7 @@ public abstract class CountBasedObstacle : MonoBehaviour
     protected int stoneCount = 0;
     public int count = 5;
     protected static bool windOrRain = false;
+    public static bool IsWindOrRainActive => windOrRain;
 
     private void OnValidate()
     {

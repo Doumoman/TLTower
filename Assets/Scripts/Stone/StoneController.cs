@@ -49,6 +49,9 @@ public class StoneController : MonoBehaviour,
     SpriteRenderer outlineSR;
     [SerializeField] float settleCheckTime = .3f;
     [SerializeField] float settleVelocityEps = .05f;
+    [SerializeField] float settleAngularVelocityEps = 5f;
+    [SerializeField] float disturbedSettleVelocityEps = .065f;
+    [SerializeField] float disturbedSettleAngularVelocityEps = 5.5f;
 
     float settleTimer = 0f;
 
@@ -112,8 +115,16 @@ public class StoneController : MonoBehaviour,
     {
         if (state == StoneState.Dropping)
         {
-            bool slow = rb.linearVelocity.magnitude < settleVelocityEps &&
-                        Mathf.Abs(rb.angularVelocity) < 5f;
+            bool isDisturbed = CountBasedObstacle.IsWindOrRainActive;
+            float velocityEps = isDisturbed
+                ? disturbedSettleVelocityEps
+                : settleVelocityEps;
+            float angularVelocityEps = isDisturbed
+                ? disturbedSettleAngularVelocityEps
+                : settleAngularVelocityEps;
+
+            bool slow = rb.linearVelocity.magnitude < velocityEps &&
+                        Mathf.Abs(rb.angularVelocity) < angularVelocityEps;
 
             settleTimer = slow ? settleTimer + Time.deltaTime : 0;
 
