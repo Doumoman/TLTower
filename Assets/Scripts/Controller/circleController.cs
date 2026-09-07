@@ -15,6 +15,7 @@ public class circleController : MonoBehaviour
     private int lastDirection = 0;
     private float lastDownTime = -1f;
     private ChapterManager chapterManager;
+    private bool progressEnabled = true;
 
     void Start()
     {
@@ -39,6 +40,8 @@ public class circleController : MonoBehaviour
 
     void Update()
     {
+        if (!progressEnabled) return;
+
         if (rock != preRock)
         {
             if (rotateCoroutine != null)
@@ -102,7 +105,40 @@ public class circleController : MonoBehaviour
         rect.eulerAngles = new Vector3(0, 0, currentRotation);
     }
 
+    public void SetProgressEnabled(bool value)
+    {
+        if (progressEnabled == value) return;
+
+        progressEnabled = value;
+
+        if (!progressEnabled)
+        {
+            // 체크포인트를 만든 마지막 돌까지는 표시하고,
+            // 그 이후의 돌 증감은 염주에 반영하지 않는다.
+            if (rock != preRock)
+            {
+                if (rotateCoroutine != null)
+                    StopCoroutine(rotateCoroutine);
+
+                rotateCoroutine = StartCoroutine(Turn(rock));
+                preRock = rock;
+            }
+        }
+        else
+        {
+            // 잠긴 동안 발생한 변화를 다음 스테이지에서 몰아서 회전하지 않게 한다.
+            preRock = rock;
+        }
+    }
+
     //증가/감소
-    public void UP(object sender, System.EventArgs eventArgs) => rock++;
-    public void Down(object sender, System.EventArgs eventArgs) => rock--;
+    public void UP(object sender, System.EventArgs eventArgs)
+    {
+        if (progressEnabled) rock++;
+    }
+
+    public void Down(object sender, System.EventArgs eventArgs)
+    {
+        if (progressEnabled) rock--;
+    }
 }

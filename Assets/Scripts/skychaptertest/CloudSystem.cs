@@ -155,6 +155,16 @@ public class CloudSystem : MonoBehaviour
         if (!remainingTMP) return;
 
         int remain = cloudLimit + 1 - GetNodeLength();
+
+        if (remain <= 0)
+        {
+            remainingTMP.text = string.Empty;
+            StoneFixer.Instance?.SetProgressUIVisible(false);
+            return;
+        }
+
+        StoneFixer.Instance?.SetProgressUIVisible(true);
+        remainingTMP.gameObject.SetActive(true);
         remainingTMP.text = $"<b>{remain}</b>";
     }
 }

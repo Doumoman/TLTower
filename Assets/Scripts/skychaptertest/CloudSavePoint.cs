@@ -10,7 +10,7 @@ public class CloudSavePoint : MonoBehaviour
             istouched = true;
             CloudSystem.Instance.SetSavePoint(gameObject);
             this.GetComponent<Collider2D>().isTrigger = false;
-            ChapterManager.Instance.ChangeChapter();
+            ChapterManager.Instance.ChangeChapter(checkpointReached: true);
             Destroy(this);
         }
     }

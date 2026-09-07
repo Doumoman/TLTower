@@ -26,9 +26,9 @@ public class SavePoint : MonoBehaviour
         if (stone && stone.state == StoneState.Settled)
         {
             alreadyTriggered = true;
+            ResetStone.Instance.ColToSc(other);     // 콜라이더가 제거되기 전에 초기화 기준 돌 저장
             fixer?.FixAllStones();
-            ChapterManager.Instance.ChangeChapter();    //챕터 변경 요청
-            ResetStone.Instance.ColToSc(other);     //초기화 기준 돌 전달
+            ChapterManager.Instance.ChangeChapter(checkpointReached: true);    //챕터 변경 요청
         }
     }
 
@@ -46,10 +46,9 @@ public class SavePoint : MonoBehaviour
             if (stone && stone.state == StoneState.Settled)
             {
                 ResetStone.Instance.GetSc(stone);     //초기화 기준 돌 전달
-                ChapterManager.Instance.ChangeChapter();    //챕터 변경 요청
-
                 alreadyTriggered = true;
                 fixer?.FixAllStones();
+                ChapterManager.Instance.ChangeChapter(checkpointReached: true);    //챕터 변경 요청
                 break;
             }
         }

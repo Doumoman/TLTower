@@ -30,6 +30,8 @@ public class StoneFixer : MonoBehaviour
 
     readonly List<StoneController> batch = new();   // 이번 라운드 Settled
     int wave = 0;                                   // 몇 번째 묶음인지
+    circleController progressCircle;
+    bool progressUIVisible = true;
 
     // StoneController 가 Settled 될 때마다 호출
     public void RegisterSettled(StoneController sc)
@@ -55,20 +57,10 @@ public class StoneFixer : MonoBehaviour
         if (!batch.Contains(sc)) { batch.Add(sc); ChapterManager.Instance?.AddCount(); }//ChapterManger 카운트 올리기
         UpdateUI();
 
-        //조건 달성: 세이브포인트 생성 
+        //조건 달성: 세이브포인트 생성
         if (batch.Count >= threshold && currentSavePoint == null)
         {
-            CheckAndSound();//배경음악 Ambience로 전환
-            wave++;
-            Vector3 spawnPos = new(
-                0f,   // 가장 최근 돌의 X (원한다면 0 또는 중앙값으로)
-                HighestSettledY + 2f,
-                0f);
-            currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
-            // SavePoint 스크립트에 StoneFixer 참조를 자동으로 넘기려면 다음 라인 추가
-            currentSavePoint.GetComponent<SavePoint>()?.Init(this);
-
-            Debug.Log($"[StoneFixer] Wave {wave} reached. SavePoint spawned at {spawnPos}");
+            SpawnSavePoint();
         }
     }
 
@@ -77,7 +69,76 @@ public class StoneFixer : MonoBehaviour
         if (!remainingTMP) return;
 
         int remain = Mathf.Max(0, threshold - batch.Count); // 0 이하 방지
+
+        if (!progressUIVisible || remain == 0)
+        {
+            remainingTMP.text = string.Empty;
+            remainingTMP.gameObject.SetActive(false);
+            return;
+        }
+
+        remainingTMP.gameObject.SetActive(true);
         remainingTMP.text = $"<b>{remain}</b>";
+    }
+
+    public void ConfigureStage(int requiredCount, bool spawnSavePointWhenZero)
+    {
+        threshold = Mathf.Max(0, requiredCount);
+
+        SetProgressUIVisible(threshold > 0);
+        UpdateUI();
+
+        if (threshold == 0 && spawnSavePointWhenZero)
+            SpawnSavePoint();
+    }
+
+    public void SetProgressUIVisible(bool visible)
+    {
+        progressUIVisible = visible;
+
+        if (remainingTMP)
+        {
+            if (!visible)
+                remainingTMP.text = string.Empty;
+
+            remainingTMP.gameObject.SetActive(visible);
+        }
+
+        ResolveProgressCircle()?.SetProgressEnabled(visible);
+    }
+
+    public void HideProgressUI() => SetProgressUIVisible(false);
+
+    circleController ResolveProgressCircle()
+    {
+        if (progressCircle || !remainingTMP) return progressCircle;
+
+        Transform progressRoot = remainingTMP.transform.parent;
+        if (progressRoot)
+            progressCircle = progressRoot.GetComponentInChildren<circleController>(true);
+
+        return progressCircle;
+    }
+
+    void SpawnSavePoint()
+    {
+        if (currentSavePoint || !savePointPrefab) return;
+
+        // Instantiate 중 즉시 체크포인트가 발동해도
+        // 다음 스테이지 UI 상태를 다시 숨기지 않도록 먼저 잠근다.
+        SetProgressUIVisible(false);
+        CheckAndSound();//배경음악 Ambience로 전환
+        wave++;
+
+        Vector3 spawnPos = new(
+            0f,
+            HighestSettledY + 2f,
+            0f);
+
+        currentSavePoint = Instantiate(savePointPrefab, spawnPos, Quaternion.identity);
+        currentSavePoint.GetComponent<SavePoint>()?.Init(this);
+
+        Debug.Log($"[StoneFixer] Wave {wave} reached. SavePoint spawned at {spawnPos}");
     }
     #region 돌 고정 로직
     public void FixAllStones()

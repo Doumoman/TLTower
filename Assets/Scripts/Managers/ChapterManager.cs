@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 // using static UnityEditor.Progress; // 오류가 나서 주석처리 0731 06:07 이동건
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR              // ← 에디터에서만 컴파일 0731 06:07 이동건
@@ -41,6 +42,16 @@ public class ChapterManager : MonoBehaviour
     [Header("Settings")]
     [Tooltip("land챕터부터 space전(winter) 챕터 까지")] public int[] stonesForChapter = new int[(int)chapter.space];
     public float waitTimeBeforeChange = 1f;
+
+    [Header("현재 스테이지 UI")]
+    [SerializeField] TextMeshProUGUI currentStageTMP;
+    [SerializeField] Vector2 currentStageOffset = new Vector2(36f, -32f);
+    [SerializeField] Vector2 currentStageSize = new Vector2(360f, 80f);
+    [SerializeField] float currentStageFontSize = 36f;
+    [SerializeField] Color springStageColor = new Color32(190, 107, 127, 255);
+    [SerializeField] Color summerStageColor = new Color32(82, 132, 88, 255);
+    [SerializeField] Color autumnStageColor = new Color32(165, 105, 61, 255);
+    [SerializeField] Color winterStageColor = new Color32(92, 132, 174, 255);
 
     int stoneCount = 0;
     Dictionary<GameObject, Coroutine> co = new Dictionary<GameObject, Coroutine>();
@@ -115,11 +126,7 @@ public class ChapterManager : MonoBehaviour
         SetObstacle();
         onChapterChage?.Invoke(this, EventArgs.Empty);
         Debug.Log("chaptermanager 챕터변환 실행");
-        if (StoneFixer.Instance)
-        {
-             StoneFixer.Instance.threshold = stonesForChapter[idx];
-             StoneFixer.Instance.NotifyStoneLost(null);
-        }
+        ConfigureCurrentStage();
 
         //가을챕터 체크포인트 설정
         int targetLayer = LayerMask.NameToLayer("SkySavePoint");    //  모든 오브젝트 찾기 (씬 전체)
@@ -133,24 +140,18 @@ public class ChapterManager : MonoBehaviour
     }
 
     //돌 개수 확인 후 챕터전환 확인
-    public void ChangeChapter()
+    public void ChangeChapter(bool checkpointReached = false)
     {
 
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = System.Array.IndexOf(arr, chapter);
 
-        if (idx < arr.Count()-1 && stoneCount >= stonesForChapter[idx])  //현재 챕터에서 넘어가는 기준 충족 & idx증가가 space까지만 되게 하는 조건
+        if (idx < arr.Count()-1 &&
+            (checkpointReached || stoneCount >= stonesForChapter[idx]))  // 체크포인트 도착 후에는 돌 개수를 다시 검사하지 않음
         {
             chapter = arr[++idx];
-
-            if (StoneFixer.Instance)
-            {   
-                /* space 챕터에는 threshold 가 없으므로 안전 체크 */
-                if (idx < stonesForChapter.Length)
-                    StoneFixer.Instance.threshold = stonesForChapter[idx];
-                StoneFixer.Instance.NotifyStoneLost(null);
-            }
             stoneCount = 0;
+            ConfigureCurrentStage();
             Debug.Log(chapter);
 
             if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
@@ -217,16 +218,113 @@ public class ChapterManager : MonoBehaviour
         if (ch == chapter.space) SceneManager.LoadScene(nextScene);
 
         chapter = ch;
+        stoneCount = 0;
 
-        // idx 재계산
-        chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
-        int idx = System.Array.IndexOf(arr, ch);
-
-        if (idx < stonesForChapter.Length)
-            StoneFixer.Instance.threshold = stonesForChapter[idx];
-
-        StoneFixer.Instance.NotifyStoneLost(null);
+        ConfigureCurrentStage();
         onChapterChage?.Invoke(this, System.EventArgs.Empty);
+    }
+
+    void ConfigureCurrentStage()
+    {
+        UpdateCurrentStageUI();
+
+        StoneFixer fixer = StoneFixer.Instance;
+        if (!fixer) return;
+
+        int idx = (int)chapter;
+        bool isCloudStage = chapter >= chapter.autumn && chapter <= chapter.autumn11;
+        bool isStoneStage = chapter < chapter.autumn ||
+                            (chapter >= chapter.winter && chapter < chapter.space);
+
+        if (chapter == chapter.space || isCloudStage)
+        {
+            fixer.HideProgressUI();
+            return;
+        }
+
+        if (isStoneStage && idx < stonesForChapter.Length)
+            fixer.ConfigureStage(stonesForChapter[idx], spawnSavePointWhenZero: true);
+    }
+
+    void UpdateCurrentStageUI()
+    {
+        EnsureCurrentStageUI();
+        if (!currentStageTMP) return;
+
+        if (chapter == chapter.space)
+        {
+            currentStageTMP.gameObject.SetActive(false);
+            return;
+        }
+
+        currentStageTMP.gameObject.SetActive(true);
+        currentStageTMP.text = GetCurrentStageLabel(chapter);
+        currentStageTMP.color = GetCurrentStageColor(chapter);
+    }
+
+    void EnsureCurrentStageUI()
+    {
+        if (currentStageTMP) return;
+
+        TextMeshProUGUI template = StoneFixer.Instance ? StoneFixer.Instance.remainingTMP : null;
+        Canvas targetCanvas = template
+            ? template.canvas
+            : FindFirstObjectByType<Canvas>(FindObjectsInactive.Include);
+        if (!targetCanvas) return;
+
+        GameObject textObject = new(
+            "CurrentStageText",
+            typeof(RectTransform),
+            typeof(CanvasRenderer),
+            typeof(TextMeshProUGUI));
+        textObject.layer = targetCanvas.gameObject.layer;
+
+        RectTransform rect = textObject.GetComponent<RectTransform>();
+        rect.SetParent(targetCanvas.transform, false);
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = new Vector2(0f, 1f);
+        rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = currentStageOffset;
+        rect.sizeDelta = currentStageSize;
+
+        currentStageTMP = textObject.GetComponent<TextMeshProUGUI>();
+        if (template && template.font)
+        {
+            currentStageTMP.font = template.font;
+            currentStageTMP.fontSharedMaterial = template.fontSharedMaterial;
+        }
+
+        currentStageTMP.fontSize = currentStageFontSize;
+        currentStageTMP.alignment = TextAlignmentOptions.TopLeft;
+        currentStageTMP.textWrappingMode = TextWrappingModes.NoWrap;
+        currentStageTMP.overflowMode = TextOverflowModes.Overflow;
+        currentStageTMP.raycastTarget = false;
+        currentStageTMP.transform.SetAsLastSibling();
+    }
+
+    string GetCurrentStageLabel(chapter value)
+    {
+        if (value >= chapter.spring && value <= chapter.spring4)
+            return $"봄 - {(int)value - (int)chapter.spring + 1}";
+
+        if (value >= chapter.summer && value <= chapter.summer5)
+            return $"여름 - {(int)value - (int)chapter.summer + 1}";
+
+        if (value >= chapter.autumn && value <= chapter.autumn11)
+            return $"가을 - {(int)value - (int)chapter.autumn + 1}";
+
+        if (value >= chapter.winter && value <= chapter.winter4)
+            return $"겨울 - {(int)value - (int)chapter.winter + 1}";
+
+        return string.Empty;
+    }
+
+    Color GetCurrentStageColor(chapter value)
+    {
+        if (value <= chapter.spring4) return springStageColor;
+        if (value <= chapter.summer5) return summerStageColor;
+        if (value <= chapter.autumn11) return autumnStageColor;
+        return winterStageColor;
     }
 
     public string idleScript = "";

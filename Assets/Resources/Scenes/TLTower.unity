@@ -111563,7 +111563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99976, y: 35}
+  m_AnchoredPosition: {x: -357.99973, y: 35}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -111842,9 +111842,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.21409276
+    x: 0.004484296
     y: 0
-    width: 0.5718145
+    width: 0.9910314
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -176332,7 +176332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -368, y: 178}
+  m_AnchoredPosition: {x: -367.99997, y: 178}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037386059
@@ -187080,8 +187080,16 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 0300000005000000080000000c00000008000000080000000c0000000c00000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000012000000
+  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c00000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000012000000
   waitTimeBeforeChange: 1.5
+  currentStageTMP: {fileID: 0}
+  currentStageOffset: {x: 36, y: -32}
+  currentStageSize: {x: 360, y: 80}
+  currentStageFontSize: 80
+  springStageColor: {r: 0.96862745, g: 0.6627451, b: 0.654902, a: 1}
+  summerStageColor: {r: 0, g: 1, b: 0.8980392, a: 1}
+  autumnStageColor: {r: 0.9137255, g: 0.23921569, b: 0, a: 1}
+  winterStageColor: {r: 0.6862745, g: 0.78431374, b: 0.88235295, a: 1}
   idleScript: 
   autumnCloudCatch: 0
   autumnCloudTime: 10
