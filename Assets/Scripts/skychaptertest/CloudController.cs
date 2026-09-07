@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 구름의 콜라이더들 조정
 */
 
-public enum CloudState { flow, Dragging, Dropped };
+public enum CloudState { flow, Dragging, Dropped, ReturningToFlow };
 [RequireComponent(typeof(Rigidbody2D))]
 public class CloudController : MonoBehaviour,
                                IPointerDownHandler,
@@ -30,6 +30,7 @@ public class CloudController : MonoBehaviour,
     //구름 반발력 용도
     Collider2D separator;
     Coroutine co = null;
+    Coroutine flowTransitionCoroutine = null;
 
     float timer = 0f; //상호작용 없으면 돌아가는 용도
 
@@ -48,12 +49,42 @@ public class CloudController : MonoBehaviour,
     public Color flowColor;
     public Color dragColor;
 
+    [Header("Flow Color Transition")]
+    [Tooltip("독립된 구름이 flow 상태로 돌아가기 전에 flowColor로 서서히 바뀌는 시간")]
+    [SerializeField, Min(0f)] private float flowColorTransitionDuration = 0.65f;
+
     [Header("Drag & Rotate")]
     public float holdToRotate = 0.75f;
     public float rotateSpeed = -90f;
     public float moveDeadZone = 0.4f;
     private readonly Collider2D[] separateOverlapResults = new Collider2D[1];
     private Camera inputCamera;
+    private Color authoredBaseColor;
+
+    private void Awake()
+    {
+        authoredBaseColor = baseColor;
+    }
+
+    public void ApplyBaseColorNoise(float minPercent, float maxPercent)
+    {
+        float min = Mathf.Max(0f, Mathf.Min(minPercent, maxPercent));
+        float max = Mathf.Max(min, Mathf.Max(minPercent, maxPercent));
+
+        Color.RGBToHSV(authoredBaseColor, out float hue, out float saturation, out float brightness);
+
+        saturation = Mathf.Clamp01(saturation * (1f + RandomSignedPercent(min, max)));
+        brightness = Mathf.Clamp01(brightness * (1f + RandomSignedPercent(min, max)));
+
+        baseColor = Color.HSVToRGB(hue, saturation, brightness);
+        baseColor.a = authoredBaseColor.a;
+    }
+
+    private static float RandomSignedPercent(float min, float max)
+    {
+        float amount = Random.Range(min, max);
+        return Random.value < 0.5f ? -amount : amount;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +102,7 @@ public class CloudController : MonoBehaviour,
 
     void Flow()
     {
+        timer = 0f;
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
         rb.bodyType = RigidbodyType2D.Static;
@@ -143,10 +175,38 @@ public class CloudController : MonoBehaviour,
             }
             if (timer > waitTime)
             {
-                Flow();
+                StartFlowTransition();
             }
         }
         if (transform.position.x < -15 || transform.position.x > 15) Destroy(gameObject);
+    }
+
+    private void StartFlowTransition()
+    {
+        if (flowTransitionCoroutine != null) return;
+
+        state = CloudState.ReturningToFlow;
+        flowTransitionCoroutine = StartCoroutine(FadeToFlowColor());
+    }
+
+    private IEnumerator FadeToFlowColor()
+    {
+        Color startColor = sr.color;
+        float elapsed = 0f;
+
+        while (elapsed < flowColorTransitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = flowColorTransitionDuration <= 0f
+                ? 1f
+                : Mathf.Clamp01(elapsed / flowColorTransitionDuration);
+            sr.color = Color.Lerp(startColor, flowColor, progress);
+            yield return null;
+        }
+
+        sr.color = flowColor;
+        flowTransitionCoroutine = null;
+        Flow();
     }
 
     void CheckOverlap()
@@ -225,7 +285,16 @@ public class CloudController : MonoBehaviour,
         foreach (Collider2D col in colChildren) col.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
-    public void Disappear() => StartCoroutine(FadeOutAndDestory());
+    public void Disappear()
+    {
+        if (flowTransitionCoroutine != null)
+        {
+            StopCoroutine(flowTransitionCoroutine);
+            flowTransitionCoroutine = null;
+        }
+
+        StartCoroutine(FadeOutAndDestory());
+    }
 
     private IEnumerator FadeOutAndDestory()
     {
@@ -335,7 +404,7 @@ public class CloudController : MonoBehaviour,
             col.enabled = true;
             col.isTrigger = false;
         }
-        sr.color = baseColor;
+        sr.color = baseColor; // 생성 시 정해진 이 구름만의 고유 색상으로 복구
         sr.sortingLayerName = "Default";
         AnyCloudBeingDragged = false;
         CameraController.Instance.EndDrag();
@@ -346,7 +415,10 @@ public class CloudController : MonoBehaviour,
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {
-        StopAllCoroutines(); co = null;
+        StopAllCoroutines();
+        co = null;
+        flowTransitionCoroutine = null;
+        timer = 0f;
         AnyCloudBeingDragged = true;
         CameraController.Instance.BeginDrag(this);
 

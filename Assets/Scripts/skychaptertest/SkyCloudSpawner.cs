@@ -7,6 +7,10 @@ public class SkyCloudSpawner : MonoBehaviour
     public float spanMax;
     public Transform[] skyCloud;
 
+    [Header("Base Color Noise")]
+    [SerializeField, Range(0f, 0.25f)] private float minBaseColorNoise = 0.08f;
+    [SerializeField, Range(0f, 0.25f)] private float maxBaseColorNoise = 0.15f;
+
     Coroutine co = null;
     private float xPos;
     private int directionalForce = 1;
@@ -33,6 +37,7 @@ public class SkyCloudSpawner : MonoBehaviour
             Transform t = Instantiate(skyCloud[idx]);
             t.position = new Vector2(xPos * directionalForce, transform.position.y + UnityEngine.Random.Range(-5, 5));
             CloudController cc = t.GetComponent<CloudController>();
+            cc.ApplyBaseColorNoise(minBaseColorNoise, maxBaseColorNoise);
             cc.flowSpeed *= directionalForce;
         }
     }

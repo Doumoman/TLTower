@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPrefsButton
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 0
+  targetChapter: 10
   sceneLoader: {fileID: 1696282823}
   toggle: 0
 --- !u!114 &3641990
@@ -3622,10 +3622,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.004484296
-    y: 0
-    width: 0.9910314
-    height: 1
+    x: 0
+    y: 0.11815068
+    width: 1
+    height: 0.76369864
   near clip plane: 0
   far clip plane: 1000
   field of view: 60
