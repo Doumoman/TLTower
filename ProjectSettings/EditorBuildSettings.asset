@@ -27,7 +27,9 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/SpaceAnimation.unity
     guid: b0ce2df11cc7b4c49aa825f19b4cc342
   m_configObjects:
+    com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 670570318f8234f48b15681c3c81fe0a, type: 2}
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 685d6bc6955fc8a46a8c20c55f45f32c, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f2111f864f3c5a04fb5500314a3acc7b, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: d7debe2b49dd90549aa36cd197ae6ca2, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 40d6cc241677bc54ba899b3b94149413, type: 2}
+  m_UseUCBPForAssetBundles: 0
