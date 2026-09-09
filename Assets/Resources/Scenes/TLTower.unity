@@ -111571,7 +111571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99976, y: 35}
+  m_AnchoredPosition: {x: -357.99976, y: 35.00006}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -111851,9 +111851,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.16666666
+    y: 0.03789985
     width: 1
-    height: 0.6666667
+    height: 0.9242003
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -171447,13 +171447,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f87de3028a2434da54d109ded5aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spanMin: 0.5
-  spanMax: 1.5
+  spanMin: 1.2
+  spanMax: 3
   skyCloud:
   - {fileID: 2644197636394065909, guid: dae8b8794daf22842883fbef563bfa60, type: 3}
   - {fileID: 1481195216759900164, guid: e95ff48f2e65f7444b0f64d84a6c0f16, type: 3}
-  minBaseColorNoise: 0.08
-  maxBaseColorNoise: 0.15
+  initialPoolSize: 20
+  minBaseColorNoise: 0.0308
+  maxBaseColorNoise: 0.1274
 --- !u!4 &2023078723
 Transform:
   m_ObjectHideFlags: 0

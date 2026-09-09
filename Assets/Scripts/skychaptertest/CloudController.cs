@@ -243,24 +243,52 @@ public class CloudController : MonoBehaviour,
         }
     }
 
-    private void FreezePhysics()
+    private void SetBonePhysicsEnabled(bool enabled)
     {
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.gravityScale = 0f;
-        rb.bodyType = RigidbodyType2D.Static;
-        rb.simulated = false;
-
         foreach (Rigidbody2D childBody in rbChildren)
         {
             if (!childBody) continue;
 
+            if (!enabled)
+            {
+                if (childBody.bodyType != RigidbodyType2D.Static)
+                {
+                    childBody.linearVelocity = Vector2.zero;
+                    childBody.angularVelocity = 0f;
+                }
+
+                childBody.gravityScale = 0f;
+                // Transform/SpriteSkin은 유지하고, 연결된 Collider와 Joint만 물리계에서 제외한다.
+                childBody.simulated = false;
+                childBody.bodyType = RigidbodyType2D.Static;
+                continue;
+            }
+
+            Vector2 visualPosition = childBody.transform.position;
+            float visualRotation = childBody.transform.eulerAngles.z;
+
+            childBody.bodyType = RigidbodyType2D.Dynamic;
+            childBody.position = visualPosition;
+            childBody.rotation = visualRotation;
             childBody.linearVelocity = Vector2.zero;
             childBody.angularVelocity = 0f;
             childBody.gravityScale = 0f;
-            childBody.bodyType = RigidbodyType2D.Static;
-            childBody.simulated = false;
+            childBody.simulated = true;
         }
+    }
+
+    private void FreezePhysics()
+    {
+        if (rb.bodyType != RigidbodyType2D.Static)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
+        rb.gravityScale = 0f;
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = false;
+        SetBonePhysicsEnabled(false);
     }
 
     private void DisableInteractionColliders()
@@ -303,19 +331,16 @@ public class CloudController : MonoBehaviour,
     void Flow()
     {
         timer = 0f;
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
+        if (rb.bodyType != RigidbodyType2D.Static)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
         rb.simulated = true;
         rb.gravityScale = 0;
         rb.bodyType = RigidbodyType2D.Static;
-        foreach (var rbChild in rbChildren)
-        {
-            rbChild.linearVelocity = Vector2.zero;
-            rbChild.angularVelocity = 0f;
-            rbChild.simulated = true;
-            rbChild.bodyType = RigidbodyType2D.Static;
-            rbChild.gravityScale = 0;
-        }
+        SetBonePhysicsEnabled(false);
         
         col.enabled = true;
         separator.isTrigger = true;
@@ -692,12 +717,7 @@ public class CloudController : MonoBehaviour,
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        foreach (Rigidbody2D rb in rbChildren)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
+        SetBonePhysicsEnabled(true);
         rb.Sleep();
 
         foreach (Collider2D col in colChildren)
@@ -732,7 +752,11 @@ public class CloudController : MonoBehaviour,
         foreach (Collider2D col in colChildren) col.enabled = false;
 
         rb.bodyType = RigidbodyType2D.Static;
-        foreach (Rigidbody2D rb in rbChildren) rb.bodyType = RigidbodyType2D.Static;
+        // Flow에서 진입하면 비활성 상태를 유지하고, 연결된 구름은 기존 Joint 동작을 보존한다.
+        foreach (Rigidbody2D childBody in rbChildren)
+        {
+            if (childBody) childBody.bodyType = RigidbodyType2D.Static;
+        }
 
         //dragOffset = transform.position - (Vector3)ScreenToWorld();
         holdTimer = 0;
