@@ -117,6 +117,7 @@ public class ChapterManager : MonoBehaviour
     private void Start()
     {
         if (!SceneManager.GetActiveScene().name.Contains("sky prototype"))SaveSystem.Instance?.LoadGame();
+        if (chapter == chapter.space) return; // LoadChapter already handed off to the ending.
         //시작 챕터 감지
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
         int idx = Array.IndexOf(arr, chapter);
@@ -167,16 +168,22 @@ public class ChapterManager : MonoBehaviour
 
             if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
             {
-                AnimationManager.Instance.Play1();
-                Debug.Log("PlayBck");
-                CameraController.Instance.RaiseCameraY();
                 removeYumju?.Invoke(this, EventArgs.Empty);
+                StartCoroutine(WaitAndStartSpace());
             }
             if (chapter != chapter.space)
             {
                 SaveSystem.Instance?.SaveGame();
             }
         }
+    }
+
+    IEnumerator WaitAndStartSpace()
+    {
+        // SetObstacle/onChapterChage have already shown space and removed winter.
+        yield return SpaceEndingAudioController.Instance.PlaySpaceIntro();
+        AnimationManager.Instance.Play1();
+        CameraController.Instance.RaiseCameraY();
     }
     
     IEnumerator WaitAndChange()
@@ -215,7 +222,13 @@ public class ChapterManager : MonoBehaviour
         //저장된게 우주챕터면 바로 엔딩으로 이동
         RiseStoneAndSceneChange rsasc = FindObjectOfType<RiseStoneAndSceneChange>(true);
         string nextScene = rsasc.nextScene;
-        if (ch == chapter.space) SceneManager.LoadScene(nextScene);
+        if (ch == chapter.space)
+        {
+            chapter = ch;
+            SpaceEndingAudioController.Instance.PlayFinalReplay();
+            SceneManager.LoadScene(nextScene);
+            return;
+        }
 
         chapter = ch;
         stoneCount = 0;
@@ -523,15 +536,7 @@ public class ChapterManager : MonoBehaviour
         {
             //Debug.Log("우주브금 실행");
             idleScript = null;
-            SoundManager.Instance.StopBGM();
-            Debug.Log("SoundManager.Instance.spaceLoaded: " + SoundManager.Instance.spaceLoaded);
-            if (SoundManager.Instance.spaceLoaded == false)
-                SoundManager.Instance.PlayBGM("Space", 0);
-            else
-            {
-                SoundManager.Instance.PlayBGM("Space 3", 0);
-                SoundManager.Instance.spaceLoaded = false;
-            }
+            SpaceEndingAudioController.Instance.BeginSilentIntro();
         }
 
         else

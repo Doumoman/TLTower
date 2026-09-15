@@ -39,6 +39,8 @@ public class Credits : MonoBehaviour
     private Coroutine stepCo = null;
     private Coroutine skipCo = null;
     public bool end = false;
+    SpaceEndingAudioController endingAudio;
+    int CurrentMusicBeat => endingAudio ? endingAudio.MusicBeat : TickManager.Instance.tickCount;
 
     void Start()
     {
@@ -79,7 +81,8 @@ public class Credits : MonoBehaviour
     // 마스터 시퀀스: 각 항목을 순차 실행
     IEnumerator Sequence()
     {
-        SoundManager.Instance.PlayBGM("Space 2", 0);
+        endingAudio = SpaceEndingAudioController.Instance;
+        endingAudio.PlayCreditsMusic();
         yield return new WaitForSeconds(20f);
         currentCreditIndex = 0;
 
@@ -195,7 +198,7 @@ public class Credits : MonoBehaviour
     }
     private IEnumerator HandleSkip()
     {
-        int tickAtSkip = TickManager.Instance.tickCount;
+        int tickAtSkip = CurrentMusicBeat;
         float nameA = nameText.color.a;
         float roleA = roleText.color.a;
         bool bothClear = nameA <= 0.001f && roleA <= 0.001f;
@@ -251,7 +254,7 @@ public class Credits : MonoBehaviour
             currentCreditIndex++; // 다음 항목으로 넘어감
         else end = true;
         skipRequested = false;
-        if (tickAtSkip == TickManager.Instance.tickCount)
+        if (tickAtSkip == CurrentMusicBeat)
             yield return WaitNextTick(); // 다음 틱까지 대기
         skipCo = null;
     }
@@ -266,8 +269,8 @@ public class Credits : MonoBehaviour
 
     private IEnumerator WaitNextTick()
     {
-        int start = TickManager.Instance.tickCount;           // 현재까지 온 틱 스냅샷
-        while (!skipRequested && TickManager.Instance.tickCount == start)
+        int start = CurrentMusicBeat;
+        while (!skipRequested && CurrentMusicBeat == start)
             yield return null;             // 다음 틱 오거나 스킵될 때까지 대기
     }
 

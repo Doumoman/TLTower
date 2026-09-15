@@ -262,7 +262,8 @@ public class AnimationManager : MonoBehaviour
     public float postSnapDelay = 4f;   // 스냅 끝난 뒤 최소 4초
     bool waitingSnap = false;       // 돌이 아직 자리잡는 중?
     bool finalAnimQueued = false;     // 마지막 애니메이션 예약
-    float lastSnapEnd;
+    double lastSnapEnd;
+    SpaceEndingAudioController spaceAudio;
 
     [Header("Snap FX 설정")]
     [Tooltip("돌이 스냅될 때 뿌릴 파티클 프리팹")]
@@ -317,7 +318,9 @@ public class AnimationManager : MonoBehaviour
         waitingSnap = false;
         allStonesDone = false;
 
-        lastSnapEnd = Time.time - postSnapDelay; // 바로 스폰 가능
+        if (spaceAudio) spaceAudio.OnMusicBeat -= HandleSpaceMusicBeat;
+        spaceAudio = SpaceEndingAudioController.Instance;
+        lastSnapEnd = spaceAudio.MusicSeconds - postSnapDelay; // 바로 스폰 가능
 
         if (!stonesParent)
         {
@@ -332,17 +335,17 @@ public class AnimationManager : MonoBehaviour
         ShowGlow(idx0);
         waitingSnap = true;                      // 이때부터 ‘스냅 대기’
 
-        int curTick = TickManager.Instance.tickCount;
+        int curTick = spaceAudio.MusicBeat;
         nextSpawnTick = ((curTick + minTickGap) % 2 == 0) ? curTick + minTickGap
                                                              : curTick + minTickGap + 1;
-        TickManager.Instance.OnTickEvent += HandleTick;
+        spaceAudio.OnMusicBeat += HandleSpaceMusicBeat;
     }
 
 
     void SpawnSingleStone(StonePreset p, int index) // 여기서 인덱스 값에 따라 대사 나오게 하면 될듯
     {
         SoundManager.Instance.PlaySFX("space_twinkle");
-        SoundManager.Instance.PlayBGM("Space", seq++);
+        spaceAudio.SetSpaceState(seq++);
         Vector3 worldPos = ResolveSpawnPosition(p);
 
         GameObject go = Instantiate(
@@ -395,7 +398,7 @@ public class AnimationManager : MonoBehaviour
 
         snappedCount++;
         waitingSnap = false;          // 다음 돌 준비 가능
-        lastSnapEnd = Time.time;      // 버퍼 타이머 리셋
+        lastSnapEnd = spaceAudio.MusicSeconds; // 버퍼 타이머 리셋
 
         /* 모든 돌 완료 → 마지막 애니메이션을 ‘우리 차례 틱’에 맞춰 실행 */
         if (snappedCount >= presets.Count)
@@ -407,7 +410,7 @@ public class AnimationManager : MonoBehaviour
     }
     void ScheduleNextSpawn()
     {
-        int curTick = TickManager.Instance.tickCount;
+        int curTick = spaceAudio.MusicBeat;
         nextSpawnTick = (curTick % 2 == 0) ? curTick + 2  // 최소 8초 보장(+2틱)
                                            : curTick + 1;
     }
@@ -467,7 +470,7 @@ public class AnimationManager : MonoBehaviour
     }
     void OnAllStonesSnapped()
     {
-        SoundManager.Instance.PlayBGM("Space", 5);
+        spaceAudio.SetSpaceState(5);
         Debug.Log("우주애니메이션 실행");
         foreach (var sc in stonesParent.GetComponentsInChildren<SpaceStoneController>())
             if (sc.State == SpaceStoneState.Snapped)
@@ -577,16 +580,15 @@ public class AnimationManager : MonoBehaviour
         fx.gameObject.SetActive(false);
         fxPool.Enqueue(fx);         // 다시 풀에 반납
     }
-    /* ───────── 틱 이벤트 핸들러 ───────── */
-    void HandleTick(object _, EventArgs __)
+    /* ───────── 우주 음악 시작점 기준 박자 (공용 틱은 변경하지 않음) ───────── */
+    void HandleSpaceMusicBeat(int curTickIdx)
     {
-        int curTickIdx = TickManager.Instance.tickCount;
-        float now = Time.time;
+        double now = spaceAudio.MusicSeconds;
 
         if (allStonesDone)
         {
             // ── 최소 대기 8초 보장 ──
-            if (Time.time - lastSnapEnd < MinGapSec)   // MinGapSec == 4f
+            if (now - lastSnapEnd < MinGapSec)
                 return;
 
             // ── 2·6·10·14… 틱(짝수이면서 4의 배수는 아닌) 에 맞추기 ──
@@ -594,7 +596,7 @@ public class AnimationManager : MonoBehaviour
                 return;
 
             // 둘 다 만족하면 실행
-            TickManager.Instance.OnTickEvent -= HandleTick;
+            spaceAudio.OnMusicBeat -= HandleSpaceMusicBeat;
             OnAllStonesSnapped();
             return;
         }
@@ -619,6 +621,12 @@ public class AnimationManager : MonoBehaviour
 
         waitingSnap = true;   // 다시 스냅 대기
         /* 다음 스폰은 Snap → ScheduleNextSpawn() 에서 결정 */
+    }
+
+    void OnDestroy()
+    {
+        if (spaceAudio) spaceAudio.OnMusicBeat -= HandleSpaceMusicBeat;
+        if (Instance == this) Instance = null;
     }
     Vector3 ResolveSpawnPosition(StonePreset p)
     {
