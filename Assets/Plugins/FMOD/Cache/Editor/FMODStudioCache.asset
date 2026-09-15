@@ -3095,7 +3095,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638936400600215258
+  lastModified: 639244151632192572
   FileSizes:
   - Name: Desktop
     Value: 7066
@@ -5443,7 +5443,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Pause.bank
   Name: Pause
   StudioPath: bank:/Pause
-  lastModified: 638898237959774091
+  lastModified: 639244151632217446
   FileSizes:
   - Name: Desktop
     Value: 448800
@@ -7046,7 +7046,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5450464547504090387}
   cacheVersion: 131848
-  cacheTime: 638936400600310825
+  cacheTime: 639244151632339534
   SerializableEventsDict:
   - key: event:/Summer/summer_ambient_002
     index: 0
@@ -9462,7 +9462,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638936400600192937
+  lastModified: 639244151632172432
   FileSizes:
   - Name: Desktop
     Value: 16734496
@@ -9833,7 +9833,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638936400600310825
+  lastModified: 639244151632339534
   FileSizes:
   - Name: Desktop
     Value: 3071168
@@ -11163,7 +11163,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638927589029834377
+  lastModified: 639244151632182530
   FileSizes:
   - Name: Desktop
     Value: 1924
@@ -12976,7 +12976,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638920885420519409
+  lastModified: 639244151632257628
   FileSizes:
   - Name: Desktop
     Value: 1326624

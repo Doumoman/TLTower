@@ -273,7 +273,7 @@ MonoBehaviour:
   dragColor: {r: 0.5785867, g: 0.61603326, b: 0.6226415, a: 1}
   flowColorTransitionDuration: 0.65
   holdToRotate: 1
-  rotateSpeed: -100
+  rotateSpeed: -170
   moveDeadZone: 0.4
 --- !u!1 &4458440337903520300
 GameObject:

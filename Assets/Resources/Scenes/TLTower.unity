@@ -152,7 +152,7 @@ MonoBehaviour:
   CloudPrefab: {fileID: 3779550966411328726, guid: 35503f484dca86d48805f577e71f6f05, type: 3}
   FrequencyY: 10
   ScreenDivision: 22
-  numberOfClouds: 5
+  numberOfClouds: 6
   Randomness: 3
 --- !u!4 &2336994
 Transform:
@@ -46155,134 +46155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393371273}
   m_CullTransparentMesh: 0
---- !u!1 &423974154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 423974155}
-  - component: {fileID: 423974157}
-  - component: {fileID: 423974156}
-  m_Layer: 11
-  m_Name: Circle 9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &423974155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423974154}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.0011955198, w: -0.9999993}
-  m_LocalPosition: {x: 2.26, y: 117.26, z: 0}
-  m_LocalScale: {x: 0.5538498, y: 0.62165, z: 0.5}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1479258962}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0.137}
---- !u!58 &423974156
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423974154}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.69
---- !u!212 &423974157
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423974154}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 022d496a0c2840b4188a9cb056753d43, type: 3}
-  m_Color: {r: 0.8679245, g: 0.2246393, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &437266823
 GameObject:
   m_ObjectHideFlags: 0
@@ -51865,7 +51737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00037, y: -297}
+  m_AnchoredPosition: {x: -909.0004, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -73568,7 +73440,7 @@ MonoBehaviour:
   cloudSpawner: {fileID: 2023078721}
   skyStage: {fileID: 1479258961}
   cloudLimit: 0
-  cloudLimitList: 0a000000050000000a0000000a0000000f0000000f0000000a0000000a0000000a0000000f0000000f000000
+  cloudLimitList: 0800000005000000050000000a0000000a0000000a0000000a000000050000000a0000000a0000000f000000
   remainingTMP: {fileID: 218071892}
   breakForce: 500
   waitTime: 1
@@ -100962,7 +100834,7 @@ Transform:
   m_GameObject: {fileID: 1206316384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0011955198, w: -0.9999993}
-  m_LocalPosition: {x: 2.6999998, y: 78.33001, z: 0}
+  m_LocalPosition: {x: -1.72, y: 78.48, z: 0}
   m_LocalScale: {x: 0.55384994, y: 0.62165, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -111571,7 +111443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99976, y: 35.00006}
+  m_AnchoredPosition: {x: -357.99976, y: 35.000122}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -111851,9 +111723,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.03789985
+    y: 0.09981796
     width: 1
-    height: 0.9242003
+    height: 0.8003641
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -117138,7 +117010,7 @@ Transform:
   m_GameObject: {fileID: 1373711162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0011955198, w: -0.9999993}
-  m_LocalPosition: {x: -1.7299999, y: 119.090004, z: 0}
+  m_LocalPosition: {x: -0.05, y: 117.5, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127673,7 +127545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.00037, y: -201.99997}
+  m_AnchoredPosition: {x: -909.0004, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -128234,7 +128106,6 @@ Transform:
   - {fileID: 1970294601}
   - {fileID: 534890700}
   - {fileID: 1855183269}
-  - {fileID: 423974155}
   - {fileID: 1896054529}
   - {fileID: 25038755}
   - {fileID: 1959820857}
@@ -187091,8 +186962,9 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c00000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000012000000
+  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c0000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000000000000
   waitTimeBeforeChange: 1.5
+  waitTimeBeforeSpace: 2
   currentStageTMP: {fileID: 0}
   currentStageOffset: {x: 36, y: -32}
   currentStageSize: {x: 360, y: 80}
