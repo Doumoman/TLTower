@@ -77,6 +77,13 @@ public class AnimationManager : MonoBehaviour
         }
         StartCoroutine(PlayDiagonalRoutine());
     }
+
+    public IEnumerator PlayWinterToSpaceTransition(Action onCovered, Action<float> onProgress)
+    {
+        // Reuse the cloud artwork, not the shared animation's timing or positions.
+        return WinterSpaceCloudTransition.Play(diagonalClouds,
+            ChapterManager.Instance.transform, onCovered, onProgress);
+    }
     /// <summary>
     /// 구름들을 같은 거리만큼 왼쪽으로 보낸다.
     /// 각 구름은 3~5초 랜덤 시간으로 도착.

@@ -36,6 +36,9 @@ public class StoneFixer : MonoBehaviour
     // StoneController 가 Settled 될 때마다 호출
     public void RegisterSettled(StoneController sc)
     {
+        // Space entry delays winter visuals' destruction until cloud cover. A
+        // remaining falling stone must not restart the zero-threshold final stage.
+        if (ChapterManager.Instance && ChapterManager.Instance.chapter == chapter.space) return;
         if (sc.state != StoneState.Settled) return;
 
         float topY = sc.transform.position.y;
@@ -122,6 +125,7 @@ public class StoneFixer : MonoBehaviour
 
     void SpawnSavePoint()
     {
+        if (ChapterManager.Instance && ChapterManager.Instance.chapter == chapter.space) return;
         if (currentSavePoint || !savePointPrefab) return;
 
         // Instantiate 중 즉시 체크포인트가 발동해도
@@ -265,11 +269,18 @@ public class StoneFixer : MonoBehaviour
             // 스테이트 ‘강제’ 진입
             animator.Play(fadeState, 0, 0f);          // (layer = 0, normalizedTime = 0)
 
-            while (true)
+            // The authored fade is one second long. Bound this scaled-time wait
+            // so a missing/stalled Animator state cannot leave a checkpoint behind.
+            const float fadeTimeout = 2f;
+            float elapsed = 0f;
+            while (sp && elapsed < fadeTimeout)
             {
-                var info = animator.GetCurrentAnimatorStateInfo(0);
-                if (info.IsName(fadeState) && info.normalizedTime >= 0.99f)
+                if (!animator || !animator.isActiveAndEnabled || !animator.runtimeAnimatorController)
                     break;
+                var info = animator.GetCurrentAnimatorStateInfo(0);
+                if (info.IsName(fadeState) && info.normalizedTime >= 1f)
+                    break;
+                elapsed += Time.deltaTime;
                 yield return null;
             }
         }
@@ -277,6 +288,9 @@ public class StoneFixer : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
+        if (!sp) yield break;
+        // Destroy is deferred; hide now so Animator evaluation cannot show another frame.
+        sp.SetActive(false);
         Destroy(sp);
     }
     #endregion

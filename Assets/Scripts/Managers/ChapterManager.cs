@@ -155,6 +155,15 @@ public class ChapterManager : MonoBehaviour
             ConfigureCurrentStage();
             Debug.Log(chapter);
 
+            if (chapter == chapter.space)
+            {
+                // Enter space logically to stop normal input/spawning, but keep the
+                // winter background/obstacles until clouds conceal the visual change.
+                ResetStone.Instance?.SetPlatformVisualsVisible(false);
+                StartCoroutine(WaitAndStartSpace());
+                return;
+            }
+
             if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
             {
                 AnimationManager.Instance.Play1();
@@ -166,11 +175,6 @@ public class ChapterManager : MonoBehaviour
                 onChapterChage?.Invoke(this, EventArgs.Empty);
             }
 
-            if (chapter == chapter.space) //여기서부터 우주애니메이션 시작
-            {
-                removeYumju?.Invoke(this, EventArgs.Empty);
-                StartCoroutine(WaitAndStartSpace());
-            }
             if (chapter != chapter.space)
             {
                 SaveSystem.Instance?.SaveGame();
@@ -180,9 +184,20 @@ public class ChapterManager : MonoBehaviour
 
     IEnumerator WaitAndStartSpace()
     {
-        // SetObstacle/onChapterChage have already shown space and removed winter.
-        yield return SpaceEndingAudioController.Instance.PlaySpaceIntro();
-        AnimationManager.Instance.Play1();
+        SpaceEndingAudioController audio = SpaceEndingAudioController.Instance;
+        audio.BeginWinterTransition();
+        yield return AnimationManager.Instance.PlayWinterToSpaceTransition(() =>
+        {
+            SetObstacle();
+            onChapterChage?.Invoke(this, EventArgs.Empty);
+            removeYumju?.Invoke(this, EventArgs.Empty);
+            ResetStone.Instance?.HideStartingPlatformVisualsForSpace();
+            ResetStone.Instance?.SetPlatformVisualsVisible(true);
+        }, audio.SetWinterTransitionProgress);
+
+        // Clouds are gone: reveal the already-present hand, then hold space silently.
+        audio.BeginSilentIntro();
+        yield return audio.PlaySpaceIntro();
         CameraController.Instance.RaiseCameraY();
     }
     
@@ -536,7 +551,6 @@ public class ChapterManager : MonoBehaviour
         {
             //Debug.Log("우주브금 실행");
             idleScript = null;
-            SpaceEndingAudioController.Instance.BeginSilentIntro();
         }
 
         else

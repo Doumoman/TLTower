@@ -35614,6 +35614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4362427236296667128, guid: eae3bde603dec6d4cafa75014be61449, type: 3}
+  startingPlatform: {fileID: 4362427235994614882}
 --- !u!4 &295361027
 Transform:
   m_ObjectHideFlags: 0
@@ -51737,7 +51738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.0004, y: -297}
+  m_AnchoredPosition: {x: -909.0005, y: -297}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519299702
@@ -111722,10 +111723,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.09981796
-    width: 1
-    height: 0.8003641
+    x: 0.20448256
+    y: 0
+    width: 0.5910349
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -127545,7 +127546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -909.0004, y: -201.99997}
+  m_AnchoredPosition: {x: -909.0005, y: -201.99997}
   m_SizeDelta: {x: 175, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444277819
@@ -186962,9 +186963,8 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 24
     obstacles: []
-  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c0000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000000000000
+  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c0000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000010000000
   waitTimeBeforeChange: 1.5
-  waitTimeBeforeSpace: 2
   currentStageTMP: {fileID: 0}
   currentStageOffset: {x: 36, y: -32}
   currentStageSize: {x: 360, y: 80}

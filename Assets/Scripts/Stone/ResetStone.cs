@@ -6,12 +6,14 @@ public class ResetStone : MonoBehaviour
 {
     public static ResetStone Instance { get; private set; }
     public GameObject platform;
+    [SerializeField] GameObject startingPlatform;
 
     StoneFixer sf;
     int currentWave = 0;
     StoneController sc = null;
     ChapterManager cm;
     GameObject lastPlatform;
+    readonly Dictionary<SpriteRenderer, bool> hiddenPlatformRenderers = new();
     private void Awake()
     {
         cm = ChapterManager.Instance;
@@ -112,6 +114,7 @@ public class ResetStone : MonoBehaviour
     }
     void SpawnPlatformAt(Vector3 pos)
     {
+        hiddenPlatformRenderers.Clear();
         // 기존 플랫폼이 있으면 없애기
         if (lastPlatform != null) Destroy(lastPlatform);
 
@@ -136,6 +139,36 @@ public class ResetStone : MonoBehaviour
 
         StoneFixer.Instance?.AttachPlatformToFixedSurface(lastPlatform);
         /* ──────────────────────────────── */
+    }
+
+    public void SetPlatformVisualsVisible(bool visible)
+    {
+        if (visible)
+        {
+            foreach (var entry in hiddenPlatformRenderers)
+                if (entry.Key) entry.Key.enabled = entry.Value;
+            hiddenPlatformRenderers.Clear();
+            return;
+        }
+
+        if (!lastPlatform) return;
+        foreach (SpriteRenderer renderer in lastPlatform.GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            if (!hiddenPlatformRenderers.ContainsKey(renderer))
+                hiddenPlatformRenderers.Add(renderer, renderer.enabled);
+            renderer.enabled = false;
+        }
+        // Never deactivate the platform: its fixed-surface colliders must stay intact.
+    }
+
+    public void HideStartingPlatformVisualsForSpace()
+    {
+        // The scene's original lower hand is not one of the spawned platforms
+        // tracked by lastPlatform. Hide that explicit reference, never the new hand.
+        if (!startingPlatform || startingPlatform == lastPlatform) return;
+        foreach (SpriteRenderer renderer in startingPlatform.GetComponentsInChildren<SpriteRenderer>(true))
+            renderer.enabled = false;
+        // Keep the lower platform's physics intact; only its obsolete art disappears.
     }
 
     public void CreatePlatform()

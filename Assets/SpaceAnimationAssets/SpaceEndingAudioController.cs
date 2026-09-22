@@ -34,6 +34,9 @@ public class SpaceEndingAudioController : MonoBehaviour
     string musicName;
     EventDescription[] bgmEvents;
     Bus masterBus;
+    Bus bgmBus;
+    bool winterTransition;
+    float previousBGMVolume;
     bool introSilent;
     float previousMasterVolume;
     bool clockStarted;
@@ -56,6 +59,25 @@ public class SpaceEndingAudioController : MonoBehaviour
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
+    public void BeginWinterTransition()
+    {
+        CancelCreditsMusic();
+        EndSilence();
+        StopMusic();
+        clockStarted = false;
+        CacheBGMEvents();
+        if (winterTransition) return;
+        bgmBus = RuntimeManager.GetBus("bus:/BGM");
+        bgmBus.getVolume(out previousBGMVolume);
+        winterTransition = true;
+    }
+
+    public void SetWinterTransitionProgress(float progress)
+    {
+        if (winterTransition)
+            bgmBus.setVolume(previousBGMVolume * (1f - Mathf.Clamp01(progress)));
+    }
+
     public void BeginSilentIntro()
     {
         CancelCreditsMusic();
@@ -73,6 +95,7 @@ public class SpaceEndingAudioController : MonoBehaviour
         }
         // Also remove outgoing one-shot tails/voices during this scene-local silence.
         masterBus.stopAllEvents(STOP_MODE.IMMEDIATE);
+        EndWinterTransition(); // Restore the user's BGM volume only after muting/stopping.
     }
 
     public IEnumerator PlaySpaceIntro()
@@ -86,6 +109,7 @@ public class SpaceEndingAudioController : MonoBehaviour
     {
         CancelCreditsMusic();
         EndSilence();
+        EndWinterTransition();
         SoundManager.Instance.StopBGM();
         StartMusic("Space 3", -1, resetClock: true);
         SoundManager.Instance.spaceLoaded = false;
@@ -170,6 +194,10 @@ public class SpaceEndingAudioController : MonoBehaviour
             return;
         }
 
+        // During clouds the outgoing winter track must fade, not be cut by the
+        // ending's late-BGM guard. That guard resumes as soon as the clouds clear.
+        if (winterTransition) return;
+
         // Anonymous shared BGM reservations cannot be cancelled here. Stop any
         // late/outgoing instance, without releasing another owner's handle.
         SuppressOtherBGM();
@@ -228,6 +256,13 @@ public class SpaceEndingAudioController : MonoBehaviour
         introSilent = false;
     }
 
+    void EndWinterTransition()
+    {
+        if (!winterTransition) return;
+        bgmBus.setVolume(previousBGMVolume);
+        winterTransition = false;
+    }
+
     void CancelCreditsMusic()
     {
         if (creditsMusicCo != null) StopCoroutine(creditsMusicCo);
@@ -250,6 +285,7 @@ public class SpaceEndingAudioController : MonoBehaviour
         {
             CancelCreditsMusic();
             EndSilence();
+            EndWinterTransition();
             StopMusic();
         }
         instance = null;

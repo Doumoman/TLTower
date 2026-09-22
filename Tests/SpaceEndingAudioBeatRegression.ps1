@@ -18,6 +18,7 @@ public class __TYPE__
     public int MusicBeat;
     public int DispatchedBeat { get { return dispatchedBeat; } }
     bool introSilent = false;
+    bool winterTransition = false;
     bool clockStarted = true;
     bool clockPaused = false;
     double clockOrigin, pauseStarted;
