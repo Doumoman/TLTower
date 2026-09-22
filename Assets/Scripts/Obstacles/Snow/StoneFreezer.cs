@@ -48,7 +48,11 @@ public class StoneFreezer : MonoBehaviour
         color = FreezerSettler.Instance.color;
         freezeOnStart = FreezerSettler.Instance.freezeOnStart;
 
-        if (freezeOnStart) FreezeStone();
+        if (freezeOnStart)
+        {
+            FreezeStone();
+            freezeOnStart = false;
+        }
     }
 
     // Update is called once per frame
@@ -57,12 +61,8 @@ public class StoneFreezer : MonoBehaviour
         //픽스되면 비활성화
         if (gameObject.tag == "FixedStone")
         {
+            if (isFreezed) UnFreeze();
             this.enabled = false;
-        }
-
-        if (freezeOnStart)
-        {
-            if (spriteRenderer.color != color) FreezeStone();
             return;
         }
 

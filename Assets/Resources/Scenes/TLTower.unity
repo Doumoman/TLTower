@@ -15239,6 +15239,7 @@ MonoBehaviour:
   cycleTickMin: 7
   cycleTickMax: 7
   durationTick: 7
+  blizzardEnabled: 0
   snowPs: {fileID: 48269760}
   psList:
   - {fileID: 1958443814}
@@ -20390,8 +20391,8 @@ MonoBehaviour:
   cycleSpanInit: 4
   cycleSpanMin: 10
   cycleSpanMax: 15
-  sittime: 16
-  waitAfterFeather: 4
+  sittime: 6
+  waitAfterFeather: 5
   birdPoop: {fileID: 4791323934794703054, guid: 00331c9013c08404591077b3cbb609d2, type: 3}
   bird: {fileID: 2276942907412917377, guid: 795342520eaee8648bd0fa6016f46946, type: 3}
   feather: {fileID: 4456362738015972997, guid: 5fddc2d76b021b8428494351173d6a5e, type: 3}
@@ -73441,7 +73442,7 @@ MonoBehaviour:
   cloudSpawner: {fileID: 2023078721}
   skyStage: {fileID: 1479258961}
   cloudLimit: 0
-  cloudLimitList: 0800000005000000050000000a0000000a0000000a0000000a000000050000000a0000000a0000000f000000
+  cloudLimitList: 0800000005000000050000000a0000000a0000000a0000000a00000005000000070000000a0000000a000000
   remainingTMP: {fileID: 218071892}
   breakForce: 500
   waitTime: 1
@@ -79582,11 +79583,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezeOnStart: 0
   timeSetting:
-  - 8
-  - 3
   - 6
   - 3
-  unfreezeTime: 3
+  - 5
+  - 2
+  unfreezeTime: 10
   timerResetTime: 1.5
   color: {r: 0.45852616, g: 0.5942492, b: 0.6037736, a: 1}
 --- !u!1 &1050403802
@@ -111723,9 +111724,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.20448256
+    x: 0.055801928
     y: 0
-    width: 0.5910349
+    width: 0.88839614
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -149780,7 +149781,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757047012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b4f172451f9a1d4b936c886eedf03e9, type: 3}
   m_Name: 
@@ -176394,7 +176395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -248}
+  m_AnchoredPosition: {x: 0, y: -248.00003}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042834999

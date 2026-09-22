@@ -10400,6 +10400,7 @@ GameObject:
   - component: {fileID: 563360707}
   - component: {fileID: 563360710}
   - component: {fileID: 563360709}
+  - component: {fileID: 563360711}
   m_Layer: 0
   m_Name: guide_complete
   m_TagString: Untagged
@@ -10470,9 +10471,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5960393731440802788, guid: 0467df1c709e1a64580f01eaa09cf48b, type: 3}
-        m_TargetAssemblyTypeName: QuitPanel, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 563360711}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10494,6 +10495,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &563360711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563360705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731a360e628cefb48982fe0cd9b5387a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &563360709
 MonoBehaviour:
   m_ObjectHideFlags: 0

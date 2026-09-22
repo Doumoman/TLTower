@@ -11,12 +11,15 @@ public class FreezerSystem : TickBasedObstacle
 
     [Header("Settings")]
     public float durationTick = 7; //지속시간
+    [SerializeField] bool blizzardEnabled = true;
 
     public ParticleSystem snowPs;
     public List<ParticleSystem> psList;  //그냥 눈에 보이는 용도의 파티클들
 
     public override void MakeObstacle(bool autoStop = true)
     {
+        if (!blizzardEnabled) return;
+
         SoundManager.Instance.PlaySFX("blizzard_ambient");
         fs.freezeOnStart = true;  //생성시 부터 얼려서 돌 생성하기
         foreach (ParticleSystem p in psList) p.Play();

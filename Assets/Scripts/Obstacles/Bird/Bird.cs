@@ -18,7 +18,6 @@ public class Bird : MonoBehaviour
     [Header("Settings")]
     public float flyTime;
     public float moveDeadZone;
-    [Range(0, 1f)] public float forceChance;
 
     public void Init(GameObject stone, Vector2 surfacePoint, float time)
     {
@@ -103,15 +102,10 @@ public class Bird : MonoBehaviour
     void Go(bool istouched)
     {
         animator.SetInteger("state", 2);
-        //앉은 상태였으면 일정 확률로 돌 가져가기
-        if (state == BirdState.sat)
+        //앉은 새를 플레이어가 건드린 경우에만 돌 가져가기
+        if (state == BirdState.sat && istouched && satStone != null)
         {
-            if (satStone != null)
-            {
-                if (istouched) ForceRock();
-                else if (!istouched && Random.value < forceChance) ForceRock(); //birdStone 재생
-                else BosalManager.Instance.Speak("BirdPeace");
-            }
+            ForceRock();
         }
         else BosalManager.Instance.Speak("BirdPeace");
 

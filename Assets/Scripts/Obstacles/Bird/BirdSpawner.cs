@@ -8,6 +8,7 @@ public class BirdSpawner : MonoBehaviour
     private bool isTickSubscribed;
     private int span;
     private int spanCount = 0;
+    private bool previousEventWasBird;
 
 
     [Header("settings")]
@@ -15,8 +16,8 @@ public class BirdSpawner : MonoBehaviour
     public int cycleSpanInit = 5; // 초기 생성 주기 (틱 단위)
     public int cycleSpanMin = 7; // 이후 주기 (틱 단위)
     public int cycleSpanMax = 10;
-    public float sittime = 10f;
-    public float waitAfterFeather = 8f;
+    public float sittime = 6f;
+    public float waitAfterFeather = 5f;
 
     [Header("References")]
     public GameObject birdPoop;
@@ -71,7 +72,10 @@ public class BirdSpawner : MonoBehaviour
 
         if (spanCount-- <= 0)
         {
-            if (Random.value < birdChance)
+            bool createBird = !previousEventWasBird && Random.value < birdChance;
+            previousEventWasBird = createBird;
+
+            if (createBird)
             {
                 CreateBird(); //사운드 딜레이 이후 새 생성
                 span = Random.Range(cycleSpanMin, cycleSpanMax);
@@ -91,9 +95,30 @@ public class BirdSpawner : MonoBehaviour
     {
         GameObject go = Instantiate(feather);
         go.transform.position = this.transform.position;
-        SoundManager.Instance.PlaySFX("bird_alert");
+        StartCoroutine(PlayAlertWhenVisible(go));
         GuideManager.Instance.PlayGuide("bird", 5f);
         return go;
+    }
+
+    IEnumerator PlayAlertWhenVisible(GameObject notice)
+    {
+        while (notice)
+        {
+            Camera gameplayCamera = Camera.main;
+            if (gameplayCamera)
+            {
+                Vector3 viewportPoint = gameplayCamera.WorldToViewportPoint(notice.transform.position);
+                if (viewportPoint.z > 0f &&
+                    viewportPoint.x >= 0f && viewportPoint.x <= 1f &&
+                    viewportPoint.y >= 0f && viewportPoint.y <= 1f)
+                {
+                    SoundManager.Instance?.PlaySFX("bird_alert");
+                    yield break;
+                }
+            }
+
+            yield return null;
+        }
     }
     //제일 높은 돌을 기준으로 일정 y좌표 위에서, 무작위로 위치 선정
     void RandomPoint()

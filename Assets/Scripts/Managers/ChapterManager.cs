@@ -150,6 +150,7 @@ public class ChapterManager : MonoBehaviour
         if (idx < arr.Count()-1 &&
             (checkpointReached || stoneCount >= stonesForChapter[idx]))  // 체크포인트 도착 후에는 돌 개수를 다시 검사하지 않음
         {
+            SoundManager.Instance?.PlaySFX("space_twinkle");
             chapter = arr[++idx];
             stoneCount = 0;
             ConfigureCurrentStage();
