@@ -11,6 +11,13 @@ public class SceneLoader: MonoBehaviour
         SoundManager.Instance.PlaySFX("reset_button");
         Time.timeScale = 1.0f;
     }
+
+    public void LoadMainWithoutSFX()
+    {
+        SceneManager.LoadScene("main");
+        Time.timeScale = 1.0f;
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("TLTower");

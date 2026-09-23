@@ -27,7 +27,7 @@ public enum chapter
     //land,
     spring, spring2, spring3,spring4,
     summer, summer2, summer3, summer4,summer5,
-    autumn, autumn2, autumn3, autumn4, autumn5, autumn6, autumn7, autumn8, autumn9, autumn10, autumn11,
+    autumn, autumn2, autumn3, autumn4, autumn6, autumn8, autumn9, autumn10, autumn11,
     winter, winter2, winter3,winter4,
     space
 }; //사운드 편의상 분류 수를 늘림
@@ -485,18 +485,9 @@ public class ChapterManager : MonoBehaviour
             SoundManager.Instance.PlayBGM("Autumn", 1);
             BosalManager.Instance.Speak("Autumn");
         }
-        else if (chapter == chapter.autumn5)
-        {
-            SoundManager.Instance.PlayBGM("Autumn", 2);
-        }
         else if (chapter == chapter.autumn6)
         {
             SoundManager.Instance.PlayBGM("Autumn", 1);
-        }
-        else if (chapter == chapter.autumn7)
-        {
-            SoundManager.Instance.PlayBGM("Autumn", 2);
-            BosalManager.Instance.Speak("Autumn");
         }
         else if (chapter == chapter.autumn8)
         {

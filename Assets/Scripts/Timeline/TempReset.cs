@@ -78,16 +78,14 @@ public enum QuickChapter
     autumn2 = (int)chapter.autumn2,    // 10    
     autumn3 = (int)chapter.autumn3,    // 11
     autumn4 = (int)chapter.autumn4,    // 12
-    autumn5 = (int)chapter.autumn5,    // 13
-    autumn6 = (int)chapter.autumn6,    // 14
-    autumn7 = (int)chapter.autumn7,    // 15
-    autumn8 = (int)chapter.autumn8,    // 16
-    autumn9 = (int)chapter.autumn9,    // 17
-    autumn10 = (int)chapter.autumn10,    // 18
-    autumn11 = (int)chapter.autumn11,    // 19
-    winter = (int)chapter.winter,    // 20
-    winter2 = (int)chapter.winter2,    // 21
-    winter3 = (int)chapter.winter3,    // 22
-    winter4 = (int)chapter.winter4,    // 23
-    space = (int)chapter.space,    // 24
+    autumn6 = (int)chapter.autumn6,    // 13
+    autumn8 = (int)chapter.autumn8,    // 14
+    autumn9 = (int)chapter.autumn9,    // 15
+    autumn10 = (int)chapter.autumn10,    // 16
+    autumn11 = (int)chapter.autumn11,    // 17
+    winter = (int)chapter.winter,    // 18
+    winter2 = (int)chapter.winter2,    // 19
+    winter3 = (int)chapter.winter3,    // 20
+    winter4 = (int)chapter.winter4,    // 21
+    space = (int)chapter.space,    // 22
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     const string KEY_CHAPTER = "CurrentChapter"; // PlayerPrefs 키
+    const string KEY_CHAPTER_DATA_VERSION = "CurrentChapterDataVersion";
+    const int CHAPTER_DATA_VERSION = 2;
     public static SaveSystem Instance { get; private set; }
     void Awake()
     {
@@ -14,6 +16,7 @@ public class SaveSystem : MonoBehaviour
     {
         int idx = (int)ChapterManager.Instance.chapter;
         PlayerPrefs.SetInt(KEY_CHAPTER, idx);
+        PlayerPrefs.SetInt(KEY_CHAPTER_DATA_VERSION, CHAPTER_DATA_VERSION);
         PlayerPrefs.Save();
         Debug.Log($"[SaveSystem] 챕터 저장: {ChapterManager.Instance.chapter}({idx})");
     }
@@ -24,6 +27,13 @@ public class SaveSystem : MonoBehaviour
         if (PlayerPrefs.HasKey(KEY_CHAPTER))
         {
             int idx = PlayerPrefs.GetInt(KEY_CHAPTER);
+            if (PlayerPrefs.GetInt(KEY_CHAPTER_DATA_VERSION, 1) < CHAPTER_DATA_VERSION)
+            {
+                idx = MigrateChapterIndex(idx);
+                PlayerPrefs.SetInt(KEY_CHAPTER, idx);
+                PlayerPrefs.SetInt(KEY_CHAPTER_DATA_VERSION, CHAPTER_DATA_VERSION);
+                PlayerPrefs.Save();
+            }
             savedChapter = (chapter)idx;
         }
 
@@ -34,6 +44,7 @@ public class SaveSystem : MonoBehaviour
     public void ResetGame()
     {
         PlayerPrefs.DeleteKey(KEY_CHAPTER);
+        PlayerPrefs.DeleteKey(KEY_CHAPTER_DATA_VERSION);
         PlayerPrefs.Save();
         Debug.Log("[SaveSystem] 데이터 리셋 → spring 로드");
     }
@@ -41,6 +52,7 @@ public class SaveSystem : MonoBehaviour
     public static void SetChapter(chapter ch)
     {
         PlayerPrefs.SetInt(KEY_CHAPTER, (int)ch);
+        PlayerPrefs.SetInt(KEY_CHAPTER_DATA_VERSION, CHAPTER_DATA_VERSION);
         PlayerPrefs.Save();
         Debug.Log($"[SaveSystem] SetChapter → {ch} 저장 완료");
 
@@ -51,5 +63,14 @@ public class SaveSystem : MonoBehaviour
     public static void SetChapter(QuickChapter quick)
     {
         SetChapter((chapter)quick);   // 캐스팅 후 재사용
+    }
+
+    static int MigrateChapterIndex(int oldIndex)
+    {
+        // 삭제된 가을 5/7 저장값은 각각 바로 다음에 남는 스테이지로 이어 준다.
+        if (oldIndex == 13 || oldIndex == 14) return (int)chapter.autumn6;
+        if (oldIndex == 15 || oldIndex == 16) return (int)chapter.autumn8;
+        if (oldIndex >= 17) return Mathf.Min(oldIndex - 2, (int)chapter.space);
+        return Mathf.Clamp(oldIndex, (int)chapter.spring, (int)chapter.space);
     }
 }
