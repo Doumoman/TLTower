@@ -106622,7 +106622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -357.99976, y: 35.000305}
+  m_AnchoredPosition: {x: -357.99976, y: 35.000244}
   m_SizeDelta: {x: 247.13, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306514932
@@ -106902,10 +106902,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.109975964
-    width: 1
-    height: 0.7800481
+    x: 0.32004556
+    y: 0
+    width: 0.35990888
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -171376,7 +171376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2037386058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -182240,7 +182240,7 @@ MonoBehaviour:
     - {fileID: 1757047012}
   - season: 22
     obstacles: []
-  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c0000000c00000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000c00000010000000
+  stonesForChapter: 0000000005000000080000000c00000008000000080000000c0000000c0000000c000000000000000000000000000000000000000000000000000000000000000000000000000000080000000c0000000c00000010000000
   waitTimeBeforeChange: 1.5
   currentStageTMP: {fileID: 0}
   currentStageOffset: {x: 36, y: -32}
