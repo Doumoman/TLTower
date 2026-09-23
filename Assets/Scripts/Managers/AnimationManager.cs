@@ -3,11 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI.Table;
 using Random = UnityEngine.Random;
 
 public class AnimationManager : MonoBehaviour
 {
+    private enum SeasonCloudTheme
+    {
+        Spring,
+        Summer,
+        Autumn,
+        Winter
+    }
+
     /* ────── 싱글톤 기본 ────── */
     public static AnimationManager Instance { get; private set; }
     void Awake()
@@ -45,9 +54,25 @@ public class AnimationManager : MonoBehaviour
     [Tooltip("이동 거리 (픽셀)")]
     [SerializeField] float diagDistance = 2500f;
 
-    [Tooltip("이동 속도 (픽셀/초)")]
-    [SerializeField] float diagSpeed = 6000f;
+    [Tooltip("전체 계절 전환 재생 시간 (초)")]
+    [SerializeField, Min(0.1f)] float chapterTransitionDuration = 5f;
 
+    [Header("☁ Season Cloud Colors")]
+    [SerializeField] Color springCloudTint = new Color(0.92f, 0.78f, 0.80f, 1f);
+    [SerializeField] Color summerCloudTint = new Color(0.70f, 0.83f, 0.76f, 1f);
+    [SerializeField] Color autumnCloudTint = new Color(0.82f, 0.66f, 0.51f, 1f);
+    [SerializeField] Color winterCloudTint = new Color(0.70f, 0.79f, 0.86f, 1f);
+    [SerializeField, Range(0f, 1f)] float seasonTintStrength = 0.55f;
+    [SerializeField, Range(0f, 1f)] float colorBlendStart = 0.35f;
+    [SerializeField, Range(0f, 1f)] float colorBlendEnd = 0.65f;
+    [SerializeField, Range(0f, 1f)] float chapterChangePoint = 0.5f;
+
+    [Header("☁ Season Cloud Cover")]
+    [SerializeField, Range(0f, 1f)] float coverMaxAlpha = 0.92f;
+    [SerializeField, Range(0f, 1f)] float coverFadeInStart = 0.30f;
+    [SerializeField, Range(0f, 1f)] float coverPeakStart = 0.44f;
+    [SerializeField, Range(0f, 1f)] float coverPeakEnd = 0.56f;
+    [SerializeField, Range(0f, 1f)] float coverFadeOutEnd = 0.72f;
 
     [Header("☁ Summer → Autumn Cloud Animation")]
     [SerializeField] List<RectTransform> saClouds = new List<RectTransform>();
@@ -75,14 +100,29 @@ public class AnimationManager : MonoBehaviour
             Debug.LogWarning("AnimationManager: DiagonalClouds 리스트가 비어 있습니다!");
             return;
         }
-        StartCoroutine(PlayDiagonalRoutine());
+        StartCoroutine(PlaySeasonTransitionPreview());
+    }
+
+    private IEnumerator PlaySeasonTransitionPreview()
+    {
+        yield return PlayDiagonalRoutine(SeasonCloudTheme.Spring, SeasonCloudTheme.Summer, null);
+        yield return PlayDiagonalRoutine(SeasonCloudTheme.Summer, SeasonCloudTheme.Autumn, null);
+        yield return PlayDiagonalRoutine(SeasonCloudTheme.Autumn, SeasonCloudTheme.Winter, null);
+    }
+
+    public IEnumerator PlaySeasonTransition(chapter fromChapter, chapter toChapter, Action onCovered)
+    {
+        SeasonCloudTheme fromTheme = GetSeasonCloudTheme(fromChapter);
+        SeasonCloudTheme toTheme = GetSeasonCloudTheme(toChapter);
+        yield return PlayDiagonalRoutine(fromTheme, toTheme, onCovered);
     }
 
     public IEnumerator PlayWinterToSpaceTransition(Action onCovered, Action<float> onProgress)
     {
         // Reuse the cloud artwork, not the shared animation's timing or positions.
         return WinterSpaceCloudTransition.Play(diagonalClouds,
-            ChapterManager.Instance.transform, onCovered, onProgress);
+            ChapterManager.Instance.transform, winterCloudTint, seasonTintStrength,
+            onCovered, onProgress);
     }
     /// <summary>
     /// 구름들을 같은 거리만큼 왼쪽으로 보낸다.
@@ -132,38 +172,156 @@ public class AnimationManager : MonoBehaviour
         a.anchoredPosition = aTo;
         b.anchoredPosition = bTo;
     }
-    IEnumerator PlayDiagonalRoutine()
+    IEnumerator PlayDiagonalRoutine(SeasonCloudTheme fromTheme,
+                                    SeasonCloudTheme toTheme,
+                                    Action onCovered)
     {
+        if (!panel1 || diagonalClouds == null || diagonalClouds.Count == 0)
+        {
+            onCovered?.Invoke();
+            yield break;
+        }
+
         panel1.SetActive(true);
         // 8 시 방향 = X축 기준 시계방향 210°(-30° 기울기) → (-cos30°, -sin30°)
         Vector2 dir = new Vector2(-Mathf.Cos(30f * Mathf.Deg2Rad),
                                   -Mathf.Sin(30f * Mathf.Deg2Rad)).normalized;
 
-        float duration = diagDistance / diagSpeed;
+        float duration = Mathf.Max(0.1f, chapterTransitionDuration);
 
         // 시작·끝 좌표 캐싱
         Vector2[] startPos = new Vector2[diagonalClouds.Count];
         Vector2[] endPos = new Vector2[diagonalClouds.Count];
+        SpriteRenderer[] renderers = new SpriteRenderer[diagonalClouds.Count];
+        Color[] originalColors = new Color[diagonalClouds.Count];
+        Color[] fromColors = new Color[diagonalClouds.Count];
+        Color[] toColors = new Color[diagonalClouds.Count];
+        Color fromTint = GetSeasonCloudTint(fromTheme);
+        Color toTint = GetSeasonCloudTint(toTheme);
+        Image cover = panel1.GetComponent<Image>();
+        bool coverWasEnabled = cover && cover.enabled;
+        bool coverWasRaycastTarget = cover && cover.raycastTarget;
+        Color coverOriginalColor = cover ? cover.color : Color.clear;
+        Color coverFromColor = ApplySeasonTint(coverOriginalColor, fromTint);
+        Color coverToColor = ApplySeasonTint(coverOriginalColor, toTint);
+
+        if (cover)
+        {
+            cover.enabled = true;
+            cover.raycastTarget = false;
+            Color transparentCover = coverFromColor;
+            transparentCover.a = 0f;
+            cover.color = transparentCover;
+        }
+
         for (int i = 0; i < diagonalClouds.Count; ++i)
         {
             startPos[i] = diagonalClouds[i].anchoredPosition;
             endPos[i] = startPos[i] + dir * diagDistance;
+
+            renderers[i] = diagonalClouds[i].GetComponent<SpriteRenderer>();
+            if (!renderers[i]) continue;
+
+            originalColors[i] = renderers[i].color;
+            fromColors[i] = ApplySeasonTint(originalColors[i], fromTint);
+            toColors[i] = ApplySeasonTint(originalColors[i], toTint);
+            renderers[i].color = fromColors[i];
         }
 
         // 이동
+        bool chapterChanged = false;
+        float blendStart = Mathf.Min(colorBlendStart, colorBlendEnd);
+        float blendEnd = Mathf.Max(colorBlendStart, colorBlendEnd);
+
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
-            float k = t / duration;
+            float k = Mathf.Clamp01(t / duration);
+            float colorProgress = blendEnd - blendStart <= Mathf.Epsilon
+                ? (k >= blendEnd ? 1f : 0f)
+                : Mathf.InverseLerp(blendStart, blendEnd, k);
+            colorProgress = Mathf.SmoothStep(0f, 1f, colorProgress);
+
+            if (cover)
+            {
+                Color coverColor = Color.Lerp(coverFromColor, coverToColor, colorProgress);
+                coverColor.a = GetCoverAlpha(k);
+                cover.color = coverColor;
+            }
+
             for (int i = 0; i < diagonalClouds.Count; ++i)
+            {
                 diagonalClouds[i].anchoredPosition = Vector2.Lerp(startPos[i], endPos[i], k);
+                if (renderers[i])
+                    renderers[i].color = Color.Lerp(fromColors[i], toColors[i], colorProgress);
+            }
+
+            if (!chapterChanged && k >= chapterChangePoint)
+            {
+                chapterChanged = true;
+                onCovered?.Invoke();
+            }
+
             yield return null;
         }
+
+        if (!chapterChanged)
+            onCovered?.Invoke();
+
         // 마지막 프레임 보정 & 원 위치 복귀
         for (int i = 0; i < diagonalClouds.Count; ++i)
         {
             diagonalClouds[i].anchoredPosition = startPos[i];
+            if (renderers[i]) renderers[i].color = originalColors[i];
+        }
+        if (cover)
+        {
+            cover.color = coverOriginalColor;
+            cover.enabled = coverWasEnabled;
+            cover.raycastTarget = coverWasRaycastTarget;
         }
         panel1.SetActive(false);
+    }
+
+    private float GetCoverAlpha(float progress)
+    {
+        float fadeInStart = coverFadeInStart;
+        float peakStart = Mathf.Max(fadeInStart, coverPeakStart);
+        float peakEnd = Mathf.Max(peakStart, coverPeakEnd);
+        float fadeOutEnd = Mathf.Max(peakEnd, coverFadeOutEnd);
+
+        if (progress <= fadeInStart || progress >= fadeOutEnd) return 0f;
+        if (progress < peakStart)
+            return coverMaxAlpha * Mathf.SmoothStep(0f, 1f,
+                Mathf.InverseLerp(fadeInStart, peakStart, progress));
+        if (progress <= peakEnd) return coverMaxAlpha;
+        return coverMaxAlpha * (1f - Mathf.SmoothStep(0f, 1f,
+            Mathf.InverseLerp(peakEnd, fadeOutEnd, progress)));
+    }
+
+    private Color ApplySeasonTint(Color originalColor, Color seasonTint)
+    {
+        Color result = Color.Lerp(originalColor, seasonTint, seasonTintStrength);
+        result.a = originalColor.a;
+        return result;
+    }
+
+    private Color GetSeasonCloudTint(SeasonCloudTheme theme)
+    {
+        switch (theme)
+        {
+            case SeasonCloudTheme.Spring: return springCloudTint;
+            case SeasonCloudTheme.Summer: return summerCloudTint;
+            case SeasonCloudTheme.Autumn: return autumnCloudTint;
+            default: return winterCloudTint;
+        }
+    }
+
+    private static SeasonCloudTheme GetSeasonCloudTheme(chapter value)
+    {
+        if (value <= chapter.spring4) return SeasonCloudTheme.Spring;
+        if (value <= chapter.summer5) return SeasonCloudTheme.Summer;
+        if (value <= chapter.autumn11) return SeasonCloudTheme.Autumn;
+        return SeasonCloudTheme.Winter;
     }
     IEnumerator PlaySummertoAutumnRoutine()
     {

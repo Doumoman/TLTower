@@ -16,7 +16,7 @@ public class SkyCloudSpawner : MonoBehaviour
 
     Coroutine co = null;
     private float xPos;
-    private int directionalForce = -1;
+    private int directionalForce = 1;
     private SkyCloudPool cloudPool;
     private bool isDuplicate;
 
@@ -78,7 +78,7 @@ public class SkyCloudSpawner : MonoBehaviour
             co = null;
         }
         int autumnStageIndex = (int)ChapterManager.Instance.chapter - (int)chapter.autumn;
-        directionalForce = autumnStageIndex % 2 == 0 ? -1 : 1;
+        directionalForce = autumnStageIndex % 2 == 0 ? 1 : -1;
         co = StartCoroutine(MakeCloud());
     }
 

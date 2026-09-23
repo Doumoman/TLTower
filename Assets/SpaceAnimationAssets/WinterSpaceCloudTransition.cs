@@ -22,10 +22,11 @@ public static class WinterSpaceCloudTransition
     }
 
     public static IEnumerator Play(IReadOnlyList<RectTransform> artwork, Transform owner,
-        Action onCovered, Action<float> onProgress)
+        Color winterCloudTint, float tintStrength, Action onCovered, Action<float> onProgress)
     {
         var sprites = new List<Sprite>();
         var colors = new List<Color>();
+        tintStrength = Mathf.Clamp01(tintStrength);
         if (artwork != null)
         {
             foreach (RectTransform source in artwork)
@@ -34,12 +35,12 @@ public static class WinterSpaceCloudTransition
                 if (source.TryGetComponent(out SpriteRenderer renderer) && renderer.sprite)
                 {
                     sprites.Add(renderer.sprite);
-                    colors.Add(renderer.color);
+                    colors.Add(ApplyTint(renderer.color, winterCloudTint, tintStrength));
                 }
                 else if (source.TryGetComponent(out Image image) && image.sprite)
                 {
                     sprites.Add(image.sprite);
-                    colors.Add(image.color);
+                    colors.Add(ApplyTint(image.color, winterCloudTint, tintStrength));
                 }
             }
         }
@@ -80,7 +81,9 @@ public static class WinterSpaceCloudTransition
             Vector2 direction = new(-Mathf.Cos(30f * Mathf.Deg2Rad), -0.5f);
             float travel = (width + cloudWidth) * 1.5f;
 
-            Color coverColor = colors.Count > 0 ? colors[0] : new Color(0.65f, 0.72f, 0.74f);
+            Color coverColor = colors.Count > 0
+                ? colors[0]
+                : ApplyTint(new Color(0.65f, 0.72f, 0.74f), winterCloudTint, tintStrength);
             coverColor.a = 0f;
             Image cover = MakeImage("CloudCover", viewport.transform, null, coverColor);
             cover.rectTransform.anchorMin = Vector2.zero;
@@ -173,6 +176,13 @@ public static class WinterSpaceCloudTransition
         bar.rectTransform.anchorMin = min;
         bar.rectTransform.anchorMax = max;
         bar.rectTransform.sizeDelta = Vector2.zero;
+    }
+
+    static Color ApplyTint(Color original, Color tint, float strength)
+    {
+        Color result = Color.Lerp(original, tint, strength);
+        result.a = original.a;
+        return result;
     }
 
     static Image MakeImage(string name, Transform parent, Sprite sprite, Color color)

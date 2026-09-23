@@ -16,6 +16,11 @@ public class CloudController : MonoBehaviour,
                                IPointerUpHandler,
                                IDragHandler
 {
+    private const float AutumnCircleCorrectionDuration = 0.15f;
+    private const float AutumnCircleClearance = 0.025f;
+    private const float AutumnCircleSearchStep = 0.05f;
+    private const int AutumnCircleSearchStepCount = 160;
+
     private readonly struct TransformSnapshot
     {
         public readonly Transform Transform;
@@ -64,6 +69,7 @@ public class CloudController : MonoBehaviour,
     //Vector3 dragOffset;
     Vector2 holdStartPos;
     Vector2 lastPointerWorld;
+    Vector2 lastValidPlacementPosition;
     float holdTimer;
     bool isRotating;
 
@@ -106,6 +112,7 @@ public class CloudController : MonoBehaviour,
         authoredRootScale = transform.localScale;
         authoredRootLayer = gameObject.layer;
         authoredRootTag = gameObject.tag;
+        lastValidPlacementPosition = transform.position;
 
         inputCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
@@ -184,6 +191,7 @@ public class CloudController : MonoBehaviour,
         activePointer = -1;
         holdStartPos = Vector2.zero;
         lastPointerWorld = Vector2.zero;
+        lastValidPlacementPosition = spawnPosition;
         holdTimer = 0f;
         isRotating = false;
         timer = 0f;
@@ -714,25 +722,213 @@ public class CloudController : MonoBehaviour,
         gameObject.tag = "Cloud";
         SoundManager.Instance.PlaySFX("cloud_deselect");
 
+        sr.color = baseColor; // 생성 시 정해진 이 구름만의 고유 색상으로 복구
+        sr.sortingLayerName = "Default";
+        if (draggedCloud == this) draggedCloud = null;
+        CameraController.Instance.EndDrag();
+        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
+        StartCoroutine(FinalizeDrop());
+    }
+
+
+    private IEnumerator FinalizeDrop()
+    {
+        PrepareDropCorrectionCheck();
+        Physics2D.SyncTransforms();
+
+        if (TryGetAutumnCircleCorrectionTarget(out Vector2 correctionTarget))
+            yield return MoveToCorrectedPosition(correctionTarget);
+
+        if (state != CloudState.Dropped || isInPool || isDespawning) yield break;
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         SetBonePhysicsEnabled(true);
         rb.Sleep();
 
-        foreach (Collider2D col in colChildren)
+        foreach (Collider2D childCollider in colChildren)
         {
-            col.enabled = true;
-            col.isTrigger = false;
+            childCollider.enabled = true;
+            childCollider.isTrigger = false;
         }
-        sr.color = baseColor; // 생성 시 정해진 이 구름만의 고유 색상으로 복구
-        sr.sortingLayerName = "Default";
-        if (draggedCloud == this) draggedCloud = null;
-        CameraController.Instance.EndDrag();
-        separator.gameObject.layer = LayerMask.NameToLayer("CloudSeparate");
-        CheckOverlap();     //구름 놓았을 떄 닿아있는 구름에 연결 로직 실행
+
+        lastValidPlacementPosition = transform.position;
+        CheckOverlap();
     }
 
+    private void PrepareDropCorrectionCheck()
+    {
+        rb.simulated = true;
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.position = transform.position;
+        rb.rotation = transform.eulerAngles.z;
+
+        foreach (Rigidbody2D childBody in rbChildren)
+        {
+            if (!childBody) continue;
+
+            Vector2 visualPosition = childBody.transform.position;
+            float visualRotation = childBody.transform.eulerAngles.z;
+            if (childBody.bodyType != RigidbodyType2D.Static)
+            {
+                childBody.linearVelocity = Vector2.zero;
+                childBody.angularVelocity = 0f;
+            }
+
+            childBody.bodyType = RigidbodyType2D.Static;
+            childBody.position = visualPosition;
+            childBody.rotation = visualRotation;
+            childBody.gravityScale = 0f;
+            childBody.simulated = true;
+        }
+
+        foreach (Collider2D childCollider in colChildren)
+        {
+            childCollider.enabled = true;
+            childCollider.isTrigger = true;
+        }
+    }
+
+    private bool TryGetAutumnCircleCorrectionTarget(out Vector2 targetPosition)
+    {
+        targetPosition = transform.position;
+        AutumnIntermediateCircle[] markers = FindObjectsByType<AutumnIntermediateCircle>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None);
+        if (markers.Length == 0) return false;
+
+        List<CircleCollider2D> circles = new List<CircleCollider2D>(markers.Length);
+        CircleCollider2D overlappingCircle = null;
+        float closestCircleDistance = float.PositiveInfinity;
+        Bounds cloudBounds = GetCloudBounds();
+
+        foreach (AutumnIntermediateCircle marker in markers)
+        {
+            if (!marker.TryGetComponent(out CircleCollider2D circle) || !circle.enabled) continue;
+
+            circles.Add(circle);
+            if (!OverlapsCircle(circle, 0f)) continue;
+
+            float centerDistance = ((Vector2)cloudBounds.center - (Vector2)circle.bounds.center).sqrMagnitude;
+            if (centerDistance >= closestCircleDistance) continue;
+
+            closestCircleDistance = centerDistance;
+            overlappingCircle = circle;
+        }
+
+        if (!overlappingCircle) return false;
+
+        Vector2 startPosition = transform.position;
+        Vector2 direction = (Vector2)cloudBounds.center - (Vector2)overlappingCircle.bounds.center;
+        if (direction.sqrMagnitude < 0.0001f)
+            direction = lastValidPlacementPosition - (Vector2)overlappingCircle.bounds.center;
+        if (direction.sqrMagnitude < 0.0001f)
+            direction = Vector2.up;
+        direction.Normalize();
+
+        float lowerDistance = 0f;
+        float upperDistance = 0f;
+        bool foundTarget = false;
+
+        for (int i = 1; i <= AutumnCircleSearchStepCount; i++)
+        {
+            float distance = i * AutumnCircleSearchStep;
+            transform.position = startPosition + direction * distance;
+            Physics2D.SyncTransforms();
+
+            if (!OverlapsAnyCircle(circles, AutumnCircleClearance))
+            {
+                upperDistance = distance;
+                foundTarget = true;
+                break;
+            }
+
+            lowerDistance = distance;
+        }
+
+        if (foundTarget)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                float middleDistance = (lowerDistance + upperDistance) * 0.5f;
+                transform.position = startPosition + direction * middleDistance;
+                Physics2D.SyncTransforms();
+
+                if (OverlapsAnyCircle(circles, AutumnCircleClearance))
+                    lowerDistance = middleDistance;
+                else
+                    upperDistance = middleDistance;
+            }
+
+            targetPosition = startPosition + direction * upperDistance;
+        }
+        else
+        {
+            targetPosition = lastValidPlacementPosition;
+        }
+
+        transform.position = startPosition;
+        Physics2D.SyncTransforms();
+        return true;
+    }
+
+    private Bounds GetCloudBounds()
+    {
+        Bounds bounds = separator.bounds;
+        foreach (Collider2D childCollider in colChildren)
+            bounds.Encapsulate(childCollider.bounds);
+        return bounds;
+    }
+
+    private bool OverlapsAnyCircle(List<CircleCollider2D> circles, float clearance)
+    {
+        foreach (CircleCollider2D circle in circles)
+        {
+            if (OverlapsCircle(circle, clearance)) return true;
+        }
+
+        return false;
+    }
+
+    private bool OverlapsCircle(CircleCollider2D circle, float clearance)
+    {
+        if (IsWithinClearance(separator, circle, clearance)) return true;
+
+        foreach (Collider2D childCollider in colChildren)
+        {
+            if (IsWithinClearance(childCollider, circle, clearance)) return true;
+        }
+
+        return false;
+    }
+
+    private static bool IsWithinClearance(Collider2D cloudCollider, CircleCollider2D circle, float clearance)
+    {
+        ColliderDistance2D distance = cloudCollider.Distance(circle);
+        return distance.isValid && (distance.isOverlapped || distance.distance < clearance);
+    }
+
+    private IEnumerator MoveToCorrectedPosition(Vector2 targetPosition)
+    {
+        Vector2 startPosition = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < AutumnCircleCorrectionDuration)
+        {
+            if (state != CloudState.Dropped || isInPool || isDespawning) yield break;
+
+            elapsed += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsed / AutumnCircleCorrectionDuration);
+            progress = Mathf.SmoothStep(0f, 1f, progress);
+            transform.position = Vector2.Lerp(startPosition, targetPosition, progress);
+            Physics2D.SyncTransforms();
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+        Physics2D.SyncTransforms();
+    }
 
     void StartDragging() //드래그 중 돌의 상태 설정
     {

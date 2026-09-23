@@ -3334,10 +3334,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.21803376
-    width: 1
-    height: 0.5639325
+    x: 0.043435335
+    y: 0
+    width: 0.9131293
+    height: 1
   near clip plane: 0
   far clip plane: 1000
   field of view: 60
@@ -3919,7 +3919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1928612229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3954,7 +3954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPrefsButton
   key: StoneTimelinePlayed
   setValue: 1
-  targetChapter: 22
+  targetChapter: 9
   sceneLoader: {fileID: 1928612231}
   toggle: 0
 --- !u!114 &1928612231

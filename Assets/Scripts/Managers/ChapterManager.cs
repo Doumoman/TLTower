@@ -141,7 +141,7 @@ public class ChapterManager : MonoBehaviour
     }
 
     //돌 개수 확인 후 챕터전환 확인
-    public void ChangeChapter(bool checkpointReached = false)
+    public void ChangeChapter(bool checkpointReached = false, bool saveProgress = true)
     {
 
         chapter[] arr = (chapter[])System.Enum.GetValues(typeof(chapter));
@@ -151,9 +151,14 @@ public class ChapterManager : MonoBehaviour
             (checkpointReached || stoneCount >= stonesForChapter[idx]))  // 체크포인트 도착 후에는 돌 개수를 다시 검사하지 않음
         {
             SoundManager.Instance?.PlaySFX("space_twinkle");
+            chapter previousChapter = chapter;
             chapter = arr[++idx];
             stoneCount = 0;
-            ConfigureCurrentStage();
+            bool isSeasonFirstStage = chapter == chapter.spring ||
+                                      chapter == chapter.summer ||
+                                      chapter == chapter.autumn ||
+                                      chapter == chapter.winter;
+            ConfigureCurrentStage(hideStageLabel: isSeasonFirstStage);
             Debug.Log(chapter);
 
             if (chapter == chapter.space)
@@ -167,8 +172,7 @@ public class ChapterManager : MonoBehaviour
 
             if (chapter == chapter.spring || chapter == chapter.summer || chapter == chapter.autumn || chapter == chapter.winter)
             {
-                AnimationManager.Instance.Play1();
-                StartCoroutine(WaitAndChange());
+                StartCoroutine(WaitAndChange(previousChapter, chapter));
             }
             else
             {
@@ -176,11 +180,46 @@ public class ChapterManager : MonoBehaviour
                 onChapterChage?.Invoke(this, EventArgs.Empty);
             }
 
-            if (chapter != chapter.space)
+            if (saveProgress && chapter != chapter.space)
             {
                 SaveSystem.Instance?.SaveGame();
             }
         }
+    }
+
+    bool finalStageClearTestRunning;
+
+    public void TestClearFromFinalStage(chapter finalStage)
+    {
+        if (finalStageClearTestRunning) return;
+
+        bool isChapterFinalStage = finalStage == chapter.spring4 ||
+                                   finalStage == chapter.summer5 ||
+                                   finalStage == chapter.autumn11 ||
+                                   finalStage == chapter.winter4;
+        if (!isChapterFinalStage)
+        {
+            Debug.LogWarning($"{finalStage} is not a chapter final stage.");
+            return;
+        }
+
+        StartCoroutine(TestClearFromFinalStageRoutine(finalStage));
+    }
+
+    IEnumerator TestClearFromFinalStageRoutine(chapter finalStage)
+    {
+        finalStageClearTestRunning = true;
+        chapter = finalStage;
+        stoneCount = 0;
+
+        ConfigureCurrentStage();
+        SetObstacle();
+        onChapterChage?.Invoke(this, EventArgs.Empty);
+
+        // Let the selected final stage render once, then use the real clear path.
+        yield return null;
+        ChangeChapter(checkpointReached: true, saveProgress: false);
+        finalStageClearTestRunning = false;
     }
 
     IEnumerator WaitAndStartSpace()
@@ -202,17 +241,43 @@ public class ChapterManager : MonoBehaviour
         CameraController.Instance.RaiseCameraY();
     }
     
-    IEnumerator WaitAndChange()
+    IEnumerator WaitAndChange(chapter previousChapter, chapter targetChapter)
     {
-        yield return new WaitForSeconds(waitTimeBeforeChange);
+        bool chapterApplied = false;
+        Action applyChapter = () =>
+        {
+            if (chapterApplied) return;
+            chapterApplied = true;
+            ApplySeasonChapterChange(targetChapter);
+        };
+
+        if (AnimationManager.Instance)
+        {
+            yield return AnimationManager.Instance.PlaySeasonTransition(
+                previousChapter,
+                targetChapter,
+                applyChapter);
+        }
+        else
+        {
+            yield return new WaitForSeconds(waitTimeBeforeChange);
+            applyChapter();
+        }
+
+        if (!chapterApplied) applyChapter();
+        UpdateCurrentStageUI();
+    }
+
+    private void ApplySeasonChapterChange(chapter targetChapter)
+    {
         SetObstacle();
         onChapterChage?.Invoke(this, EventArgs.Empty);
 
-        if (chapter == chapter.autumn)
+        if (targetChapter == chapter.autumn)
         {
             CloudSystem.Instance.SetSavePoint(CloudCheckPoint[0]);
         }
-        if (chapter == chapter.winter)
+        if (targetChapter == chapter.winter)
         {
             //가을->겨울 다시 돌 기반으로 복귀
             StoneFixer.Instance.SetY(CloudCheckPoint[CloudCheckPoint.Length - 1].transform.position.y);  //젤 높은 구름 체크포인트 위치
@@ -253,9 +318,11 @@ public class ChapterManager : MonoBehaviour
         onChapterChage?.Invoke(this, System.EventArgs.Empty);
     }
 
-    void ConfigureCurrentStage()
+    void ConfigureCurrentStage(bool hideStageLabel = false)
     {
         UpdateCurrentStageUI();
+        if (hideStageLabel && currentStageTMP)
+            currentStageTMP.gameObject.SetActive(false);
 
         StoneFixer fixer = StoneFixer.Instance;
         if (!fixer) return;
